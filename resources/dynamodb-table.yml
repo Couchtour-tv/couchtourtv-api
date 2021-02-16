@@ -1,0 +1,167 @@
+Resources:
+  NotesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.tableName}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: noteId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: noteId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  RequestResponsesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.stage}-request-responses
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: requestId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: requestId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  PurchasesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.stage}-purchases
+      AttributeDefinitions:
+        - AttributeName: purchaseId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: purchaseId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  MoviesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.stage}-movies
+      AttributeDefinitions:
+        - AttributeName: movieId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: movieId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+  # SocketConnectionsTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: SocketConnections
+  #     AttributeDefinitions:
+  #       - AttributeName: socketId
+  #         AttributeType: S
+  #       - AttributeName: userId
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: socketId
+  #         KeyType: HASH
+  #       - AttributeName: userId
+  #         KeyType: RANGE
+  #     BillingMode: PAY_PER_REQUEST
+  # ChatroomsTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: Chatrooms
+  #     AttributeDefinitions:
+  #       - AttributeName: chatroomId
+  #         AttributeType: S
+  #       - AttributeName: videoId
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: chatroomId
+  #         KeyType: HASH
+  #       - AttributeName: videoId
+  #         KeyType: RANGE
+  #     BillingMode: PAY_PER_REQUEST
+  # ChatMessagesTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: ChatMessages
+  #     AttributeDefinitions:
+  #       - AttributeName: chatMessageId
+  #         AttributeType: S
+  #       - AttributeName: userId
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: chatMessageId
+  #         KeyType: HASH
+  #       - AttributeName: userId
+  #         KeyType: RANGE
+  #     BillingMode: PAY_PER_REQUEST
+  # CreditCardsTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: CreditCards
+  #     AttributeDefinitions:
+  #       - AttributeName: creditCardId
+  #         AttributeType: S
+  #       - AttributeName: userId
+  #         AttributeType: S
+  #       - AttributeName: token
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: creditCardId
+  #         KeyType: HASH
+  #       - AttributeName: userId
+  #         KeyType: RANGE
+  #     BillingMode: PAY_PER_REQUEST
+  # EventsTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: Events
+  #     AttributeDefinitions:
+  #       - AttributeName: eventId
+  #         AttributeType: S
+  #       - AttributeName: createdAt
+  #         AttributeType: S
+  #       - AttributeName: event_date
+  #         AttributeType: S
+  #       - AttributeName: showtime
+  #         AttributeType: S
+  #       - AttributeName: title
+  #         AttributeType: S
+  #       - AttributeName: detail
+  #         AttributeType: S
+  #       - AttributeName: image
+  #         AttributeType: S
+  #       - AttributeName: ticket_price
+  #         AttributeType: S
+  #       - AttributeName: userId
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: eventId
+  #         KeyType: HASH
+  #     BillingMode: PAY_PER_REQUEST
+  # DevicesTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: Devices
+  #     AttributeDefinitions:
+  #       - AttributeName: deviceId
+  #         AttributeType: S
+  #       - AttributeName: agent
+  #         AttributeType: S
+  #       - AttributeName: createdAt
+  #         AttributeType: S
+  #       - AttributeName: authenticatedAt
+  #         AttributeType: S
+  #       - AttributeName: userId
+  #         AttributeType: S
+  #       - AttributeName: deauthenticatedAt
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: deviceId
+  #         KeyType: HASH
+  #     BillingMode: PAY_PER_REQUEST
