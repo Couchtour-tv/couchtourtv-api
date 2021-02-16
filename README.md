@@ -9,7 +9,7 @@ $ npm install serverless -g
 Clone this repo and install the NPM packages.
 
 ``` bash
-$ git clone git@github.com:Couchtour-tv/couchtourtv-aws-api.git
+$ git clone git@github.com:Couchtour-tv/ccouchtourtv-api.git
 $ npm install
 ```
 
