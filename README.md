@@ -30,9 +30,19 @@ Go to /api
 ```
 
 ``` bash
+STAGING/QA DEPLOY
+
+	1. serverless deploy --stage qa
+
+	2. connect to wscat to test
+		wscat -c QA_WEBSOCKET_URL
+```
+
+
+``` bash
 PRODUCTION DEPLOY
 
-	1. serverless deploy
+	1. serverless deploy --stage prod
 
 	2. connect to wscat to test
 		wscat -c wss://9m77tq4a3j.execute-api.us-east-1.amazonaws.com/prod

@@ -5,7 +5,9 @@
   "main": "handler.js",
   "scripts": {
     "test": "serverless-bundle test",
-    "dev": "serverless offline start --stage dev"
+    "dev": "serverless offline start --stage dev",
+    "qa": "serverless deploy --stage qa",
+    "prod": "serverless deploy --stage prod"
   },
   "author": "Couchtourtv-JG",
   "license": "Proprietary",

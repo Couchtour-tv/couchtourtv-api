@@ -15,11 +15,10 @@ custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}-branchdna
-  # Set the table name here so we can use it while testing locally
   tableName: ${self:custom.stage}-notes
   dynamodb:
     stages:
-      - dev
+      - ${self:custom.stage}
     start:
       port: 8000
       inMemory: true
@@ -30,7 +29,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: prod
+  environment: ${self:custom.settings.${self:custom.stage}}
   region: us-east-1
 
   # These environment variables are made available to our functions
