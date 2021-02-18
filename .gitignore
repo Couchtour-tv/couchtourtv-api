@@ -58,6 +58,9 @@ env.yml
 .env.dev.local
 .env.qa.local
 .env.prod.local
+.env.production.local
+.env.development.local
+.env.staging.local
 
 # Jetbrains IDEs
 .idea

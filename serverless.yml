@@ -18,7 +18,7 @@ custom:
   tableName: ${self:custom.stage}-notes
   dynamodb:
     stages:
-      - ${self:custom.stage}
+      - dev
     start:
       port: 8000
       inMemory: true
@@ -29,7 +29,6 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
-  environment: ${self:custom.settings.${self:custom.stage}}
   region: us-east-1
 
   # These environment variables are made available to our functions
@@ -129,26 +128,36 @@ functions:
           method: POST
           cors: true
           authorizer: aws_iam
+
+
+
+
+
+
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:
       - websocket:
           route: $connect
+          cors: true
   websocket-disconnect:
     handler: lambdas/websockets/disconnect.handler
     events:
       - websocket:
           route: $disconnect
+          cors: true
   websocket-default:
     handler: lambdas/websockets/default.handler
     events:
       - websocket:
           route: $default
+          cors: true
   websocket-message:
     handler: lambdas/websockets/message.handler
     events:
       - websocket:
           route: message
+          cors: true
 
 # Create our resources with separate CloudFormation templates
 resources:

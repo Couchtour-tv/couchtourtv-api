@@ -1,23 +1,39 @@
-const Responses = require('../common/API_Responses');
-// import Responses from '../common/API_Responses';
-const Dynamo = require('../common/Dynamo');
+/*
 
-const tableName = process.env.tableName;
+MoonSocket Socket Connect
+
+    generates the socket data structure
+
+    { connectionID, identityId, date, domainName, stage, status: 'connected', messages: []}
+
+*/
+
+const connectMessage = "Moondog Midi Socket Connected!";
+import Responses from '../common/API_Responses';
+import { createSocket } from '../models/SocketModel';
 
 exports.handler = async event => {
-    console.log('event', event);
+    console.log('\n', '\n', '\n', '--------------------  CONNECT  ---------------------','\n', '\n', '\n');
+    console.log('WEBSOCKETS/CONNECT.JS:7', event);
 
+    let identityID = event.requestContext.identity.cognitoIdentityId;
     const { connectionId: connectionID, domainName, stage } = event.requestContext;
 
+    if (identityID === null) {
+        identityID = connectionID;
+    }
+
     const data = {
-        ID: connectionID,
-        date: Date.now(),
-        messages: [],
+        connectionID,
+        identityID,
         domainName,
-        stage,
+        stage
     };
 
-    await Dynamo.write(data, tableName);
 
-    return Responses._200({ message: 'connected' });
+    await createSocket(data);
+
+    return Responses._200({ message: connectMessage });
 };
+
+

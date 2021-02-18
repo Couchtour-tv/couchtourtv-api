@@ -1,5 +1,6 @@
 const Responses = {
     _200(data = {}) {
+        console.log("API_RESPONSES._200:", data);
         return {
             headers: {
                 'Content-Type': 'application/json',
@@ -7,11 +8,11 @@ const Responses = {
                 'Access-Control-Allow-Origin': '*',
             },
             statusCode: 200,
-            body: JSON.stringify(data),
+            body: JSON.stringify({ ...data, ConnectionId: 'asdf'}),
         };
     },
-
     _400(data = {}) {
+        console.log("API_RESPONSES._400:", data);
         return {
             headers: {
                 'Content-Type': 'application/json',
@@ -24,4 +25,5 @@ const Responses = {
     },
 };
 
-module.exports = Responses;
+export default Responses;
+
