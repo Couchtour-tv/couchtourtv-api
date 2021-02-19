@@ -1,52 +1,44 @@
-/*
+const AWS = require('aws-sdk');
+import Responses from '../common/API_Responses';
+import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+const ddb = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
-MoonSocket Socket Onlinenow
-
-    this action removes the requesting user connection ID without the options -all flag
-
-    > {"action": "onlinenow"}
-    > {"action": "onlinenow", "options": "all"}  --- include request user connection ID
-    < {"action":"onlinenow",
-        "domainName":"localhost",
-        "connections":["ckjw05ngl0009dyij8no89l28","ckjvzwa360030vpij99ggfq8b"]
-
-
-*/
-
-const Responses = require('../common/API_Responses')
-const WebSocket = require('../common/WebsocketMessage')
-const SocketModel = require('../models/SocketModel')
+// import { getLiveSockets } from '../models/SocketModel';
 
 exports.handler = async event => {
-    console.log('\n', '\n', '--------------------  ONLINENOW  ---------------------', '\n')
-    console.log('WEBSOCKETS/ONLINENOW.JS:17', event)
+    console.log('\n', '\n', '--------------------  ONLINENOW  ---------------------', '\n');
+    console.log('WEBSOCKETS/ONLINENOW.JS:17', event);
 
     try {
-    	const { connectionId: connectionID, domainName, stage } = event.requestContext
+        const { connectionId } = event.requestContext;
 
-        const val = event.body.match(/"options": "all"/)
-
-        const userIncluded = val ? null : connectionID
-        const sockets = await SocketModel.getLiveSockets(userIncluded)
+        let sockets = [];
+        try {
+            sockets = await ddb.scan({ TableName: SocketTableName, ProjectionExpression: 'ID' }).promise();
+        } catch (e) {
+            console.log('\nECHO-14 - error database', e.stack);
+            return { statusCode: 500, body: e.stack };
+        }
+        const socketIDS = sockets.Items.map((socket) => socket.ID);
+        console.log(sockets, socketIDS);
+        // const val = event.body.match(/"options":"all"/) || event.body.match(/"options": "all"/);
+        // const userIncluded = val ? null : connectionId;
+        // const sockets = getLiveSockets(userIncluded);
 
         const replyMessage = {
             action: 'onlinenow',
-            connections: sockets,
-        }
+            connections: socketIDS,
+        };
 
-        console.log('WEBSOCKETS/ONLINENOW.JS:31', replyMessage)
+        console.log('WEBSOCKETS/ONLINENOW.JS:31', replyMessage);
 
-        await WebSocket.send({
-            domainName,
-            stage,
-            connectionID,
-            replyMessage
-        })
+        const apigwManagementApi = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+        await apigwManagementApi.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(replyMessage) }).promise();
 
-        return Responses._200({ message: 'onlinenow SENT'})
+        return Responses._200({ message: 'onlinenow SENT'});
     } catch (error) {
-        return Responses._400({ message: 'onlinenow error', error: error })
+        return Responses._400({ message: 'onlinenow error', error: error });
     }
 
-    return Responses._200({ message: 'onlinenow' })
-}
+    return Responses._200({ message: 'onlinenow' });
+};

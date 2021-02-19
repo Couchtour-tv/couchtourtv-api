@@ -13,7 +13,7 @@
   "license": "Proprietary",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/Couchtour-tv/couchtourtv-aws-api"
+    "url": "https://https://github.com/Couchtour-tv/couchtourtv-api"
   },
   "devDependencies": {
     "aws-sdk": "^2.655.0",

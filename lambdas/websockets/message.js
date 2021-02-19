@@ -1,41 +1,67 @@
-const Responses = require('../common/API_Responses');
-const Dynamo = require('../common/Dynamo');
-const WebSocket = require('../common/websocketMessage');
+const AWS = require('aws-sdk');
 
-const tableName = process.env.tableName;
+import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+const ddb = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
 exports.handler = async event => {
-    console.log('event', event);
+    let connectionData;
+    console.log('\n', '\n', '--------------------  MESSAGE-9  ---------------------', event, '\n');
+    const { connectionId, domainName, stage } = event.requestContext;
+    // let filterExpression = `currentstatus = :currentstatus`
+    // let expressionAttributes = {
+ //        ':currentstatus': 'connected',
+ //    }
 
-    const { connectionId: connectionID } = event.requestContext;
-
-    const body = JSON.parse(event.body);
+ //    const params = {
+ //        TableName: SocketTableName,
+ //        FilterExpression: filterExpression,
+ //        ExpressionAttributeValues: expressionAttributes
+ //    }
 
     try {
-        const record = await Dynamo.get(connectionID, tableName);
-        const { messages, domainName, stage } = record;
+        connectionData = await ddb.scan({ TableName: SocketTableName, ProjectionExpression: 'ID' }).promise();
+    } catch (e) {
+        console.log('\nMESSAGE-14 - error database', e.stack);
+        return { statusCode: 500, body: e.stack };
+    };
 
-        messages.push(body.message);
+    const apigwManagementApi = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+    const postData = JSON.parse(event.body).message;
+    console.log('\nMESSAGE-24 - postdata - ', domainName, stage, postData, connectionData);
+    const replyMessage = {
+        action: 'message',
+        sender: connectionId,
+        message: postData
+    };
 
-        const data = {
-            ...record,
-            messages,
-        };
+    const postCalls = connectionData.Items.map(async ({ ID }) => {
+        try {
+            console.log('\nMESSAGE-29 - .map ', ID);
+            if (ID === connectionId) {
+                return;
+            } else {
+                await apigwManagementApi.postToConnection({ ConnectionId: ID, Data: JSON.stringify(replyMessage) }).promise();
+            }
+        } catch (e) {
+            if (e.statusCode === 410) {
+                console.log(`Found stale connection, deleting ${ID}`);
+                await ddb.delete({ TableName: SocketTableName, Key: { ID } }).promise();
+            } else {
+                throw e;
+            }
+        }
+    });
 
-        await Dynamo.write(data, tableName);
+    console.log('\nMESSAGE-39 - post calls promises ', postCalls);
 
-        await WebSocket.send({
-            domainName,
-            stage,
-            connectionID,
-            message: body.message,
-        });
-        console.log('sent message');
-
-        return Responses._200({ message: 'got a message' });
-    } catch (error) {
-        return Responses._400({ message: 'message could not be received' });
+    try {
+        console.log('\nMESSAGE-42 - Promise.all ');
+        await Promise.all(postCalls);
+    } catch (e) {
+        console.log('\nMESSAGE-45 - error on promises', e.stack);
+        return { statusCode: 500, body: e.stack };
     }
 
-    return Responses._200({ message: 'got a message' });
+    console.log('\nMESSAGE-47');
+    return { statusCode: 200, body: 'Data sent.' };
 };

@@ -1,6 +1,7 @@
 import AWS from "aws-sdk";
 
-const client = new AWS.DynamoDB.DocumentClient();
+import { OptionsDynamoDB } from '../lambdas/common/constants';
+const client = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
 export default {
   get   : (params) => client.get(params).promise(),

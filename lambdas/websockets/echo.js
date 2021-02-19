@@ -1,79 +1,66 @@
-const AWS = require('aws-sdk')
-
-let options = { apiVersion: '2012-08-10', region: process.env.AWS_REGION }
-if (process.env.IS_OFFLINE) {
-    options = {
-        region: 'localhost',
-        endpoint: 'http://localhost:8000'
-    }
-}
-
-const ddb = new AWS.DynamoDB.DocumentClient(options)
-
-const TABLE_NAME = "MoonSockets"
+const AWS = require('aws-sdk');
+import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+const ddb = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
 exports.handler = async event => {
-	let connectionData
-	console.log('\n', '\n', '--------------------  ECHO-9  ---------------------', event, '\n')
-	const { connectionId: connectionID, domainName, stage } = event.requestContext
+	let connectionData;
+
+	console.log('\n', '\n', '--------------------  ECHO-9  ---------------------', event, '\n');
+	const { connectionId, domainName, stage } = event.requestContext;
 	// let filterExpression = `currentstatus = :currentstatus`
 	// let expressionAttributes = {
  //        ':currentstatus': 'connected',
  //    }
 
  //    const params = {
- //        TableName: TABLE_NAME,
+ //        TableName: SocketTableName,
  //        FilterExpression: filterExpression,
  //        ExpressionAttributeValues: expressionAttributes
  //    }
 
 	try {
-		connectionData = await ddb.scan({ TableName: TABLE_NAME, ProjectionExpression: 'ID' }).promise()
+		connectionData = await ddb.scan({ TableName: SocketTableName, ProjectionExpression: 'ID' }).promise();
 	} catch (e) {
-		console.log('\nECHO-14 - error database', e.stack)
-		return { statusCode: 500, body: e.stack }
+		console.log('\nECHO-14 - error database', e.stack);
+		return { statusCode: 500, body: e.stack };
 	}
 
-    const endpoint = process.env.IS_OFFLINE ? 'http://localhost:3001' : `${domainName}/${stage}`
-	const apigwManagementApi = new AWS.ApiGatewayManagementApi({
-		apiVersion: '2018-11-29',
-		endpoint: endpoint
-	})
+    const apigwManagementApi = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-	const postData = JSON.parse(event.body).message
+	const postData = JSON.parse(event.body).message;
 
-	console.log('\nECHO-24 - postdata - ', postData, connectionData)
+	console.log('\nECHO-24 - postdata - ',  domainName, stage, postData, connectionData);
 
     const replyMessage = {
         action: 'echo',
-		sender: connectionID,
+		sender: connectionId,
 		message: postData
-    }
+    };
 
 	const postCalls = connectionData.Items.map(async ({ ID }) => {
 		try {
-			console.log('\nECHO-29 - .map ', ID)
-			await apigwManagementApi.postToConnection({ ConnectionId: ID, Data: JSON.stringify(replyMessage) }).promise()
+			console.log('\nECHO-29 - .map ', ID);
+			await apigwManagementApi.postToConnection({ ConnectionId: ID, Data: JSON.stringify(replyMessage) }).promise();
 		} catch (e) {
 			if (e.statusCode === 410) {
-				console.log(`Found stale connection, deleting ${ID}`)
-				await ddb.delete({ TableName: TABLE_NAME, Key: { ID } }).promise()
+				console.log(`Found stale connection, deleting ${ID}`);
+				await ddb.delete({ TableName: SocketTableName, Key: { ID } }).promise();
 			} else {
-				throw e
+				throw e;
 			}
 		}
-	})
+	});
 
-	console.log('\nECHO-39 - post calls promises ', postCalls)
+	console.log('\nECHO-39 - post calls promises ', postCalls);
 
 	try {
-		console.log('\nECHO-42 - Promise.all ')
-		await Promise.all(postCalls)
+		console.log('\nECHO-42 - Promise.all now ');
+		await Promise.all(postCalls);
 	} catch (e) {
-		console.log('\nECHO-45 - error on promises', e.stack)
-		return { statusCode: 500, body: e.stack }
+		console.log('\nECHO-45 - error on promises', e.stack);
+		return { statusCode: 500, body: e.stack };
 	}
 
-	console.log('\nECHO-47')
-	return { statusCode: 200, body: 'Data sent.' }
-}
+	console.log('\nECHO-47');
+	return { statusCode: 200, body: 'Data sent.' };
+};

@@ -1,24 +1,23 @@
 const AWS = require('aws-sdk');
 
-const create = (domainName, stage) => {
-    const endpoint = `${domainName}/${stage}`;
-    return new AWS.ApiGatewayManagementApi({
-        apiVersion: '2018-11-29',
-        endpoint,
-    });
+import { OptionsAPIGateway } from './constants';
+
+const WebSocketMessageCreate = () => {
+    return new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 };
 
-const send = ({ domainName, stage, connectionID, message }) => {
-    const ws = create(domainName, stage);
+const WebSocketMessageSend = ({ ConnectionId, message }) => {
+    const ws = WebSocketMessageCreate();
 
     const postParams = {
         Data: message,
-        ConnectionId: connectionID,
+        ConnectionId,
     };
 
     return ws.postToConnection(postParams).promise();
 };
 
-module.exports = {
-    send,
+export {
+    WebSocketMessageSend,
+    WebSocketMessageCreate
 };

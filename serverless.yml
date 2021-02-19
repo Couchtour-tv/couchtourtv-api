@@ -15,7 +15,6 @@ custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}-branchdna
-  tableName: ${self:custom.stage}-notes
   dynamodb:
     stages:
       - dev
@@ -34,7 +33,7 @@ provider:
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableName: ${self:custom.tableName}
+    tableName: ${env:DEPLOY_STAGE}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
   iamRoleStatements:
@@ -157,6 +156,30 @@ functions:
     events:
       - websocket:
           route: message
+          cors: true
+  websocket-sendmessage:
+    handler: lambdas/websockets/sendmessage.handler
+    events:
+      - websocket:
+          route: sendmessage
+          cors: true
+  websocket-echo:
+    handler: lambdas/websockets/echo.handler
+    events:
+      - websocket:
+          route: echo
+          cors: true
+  websocket-whoami:
+    handler: lambdas/websockets/whoami.handler
+    events:
+      - websocket:
+          route: whoami
+          cors: true
+  websocket-onlinenow:
+    handler: lambdas/websockets/onlinenow.handler
+    events:
+      - websocket:
+          route: onlinenow
           cors: true
 
 # Create our resources with separate CloudFormation templates

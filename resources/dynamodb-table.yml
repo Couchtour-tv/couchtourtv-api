@@ -2,7 +2,7 @@ Resources:
   NotesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.tableName}
+      TableName: notes
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
@@ -17,7 +17,7 @@ Resources:
   RequestResponsesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.stage}-request-responses
+      TableName: ct-request-responses
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
@@ -32,7 +32,7 @@ Resources:
   PurchasesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.stage}-purchases
+      TableName: ct-purchases
       AttributeDefinitions:
         - AttributeName: purchaseId
           AttributeType: S
@@ -47,7 +47,7 @@ Resources:
   MoviesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.stage}-movies
+      TableName: ct-movies
       AttributeDefinitions:
         - AttributeName: movieId
           AttributeType: S
@@ -55,21 +55,21 @@ Resources:
         - AttributeName: movieId
           KeyType: HASH
       BillingMode: PAY_PER_REQUEST
-  # SocketConnectionsTable:
-  #   Type: AWS::DynamoDB::Table
-  #   Properties:
-  #     TableName: SocketConnections
-  #     AttributeDefinitions:
-  #       - AttributeName: socketId
-  #         AttributeType: S
-  #       - AttributeName: userId
-  #         AttributeType: S
-  #     KeySchema:
-  #       - AttributeName: socketId
-  #         KeyType: HASH
-  #       - AttributeName: userId
-  #         KeyType: RANGE
-  #     BillingMode: PAY_PER_REQUEST
+  SocketConnectionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:SOCKET_TABLE}
+      AttributeDefinitions:
+        - AttributeName: socketId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: socketId
+          KeyType: HASH
+        - AttributeName: userId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
   # ChatroomsTable:
   #   Type: AWS::DynamoDB::Table
   #   Properties:

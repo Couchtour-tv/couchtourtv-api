@@ -1,5 +1,5 @@
 import Dynamo from '../common/Dynamo';
-const tableName = "MoonSockets";
+import { SocketTableName } from '../common/constants';
 
 const getLiveSockets = async (connectionId) => {
     console.log("**************************    SOCKETMODEL SCAN");
@@ -20,7 +20,7 @@ const getLiveSockets = async (connectionId) => {
     }
 
     const sockets = await Dynamo.scan({
-        TableName: tableName,
+        TableName: SocketTableName,
         filterExpression,
         expressionAttributes,
     });
@@ -46,7 +46,8 @@ const createSocket = (data) => {
         currentstatus: 'connected'
     };
 
-    const res = Dynamo.write(params, tableName);
+    const res = Dynamo.write(params, SocketTableName);
+    console.log("SOCKETMODEL  CREATE SOCKET-50", res);
 
     return data.connectionID;
 };
@@ -55,7 +56,8 @@ const disconnectSocket = async (connectionID) => {
 
     const columnName = "currentstatus";
     const value = "disconnected";
-	const res =	await Dynamo.update(connectionID, tableName, columnName, value);
+	const res =	await Dynamo.update(connectionID, SocketTableName, columnName, value);
+    console.log("SOCKETMODEL  DISCONNECT SOCKET-50", res);
 
 };
 

@@ -1,26 +1,13 @@
-/*
-
-MoonSocket Socket Disconnect
-
-    status: 'disconnected'
-
-    { connectionID, identityId, date, domainName, stage, status: 'connected', messages: []}
-
-*/
-
-const disconnectMessage = "Moondog Midi Socket Disconnected! Goodbark!";
-const SocketModel = require('../models/SocketModel');
-const Responses = require('../common/API_Responses');
+import { SocketTableName } from '../common/constants';
+import Responses from '../common/API_Responses';
+import Dynamo from '../common/Dynamo';
 
 exports.handler = async event => {
-	console.log('\n', '\n', '\n', '--------------------  DISCONNECT  ---------------------','\n', '\n', '\n');
-    console.log('WEBSOCKETS/DISCONNECT.JS:7', event);
+    console.log('WEBSOCKET DISCONNECT EVENT', event, '\n');
 
-    const { connectionId: connectionID } = event.requestContext;
+    const { connectionId } = event.requestContext;
 
-    // const record = await Dynamo.get(connectionID, tableName)
+    await Dynamo.delete(connectionId, SocketTableName);
 
-    await SocketModel.disconnectSocket(connectionID);
-
-    return Responses._200({ message: disconnectMessage });
+    return Responses._200({ message: 'disconnected' });
 };

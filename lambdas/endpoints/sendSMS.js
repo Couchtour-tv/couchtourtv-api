@@ -1,10 +1,9 @@
-const Responses = require('../common/API_Responses');
-const Dynamo = require('../common/Dynamo');
 const AWS = require('aws-sdk');
+import Responses from '../common/API_Responses';
+import Dynamo from '../common/Dynamo';
 
-const SNS = new AWS.SNS({ apiVersion: '2010-03-31' });
-
-const tableName = "SNSMessages";
+import { OptionsSNS, SNSTableName } from '../common/constants';
+const SNS = new AWS.SNS(OptionsSNS);
 
 exports.handler = async event => {
     console.log('event', event);
@@ -30,7 +29,7 @@ exports.handler = async event => {
 
     const dbWrite = { ID: ID, messageParams, AttributeParams};
 
-    await Dynamo.write(dbWrite, tableName);
+    await Dynamo.write(dbWrite, SNSTableName);
 
     try {
         await SNS.setSMSAttributes(AttributeParams).promise();
