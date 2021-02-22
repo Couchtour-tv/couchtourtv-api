@@ -50,11 +50,9 @@ Session.vim
 # env
 env.yml
 .env
-.env.example
 .env.dev
 .env.qa
 .env.prod
-.env.example.local
 .env.dev.local
 .env.qa.local
 .env.prod.local
