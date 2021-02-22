@@ -17,3 +17,4 @@ export const OptionsSNS = {
 
 export const SNSTableName = process.env.SNS_MESSAGES_TABLE;
 export const SocketTableName = process.env.SOCKET_TABLE;
+export const MediaMetaTableName = process.env.MEDIA_META_TABLENAME;
