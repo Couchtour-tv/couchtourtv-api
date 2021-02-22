@@ -1,5 +1,5 @@
 import * as uuid from "uuid";
-import { NotesTableName } from '../lambdas/common/constants';
+import { NotesTableName } from '../common/constants';
 import handler from "../../libs/handler-lib";
 import dynamoDb from "../../libs/dynamodb-lib";
 

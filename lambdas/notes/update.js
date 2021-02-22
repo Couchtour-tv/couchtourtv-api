@@ -1,6 +1,6 @@
 import handler from "../../libs/handler-lib";
 import dynamoDb from "../../libs/dynamodb-lib";
-import { NotesTableName } from '../lambdas/common/constants';
+import { NotesTableName } from '../common/constants';
 
 export const main = handler(async (event, context) => {
   const data = JSON.parse(event.body);

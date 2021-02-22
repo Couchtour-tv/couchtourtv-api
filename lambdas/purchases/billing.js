@@ -1,5 +1,5 @@
 import stripePackage from "stripe";
-import { StripeSecretKey } from '../lambdas/common/constants';
+import { StripeSecretKey } from '../common/constants';
 import handler from "../../libs/handler-lib";
 import { ApiRequest, ApiResponse } from "../models/Ditto";
 import { CreatePurchase } from "../models/Purchase";
