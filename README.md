@@ -46,5 +46,5 @@ PRODUCTION DEPLOY
 	1. serverless deploy --stage prod
 
 	2. connect to wscat to test
-		wscat -c wss://9m77tq4a3j.execute-api.us-east-1.amazonaws.com/prod
+		wscat -c PRODUCTION_WEBSOCKET_WSS_URL
 ```
