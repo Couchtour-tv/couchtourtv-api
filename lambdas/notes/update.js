@@ -1,10 +1,11 @@
 import handler from "../../libs/handler-lib";
 import dynamoDb from "../../libs/dynamodb-lib";
+import { NotesTableName } from '../lambdas/common/constants';
 
 export const main = handler(async (event, context) => {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: process.env.tableName,
+    TableName: NotesTableName,
     // 'Key' defines the partition key and sort key of the item to be updated
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter

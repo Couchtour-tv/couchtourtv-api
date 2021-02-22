@@ -2,7 +2,7 @@ Resources:
   NotesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: notes
+      TableName: ${env:SOCKETS_TABLE}
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
@@ -58,7 +58,7 @@ Resources:
   SocketConnectionsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${env:SOCKET_TABLE}
+      TableName: ${env:SOCKETS_TABLE}
       AttributeDefinitions:
         - AttributeName: socketId
           AttributeType: S

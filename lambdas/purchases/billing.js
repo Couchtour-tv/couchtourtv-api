@@ -1,4 +1,5 @@
 import stripePackage from "stripe";
+import { StripeSecretKey } from '../lambdas/common/constants';
 import handler from "../../libs/handler-lib";
 import { ApiRequest, ApiResponse } from "../models/Ditto";
 import { CreatePurchase } from "../models/Purchase";
@@ -19,7 +20,7 @@ export const main = handler(async (event, context) => {
 	console.log("[16] Billing/User", requestItem);
 
 	// Load our secret key from the  environment variables
-	const stripe = stripePackage(process.env.stripeSecretKey);
+	const stripe = stripePackage(StripeSecretKey);
 	const purchaseData = {
 		source,
 		amount,

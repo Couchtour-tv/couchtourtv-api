@@ -1,19 +1,34 @@
 // constants
 
+// API Gateway
+export const OptionsAPIGateway = {
+	apiVersion: process.env.APIGATEWAY_APIVERSION,
+    endpoint: process.env.WS_ENDPOINT
+};
+
+// AWS SNS - text messages
+export const OptionsSNS = {
+	apiVersion: process.env.SNS_APIVERSION,
+};
+export const SNSTableName = process.env.SNS_MESSAGES_TABLE;
+
+// DynamoDB  initializer + tables
 export const OptionsDynamoDB = {
 	apiVersion: process.env.DYNAMODB_APIVERSION,
 	region: process.env.AWS_REGION,
 	endpoint: process.env.DYNAMODB_ENDPOINT
 };
 
-export const OptionsAPIGateway = {
-	apiVersion: process.env.APIGATEWAY_APIVERSION,
-    endpoint: process.env.WS_ENDPOINT
+export const SocketTableName = process.env.SOCKETS_TABLE;
+export const NotesTableName = process.env.NOTES_TABLE;
+
+// User Pool
+export const UserPoolId = process.env.USER_POOL_ID;
+
+// Cognito
+export const OptionsCognito = {
+	region: process.env.COGNITO_REGION
 };
 
-export const OptionsSNS = {
-	apiVersion: process.env.SNS_APIVERSION,
-};
-
-export const SNSTableName = process.env.SNS_MESSAGES_TABLE;
-export const SocketTableName = process.env.SOCKET_TABLE;
+// Credit card processing
+export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;

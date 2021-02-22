@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+import { UserPoolId, OptionsCognito } from './constants';
 // Note, make sure you have proper credentials, uncomment following code to set credentials if running file locally
 // var myConfig = new AWS.Config({
 //     credentials: {
@@ -8,14 +9,14 @@ const AWS = require('aws-sdk');
 // });
 
 // Set proper region
-let cognitoClient = new AWS.CognitoIdentityServiceProvider({ region: 'us-east-1' });
+let cognitoClient = new AWS.CognitoIdentityServiceProvider(OptionsCognito);
 
 // Event object is the event passed to Lambda
 export async function getUserOfAuthenticatedUser(event) {
     // Get the unique ID given by cognito for this user, it is passed to lambda as part of a large string in event.requestContext.identity.cognitoAuthenticationProvider
     let userSub = event.requestContext.identity.cognitoAuthenticationProvider.split(':CognitoSignIn:')[1];
     let request = {
-        UserPoolId: "us-east-1_szavMf6eG", // Set your cognito user pool id
+        UserPoolId: UserPoolId,
         Filter: `sub = "${userSub}"`,
         Limit: 1
     };

@@ -1,9 +1,10 @@
 import handler from "../../libs/handler-lib";
 import dynamoDb from "../../libs/dynamodb-lib";
+import { NotesTableName } from '../lambdas/common/constants';
 
 export const main = handler(async (event, context) => {
   const params = {
-    TableName: process.env.tableName,
+    TableName: NotesTableName,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
