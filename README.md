@@ -18,6 +18,7 @@ LOCAL DEVELOPMENT
 
 Go to /api
 
+	setup - make a .env file out of .env.example
 	1. launch the serverless local offline server on local machine
   		npm run dev
   			aka `sls offline start --stage dev`
