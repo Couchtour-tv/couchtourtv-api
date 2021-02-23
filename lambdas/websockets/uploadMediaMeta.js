@@ -1,18 +1,29 @@
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { MediaMetaTableName } from '../common/constants';
+import { NewMediaMetaTableName, MediaMetaTableName } from '../common/constants';
+import { v4 as uuidv4 } from 'uuid';
+
 
 exports.handler = async event => {
-    
-    console.log('-----------------------------', '\n');
-    console.log(':: [[ uploadMediatMeta.js ]]', '\n \n \n \n');
+
     const { connectionId, domainName, stage, requestId } = event.requestContext;
-    const postData = JSON.parse(event.body).message;
+    let postData = JSON.parse(event.body).message.values;
+    
+    /*
+        "ID" swap btwn payload and db write
+        TODO -- make robust
 
-    console.log('[12] postData:', postData);
-    Dynamo.write(postData, MediaMetaTableName);
+        uuid generationg for [artist and movie] is prototypical 
+            just neeed a fast and dirty to prototype the db write
 
-    console.log('[15] pre-return message');
+    */
+    postData.ID = postData.id
+    postData.movieId = uuidv4();
+    postData.artistId = uuidv4();
+    delete postData.id
+
+    Dynamo.write(postData, NewMediaMetaTableName );
+
     return Responses._200({ 
         success: true,
         message: 'media_meta_uploaded' 
