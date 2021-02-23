@@ -12,15 +12,18 @@ export const OptionsSNS = {
 };
 export const SNSTableName = process.env.SNS_MESSAGES_TABLE;
 
-// DynamoDB  initializer + tables
+// DynamoDB  initializer
 export const OptionsDynamoDB = {
 	apiVersion: process.env.DYNAMODB_APIVERSION,
 	region: process.env.AWS_REGION,
 	endpoint: process.env.DYNAMODB_ENDPOINT
 };
 
+// DynamoDB  TableNames
 export const SocketTableName = process.env.SOCKETS_TABLE;
 export const NotesTableName = process.env.NOTES_TABLE;
+export const MediaMetaTableName = process.env.MEDIA_META_TABLE;
+export const NewMediaMetaTableName = process.env.NEW_MEDIA_META_TABLE;
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID;
@@ -33,8 +36,5 @@ export const OptionsCognito = {
 // Credit card processing
 export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-export const SocketTableName = process.env.SOCKET_TABLE;
-// Stubbed out For Protoytyping
-export const MediaMetaTableName = process.env.MEDIA_META_TABLE;
-export const NewMediaMetaTableName = process.env.NEW_MEDIA_META_TABLE;
+
 
