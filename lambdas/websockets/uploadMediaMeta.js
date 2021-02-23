@@ -5,7 +5,7 @@ import { MediaMetaTableName } from '../common/constants';
 exports.handler = async event => {
     
     console.log('-----------------------------', '\n');
-    console.log(':: [[ uploadMediatMeta.js ]]', '\n');
+    console.log(':: [[ uploadMediatMeta.js ]]', '\n \n \n \n');
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const postData = JSON.parse(event.body).message;
 
