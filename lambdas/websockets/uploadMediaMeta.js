@@ -1,6 +1,6 @@
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { NewMediaMetaTableName, MediaMetaTableName } from '../common/constants';
+import { MediaMetaTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -22,7 +22,7 @@ exports.handler = async event => {
     postData.artistId = uuidv4();
     delete postData.id
 
-    Dynamo.write(postData, NewMediaMetaTableName );
+    Dynamo.write(postData, MediaMetaTableName );
 
     return Responses._200({ 
         success: true,

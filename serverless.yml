@@ -9,7 +9,9 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin
   - serverless-dynamodb-local
+  - serverless-dynamodb-seed
   - serverless-offline-redis-server
+
 
 custom:
   # Our stage is based on what is passed in when running serverless
@@ -22,8 +24,19 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
+      seed: true
     migration:
       dir: offline
+    seed:
+      domain:
+        sources:
+          - table: ${env:MEDIA_META_TABLE}
+            sources: [./resources/seeds/movieMetaSeed.json]
+  seed:
+    movie-meta-seed:
+      table: ${env:MEDIA_META_TABLE}
+      sources:
+        - [./resources/seeds/movieMetaSeed.json]
 
 provider:
   name: aws
@@ -181,6 +194,13 @@ functions:
       - websocket:
           route: upload-media-meta
           cors: true
+  websocket-getvideos:
+    handler: lambdas/websockets/getVideos.handler
+    events:
+      - websocket:
+          route: getvideos
+          cors: true
+
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors

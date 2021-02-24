@@ -72,6 +72,8 @@ const Dynamo = {
         return documentClient.delete(params).promise();
     },
     query: async ({ TableName, index, queryKey, queryValue }) => {
+
+        console.log("DYNAMO-QUERY[76] -> ", TableName, '\n', index, '\n', queryKey, '\n', queryValue, '\n');
         const params = {
             TableName,
             IndexName: index,
