@@ -87,6 +87,21 @@ Resources:
         - AttributeName: movieId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
+  DeviesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:DEVICES_TABLES}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: deviceId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: deviceId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
   # ChatroomsTable:
   #   Type: AWS::DynamoDB::Table

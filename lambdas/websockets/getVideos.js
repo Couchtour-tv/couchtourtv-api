@@ -6,6 +6,10 @@ import dynamoDb from "../../libs/dynamodb-lib";
 
 import { MediaMetaTableName } from '../common/constants';
 
+/*
+    SAMPLE PAYLOAD:
+        {"action": "getvideos"}
+*/
 
 exports.handler = async event => {
 
@@ -21,7 +25,10 @@ exports.handler = async event => {
         message: video_array.Items
     };
 
-    const socket_send = await socket.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(replyMessage) }).promise();
+    const socket_send = await socket.postToConnection({ 
+        ConnectionId: connectionId, 
+        Data: JSON.stringify(replyMessage) 
+    }).promise();
 
     try {
         console.log('\nGETVIDEOS-22 - Promise.all now ');

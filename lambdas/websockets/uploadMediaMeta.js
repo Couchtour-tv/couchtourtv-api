@@ -3,6 +3,10 @@ import Dynamo from '../common/Dynamo';
 import { MediaMetaTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
+/*
+    SAMPLE PAYLOAD:
+        {"action": "getvideos", "message": {formdata} }
+*/
 
 exports.handler = async event => {
 
@@ -14,8 +18,8 @@ exports.handler = async event => {
         TODO -- make robust
 
         uuid generationg for [artist and movie] is prototypical
-            just neeed a fast and dirty to prototype the db write
 
+            just neeed a fast and dirty to prototype the db write
     */
     postData.ID = postData.id;
     postData.movieId = uuidv4();
