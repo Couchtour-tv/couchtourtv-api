@@ -188,11 +188,17 @@ functions:
       - websocket:
           route: upload-media-meta
           cors: true
-  websocket-getvideos:
+  websocket-get-videos:
     handler: lambdas/websockets/getVideos.handler
     events:
       - websocket:
           route: getvideos
+          cors: true
+  websocket-add-device-id:
+    handler: lambdas/websockets/addDeviceId.handler
+    events:
+      - websocket:
+          route: add-device-id
           cors: true
 
 # Create our resources with separate CloudFormation templates
