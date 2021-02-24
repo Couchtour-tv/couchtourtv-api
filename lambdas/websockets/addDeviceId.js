@@ -19,21 +19,38 @@ exports.handler = async event => {
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     let postData = JSON.parse(event.body).message;
+    const submittedCode = postData.code
+
+
+
+    //  { UserId, code } + connectedAt
+
+    // dyanmo scan the database for this code and userId === null
+        // into database and get the device record with that code
+    // it doesnt exist  - code is wrong
+    // it exists but theres already a userId - device is current on an account
+    // it exists but theres not userId - this is success. match
+    // it exists but its no longer valid - please request a new code
+
+
+    // update the record with userId , connectedAt
+
+
     postData.ID = uuidv4();
     postData.userId = uuidv4();
     postData.deviceId = uuidv4();
 
     Dynamo.write(postData, DevicesTableName );
 
-    const replyMessage = { 
-        action: 'addDeviceId', 
-        sender: connectionId, 
-        message: 'added device ids'
+    const replyMessage = {
+        action: 'addDeviceId',
+        sender: connectionId,
+        message: postData.code
     };
 
-    const socket_send = await socket.postToConnection({ 
-        ConnectionId: connectionId, 
-        Data: JSON.stringify(replyMessage) 
+    const socket_send = await socket.postToConnection({
+        ConnectionId: connectionId,
+        Data: JSON.stringify(replyMessage)
     }).promise();
 
     try {

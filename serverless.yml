@@ -140,6 +140,15 @@ functions:
           method: POST
           cors: true
           authorizer: aws_iam
+  deviceActivate:
+    handler: lambdas/tvapps/deviceActivate.handler
+    events:
+      - http:
+          path: device-activate
+          method: POST
+          cors: true
+          authorizer: aws_iam
+
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:
