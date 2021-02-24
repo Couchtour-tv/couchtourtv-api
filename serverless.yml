@@ -181,6 +181,13 @@ functions:
       - websocket:
           route: upload-media-meta
           cors: true
+  websocket-getvideos:
+    handler: lambdas/websockets/getVideos.handler
+    events:
+      - websocket:
+          route: getvideos
+          cors: true
+
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors
