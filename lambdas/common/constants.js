@@ -35,6 +35,3 @@ export const OptionsCognito = {
 
 // Credit card processing
 export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
-
-
-
