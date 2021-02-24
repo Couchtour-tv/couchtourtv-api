@@ -10,7 +10,7 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-dynamodb-local
   - serverless-dynamodb-seed
-  - serverless-offline-redis-server
+  # - serverless-offline-redis-server
 
 
 custom:
