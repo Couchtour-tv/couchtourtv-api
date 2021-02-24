@@ -5,7 +5,7 @@ import Responses from '../common/API_Responses';
 // import Dynamo from '../common/Dynamo';\
 import dynamoDb from "../../libs/dynamodb-lib";
 
-import { NewMediaMetaTableName, MediaMetaTableName } from '../common/constants';
+import { MediaMetaTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -14,7 +14,7 @@ exports.handler = async event => {
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-    const scan_params = { TableName: NewMediaMetaTableName };
+    const scan_params = { TableName: MediaMetaTableName };
     const video_array = await dynamoDb.scan(scan_params);
 
     const replyMessage = { 

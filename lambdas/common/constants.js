@@ -33,7 +33,7 @@ export const OptionsCognito = {
 // Credit card processing
 export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-// Stubbed out For Protoytyping
+// New Functionality
 export const MediaMetaTableName = process.env.MEDIA_META_TABLE;
-export const NewMediaMetaTableName = process.env.NEW_MEDIA_META_TABLE;
+
 

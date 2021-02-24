@@ -9,7 +9,9 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin
   - serverless-dynamodb-local
-  - serverless-offline-redis-server
+  - serverless-dynamodb-seed
+  # - serverless-offline-redis-server
+
 
 custom:
   # Our stage is based on what is passed in when running serverless
@@ -24,6 +26,11 @@ custom:
       migrate: true
     migration:
       dir: offline
+  seed:
+    movied-meta-seed:
+      table: ${env:MEDIA_META_TABLE}
+      sources:
+        - resources/seeds/seed-movie-meta.json
 
 provider:
   name: aws

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "serverless": "^1.82.0",
+    "serverless-dynamodb-seed": "^0.3.0",
     "stripe": "^8.39.0",
     "uuid": "^7.0.3"
   }
