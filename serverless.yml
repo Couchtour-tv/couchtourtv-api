@@ -10,7 +10,7 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-dynamodb-local
   - serverless-dynamodb-seed
-  # - serverless-offline-redis-server
+  - serverless-offline-redis-server
 
 
 custom:
@@ -24,13 +24,19 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
+      seed: true
     migration:
       dir: offline
+    seed:
+      domain:
+        sources:
+          - table: ${env:MEDIA_META_TABLE}
+            sources: [./resources/seeds/movieMetaSeed.json]
   seed:
-    movied-meta-seed:
+    movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
       sources:
-        - resources/seeds/seed-movie-meta.json
+        - [./resources/seeds/movieMetaSeed.json]
 
 provider:
   name: aws
