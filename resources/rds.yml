@@ -2,8 +2,8 @@ Resources:
   RDSCluster:
     Type: AWS::RDS::DBCluster
     Properties:
-      MasterUsername: !Sub '{{resolve:secretsmanager:${RDSCredentialSecretStore}:SecretString:username}}'
-      MasterUserPassword: !Sub 'resolve:secretsmanager:${RDSCredentialSecretStore}:SecretString:password'
+      MasterUsername: !Join ['', ['{{resolve:secretsmanager:', !Ref RDSCredentialSecretStore, ':SecretString:username}}' ]]
+      MasterUserPassword: !Join ['', ['{{resolve:secretsmanager:', !Ref RDSCredentialSecretStore, ':SecretString:password}}' ]]
       Engine: aurora-postgresql
       EngineMode: serverless
       DBSubnetGroupName:
@@ -25,15 +25,6 @@ Resources:
           FromPort: 5432
           ToPort: 5432
           SourceSecurityGroupId: !Ref AppSecurityGroup
-  RDSRecordSet:
-    Type: 'AWS::Route53::RecordSet'
-    Properties:
-      HostedZoneId: !GetAtt 'HostedZone.Id'
-      Name: !Sub 'db.${self:custom.Route53config.Name}'
-      ResourceRecords:
-      - !GetAtt 'RDSCluster.Endpoint.Address'
-      TTL: '60'
-      Type: CNAME
   RDSCredentialSecretStore:
     Type: "AWS::SecretsManager::Secret"
     Properties:
@@ -44,3 +35,9 @@ Resources:
         GenerateStringKey: "password"
         PasswordLength: 30
         ExcludeCharacters: '"@/\'
+  secretRDSInstanceAttachment:
+    Type: AWS::SecretsManager::SecretTargetAttachment
+    Properties:
+      SecretId: !Ref RDSCredentialSecretStore
+      TargetId: !Ref RDSCluster
+      TargetType: AWS::RDS::DBCluster
