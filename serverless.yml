@@ -242,3 +242,5 @@ resources:
   - ${file(resources/cognito-identity-pool.yml)}
   #Route 53 Zone
   - ${file(resources/route53.yml)}
+  #ElastiCache
+  - ${file(resources/elasticache.yml)}
