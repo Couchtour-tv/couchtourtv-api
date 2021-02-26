@@ -47,6 +47,10 @@ custom:
       - us-east-1a
       - us-east-1b
 
+  Route53config:
+    Region: us-east-1
+    Name: branchdna.pri
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -236,3 +240,5 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
+  #Route 53 Zone
+  - ${file(resources/route53.yml)}
