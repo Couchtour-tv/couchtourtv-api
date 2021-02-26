@@ -51,6 +51,9 @@ custom:
     Region: us-east-1
     Name: branchdna.pri
 
+  ElastiCacheconfig:
+    CACHE_INSTANCE_SIZE: cache.r6g.large
+
 provider:
   name: aws
   runtime: nodejs12.x
