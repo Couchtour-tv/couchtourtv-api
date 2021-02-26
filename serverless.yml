@@ -247,3 +247,5 @@ resources:
   - ${file(resources/route53.yml)}
   #ElastiCache
   - ${file(resources/elasticache.yml)}
+  #RDS
+  - ${file(resources/rds.yml)}
