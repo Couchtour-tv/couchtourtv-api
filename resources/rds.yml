@@ -2,8 +2,8 @@ Resources:
   RDSCluster:
     Type: AWS::RDS::DBCluster
     Properties:
-      MasterUsername: pgadmin
-      MasterUserPassword: password
+      MasterUsername: !Sub '{{resolve:secretsmanager:${RDSCredentialSecretStore}:SecretString:username}}'
+      MasterUserPassword: !Sub 'resolve:secretsmanager:${RDSCredentialSecretStore}:SecretString:password'
       Engine: aurora-postgresql
       EngineMode: serverless
       DBSubnetGroupName:
@@ -34,3 +34,13 @@ Resources:
       - !GetAtt 'RDSCluster.Endpoint.Address'
       TTL: '60'
       Type: CNAME
+  RDSCredentialSecretStore:
+    Type: "AWS::SecretsManager::Secret"
+    Properties:
+      Name: !Sub RDS-master
+      Description: !Sub Credentials for the RDS Service in the ${AWS::StackName} stack
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "pgadmin"}'
+        GenerateStringKey: "password"
+        PasswordLength: 30
+        ExcludeCharacters: '"@/\'
