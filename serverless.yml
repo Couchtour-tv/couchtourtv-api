@@ -54,6 +54,10 @@ custom:
   ElastiCacheconfig:
     CACHE_INSTANCE_SIZE: cache.r6g.large
 
+  SQSConfig:
+    QueueName: couchtour-queue
+    FifoQueue: true
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -249,3 +253,5 @@ resources:
   - ${file(resources/elasticache.yml)}
   #RDS
   - ${file(resources/rds.yml)}
+  #SQS
+  - ${file(resources/sqs-fifo.yml)}
