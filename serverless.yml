@@ -215,6 +215,18 @@ functions:
       - websocket:
           route: add-device-id
           cors: true
+  websocket-user-login:
+    handler: lambdas/websockets/userLogin.handler
+    events:
+      - websocket:
+          route: user-login
+          cors: true
+  websocket-add-user-logout:
+    handler: lambdas/websockets/userLogout.handler
+    events:
+      - websocket:
+          route: user-logout
+          cors: true
 
 # Create our resources with separate CloudFormation templates
 resources:
