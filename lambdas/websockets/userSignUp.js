@@ -10,10 +10,22 @@ import { v4 as uuidv4 } from 'uuid';
 
 /*
     SAMPLE PAYLOAD:
-        { "action": "user-logout", "Id": id, "email": email }
-
+        {
+            "action": "user-signUp", 
+            "message": {
+                "user": {
+                    id
+                    cogId
+                    username
+                    email
+                    access token
+                },
+                "currentAuthenticatedUser": {}
+            }
+        }
+    
     TO-DO
-        - decide on the data to be UPDATED for the user 
+        - decide on the data to be SAVED for the user
 */
 
 exports.handler = async event => {
@@ -26,24 +38,34 @@ exports.handler = async event => {
     try {
 
         let postData = JSON.parse(event.body).message;
-        const update = Dynamo.update( postDate.Id, UserTableName, user.loggedIn, false );
+        
+        postData.Id = postData.user.userId;
+        postData.cogId = postData.user.cogId;
+        postData.user.loggedIn = true
+        
+        delete postData.user.userId
+        delete postData.user.cogId
 
-        replyMessage.action = 'userLogout';
-        replyMessage.message = 'user logged out'
+        Dynamo.write(postData, UserTableName );
+
+        replyMessage.action = 'user-signUp';
+        replyMessage.message = 'user created';
 
         const socket_send = await socket.postToConnection({ 
             ConnectionId: connectionId, 
             Data: JSON.stringify(replyMessage) 
+        
         }).promise();
         
-        console.log('\nUSERLOGOUT-39 - Promise.all now ');
+        console.log('\nUSERSIGNUP-60 - Promise.all now ');
         await Promise.resolve( socket_send );
     
     } catch (e) {
-        
-        console.log('\nUSERLOGOUT-44 - error on promises', e.stack);
+
+        console.log('\nUSERSIGN-78 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
+    
     }
 
-    return Responses._200({ success: true, message: 'user-logout' });
+    return Responses._200({ success: true, message: 'user-login' });
 };

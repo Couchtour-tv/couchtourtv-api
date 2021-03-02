@@ -107,14 +107,14 @@ Resources:
     Properties:
       TableName: ${env:USER_TABLE}
       AttributeDefinitions:
-        - AttributeName: Id
+        - AttributeName: userId
           AttributeType: S
-        - AttributeName: passwordId
+        - AttributeName: emailAddress
           AttributeType: S
       KeySchema:
-        - AttributeName: Id
+        - AttributeName: userId
           KeyType: HASH
-        - AttributeName: passwordId
+        - AttributeName: emailAddress
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
