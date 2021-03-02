@@ -11,9 +11,9 @@ import { v4 as uuidv4 } from 'uuid';
 /*
     SAMPLE PAYLOAD:
         {"action": "user-logout", "message": {}}
-    
+
     TO-DO
-        - decide on the data to be UPDATED for the user 
+        - decide on the data to be UPDATED for the user
 */
 
 exports.handler = async event => {
@@ -28,15 +28,15 @@ exports.handler = async event => {
 
     Dynamo.write(postData, UserTableName );
 
-    const replyMessage = { 
-        action: 'userLogout', 
-        sender: connectionId, 
+    const replyMessage = {
+        action: 'userLogout',
+        sender: connectionId,
         message: 'user logged out'
     };
 
-    const socket_send = await socket.postToConnection({ 
-        ConnectionId: connectionId, 
-        Data: JSON.stringify(replyMessage) 
+    const socket_send = await socket.postToConnection({
+        ConnectionId: connectionId,
+        Data: JSON.stringify(replyMessage)
     }).promise();
 
     try {

@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 /*
     SAMPLE PAYLOAD:
         {"action": "user-login", "message": {}}
-    
+
     TO-DO
         - decide on the data to be SAVED for the user
 */
@@ -27,15 +27,15 @@ exports.handler = async event => {
 
     Dynamo.write(postData, UserTableName );
 
-    const replyMessage = { 
-        action: 'userLogin', 
-        sender: connectionId, 
+    const replyMessage = {
+        action: 'userLogin',
+        sender: connectionId,
         message: 'user logged in'
     };
 
-    const socket_send = await socket.postToConnection({ 
-        ConnectionId: connectionId, 
-        Data: JSON.stringify(replyMessage) 
+    const socket_send = await socket.postToConnection({
+        ConnectionId: connectionId,
+        Data: JSON.stringify(replyMessage)
     }).promise();
 
     try {

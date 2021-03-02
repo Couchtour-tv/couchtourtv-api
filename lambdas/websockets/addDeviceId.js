@@ -19,9 +19,7 @@ exports.handler = async event => {
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     let postData = JSON.parse(event.body).message;
-    const submittedCode = postData.code
-
-
+    const submittedCode = postData.code;
 
     //  { UserId, code } + connectedAt
 
