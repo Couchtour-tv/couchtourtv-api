@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 /*
     SAMPLE PAYLOAD:
         {
-            "action": "user-signUp", 
+            "action": "user-signup", 
             "message": {
                 "user": {
                     id
@@ -39,17 +39,17 @@ exports.handler = async event => {
 
         let postData = JSON.parse(event.body).message;
         
-        postData.Id = postData.user.userId;
-        postData.cogId = postData.user.cogId;
+        postData.Id = uuid4();
+        postData.emailAddress = postData.user.email;
         postData.user.loggedIn = true
         
-        delete postData.user.userId
+        // delete postData.user.userId
         delete postData.user.cogId
 
         Dynamo.write(postData, UserTableName );
 
-        replyMessage.action = 'user-signUp';
-        replyMessage.message = 'user created';
+        replyMessage.action = 'user-signup';
+        replyMessage.message = { message: 'user created',user: postData };
 
         const socket_send = await socket.postToConnection({ 
             ConnectionId: connectionId, 

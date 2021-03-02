@@ -26,7 +26,7 @@ exports.handler = async event => {
     try {
 
         let postData = JSON.parse(event.body).message;
-        const update = Dynamo.update( postDate.Id, UserTableName, user.loggedIn, false );
+        const update = Dynamo.update( postData.Id, UserTableName, 'user.loggedIn', false );
 
         replyMessage.action = 'userLogout';
         replyMessage.message = 'user logged out'

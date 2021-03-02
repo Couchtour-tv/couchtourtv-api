@@ -231,7 +231,7 @@ functions:
     handler: lambdas/websockets/userSignUp.handler
     events:
       - websocket:
-          route: user-signUp
+          route: user-signup
           cors: true
 
 # Create our resources with separate CloudFormation templates
