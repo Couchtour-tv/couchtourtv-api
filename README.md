@@ -48,3 +48,45 @@ PRODUCTION DEPLOY
 	2. connect to wscat to test
 		wscat -c PRODUCTION_WEBSOCKET_WSS_URL
 ```
+
+
+#### Example DynamoDb queries
+
+list all tables + names 
+
+``` javascript
+dynamodb.listTables({}, function(err, data) {
+    if (err) ppJson(err); // an error occurred
+    else ppJson(data); // successful response
+});
+```
+
+table scan / return all items
+
+``` javascript
+var params = { TableName: 'ct-Users' };
+dynamodb.scan(params, function(err, data) {
+    if (err) ppJson(err); // an error occurred
+    else ppJson(data); // successful response
+});
+```
+
+delete all tables 
+
+``` javascript
+var params = { TableName: 'ct-Users' };
+dynamodb.scan(params, function(err, data) {
+    if (err) ppJson(err); // an error occurred
+    else ppJson(data); // successful response
+});
+```
+
+dynamodb.listTables({}, function(err, data) {
+  if (err) console.error(err, err.stack)
+  for (tableName of data.TableNames) {
+    dynamodb.deleteTable({TableName: tableName}, function(err, data) {
+      if (err) console.error(err, err.stack)
+      else console.log('Deleted', tableName)
+    })
+  }
+})

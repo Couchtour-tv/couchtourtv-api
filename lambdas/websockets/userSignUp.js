@@ -9,26 +9,33 @@ import { UserTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 /*
-    SAMPLE PAYLOAD:
+    ::Working:: SAMPLE PAYLOAD as JSON:
+        { "action": "user-signup", "message": { "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790", "username": "bleep@bloop.com", "email": "bleep@bloop.com", "accessToken": "3db51eb5-06ed-4f70-bac0-e1bbcad46da8", "currAuthUser__data1": "efd9359c-d69d-4c47-a94d-7bc2b69c804a", "currAuthUser__data2": "3266f093-ed94-4f17-bcfb-61f8dc6caaaf" } }
+
+    ::NON-working:: SAMPLE PAYLOAD as JSON:
+
+        { "action": "user-signup", "message": { "user": { "cogId": "3ca2d754-bb93-4350-b2a8-131b8585f9f6", "username": "bleep@bloop.com", "email": "bleep@bloop.com", "accessToken": "b872b8d5-d608-43df-bd5c-66ec9156a087" }  }
+
         {
             "action": "user-signup", 
             "message": {
                 "user": {
-                    id
-                    cogId
-                    username
-                    email
-                    access token
+                    "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790", 
+                    "username": "bleep@bloop.com", 
+                    "email": "bleep@bloop.com", 
+                    "accessToken": "3db51eb5-06ed-4f70-bac0-e1bbcad46da8"
                 },
-                "currentAuthenticatedUser": {}
+                "currentAuthenticatedUser": {
+                    "data1": "helloWorld",
+                    "data2": "linusAndCharlieBrown"
+                }
             }
         }
-    
-    TO-DO
-        - decide on the data to be SAVED for the user
 */
 
 exports.handler = async event => {
+
+    console.log('*********************');
 
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
@@ -39,17 +46,22 @@ exports.handler = async event => {
 
         let postData = JSON.parse(event.body).message;
         
-        postData.Id = uuid4();
-        postData.emailAddress = postData.user.email;
-        postData.user.loggedIn = true
-        
-        // delete postData.user.userId
+        // create a userId for db table
+        postData.ID = uuidv4();
+        postData.emailAddress = postData.email;
+        postData.cogId = postData.cogId;
+        postData.loggedIn = true;
+        console.log('(((((((((((((((((((((((((((');
+
         delete postData.user.cogId
+        delete postData.emai
+
+        console.log('\n\n\n\n [56]: postData', postData);
 
         Dynamo.write(postData, UserTableName );
 
         replyMessage.action = 'user-signup';
-        replyMessage.message = { message: 'user created',user: postData };
+        replyMessage.message = { message: 'user created', user: postData };
 
         const socket_send = await socket.postToConnection({ 
             ConnectionId: connectionId, 
@@ -57,12 +69,12 @@ exports.handler = async event => {
         
         }).promise();
         
-        console.log('\nUSERSIGNUP-60 - Promise.all now ');
+        console.log('\nUSERSIGNUP-64 - Promise.all now ');
         await Promise.resolve( socket_send );
     
     } catch (e) {
 
-        console.log('\nUSERSIGN-78 - error on promises', e.stack);
+        console.log('\nUSERSIGN-69 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     
     }

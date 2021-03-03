@@ -107,12 +107,12 @@ Resources:
     Properties:
       TableName: ${env:USER_TABLE}
       AttributeDefinitions:
-        - AttributeName: userId
+        - AttributeName: cogId
           AttributeType: S
         - AttributeName: emailAddress
           AttributeType: S
       KeySchema:
-        - AttributeName: userId
+        - AttributeName: cogId
           KeyType: HASH
         - AttributeName: emailAddress
           KeyType: RANGE
