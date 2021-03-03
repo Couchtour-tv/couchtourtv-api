@@ -293,18 +293,16 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-login-success',
-	'message': {
-		'display-message': 'user logged in',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	"emailVerified": bool
-	    	'loggedIn': true
-		}
-	}
+	"sender": connectionId,
+	"action": "user-login-success",
+	"message": {
+		"display-message": "user logged in",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool
+    	"loggedIn": true
+    }
 }
 ```
 
@@ -315,17 +313,16 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-login-error',
-	'message': {
-		'display-message': 'user not able to log in',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	"emailVerified": bool
-	    	'loggedIn': false
-		}
+	"sender": connectionId,
+	"action": "user-login-error",
+	"message": {
+		"display-message": "user not able to log in",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool
+    	"loggedIn": false
+		
 	}
 }
 ```
@@ -345,6 +342,7 @@ Auth.currentSession()
     	"cogId": cogId, 
     	"username": email, 
     	"email": email,
+    	"emailVerified": bool,
     	"accessToken": token,
     	"idToken": idToken,
     	"refreshToken": refreshToken
@@ -359,16 +357,15 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-signup-success',
-	'message': {
-		'message': 'user created',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
+	"sender": connectionId,
+	"action": "user-signup-success",
+	"message": {
+		"display-message": "user created",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool,
+    	"loggedIn": true
 	}
 }
 ```
@@ -380,9 +377,9 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-signup-error',
-	'message': 'user not created'
+	"sender": connectionId,
+	"action": "user-signup-error",
+	"message": "user not created"
 }
 ```
 
@@ -395,7 +392,8 @@ Auth.currentSession()
 {
     "action": "user-logout", 
     "message": {
-    	"email": email
+    	"email": email,
+    	"emailVerified": bool,
         "accessToken": token,
     	"idToken": idToken,
     	"refreshToken": refreshToken
@@ -410,17 +408,15 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-login-success',
-	'message': {
-		'message': 'user logged in',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
-
+	"sender": connectionId,
+	"action": "user-login-success",
+	"message": {
+		"display-message": "user logged-out",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool
+    	"loggedIn": true
 	}
 }
 ```
@@ -432,9 +428,16 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-login-error',
-	'message': 'user not logged in'
+	"sender": connectionId,
+	"action": "user-login-error",
+	"message": {
+		"display-message": "user not logged-out",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool
+    	"loggedIn": true
+	}
 }
 ```
 
@@ -444,17 +447,15 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-verify-success',
-	'message': {
-		'message': 'user verified',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
-
+	"sender": connectionId,
+	"action": "user-verify-success",
+	"message": {
+		"display-message": "user verified",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool,
+    	"loggedIn": true
 	}
 }
 ```
@@ -465,18 +466,16 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-verify-error',
-	'message': {
-		'message': 'error user verification attempt',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
-
-	}
+	"sender": connectionId,
+	"action": "user-verify-error",
+	"message": {
+		"display-message": "error user verification attempt",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool,
+    	"loggedIn": true
+    }
 }
 ```
 
@@ -486,18 +485,16 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-verification-resend-success',
-	'message': {
-		'message': 'user resent verification',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
-
-	}
+	"sender": connectionId,
+	"action": "user-verification-resend-success",
+	"message": {
+		"display-message": "user resent verification",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool,
+    	"loggedIn": true
+    }
 }
 ```
 
@@ -507,17 +504,15 @@ Auth.currentSession()
 
 ``` javascript
 {
-	'sender': connectionId,
-	'action': 'user-verification-resend-error',
-	'message': {
-		'message': 'error resending user verification',
-		'user': {
-			"cogId": cogId, 
-	    	"username": email, 
-	    	"email": email,
-	    	'loggedIn': true
-		}
-
+	"sender": connectionId,
+	"action": "user-verification-resend-error",
+	"message": {
+		"display-message": "error resending user verification",
+		"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"emailVerified": bool,
+    	"loggedIn": true
 	}
 }
 ```
