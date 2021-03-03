@@ -27,7 +27,7 @@ async function signUp() {
         const { user } = await Auth.signUp({
             username, // fields.email 
             password, // fields.password
-            attributes: { email ) //fields.email
+            attributes: { email }//fields.email
         });
         console.log(user);
     } catch (error) {
@@ -280,7 +280,8 @@ Auth.currentSession()
     	"email": email
         "accessToken": token,
     	"idToken": idToken,
-    	"refreshToken": refreshToken
+    	"refreshToken": refreshToken,
+    	"emailVerified": bool
     }
 }
 ```
@@ -295,14 +296,14 @@ Auth.currentSession()
 	'sender': connectionId,
 	'action': 'user-login-success',
 	'message': {
-		'message': 'user logged in',
+		'display-message': 'user logged in',
 		'user': {
 			"cogId": cogId, 
 	    	"username": email, 
 	    	"email": email,
+	    	"emailVerified": bool
 	    	'loggedIn': true
 		}
-
 	}
 }
 ```
@@ -315,8 +316,17 @@ Auth.currentSession()
 ``` javascript
 {
 	'sender': connectionId,
-	'action': 'user-login-fail',
-	'message': 'user logged in'
+	'action': 'user-login-error',
+	'message': {
+		'display-message': 'user not able to log in',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	"emailVerified": bool
+	    	'loggedIn': false
+		}
+	}
 }
 ```
 
@@ -324,6 +334,9 @@ Auth.currentSession()
 * user-signup
 
 	* wc > ws-api
+
+	To-DO 
+        -- emailVerified : cognito.verified
 
 ``` javascript
 {

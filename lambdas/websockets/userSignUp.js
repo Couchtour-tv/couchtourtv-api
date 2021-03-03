@@ -31,11 +31,13 @@ import { v4 as uuidv4 } from 'uuid';
                 }
             }
         }
+
+    To-DO 
+        -- emailVerified : cognito.verified
+
 */
 
 exports.handler = async event => {
-
-    console.log('*********************');
 
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
@@ -51,17 +53,27 @@ exports.handler = async event => {
         postData.emailAddress = postData.email;
         postData.cogId = postData.cogId;
         postData.loggedIn = true;
-        console.log('(((((((((((((((((((((((((((');
 
         delete postData.user.cogId
         delete postData.emai
 
-        console.log('\n\n\n\n [56]: postData', postData);
+        replyMessage.action = null;
+        replyMessage.message = { user: postData };
 
-        Dynamo.write(postData, UserTableName );
+        try { 
 
-        replyMessage.action = 'user-signup';
-        replyMessage.message = { message: 'user created', user: postData };
+            Dynamo.write(postData, UserTableName );
+
+            replyMessage.action = 'user-signup-success'; 
+            replyMessage.message.displayMessage: 'user created'
+
+        } catch (e) {
+
+            replyMessage.action = 'user-signup-error';
+            replyMessage.message.displayMessage: 'user not created'
+            replyMessage.message.loggedIn = false;
+
+        }
 
         const socket_send = await socket.postToConnection({ 
             ConnectionId: connectionId, 
