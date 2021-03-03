@@ -210,7 +210,6 @@ Steps ::
 
 ```javascript
 import { Auth } from 'aws-amplify';
-
 async function signOut() {
     try {
         await Auth.signOut();
@@ -265,6 +264,267 @@ Auth.currentSession()
 	}
 }
 ```
+
+
+#### --------------------------------------------------------------------------------------------------
+####  Application Actions
+	
+* user-login
+	
+	* wc > ws-api
+
+``` javascript
+{
+    "action": "user-login", 
+    "message": {
+    	"email": email
+        "accessToken": token,
+    	"idToken": idToken,
+    	"refreshToken": refreshToken
+    }
+}
+```
+
+
+* user-login-success
+	
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-login-success',
+	'message': {
+		'message': 'user logged in',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+
+* user-login-error
+
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-login-fail',
+	'message': 'user logged in'
+}
+```
+
+
+* user-signup
+
+	* wc > ws-api
+
+``` javascript
+{
+    "action": "user-signup", 
+    "message": {
+    	"cogId": cogId, 
+    	"username": email, 
+    	"email": email,
+    	"accessToken": token,
+    	"idToken": idToken,
+    	"refreshToken": refreshToken
+    }
+}
+````
+
+
+* user-signup-success
+
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-signup-success',
+	'message': {
+		'message': 'user created',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+	}
+}
+```
+
+
+* user-signup-error
+
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-signup-error',
+	'message': 'user not created'
+}
+```
+
+
+* user-logout
+
+	* wc > ws-api
+
+``` javascript
+{
+    "action": "user-logout", 
+    "message": {
+    	"email": email
+        "accessToken": token,
+    	"idToken": idToken,
+    	"refreshToken": refreshToken
+    }
+}
+```
+
+
+* user-logout-success
+
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-login-success',
+	'message': {
+		'message': 'user logged in',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+
+* user-logout-error
+
+	* ws-api > wc
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-login-error',
+	'message': 'user not logged in'
+}
+```
+
+* user-verify-success
+
+	* wc > ws-api
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-verify-success',
+	'message': {
+		'message': 'user verified',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+* user-verify-error 
+
+	* wc > ws-api
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-verify-error',
+	'message': {
+		'message': 'error user verification attempt',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+* user-verification-resend-success
+
+	* wc > ws-api
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-verification-resend-success',
+	'message': {
+		'message': 'user resent verification',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+* user-verification-resend-error
+
+	* wc > ws-api
+
+``` javascript
+{
+	'sender': connectionId,
+	'action': 'user-verification-resend-error',
+	'message': {
+		'message': 'error resending user verification',
+		'user': {
+			"cogId": cogId, 
+	    	"username": email, 
+	    	"email": email,
+	    	'loggedIn': true
+		}
+
+	}
+}
+```
+
+
+#### --------------------------------------------------------------------------------------------------
+####  USER STATES 
+	
+
+* loggedin-user 
+	* [ authenticated web client routes]
+
+* non-confirmed-user 
+	* [non-authenticated web client routes]
+
+* no-session (anybody can execute funcitonality)
+	* [non-authenticated web client routes]
+
+		 
+
 
 
 #### --------------------------------------------------------------------------------------------------
