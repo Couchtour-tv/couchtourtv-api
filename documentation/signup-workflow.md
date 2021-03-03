@@ -281,7 +281,8 @@ Auth.currentSession()
         "accessToken": token,
     	"idToken": idToken,
     	"refreshToken": refreshToken,
-    	"emailVerified": bool
+    	"emailVerified": bool,
+    	"loggedIn": false
     }
 }
 ```
@@ -296,7 +297,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-success",
 	"message": {
-		"display-message": "user logged in",
+		"displayMessage": "user logged in",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -316,7 +317,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
-		"display-message": "user not able to log in",
+		"displayMessage": "user not able to log in",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -360,7 +361,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-signup-success",
 	"message": {
-		"display-message": "user created",
+		"displayMessage": "user created",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -409,9 +410,9 @@ Auth.currentSession()
 ``` javascript
 {
 	"sender": connectionId,
-	"action": "user-login-success",
+	"action": "user-logout-success",
 	"message": {
-		"display-message": "user logged-out",
+		"displayMessage": "user logged-out",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -431,7 +432,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
-		"display-message": "user not logged-out",
+		"displayMessage": "user not logged-out",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -450,7 +451,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verify-success",
 	"message": {
-		"display-message": "user verified",
+		"displayMessage": "user verified",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -469,7 +470,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verify-error",
 	"message": {
-		"display-message": "error user verification attempt",
+		"displayMessage": "error user verification attempt",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -488,7 +489,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verification-resend-success",
 	"message": {
-		"display-message": "user resent verification",
+		"displayMessage": "user resent verification",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
@@ -507,7 +508,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verification-resend-error",
 	"message": {
-		"display-message": "error resending user verification",
+		"displayMessage": "error resending user verification",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,

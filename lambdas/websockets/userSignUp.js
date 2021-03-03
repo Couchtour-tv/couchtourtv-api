@@ -42,12 +42,11 @@ exports.handler = async event => {
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-    const replyMessage = { sender: connectionId };
-
     try {
 
         let postData = JSON.parse(event.body).message;
         
+
         // create a userId for db table
         postData.ID = uuidv4();
         postData.emailAddress = postData.email;
@@ -55,10 +54,11 @@ exports.handler = async event => {
         postData.loggedIn = true;
 
         delete postData.user.cogId
-        delete postData.emai
+        delete postData.email
 
         replyMessage.action = null;
-        replyMessage.message = { user: postData };
+        replyMessage.message = postData;
+        replyMessage.sender = connectionId;
 
         try { 
 
@@ -81,12 +81,12 @@ exports.handler = async event => {
         
         }).promise();
         
-        console.log('\nUSERSIGNUP-64 - Promise.all now ');
+        console.log('\nUSERSIGNUP-84 - Promise.all now ');
         await Promise.resolve( socket_send );
     
     } catch (e) {
 
-        console.log('\nUSERSIGN-69 - error on promises', e.stack);
+        console.log('\nUSERSIGN-89 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     
     }

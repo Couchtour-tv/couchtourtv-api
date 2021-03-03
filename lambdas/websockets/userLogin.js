@@ -33,17 +33,33 @@ exports.handler = async event => {
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-    const replyMessage = { sender: connectionId };
-
     try {
 
         let postData = JSON.parse(event.body).message;
-        const returned_user = Dynamo.login( postData.user.email, UserTableName );
+        let replyMessage = postData;
+        replyMessage.sender = connectionId;
 
-        const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
+        try {
+            
+            // ---- Not Doing this any longer seen as Id is provided to endpoint via front end 
+            // const returned_user = Dynamo.login( postData.user.email, UserTableName );
+            // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
+            
+            // TO-DO: edit to update several 'columns' at once
+            const update = Dynamo.update( postData.Id, UserTableName, 'loggedIn', true );
+            const update = Dynamo.update( postData.Id, UserTableName, 'accessToken', postData.accessToken );
+            const update = Dynamo.update( postData.Id, UserTableName, 'idToken', postData.idToken );
+            const update = Dynamo.update( postData.Id, UserTableName, 'refreshToken', postData.refreshToken );
 
-        replyMessage.action = 'user-login-success';
-        replyMessage.message = 'user logged in';
+            replyMessage.displayMessage = 'user logged in';
+            replyMessage.action = 'user-login-success';
+
+        } catch (e) {
+
+            replyMessage.displayMessage = 'user not logged in';
+            replyMessage.action = 'user-login-success';
+
+        }
 
         const socket_send = await socket.postToConnection({ 
             ConnectionId: connectionId, 
