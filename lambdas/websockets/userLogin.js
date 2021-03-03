@@ -10,7 +10,19 @@ import { v4 as uuidv4 } from 'uuid';
 
 /*
     SAMPLE PAYLOAD:
-        {"action": "user-login", "message": {}}
+        {
+            "action": "user-login", 
+            "message": {
+                "user": {
+                    cogId
+                    username
+                    password
+                    email
+                    access token
+                },
+                "currentAuthenticatedUser": {}
+            }
+        }
     
     TO-DO
         - decide on the data to be SAVED for the user
@@ -21,30 +33,59 @@ exports.handler = async event => {
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-    let postData = JSON.parse(event.body).message;
-    postData.Id = postData.userId;
-    postData.passwordId = postData.passwordId;
-
-    Dynamo.write(postData, UserTableName );
-
-    const replyMessage = { 
-        action: 'userLogin', 
-        sender: connectionId, 
-        message: 'user logged in'
-    };
-
-    const socket_send = await socket.postToConnection({ 
-        ConnectionId: connectionId, 
-        Data: JSON.stringify(replyMessage) 
-    }).promise();
-
     try {
-        console.log('\nUSERLOGIN-40 - Promise.all now ');
+
+        let postData = JSON.parse(event.body).message;
+        let replyMessage = postData;
+        replyMessage.sender = connectionId;
+
+        try {
+            
+            // ---- Not Doing this any longer seen as Id is provided to endpoint via front end 
+            // const returned_user = Dynamo.login( postData.user.email, UserTableName );
+            // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
+            
+            // TO-DO: edit to update several 'columns' at once
+            const update = Dynamo.update( postData.Id, UserTableName, 'loggedIn', true );
+            const update = Dynamo.update( postData.Id, UserTableName, 'accessToken', postData.accessToken );
+            const update = Dynamo.update( postData.Id, UserTableName, 'idToken', postData.idToken );
+            const update = Dynamo.update( postData.Id, UserTableName, 'refreshToken', postData.refreshToken );
+
+            replyMessage.displayMessage = 'user logged in';
+            replyMessage.action = 'user-login-success';
+
+        } catch (e) {
+
+            replyMessage.displayMessage = 'user not logged in';
+            replyMessage.action = 'user-login-success';
+
+        }
+
+        const socket_send = await socket.postToConnection({ 
+            ConnectionId: connectionId, 
+            Data: JSON.stringify(replyMessage) 
+        }).promise();
+
+        console.log('\nUSERLOGIN-53 - Promise.all now ');
         await Promise.resolve( socket_send );
+
     } catch (e) {
-        console.log('\nUSERLOGIN-43 - error on promises', e.stack);
+        
+        console.log('\nUSERLOGIN-58 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     }
 
     return Responses._200({ success: true, message: 'user-login' });
 };
+
+
+
+
+
+
+
+
+
+
+
+

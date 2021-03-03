@@ -221,11 +221,17 @@ functions:
       - websocket:
           route: user-login
           cors: true
-  websocket-add-user-logout:
+  websocket-user-logout:
     handler: lambdas/websockets/userLogout.handler
     events:
       - websocket:
           route: user-logout
+          cors: true
+  websocket-user-signUp:
+    handler: lambdas/websockets/userSignUp.handler
+    events:
+      - websocket:
+          route: user-signup
           cors: true
 
 # Create our resources with separate CloudFormation templates
