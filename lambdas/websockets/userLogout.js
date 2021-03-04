@@ -10,11 +10,22 @@ import { v4 as uuidv4 } from 'uuid';
 
 /*
     SAMPLE PAYLOAD:
-        { "action": "user-logout", "Id": id, "email": email }
+        {
+            "action": "user-logout", 
+            "message": {
+                "id": couchtourdbId,
+                "email": email,
+                "emailVerified": bool,
+                "accessToken": token,
+                "idToken": idToken,
+                "refreshToken": refreshToken,
+                "loggedIn": true
+            }
+        }
 
     TO-DO
         - what other values to update ?
-        - also updating  
+        - UPDATING SEVERAL COLUMNS AT ONCE
 */
 
 exports.handler = async event => {
@@ -30,10 +41,10 @@ exports.handler = async event => {
         
         try {
             // TO-DO: edit to update several 'columns' at once
-            const update = Dynamo.update( postData.Id, UserTableName, 'loggedIn', false );
-            const update = Dynamo.update( postData.Id, UserTableName, 'accessToken', postData.accessToken );
-            const update = Dynamo.update( postData.Id, UserTableName, 'idToken', postData.idToken );
-            const update = Dynamo.update( postData.Id, UserTableName, 'refreshToken', postData.refreshToken );
+            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', false );
+            const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
+            const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
+            const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
 
             replyMessage.displayMessage = 'user logged out';
             replyMessage.action = 'user-logout-success';

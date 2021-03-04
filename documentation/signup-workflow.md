@@ -277,11 +277,12 @@ Auth.currentSession()
 {
     "action": "user-login", 
     "message": {
-    	"email": email
+    	"id": couchtourdbId,
+    	"email": email,
+    	"emailVerified": bool,
         "accessToken": token,
     	"idToken": idToken,
     	"refreshToken": refreshToken,
-    	"emailVerified": bool,
     	"loggedIn": false
     }
 }
@@ -297,6 +298,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-success",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user logged in",
 		"cogId": cogId, 
     	"username": email, 
@@ -317,6 +319,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user not able to log in",
 		"cogId": cogId, 
     	"username": email, 
@@ -361,6 +364,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-signup-success",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user created",
 		"cogId": cogId, 
     	"username": email, 
@@ -393,11 +397,13 @@ Auth.currentSession()
 {
     "action": "user-logout", 
     "message": {
+    	"id": couchtourdbId,
     	"email": email,
     	"emailVerified": bool,
         "accessToken": token,
     	"idToken": idToken,
-    	"refreshToken": refreshToken
+    	"refreshToken": refreshToken,
+    	"loggedIn": true
     }
 }
 ```
@@ -412,12 +418,13 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-logout-success",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user logged-out",
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
-    	"emailVerified": bool
-    	"loggedIn": true
+    	"emailVerified": bool,
+    	"loggedIn": false
 	}
 }
 ```
@@ -432,6 +439,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user not logged-out",
 		"cogId": cogId, 
     	"username": email, 
@@ -451,6 +459,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verify-success",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user verified",
 		"cogId": cogId, 
     	"username": email, 
@@ -470,6 +479,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verify-error",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "error user verification attempt",
 		"cogId": cogId, 
     	"username": email, 
@@ -489,6 +499,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verification-resend-success",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "user resent verification",
 		"cogId": cogId, 
     	"username": email, 
@@ -508,6 +519,7 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-verification-resend-error",
 	"message": {
+		"id": couchtourdbId,
 		"displayMessage": "error resending user verification",
 		"cogId": cogId, 
     	"username": email, 
