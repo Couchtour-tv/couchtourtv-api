@@ -37,7 +37,9 @@ exports.handler = async event => {
 
         let postData = JSON.parse(event.body).message;
         let replyMessage = postData;
-        replyMessage.sender = connectionId;    
+        replyMessage.sender = connectionId;
+
+        console.log('**************\n [42] userLogout payload Recevied: ', postData)    
         
         try {
             // TO-DO: edit to update several 'columns' at once
