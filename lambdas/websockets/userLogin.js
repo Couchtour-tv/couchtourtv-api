@@ -46,7 +46,7 @@ exports.handler = async event => {
             // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
             
             // TO-DO: edit to update several 'columns' at once
-            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', false );
+            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', true );
             const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
             const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
             const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
