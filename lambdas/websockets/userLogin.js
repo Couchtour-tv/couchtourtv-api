@@ -13,19 +13,19 @@ import { v4 as uuidv4 } from 'uuid';
         {
             "action": "user-login", 
             "message": {
-                "user": {
-                    cogId
-                    username
-                    password
-                    email
-                    access token
-                },
-                "currentAuthenticatedUser": {}
+                "id": couchtourdbId,
+                "email": email,
+                "emailVerified": bool,
+                "accessToken": token,
+                "idToken": idToken,
+                "refreshToken": refreshToken,
+                "loggedIn": false
             }
         }
     
     TO-DO
         - decide on the data to be SAVED for the user
+        - UPDATING SEVERAL COLUMNS AT ONCE
 */
 
 exports.handler = async event => {
@@ -46,10 +46,10 @@ exports.handler = async event => {
             // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
             
             // TO-DO: edit to update several 'columns' at once
-            const update = Dynamo.update( postData.Id, UserTableName, 'loggedIn', true );
-            const update = Dynamo.update( postData.Id, UserTableName, 'accessToken', postData.accessToken );
-            const update = Dynamo.update( postData.Id, UserTableName, 'idToken', postData.idToken );
-            const update = Dynamo.update( postData.Id, UserTableName, 'refreshToken', postData.refreshToken );
+            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', false );
+            const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
+            const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
+            const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
 
             replyMessage.displayMessage = 'user logged in';
             replyMessage.action = 'user-login-success';
