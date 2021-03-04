@@ -39,13 +39,18 @@ exports.handler = async event => {
         let replyMessage = postData;
         replyMessage.sender = connectionId;
 
+        console.log('**************\n [42] userLogin payload Recevied: ', postData)
+
         try {
             
             // ---- Not Doing this any longer seen as Id is provided to endpoint via front end 
             // const returned_user = Dynamo.login( postData.user.email, UserTableName );
             // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
             
-            // TO-DO: edit to update several 'columns' at once
+            // TO-DO:
+            //  edit to update several 'columns' at once
+            //  will tokens be null on logg out ?
+
             const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', true );
             const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
             const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
