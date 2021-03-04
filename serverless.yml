@@ -41,7 +41,19 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
   region: us-east-1
+  apiKeys:
+    - name: ottApp
+      value: ${env:OTT_API_KEY}
+  usagePlan:
+    quota:
+      limit: 500
+      offset: 2
+      period: MONTH
+    throttle:
+      burstLimit: 20
+      rateLimit: 10
 
   # These environment variables are made available to our functions
   # under process.env.
@@ -75,6 +87,36 @@ provider:
       Resource: "*"
 
 functions:
+  linkcodes:
+    handler: lambdas/linkcodes/get.main
+    events:
+      - http:
+          path: linkcode
+          method: GET
+          cors: true
+          private: true
+          request:
+            parameters:
+              querystrings:
+                uuid: false
+  linkcodes-link:
+    handler: lambdas/linkcodes/link.main
+    events:
+      - http:
+          path: linkcode
+          method: POST
+          cors: true
+          private: true
+          authorizer:
+            arn: arn:aws:cognito-idp:us-east-1:023867969210:userpool/us-east-1_K5tiZCvxM
+  linkcodes-linklogin:
+    handler: lambdas/linkcodes/linklogin.main
+    events:
+      - http:
+          path: linkcode
+          method: PATCH
+          cors: true
+          private: true
   create:
     handler: lambdas/notes/create.main
     events:

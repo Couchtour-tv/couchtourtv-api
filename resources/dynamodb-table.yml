@@ -55,6 +55,57 @@ Resources:
         - AttributeName: movieId
           KeyType: HASH
       BillingMode: PAY_PER_REQUEST
+  CodesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.stage}-codes
+      AttributeDefinitions:
+        - AttributeName: code
+          AttributeType: S
+        - AttributeName: ip
+          AttributeType: S
+        - AttributeName: ipv6
+          AttributeType: S
+        - AttributeName: expires
+          AttributeType: N
+        - AttributeName: identifier
+          AttributeType: S
+        - AttributeName: jwttoken
+          AttributeType: S
+      KeySchema:
+        - AttributeName: identifier
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: ix0lookup
+          KeySchema:
+          - AttributeName: code
+            KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+        - IndexName: ix1ip
+          KeySchema:
+          - AttributeName: ip
+            KeyType: HASH
+          - AttributeName: ipv6
+            KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+        - IndexName: ix2expires
+          KeySchema:
+          - AttributeName: expires
+            KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+        - IndexName: ix3jwttoken
+          KeySchema:
+          - AttributeName: jwttoken
+            KeyType: HASH
+          Projection:
+            ProjectionType: KEYS_ONLY
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        AttributeName: expires
+        Enabled: true
   SocketsTable:
     Type: AWS::DynamoDB::Table
     Properties:

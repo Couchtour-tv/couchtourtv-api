@@ -1,0 +1,10 @@
+{
+    "requestContext": {
+        "authorizer": {
+            "claims" : {
+                "sub": "someuuid",
+                "email": "foo@bar.com"
+            }
+        }
+    }
+}
