@@ -25,6 +25,10 @@ Resources:
           FromPort: 5432
           ToPort: 5432
           SourceSecurityGroupId: !Ref AppSecurityGroup
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref BastionSecurityGroup
   RDSCredentialSecretStore:
     Type: "AWS::SecretsManager::Secret"
     Properties:

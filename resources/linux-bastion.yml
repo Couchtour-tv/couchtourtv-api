@@ -8,7 +8,7 @@ Resources:
     Properties:
       Domain: vpc
 
-  SecurityGroup:
+  BastionSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       GroupDescription: Linux Bastion Host ssh and ICMP
@@ -194,7 +194,7 @@ Resources:
       ImageId: ami-0915bcb5fa77e4892
       InstanceType: t3.micro
       SecurityGroups:
-      - !Ref SecurityGroup
+      - !Ref BastionSecurityGroup
       KeyName: branchDNA-production_rsa
       UserData:
         'Fn::Base64': !Sub |

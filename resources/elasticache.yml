@@ -20,6 +20,10 @@ Resources:
           FromPort: 6379
           ToPort: 6379
           SourceSecurityGroupId: !Ref AppSecurityGroup
+        - IpProtocol: tcp
+          FromPort: 6379
+          ToPort: 6379
+          SourceSecurityGroupId: !Ref BastionSecurityGroup
   RedisRecordSet:
     Type: 'AWS::Route53::RecordSet'
     Properties:
