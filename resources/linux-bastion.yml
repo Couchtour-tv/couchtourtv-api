@@ -2,7 +2,7 @@ Resources:
   Logs:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      RetentionInDays: !Ref LogsRetentionInDays
+      RetentionInDays: 7
   EIP:
     Type: 'AWS::EC2::EIP'
     Properties:
