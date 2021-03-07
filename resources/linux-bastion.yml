@@ -199,7 +199,7 @@ Resources:
       UserData:
         'Fn::Base64': !Sub |
           #!/bin/bash -x
-          for i in $(aws ec2 describe-volumes --region=${AWS::Region} --filters "Name=attachment.instance-id, Values=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)" Name=attachment.device,Values=/dev/xvda --query "Volumes[].VolumeId" --out text) ; do aws --region=${AWS::Region} ec2 create-tags --resources $i --tags Key=Name,Value=${ComputerName}-/dev/sda1 ; done
+          for i in $(aws ec2 describe-volumes --region=${AWS::Region} --filters "Name=attachment.instance-id, Values=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)" Name=attachment.device,Values=/dev/xvda --query "Volumes[].VolumeId" --out text) ; do aws --region=${AWS::Region} ec2 create-tags --resources $i --tags Key=Name,Value=Bastion-/dev/sda1 ; done
           yum update -y
           yum install amazon-ssm-agent python-deltarpm -y
           start amazon-ssm-agent | true
@@ -223,7 +223,7 @@ Resources:
       MinSize: 1
       Tags:
         - Key: Name
-          Value: !Ref ComputerName
+          Value: Bastion
           PropagateAtLaunch: 'true'
         - Key: AmazonLinuxUpdatesScan
           Value: true
