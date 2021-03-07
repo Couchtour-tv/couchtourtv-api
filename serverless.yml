@@ -255,3 +255,5 @@ resources:
   - ${file(resources/rds.yml)}
   #SQS
   - ${file(resources/sqs-fifo.yml)}
+  #Linux Bastion
+  - ${file(resources/linux-bastion.yml)}
