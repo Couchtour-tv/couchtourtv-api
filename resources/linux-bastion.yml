@@ -209,7 +209,7 @@ Resources:
             aws --region ${AWS::Region} ec2 associate-address --instance-id $INSTANCEID --allocation-id ${EIP.AllocationId}
             /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchConfiguration --region ${AWS::Region}
           TRY
-          /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
+          /opt/aws/bin/cfn-signal -e 0 --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
 
   AutoScalingGroup:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
