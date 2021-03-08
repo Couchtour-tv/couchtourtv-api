@@ -284,8 +284,8 @@ Auth.currentSession()
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
-    	"emailVerified": true,   						// verified will be true, because on success of cognito verification 
-    	"loggedIn": false 								// loggedIn will be false, because not yet logged in
+    	"emailVerified": true, // verified will be true, because on success of cognito verification 
+    	"loggedIn": false  // loggedIn will be false, because not yet logged in
 	}
 }
 ```
@@ -305,11 +305,11 @@ Auth.currentSession()
 	"action": "user-verify-success-resp",
 	"message": {
 		"displayMessage": "Noting Successful User Verification"
-		"cogId": cogId, 								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": true,   						// verified will be true, because on success of cognito verification 
-    	"loggedIn": false 								// loggedIn will be false, because not yet logged in
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": true, // verified will be true, because on success of cognito verification 
+    	"loggedIn": false // loggedIn will be false, because not yet logged in
 	}
 }
 ```
@@ -326,8 +326,8 @@ Auth.currentSession()
 		"cogId": cogId, 
     	"username": email, 
     	"email": email,
-    	"emailVerified": false,							// verified will be false, because of ERROR of cognito verification 
-    	"loggedIn": false 								// loggedIn will be false, because not yet logged in
+    	"emailVerified": false, // verified will be false, because of ERROR of cognito verification 
+    	"loggedIn": false // loggedIn will be false, because not yet logged in
     }
 }
 ```
@@ -347,11 +347,11 @@ Auth.currentSession()
 	"action": "user-verify-error-resp",
 	"message": {
 		"displayMessage": "Noting Error User Verification"
-		"cogId": cogId, 								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": false,							// verified will be false, because of ERROR of cognito verification 
-    	"loggedIn": false 								// loggedIn will be false, because not yet logged in
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": false, // verified will be false, because of ERROR of cognito verification 
+    	"loggedIn": false // loggedIn will be false, because not yet logged in
     }
 }
 ```
@@ -368,8 +368,8 @@ Auth.currentSession()
 		"cogId": cogId, 							
     	"username": email, 							
     	"email": email,								
-    	"emailVerified": bool,							// this is will be false, because user will be 
-    	"loggedIn": bool 								// this can be true or false, because can be logged in but not verified
+    	"emailVerified": bool, // this is will be false, because user will be 
+    	"loggedIn": bool // this can be true or false, because can be logged in but not verified
     }
 }
 ```
@@ -479,12 +479,12 @@ Auth.currentSession()
 	"action": "user-signup-success",
 	"message": {
 		"displayMessage": "user created",
-		"userId": id, 									// generated on backend
-		"cogId": cogId, 								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": bool,							// returned to frontend as provided from frontend
-    	"loggedIn": true								// if successful db write, will set to logged = True on backend
+		"userId": id, // generated on backend
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": bool, // returned to frontend as provided from frontend
+    	"loggedIn": true // if successful db write, will set to logged = True on backend
 	}
 }
 ```
@@ -505,11 +505,11 @@ Auth.currentSession()
 	"action": "user-signup-error",
 	"message": {
 		"displayMessage": "user not created",
-		"cogId": cogId,									// returned to frontend as provided from frontend 
-    	"username": email,								// returned to frontend as provided from frontend 
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": bool,							// returned to frontend as provided from frontend
-    	"loggedIn": false								// if ERROR db write, will set to logged = False on backend, or leave false as default on backend
+		"cogId": cogId, // returned to frontend as provided from frontend 
+    	"username": email, // returned to frontend as provided from frontend 
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": bool, // returned to frontend as provided from frontend
+    	"loggedIn": false // if ERROR db write, will set to logged = False on backend, or leave false as default on backend
 	}
 }
 ``` 	
@@ -529,7 +529,7 @@ Auth.currentSession()
         "accessToken": token,
     	"idToken": idToken,
     	"refreshToken": refreshToken,
-    	"loggedIn": true 								// true because of cognito loggin success
+    	"loggedIn": true // true because of cognito loggin success
     }
 }
 ```
@@ -549,13 +549,13 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-success",
 	"message": {
-		"userId": id,									// redeemed from db query
+		"userId": id, // redeemed from db query
 		"displayMessage": "user logged in",
-		"cogId": cogId, 								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": boolean   						// returned to frontend as provided from frontend
-    	"loggedIn": true 								// updated user record in db to mirror logged in state
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": boolean, // returned to frontend as provided from frontend
+    	"loggedIn": true // updated user record in db to mirror logged in state
     }
 }
 ```
@@ -575,13 +575,13 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
-		"userId": id,									// db will actually have ID primary for user, see successful signUp
+		"userId": id, // db will actually have ID primary for user, see successful signUp
 		"displayMessage": "user not able to log in",
-		"cogId": cogId, 								// returned to frontend as provided from frontend 
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": bool 							// returned to frontend as provided from frontend
-    	"loggedIn": false 								// update errored, loggedIn is false
+		"cogId": cogId, // returned to frontend as provided from frontend 
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": bool, // returned to frontend as provided from frontend
+    	"loggedIn": false // update errored, loggedIn is false
 	}
 }
 ```
@@ -596,12 +596,12 @@ Auth.currentSession()
 {
     "action": "user-logout", 
     "message": {
-    	"userId": id,									// backend generated previously, now returned to ui
-    	"email": email, 								// returned to frontend as provided from frontend
-    	"emailVerified": bool, 							// returned to frontend as provided from frontend
-        "accessToken": token, 							// returned to frontend as provided from frontend
-    	"idToken": idToken, 							// returned to frontend as provided from frontend
-    	"refreshToken": refreshToken, 					/// returned to frontend as provided from frontend
+    	"userId": id, // backend generated previously, now returned to ui
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": bool, // returned to frontend as provided from frontend
+        "accessToken": token, // returned to frontend as provided from frontend
+    	"idToken": idToken, // returned to frontend as provided from frontend
+    	"refreshToken": refreshToken, // returned to frontend as provided from frontend
     	"loggedIn": false
     }
 }
@@ -621,13 +621,13 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-logout-success",
 	"message": {
-		"userId": id, 									// backend generated previously, now returned to ui
+		"userId": id, // backend generated previously, now returned to ui
 		"displayMessage": "user logged-out",
-		"cogId": cogId, 								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": bool,							// returned to frontend as provided from frontend
-    	"loggedIn": false 								// mirrors successful db update
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": bool, // returned to frontend as provided from frontend
+    	"loggedIn": false // mirrors successful db update
 	}
 }
 ```
@@ -647,13 +647,13 @@ Auth.currentSession()
 	"sender": connectionId,
 	"action": "user-login-error",
 	"message": {
-		"userId": id, 									// backend generated previously, now returned to ui
+		"userId": id, // backend generated previously, now returned to ui
 		"displayMessage": "user not logged-out",
-		"cogId": cogId,  								// returned to frontend as provided from frontend
-    	"username": email, 								// returned to frontend as provided from frontend
-    	"email": email,									// returned to frontend as provided from frontend
-    	"emailVerified": boolean 						// returned to frontend as provided from frontend
-    	"loggedIn": true 								// no successfull db update, user remains "logged in true" 
+		"cogId": cogId, // returned to frontend as provided from frontend
+    	"username": email, // returned to frontend as provided from frontend
+    	"email": email, // returned to frontend as provided from frontend
+    	"emailVerified": boolean, // returned to frontend as provided from frontend
+    	"loggedIn": true // no successfull db update, user remains "logged in true" 
 	}
 }
 ```
@@ -662,7 +662,6 @@ Auth.currentSession()
 #### --------------------------------------------------------------------------------------------------
 ####  USER STATES 
 	
-
 * loggedin-user 
 	* [ authenticated web client routes]
 
@@ -671,9 +670,6 @@ Auth.currentSession()
 
 * no-session (anybody can execute funcitonality)
 	* [non-authenticated web client routes]
-
-		 
-
 
 
 #### --------------------------------------------------------------------------------------------------
