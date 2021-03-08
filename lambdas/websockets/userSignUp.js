@@ -45,7 +45,7 @@ exports.handler = async event => {
         let replyMessage = postData;
         replyMessage.sender = connectionId;
 
-        console.log('[47] userSignUp payload Recevied: ', postData)
+        console.log('**************\n [47] userSignUp payload Recevied: ', postData)
         
 
         // create a userId for db table
