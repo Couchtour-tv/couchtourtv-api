@@ -197,12 +197,16 @@ functions:
       - websocket:
           route: onlinenow
           cors: true
+  ## ------------------------------------------------------
+  ## -- CouchTour Admin 
   websocket-upload-media-meta:
     handler: lambdas/websockets/uploadMediaMeta.handler
     events:
       - websocket:
           route: upload-media-meta
           cors: true
+  ## ------------------------------------------------------
+  ## -- CouchTour Patron
   websocket-get-videos:
     handler: lambdas/websockets/getVideos.handler
     events:
@@ -214,6 +218,32 @@ functions:
     events:
       - websocket:
           route: add-device-id
+          cors: true
+  ## ------------------------------------------------------
+  ## -- CouchTour User Auth 
+  websocket-user-verify-success:
+    handler: lambdas/websockets/userVerifySuccess.handler
+    events:
+      - websocket:
+          route: user-verify-success
+          cors: true
+  websocket-user-verify-error:
+    handler: lambdas/websockets/userVerifyError.handler
+    events:
+      - websocket:
+          route: user-verify-error
+          cors: true
+  websocket-user-verify-resend-success:
+    handler: lambdas/websockets/userVerifyResendSuccess.handler
+    events:
+      - websocket:
+          route: user-verify-resend-success
+          cors: true
+  websocket-user-verify-resend-error:
+    handler: lambdas/websockets/userVerifyResendError.handler
+    events:
+      - websocket:
+          route: user-verify-resend-error
           cors: true
   websocket-user-login:
     handler: lambdas/websockets/userLogin.handler
