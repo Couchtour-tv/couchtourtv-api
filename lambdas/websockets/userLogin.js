@@ -51,7 +51,7 @@ exports.handler = async event => {
             //  edit to update several 'columns' at once
             //  will tokens be null on logg out ?
 
-            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', true );
+            const update = Dynamo.update( postData.userId, UserTableName, 'loggedIn', true );
             const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
             const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
             const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
