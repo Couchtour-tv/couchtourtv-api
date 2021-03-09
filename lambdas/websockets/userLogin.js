@@ -53,9 +53,9 @@ exports.handler = async event => {
 
             // const update = Dynamo.update( postData.userId, UserTableName, 'loggedIn', true );
             const update = Dynamo.update( postData.email, UserTableName, 'loggedIn', true );
-            const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
-            const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
-            const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
+            const updateAccessToken = Dynamo.update( postData.email, UserTableName, 'accessToken', postData.accessToken );
+            const updateIdToken = Dynamo.update( postData.email, UserTableName, 'idToken', postData.idToken );
+            const updateRefreshToken = Dynamo.update( postData.email, UserTableName, 'refreshToken', postData.refreshToken );
 
             replyMessage.displayMessage = 'user logged in';
             replyMessage.action = 'user-login-success';
