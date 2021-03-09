@@ -38,12 +38,12 @@ exports.handler = async event => {
             Data: JSON.stringify(replyMessage) 
         }).promise();
 
-        console.log('\nUSERLOGIN-53 - Promise.all now ');
+        console.log('\nUSERVERIFYRESENDSUCCESS-41 - Promise.all now ');
         await Promise.resolve( socket_send );
 
     } catch (e) {
         
-        console.log('\nUSERLOGIN-58 - error on promises', e.stack);
+        console.log('\nUSERVERIFYRESENDSUCCESS-46 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     }
 
