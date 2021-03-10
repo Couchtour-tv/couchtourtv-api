@@ -10,10 +10,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 /*
     SAMPLE PAYLOAD:
-<<<<<<< HEAD
-        {"action": "user-login", "message": {}}
-
-=======
         {
             "action": "user-login",
             "message": {
@@ -27,7 +23,6 @@ import { v4 as uuidv4 } from 'uuid';
             }
         }
 
->>>>>>> mr
     TO-DO
         - decide on the data to be SAVED for the user
         - UPDATING SEVERAL COLUMNS AT ONCE
