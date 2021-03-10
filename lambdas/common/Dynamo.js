@@ -21,10 +21,26 @@ const Dynamo = {
 
         return data.Item;
     },
+    login: async (emailAddress, TableName) => {
+        const params = {
+            TableName,
+            Key: { emailAddress, },
+        };
+
+        const data = await documentClient.get(params).promise();
+
+        if (!data && !data.Item) {
+            throw Error(`There was an error fetching the data for ID of ${ID} from ${TableName}`);
+        }
+        console.log("DYNAMO-GET[27]", data, '\n');
+
+        return data.Item;
+    },
     write: async (data, TableName) => {
         console.log("DYNAMO-WRITE[33] -> ", TableName, '\n', data, '\n');
-        if (!data.ID) {
-            throw Error('no ID on the data');
+        
+        if (!data.ID) { 
+            throw Error('no ID [OR] userId on the data'); 
         }
 
         data.date = Date.now();

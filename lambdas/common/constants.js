@@ -23,6 +23,8 @@ export const OptionsDynamoDB = {
 export const SocketTableName = process.env.SOCKETS_TABLE;
 export const NotesTableName = process.env.NOTES_TABLE;
 export const MediaMetaTableName = process.env.MEDIA_META_TABLE;
+export const DevicesTableName = process.env.DEVICES_TABLES;
+export const UserTableName = process.env.USER_TABLE;
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID;
@@ -34,7 +36,3 @@ export const OptionsCognito = {
 
 // Credit card processing
 export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
-
-// New Functionality
-export const DevicesTableName = process.env.DEVICES_TABLES;
-export const UserTableName = process.env.USER_TABLE;
