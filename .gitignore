@@ -66,3 +66,5 @@ env.yml
 /docs
 /docs/*
 
+# py environment for local socket testing 
+tests/test_local_sockets/env-socket-test

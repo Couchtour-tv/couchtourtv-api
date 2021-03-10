@@ -58,6 +58,27 @@ const Dynamo = {
 
         return res;
     },
+    updateGivenKey: async (key, keyValue, tableName, columnName, value) => {
+
+        const params = {
+            TableName: tableName,
+            Key: { key: keyValue },
+            UpdateExpression: 'set #a = :x',
+            ExpressionAttributeNames: { '#a' : columnName },
+            ExpressionAttributeValues: {
+                ':x' : value,
+            }
+        };
+
+        console.log("DYNAMO-UPDATE[74]", params, '\n');
+        const res = await documentClient.update(params).promise();
+
+        if (!res) {
+            throw Error(`There was an error updating ${params.Key.ID} in table ${params.TableName} on request ${params.UpdateExpression} ${params.ExpressionAttributeNames} ${params.ExpressionAttributeValues}`);
+        }
+
+        return res;
+    },
     update: async (objectId, tableName, columnName, value) => {
 
         const params = {

@@ -1,0 +1,56 @@
+LOGIN - SIGNUP 
+
+SIGNUP 
+
+1. bad credentials
+	- password and confirm password do not match
+	- valid email formation
+
+	UI 
+		- pop alurt for email formation
+		- non-matching passwords disables login button
+
+2. success 
+	- brings you to the verification ui
+
+3. signed up already
+	- brings you back to the sign up page
+
+	UI
+		- "account with that email already exists" 
+
+LOGIN
+
+1. bad credentials
+	- password and confirm password do not match
+	- valid email formation
+	***- user doesnt exist
+		--> do not send it to confirmation code page
+	UI 
+		- pop alurt for email formation
+		- non-matching passwords disables login button
+		- pop up modal "user does not exist"
+
+2. success
+	- sends to home page 
+
+
+SIGNUP/LOGIN - VERIFY CREDENTIAL 
+
+1. email verified
+
+2. unverified - no action by user 
+
+3. verify is expired - unverifiable 
+
+
+
+
+
+--------------------------------------------------
+TO DO 
+
+For Login and sign-up, have ui tell you 
+	- can not continue without email or password
+	- need email address
+	- password and confirm password need to match

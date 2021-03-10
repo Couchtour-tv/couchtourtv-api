@@ -490,14 +490,8 @@ Auth.currentSession()
 ```
 
 * user-signup-error
-	* **ws-api > wc**
-		* in response [user-signup] socket call
-		* on ERROR of backend signup 
-		* wc socket handler needs to be able to handle this message [see: socketProvider.onMesssage]
-			* TO-DO :: 
-				* UI handle anything ?
-				* what to put in react state ?
-			* just console.log message for now
+	* **wc > ws-api**
+	* after cognito signup AND confirm signup is completed in the UI 
 	
 ``` javascript
 {
