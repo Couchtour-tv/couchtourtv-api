@@ -33,16 +33,16 @@ exports.handler = async event => {
 
         }
 
-        const socket_send = await socket.postToConnection({ 
-            ConnectionId: connectionId, 
-            Data: JSON.stringify(replyMessage) 
+        const socket_send = await socket.postToConnection({
+            ConnectionId: connectionId,
+            Data: JSON.stringify(replyMessage)
         }).promise();
 
         console.log('\nUSERVERIFYRESENDSUCCESS-41 - Promise.all now ');
         await Promise.resolve( socket_send );
 
     } catch (e) {
-        
+
         console.log('\nUSERVERIFYRESENDSUCCESS-46 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     }

@@ -30,7 +30,7 @@ const Dynamo = {
         const data = await documentClient.get(params).promise();
 
         if (!data && !data.Item) {
-            throw Error(`There was an error fetching the data for ID of ${ID} from ${TableName}`);
+            throw Error(`There was an error fetching the data for ID of ${emailAddress} from ${TableName}`);
         }
         console.log("DYNAMO-GET[27]", data, '\n');
 

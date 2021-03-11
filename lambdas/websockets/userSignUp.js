@@ -51,7 +51,6 @@ exports.handler = async event => {
         // create a userId for db table
         postData.ID = uuidv4();
         postData.emailAddress = postData.email;
-        postData.cogId = postData.cogId;
         postData.loggedIn = true;
 
         delete postData.cogId

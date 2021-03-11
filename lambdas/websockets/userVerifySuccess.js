@@ -22,10 +22,10 @@ exports.handler = async event => {
         console.log('**************\n [22] userVerifySuccess payload Recevied: ', postData)
 
         try {
-            
+
             // -- TO DO
             // -- What is Backend To Do ? Record a successful user verification ?
-            
+
             replyMessage.displayMessage = 'user email verified';
             replyMessage.action = 'user-verify-success-resp';
 
@@ -36,16 +36,16 @@ exports.handler = async event => {
 
         }
 
-        const socket_send = await socket.postToConnection({ 
-            ConnectionId: connectionId, 
-            Data: JSON.stringify(replyMessage) 
+        const socket_send = await socket.postToConnection({
+            ConnectionId: connectionId,
+            Data: JSON.stringify(replyMessage)
         }).promise();
 
         console.log('\nUSERVERIFYSUCCESS-44 - Promise.all now ');
         await Promise.resolve( socket_send );
 
     } catch (e) {
-        
+
         console.log('\nUSERVERIFYSUCCESS-49 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
     }
