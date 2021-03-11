@@ -18,7 +18,13 @@ LOCAL DEVELOPMENT
 
 Go to /api
 
-	setup - make a .env file out of .env.example
+	Setup:
+        1. Make a .env file out of .env.example
+        2. Make sure serverless dynamoDB is installed
+           (this fixes the error "Error: spawn java ENOENT" on launch).
+                sls dynamodb install
+
+        Run:
 	1. launch the serverless local offline server on local machine
   		npm run dev
   			aka `sls offline start --stage dev`
