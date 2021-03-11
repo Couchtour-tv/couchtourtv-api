@@ -58,7 +58,7 @@ Resources:
   CodesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.stage}-codes
+      TableName: ct-codes
       AttributeDefinitions:
         - AttributeName: code
           AttributeType: S

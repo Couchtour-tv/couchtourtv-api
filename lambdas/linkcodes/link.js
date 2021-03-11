@@ -12,7 +12,7 @@ export const main = handler(async (event, context) => {
         throw new Error('Execution without token');
     }
 
-    const tableName = `${process.env.deployStage}-codes`;
+    const tableName = 'ct-codes';
     const body = JSON.parse(event.body);
     const code = body.code;
 
@@ -44,7 +44,5 @@ export const main = handler(async (event, context) => {
         }
     };
     const res = await dynamoDb.update(params);
-
-    console.log('WOW');
-    console.log(res);
+    return res;
 });

@@ -9,7 +9,7 @@ export const main = handler(async (event, context) => {
 
     const ip = event.requestContext.identity.sourceIp;
     const ipv6 = '::1'; // AWS API Gateway doesn't do ipv6 (yet?)
-    const tableName = `${process.env.deployStage}-codes`;
+    const tableName = 'ct-codes';
     const body = JSON.parse(event.body);
 
     const uuid = body.uuid;

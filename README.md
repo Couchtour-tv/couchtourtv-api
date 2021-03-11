@@ -34,6 +34,11 @@ Go to /api
   		sls dynamodb start --stage dev
 	3. connect the socket via wscat to test
   		wscat -c ws://localhost:3001
+
+        Forward (needed to connect android emulator):
+        1. The emulator can't easily connect to localhost, so the easiest way
+           is to connect it is to use ngrok:
+               ngrok start -config ./ngrok.yml api
 ```
 
 ``` bash
