@@ -67,4 +67,8 @@ env.yml
 /docs/*
 
 # py environment for local socket testing 
-tests/test_local_sockets/env-socket-test
+tests/local_sockets/env-socket-test
+
+# omit pre-compiled cached python
+tests/local_sockets/__pycache__/
+tests/local_sockets/__pycache__/*

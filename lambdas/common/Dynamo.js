@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 
-import { OptionsDynamoDB } from './constants';
+import { OptionsDynamoDB, UserTableName } from './constants';
 const documentClient = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
 const Dynamo = {
@@ -21,26 +21,27 @@ const Dynamo = {
 
         return data.Item;
     },
-    login: async (emailAddress, TableName) => {
+    getGivenEmailAddress: async ( emailAddress ) => {
+        console.log("DYNAMO-getGivenEmailAddress[26] -> ", emailAddress, '\n');
         const params = {
-            TableName,
-            Key: { emailAddress, },
+            ExpressionAttributeValues: { ":v1": emailAddress },
+            KeyConditionExpression: "emailAddress = :v1",
+            TableName: UserTableName
         };
 
-        const data = await documentClient.get(params).promise();
-
-        if (!data && !data.Item) {
-            throw Error(`There was an error fetching the data for ID of ${ID} from ${TableName}`);
+        const data = await documentClient.query(params).promise();
+        if (!data || !data.Items) {
+            throw Error(`There was an error fetching the data for Email of ${emailAddress} from ${UserTableName}`);
         }
-        console.log("DYNAMO-GET[27]", data, '\n');
+        console.log("DYNAMO-getGivenEmailAddress[48]", data, '\n');
 
-        return data.Item;
+        return data.Items;
     },
     write: async (data, TableName) => {
         console.log("DYNAMO-WRITE[33] -> ", TableName, '\n', data, '\n');
-        
-        if (!data.ID) { 
-            throw Error('no ID [OR] userId on the data'); 
+
+        if (!data.ID) {
+            throw Error('no ID [OR] userId on the data');
         }
 
         data.date = Date.now();
@@ -54,27 +55,6 @@ const Dynamo = {
         const res = await documentClient.put(params).promise();
         if (!res) {
             throw Error(`There was an error inserting ID of ${data.ID} in table ${TableName}`);
-        }
-
-        return res;
-    },
-    updateGivenKey: async (key, keyValue, tableName, columnName, value) => {
-
-        const params = {
-            TableName: tableName,
-            Key: { key: keyValue },
-            UpdateExpression: 'set #a = :x',
-            ExpressionAttributeNames: { '#a' : columnName },
-            ExpressionAttributeValues: {
-                ':x' : value,
-            }
-        };
-
-        console.log("DYNAMO-UPDATE[74]", params, '\n');
-        const res = await documentClient.update(params).promise();
-
-        if (!res) {
-            throw Error(`There was an error updating ${params.Key.ID} in table ${params.TableName} on request ${params.UpdateExpression} ${params.ExpressionAttributeNames} ${params.ExpressionAttributeValues}`);
         }
 
         return res;
@@ -96,6 +76,49 @@ const Dynamo = {
 
         if (!res) {
             throw Error(`There was an error updating ${params.Key.ID} in table ${params.TableName} on request ${params.UpdateExpression} ${params.ExpressionAttributeNames} ${params.ExpressionAttributeValues}`);
+        }
+
+        return res;
+    },
+    userUpdateLoggedInStatus: async (emailAddress, cogId, value ) => {
+        const params = {
+            TableName: UserTableName,
+            Key: {
+                "emailAddress": emailAddress,
+                "cogId": cogId
+            },
+            UpdateExpression: `set loggedIn = :x`,
+            ExpressionAttributeValues: {
+                ":x": value
+
+            }
+        };
+        console.log("DYNAMO-userUpdateLoggedInStatus[98]", params, '\n');
+        const res = await documentClient.update(params).promise();
+
+        if (!res) {
+            throw Error(`There was an error updating :: userUpdateLoggedInStatus`, '\n\n', params );
+        }
+
+        return res;
+    },
+    userUpdateAttri: async (emailAddress, cogId, attr, value ) => {
+        const params = {
+            TableName: UserTableName,
+            Key: {
+                "emailAddress": emailAddress ,
+                "cogId": cogId
+            },
+            UpdateExpression: `set ${ attr } = :x`,
+            ExpressionAttributeValues: {
+                ":x": value
+            }
+        };
+        console.log("DYNAMO-userUpdateAttri[120]", params, '\n');
+        const res = await documentClient.update(params).promise();
+
+        if (!res) {
+            throw Error(`There was an error updating :: userUpdateAttri`, '\n\n', params );
         }
 
         return res;

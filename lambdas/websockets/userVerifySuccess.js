@@ -1,54 +1,55 @@
 const AWS = require('aws-sdk');
+const path = require('path');
 
-import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import Dynamo from '../common/Dynamo';
-// import dynamoDb from "../../libs/dynamodb-lib";
-
-import { UserTableName } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
 
 exports.handler = async event => {
 
-    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+
 
     try {
 
         let postData = JSON.parse(event.body).message;
-        let replyMessage = postData;
+        let replyMessage =  {};
         replyMessage.sender = connectionId;
 
-        console.log('**************\n [22] userVerifySuccess payload Recevied: ', postData)
+        console.log( '\n**************', path.basename(__filename), '[19] payload Recevied:', postData );
+
+        replyMessage.action = 'user-verify-success-resp';
+        replyMessage.message = postData
+        replyMessage.message.displayMessage = 'Noting Successful User Verification';
 
         try {
-            
-            // -- TO DO
-            // -- What is Backend To Do ? Record a successful user verification ?
-            
-            replyMessage.displayMessage = 'user email verified';
-            replyMessage.action = 'user-verify-success-resp';
+
+            const socket_send = await socket.postToConnection({
+                ConnectionId: connectionId,
+                Data: JSON.stringify(replyMessage)
+                }).promise();
+
+
+            await Promise.resolve( socket_send );
+            console.log('\n', path.basename(__filename), '[34] : Success Socket Resp ' )
 
         } catch (e) {
 
-            replyMessage.displayMessage = 'user email verified resp error ';
-            replyMessage.action = 'user-verify-success-resp-error';
+            console.log('\n', path.basename(__filename), '[38] : Error Socket Resp' )
+            console.log('\n', e.stack)
+
+            return { statusCode: 500, body: e.stack };
 
         }
 
-        const socket_send = await socket.postToConnection({ 
-            ConnectionId: connectionId, 
-            Data: JSON.stringify(replyMessage) 
-        }).promise();
-
-        console.log('\nUSERVERIFYSUCCESS-44 - Promise.all now ');
-        await Promise.resolve( socket_send );
-
     } catch (e) {
-        
-        console.log('\nUSERVERIFYSUCCESS-49 - error on promises', e.stack);
+
+        console.log('\n', path.basename(__filename), '[47] : Error in Parsing Payload :' )
+        console.log('\n', e.stack)
+
         return { statusCode: 500, body: e.stack };
     }
 
-    return Responses._200({ success: true, message: 'user-login' });
+    return Responses._200({ success: true, message: 'user-verify-success' });
 };
+

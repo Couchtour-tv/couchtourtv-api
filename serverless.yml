@@ -197,14 +197,16 @@ functions:
       - websocket:
           route: onlinenow
           cors: true
+
   ## ------------------------------------------------------
-  ## -- CouchTour Admin 
+  ## -- CouchTour Admin
   websocket-upload-media-meta:
     handler: lambdas/websockets/uploadMediaMeta.handler
     events:
       - websocket:
           route: upload-media-meta
           cors: true
+
   ## ------------------------------------------------------
   ## -- CouchTour Patron
   websocket-get-videos:
@@ -219,8 +221,9 @@ functions:
       - websocket:
           route: add-device-id
           cors: true
+
   ## ------------------------------------------------------
-  ## -- CouchTour User Auth 
+  ## -- CouchTour User Auth
   websocket-user-verify-success:
     handler: lambdas/websockets/userVerifySuccess.handler
     events:
@@ -262,6 +265,12 @@ functions:
     events:
       - websocket:
           route: user-signup
+          cors: true
+  websocket-user-signUp-error:
+    handler: lambdas/websockets/userSignUpError.handler
+    events:
+      - websocket:
+          route: user-signup-error
           cors: true
 
 # Create our resources with separate CloudFormation templates
