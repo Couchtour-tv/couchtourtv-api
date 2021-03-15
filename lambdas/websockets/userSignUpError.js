@@ -17,9 +17,9 @@ exports.handler = async event => {
 
         console.log( '\n**************', path.basename(__filename), '[18] payload Recevied:', postData );
 
-        replyMessage.action = 'user-verify-error-resp';
+        replyMessage.action = 'user-signup-error-resp';
         replyMessage.message = postData;
-        replyMessage.message.displayMessage = 'Noting Error User Verification';
+        replyMessage.message.displayMessage = 'Noting User SignUp Error';
 
         try {
 
@@ -48,5 +48,5 @@ exports.handler = async event => {
         return { statusCode: 500, body: e.stack };
     }
 
-    return Responses._200({ success: true, message: 'user-verify-error' });
+    return Responses._200({ success: true, message: 'user-signup-error' });
 };

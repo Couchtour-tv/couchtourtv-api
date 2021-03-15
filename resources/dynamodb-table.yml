@@ -107,14 +107,14 @@ Resources:
     Properties:
       TableName: ${env:USER_TABLE}
       AttributeDefinitions:
-        - AttributeName: cogId
-          AttributeType: S
         - AttributeName: emailAddress
+          AttributeType: S
+        - AttributeName: cogId
           AttributeType: S
       KeySchema:
-        - AttributeName: cogId
-          KeyType: HASH
         - AttributeName: emailAddress
+          KeyType: HASH
+        - AttributeName: cogId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------

@@ -1,75 +1,77 @@
 const AWS = require('aws-sdk');
+const path = require('path');
 
-import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-// import dynamoDb from "../../libs/dynamodb-lib";
-
-import { UserTableName } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
-
-/*
-    SAMPLE PAYLOAD:
-        {
-            "action": "user-logout", 
-            "message": {
-                "id": couchtourdbId,
-                "email": email,
-                "emailVerified": bool,
-                "accessToken": token,
-                "idToken": idToken,
-                "refreshToken": refreshToken,
-                "loggedIn": true
-            }
-        }
-
-    TO-DO
-        - what other values to update ?
-        - UPDATING SEVERAL COLUMNS AT ONCE
-*/
 
 exports.handler = async event => {
 
-    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
 
         let postData = JSON.parse(event.body).message;
-        let replyMessage = postData;
+        let replyMessage = {};
         replyMessage.sender = connectionId;
 
-        console.log('**************\n [42] userLogout payload Recevied: ', postData)    
-        
-        try {
-            // TO-DO: edit to update several 'columns' at once
-            const update = Dynamo.update( postData.id, UserTableName, 'loggedIn', false );
-            const updateAccessToken = Dynamo.update( postData.id, UserTableName, 'accessToken', postData.accessToken );
-            const updateIdToken = Dynamo.update( postData.id, UserTableName, 'idToken', postData.idToken );
-            const updateRefreshToken = Dynamo.update( postData.id, UserTableName, 'refreshToken', postData.refreshToken );
+        console.log( '\n**************', path.basename(__filename), '[25] userSignUp payload Recevied:', postData );
 
-            replyMessage.displayMessage = 'user logged out';
+        try {
+
+            let usersResp = await Dynamo.getGivenEmailAddress( postData.email );
+            let user = await usersResp[0];
+
+            await Dynamo.userUpdateLoggedInStatus( user.emailAddress, user.cogId, false );
+            await Dynamo.userUpdateAttri( user.emailAddress, user.cogId, 'emailVerified', postData.emailVerified );
+
+            user.loggedIn = false;
+            user.emailVerified = postData.emailVerified;
+
+            replyMessage.message = user;
+            replyMessage.message.displayMessage = 'user logged out';
             replyMessage.action = 'user-logout-success';
+
+            console.log('\n', path.basename(__filename), '[42] : Success DB Updates' )
 
         } catch (e) {
 
-            replyMessage.displayMessage = 'user not logged out';
+            replyMessage.message = null;
+            replyMessage.message.displayMessage = 'user not logged out';
             replyMessage.action = 'user-logout-error';
+
+            console.log('\n', path.basename(__filename), '[50] : ERROR  DB Update' )
+            console.log('\n', e.stack)
 
         }
 
-        const socket_send = await socket.postToConnection({ 
-            ConnectionId: connectionId, 
-            Data: JSON.stringify(replyMessage) 
-        }).promise();
-        
-        console.log('\nUSERLOGOUT-53 - Promise.all now ');
-        await Promise.resolve( socket_send );
-    
+        try {
+
+            const socket_send = await socket.postToConnection({
+                ConnectionId: connectionId,
+                Data: JSON.stringify(replyMessage)
+            }).promise();
+
+            await Promise.resolve( socket_send );
+            console.log('\n', path.basename(__filename), '[63]: Socket Send to connectcionId: ', connectionId )
+
+        } catch (e) {
+
+            console.log('\n', path.basename(__filename), '[67] : Error Return Socket Message to Client:' )
+            console.log('\n', e.stack)
+
+            return { statusCode: 500, body: e.stack };
+
+        }
+
     } catch (e) {
-        
-        console.log('\nUSERLOGOUT-58 - error on promises', e.stack);
+
+        console.log('\n', path.basename(__filename), '[76] : Error in Parsing Payload :' )
+        console.log('\n', e.stack)
+
         return { statusCode: 500, body: e.stack };
+
     }
 
     return Responses._200({ success: true, message: 'user-logout' });

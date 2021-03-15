@@ -25,9 +25,9 @@ exports.handler = async event => {
         message: video_array.Items
     };
 
-    const socket_send = await socket.postToConnection({ 
-        ConnectionId: connectionId, 
-        Data: JSON.stringify(replyMessage) 
+    const socket_send = await socket.postToConnection({
+        ConnectionId: connectionId,
+        Data: JSON.stringify(replyMessage)
     }).promise();
 
     try {
