@@ -1,76 +1,47 @@
 const AWS = require('aws-sdk');
+const path = require('path');
 
-import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-// import dynamoDb from "../../libs/dynamodb-lib";
-
 import { UserTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
-/*
-    ::Working:: SAMPLE PAYLOAD as JSON:
-        {
-            "action": "user-signup",
-            "message": {
-                "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790",
-                "username": "bleep@bloop.com",
-                "email": "bleep@bloop.com",
-                "emailVerified": bool,
-                "accessToken": "3db51eb5-06ed-4f70-bac0-e1bbcad46da8",
-                "idToken": idToken,
-                "refreshToken": refreshToken
-            }
-        }
-
-    ::Working:: formatted for [ wscat ]
-
-        { "action": "user-signup", "message": {  "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790", "username": "bleep@bloop.com", "email": "bleep@bloop.com", "emailVerified": bool, "accessToken": "3db51eb5-06ed-4f70-bac0-e1bbcad46da8", "idToken": idToken, "refreshToken": refreshToken } }
-
-
-
-    To-DO
-        -- emailVerified : cognito.verified
-
-*/
 
 exports.handler = async event => {
 
-    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
 
         let postData = JSON.parse(event.body).message;
-        let replyMessage = postData;
+        let replyMessage = {};
         replyMessage.sender = connectionId;
 
-        console.log('**************\n [47] userSignUp payload Recevied: ', postData)
+        console.log( '\n**************', path.basename(__filename), '[22] payload Recevied:', postData );
 
-
-        // create a userId for db table
-        postData.ID = uuidv4();
-        postData.emailAddress = postData.email;
-        postData.cogId = postData.cogId;
-        postData.loggedIn = true;
-
-        delete postData.cogId
-        delete postData.email
+        let userObj = {};
+        userObj.ID = uuidv4();
+        userObj.emailAddress = postData.email;
+        userObj.cogId = postData.cogId;
+        userObj.emailVerified = postData.emailVerified;
+        userObj.loggedIn = true;
 
         replyMessage.action = null;
-        replyMessage.message = postData;
-        // replyMessage.sender = connectionId;
+        replyMessage.message = userObj;
 
         try {
 
-            Dynamo.write(postData, UserTableName );
+            Dynamo.write(userObj, UserTableName );
 
             replyMessage.action = 'user-signup-success';
             replyMessage.message.displayMessage = 'user created';
 
-            replyMessage.message.id = replyMessage.message.ID
+            replyMessage.message.userId = replyMessage.message.ID
             delete replyMessage.message.ID
 
+            console.log('\n', path.basename(__filename), '[44] : Success DB Write' )
 
         } catch (e) {
 
@@ -78,23 +49,39 @@ exports.handler = async event => {
             replyMessage.message.displayMessage = 'user not created';
             replyMessage.message.loggedIn = false;
 
+            console.log('\n', path.basename(__filename), '[52] : ERROR  DB Write' )
+            console.log('\n', e.stack)
+
         }
 
-        const socket_send = await socket.postToConnection({
-            ConnectionId: connectionId,
-            Data: JSON.stringify(replyMessage)
+        try {
 
-        }).promise();
+            const socket_send = await socket.postToConnection({
+                ConnectionId: connectionId,
+                Data: JSON.stringify(replyMessage)
+            }).promise();
 
-        console.log('\nUSERSIGNUP-84 - Promise.all now ');
-        await Promise.resolve( socket_send );
+            await Promise.resolve( socket_send );
+            console.log('\n', path.basename(__filename), '[65]: Socket Send to connectcionId: ')
+
+        } catch (e) {
+
+            console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' )
+            console.log('\n', e.stack)
+
+            return { statusCode: 500, body: e.stack };
+
+        }
 
     } catch (e) {
 
-        console.log('\nUSERSIGN-89 - error on promises', e.stack);
+        console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' )
+        console.log('\n', e.stack)
+
         return { statusCode: 500, body: e.stack };
 
     }
 
-    return Responses._200({ success: true, message: 'user-login' });
+    return Responses._200({ success: true, message: 'user-signup' });
+
 };

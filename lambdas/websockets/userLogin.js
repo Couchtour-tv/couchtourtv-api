@@ -1,97 +1,78 @@
 const AWS = require('aws-sdk');
+const path = require('path');
 
-import { OptionsAPIGateway, OptionsDynamoDB, SocketTableName } from '../common/constants';
+import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-// import dynamoDb from "../../libs/dynamodb-lib";
-
-import { UserTableName } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
-
-/*
-    SAMPLE PAYLOAD:
-        {
-            "action": "user-login",
-            "message": {
-                "id": couchtourdbId,
-                "email": email,
-                "emailVerified": bool,
-                "accessToken": token,
-                "idToken": idToken,
-                "refreshToken": refreshToken,
-                "loggedIn": false
-            }
-        }
-
-    TO-DO
-        - decide on the data to be SAVED for the user
-        - UPDATING SEVERAL COLUMNS AT ONCE
-*/
 
 exports.handler = async event => {
 
-    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
 
         let postData = JSON.parse(event.body).message;
-        let replyMessage = postData;
+        let replyMessage = {};
         replyMessage.sender = connectionId;
 
-        console.log('**************\n [42] userLogin payload Recevied: ', postData)
+        console.log( '\n**************', path.basename(__filename), '[25] userSignUp payload Recevied:', postData )
 
         try {
 
-            // ---- Not Doing this any longer seen as Id is provided to endpoint via front end
-            // const returned_user = Dynamo.login( postData.user.email, UserTableName );
-            // const update = Dynamo.update( returned_user.id, UserTableName, 'user.loggedIn', true );
+            let usersResp = await Dynamo.getGivenEmailAddress( postData.email );
+            let user = await usersResp[0];
 
-            // TO-DO:
-            //  edit to update several 'columns' at once
-            //  will tokens be null on logg out ?
+            await Dynamo.userUpdateLoggedInStatus( user.emailAddress, user.cogId, true );
+            await Dynamo.userUpdateAttri( user.emailAddress, user.cogId, 'emailVerified', postData.emailVerified );
 
-            // const update = Dynamo.update( postData.userId, UserTableName, 'loggedIn', true );
-            const update = Dynamo.update( postData.email, UserTableName, 'loggedIn', true );
-            const updateAccessToken = Dynamo.update( postData.email, UserTableName, 'accessToken', postData.accessToken );
-            const updateIdToken = Dynamo.update( postData.email, UserTableName, 'idToken', postData.idToken );
-            const updateRefreshToken = Dynamo.update( postData.email, UserTableName, 'refreshToken', postData.refreshToken );
+            user.loggedIn = true;
+            user.emailVerified = postData.emailVerified;
 
+            replyMessage.message = user;
             replyMessage.displayMessage = 'user logged in';
             replyMessage.action = 'user-login-success';
 
+            console.log('\n', path.basename(__filename), '[42] : Success DB Updates' )
+
         } catch (e) {
 
+            replyMessage.message = null;
             replyMessage.displayMessage = 'user not logged in';
-            replyMessage.action = 'user-login-success';
+            replyMessage.action = 'user-login-error';
+
+            console.log('\n', path.basename(__filename), '[50] : ERROR  DB Write' )
+            console.log('\n', e.stack)
 
         }
 
-        const socket_send = await socket.postToConnection({
-            ConnectionId: connectionId,
-            Data: JSON.stringify(replyMessage)
-        }).promise();
+        try {
 
-        console.log('\nUSERLOGIN-53 - Promise.all now ');
-        await Promise.resolve( socket_send );
+            const socket_send = await socket.postToConnection({
+                ConnectionId: connectionId,
+                Data: JSON.stringify(replyMessage)
+            }).promise();
+
+            await Promise.resolve( socket_send );
+            console.log('\n', path.basename(__filename), '[63]: Socket Send to connectcionId: ', connectionId )
+
+        } catch (e) {
+
+            console.log('\n', path.basename(__filename), '[67] : Error Return Socket Message to Client:' )
+            console.log('\n', e.stack)
+
+            return { statusCode: 500, body: e.stack };
+
+        }
 
     } catch (e) {
 
-        console.log('\nUSERLOGIN-58 - error on promises', e.stack);
+        console.log('\n', path.basename(__filename), '[76] : Error in Parsing Payload :' )
+        console.log('\n', e.stack)
+
         return { statusCode: 500, body: e.stack };
+
     }
 
     return Responses._200({ success: true, message: 'user-login' });
 };
-
-
-
-
-
-
-
-
-
-
-
-

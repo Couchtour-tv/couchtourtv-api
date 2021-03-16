@@ -48,3 +48,20 @@ PRODUCTION DEPLOY
 	2. connect to wscat to test
 		wscat -c PRODUCTION_WEBSOCKET_WSS_URL
 ```
+
+``` bash
+python
+
+--create virtualenv and install websocket requirements::
+	cd test/local_sockets
+	python3 -m venv env-socket-test
+	source env-socket-test/bin/activate
+	pip install -r env-socket-test-requirements.txt
+
+-- Run:
+	python socket_local_sync.py
+	python socket_local_async.py
+
+--deactivate
+	deactivate
+```
