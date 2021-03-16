@@ -1,4 +1,5 @@
-import websocket, json, pprint, time, uuid, _thread, time
+import websocket, json, pprint, time, uuid, time
+# import _thread
 from payloads import *
 
 # -------------------------------------------------------------
