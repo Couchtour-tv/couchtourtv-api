@@ -10,17 +10,17 @@ import { v4 as uuidv4 } from 'uuid';
 
 /*
     ::Working:: SAMPLE PAYLOAD as JSON:
-        { 
-            "action": "user-signup", 
-            "message": { 
-                "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790", 
-                "username": "bleep@bloop.com", 
-                "email": "bleep@bloop.com", 
+        {
+            "action": "user-signup",
+            "message": {
+                "cogId": "9daae32d-c987-41dd-bef7-0e0549a62790",
+                "username": "bleep@bloop.com",
+                "email": "bleep@bloop.com",
                 "emailVerified": bool,
                 "accessToken": "3db51eb5-06ed-4f70-bac0-e1bbcad46da8",
                 "idToken": idToken,
-                "refreshToken": refreshToken 
-            } 
+                "refreshToken": refreshToken
+            }
         }
 
     ::Working:: formatted for [ wscat ]
@@ -29,7 +29,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-    To-DO 
+    To-DO
         -- emailVerified : cognito.verified
 
 */
@@ -46,7 +46,7 @@ exports.handler = async event => {
         replyMessage.sender = connectionId;
 
         console.log('**************\n [47] userSignUp payload Recevied: ', postData)
-        
+
 
         // create a userId for db table
         postData.ID = uuidv4();
@@ -61,11 +61,11 @@ exports.handler = async event => {
         replyMessage.message = postData;
         // replyMessage.sender = connectionId;
 
-        try { 
+        try {
 
             Dynamo.write(postData, UserTableName );
 
-            replyMessage.action = 'user-signup-success'; 
+            replyMessage.action = 'user-signup-success';
             replyMessage.message.displayMessage = 'user created';
 
             replyMessage.message.id = replyMessage.message.ID
@@ -80,20 +80,20 @@ exports.handler = async event => {
 
         }
 
-        const socket_send = await socket.postToConnection({ 
-            ConnectionId: connectionId, 
-            Data: JSON.stringify(replyMessage) 
-        
+        const socket_send = await socket.postToConnection({
+            ConnectionId: connectionId,
+            Data: JSON.stringify(replyMessage)
+
         }).promise();
-        
+
         console.log('\nUSERSIGNUP-84 - Promise.all now ');
         await Promise.resolve( socket_send );
-    
+
     } catch (e) {
 
         console.log('\nUSERSIGN-89 - error on promises', e.stack);
         return { statusCode: 500, body: e.stack };
-    
+
     }
 
     return Responses._200({ success: true, message: 'user-login' });
