@@ -85,4 +85,3 @@ exports.handler = async event => {
     return Responses._200({ success: true, message: 'user-signup' });
 
 };
-

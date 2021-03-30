@@ -7,6 +7,7 @@ import { DevicesTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 /*
+
     Use Cases To Consider
 
         { UserId, code } + connectedAt
@@ -17,7 +18,6 @@ import { v4 as uuidv4 } from 'uuid';
         it exists but theres already a userId - device is current on an account
         it exists but theres not userId - this is success. match
         it exists but its no longer valid - please request a new code
-
 
         update the record with userId , connectedAt
 */
