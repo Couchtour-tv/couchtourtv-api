@@ -71,7 +71,7 @@ Resources:
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
-  # -- Stubbed Out for Prototyping
+  # -- Media
   MediaMetaTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -102,6 +102,8 @@ Resources:
         - AttributeName: deviceId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
+  # -----------------------------------------------
+  # -- Users
   UserTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -115,6 +117,38 @@ Resources:
         - AttributeName: emailAddress
           KeyType: HASH
         - AttributeName: cogId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  # -----------------------------------------------
+  # -- Purchases
+  CreditCardTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:CREDIT_CARD_TABLE}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: emailAddress
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: emailAddress
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  NewPurchasesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:PURCHASES_TABLE}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: emailAddress
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: emailAddress
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------

@@ -273,6 +273,33 @@ functions:
           route: user-signup-error
           cors: true
 
+  ## ------------------------------------------------------
+  ## -- CouchTour Purchases
+  websocket-create-payment-method:
+    handler: lambdas/websockets/createPaymentMethod.handler
+    events:
+      - websocket:
+          route: create-payment-method
+          cors: true
+  websocket-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: purchase-request
+          cors: true
+  websocket-get-user-credit-cards:
+    handler: lambdas/websockets/getUserCreditCard.handler
+    events:
+      - websocket:
+          route: get-user-credit-card
+          cors: true
+  websocket-get-user-purchases:
+    handler: lambdas/websockets/getUserPurchases.handler
+    events:
+      - websocket:
+          route: get-user-purchases
+          cors: true
+
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors

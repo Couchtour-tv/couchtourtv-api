@@ -25,6 +25,8 @@ export const NotesTableName = process.env.NOTES_TABLE;
 export const MediaMetaTableName = process.env.MEDIA_META_TABLE;
 export const DevicesTableName = process.env.DEVICES_TABLES;
 export const UserTableName = process.env.USER_TABLE;
+export const PurchasesTableName = process.env.PURCHASES_TABLE;
+export const CreditCardTableName = process.env.CREDIT_CARD_TABLE;
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID;

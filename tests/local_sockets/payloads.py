@@ -3,6 +3,15 @@ import uuid
 ## UUID GENERATOR :: https://www.uuidgenerator.net/version4
 
 # -------------------------------------------------------------------------
+# -- get all videos meta
+
+GET_META_VIDEO = {
+    "sender": "bcd16999-916a-4071-81c4-7a822146c384",
+    "action": "getvideos",
+    "message": {}
+}
+
+# -------------------------------------------------------------------------
 # -- Auth Attempt
 
 # -- Done
