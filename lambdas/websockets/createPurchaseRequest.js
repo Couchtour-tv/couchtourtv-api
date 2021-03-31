@@ -8,6 +8,7 @@ import { PurchasesTableName, StripeSecretKey } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
+import { get, put, query, updat } from "../../libs/dynamo-lib";
 
 
 exports.handler = async event => {
@@ -45,7 +46,7 @@ exports.handler = async event => {
         try {
 
             // TODO -- Confirm that the Payment Method Belongs to the User
-            const validItems = priceValueConfirm( postData.items )
+            const validItems = await priceValueConfirm( postData.items )
             if ( validItems ) {
                 await getTotalValue( postData.Items );
                 await createArrayItemIds( postData.Items );
