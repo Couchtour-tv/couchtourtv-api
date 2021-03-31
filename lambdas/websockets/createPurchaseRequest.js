@@ -16,17 +16,20 @@ exports.handler = async event => {
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const cogId = event.requestContext.identity.cognitoIdentityId;
 
+    // code block:: json parse
     try {
 
         let postData = JSON.parse(event.body).message;
         let replyMessage = {};
-        replyMessage.sender = connectionId;
-
-        console.log('\n****', path.basename(__filename), '[22] payload Recevied:', postData );
-
         let totalValue = 0;
         let allItemsIds = [];
-        async function priceValueConfirm( items ) { return true }
+        replyMessage.sender = connectionId;
+        replyMessage.message = null;
+
+        console.log('\n****', path.basename(__filename), '[29] payload Recevied:', postData );
+        async function priceValueConfirm( items ) {
+            return true
+        }
         async function getTotalValue( items ) {
             items.forEach( function( item ) {
                 totalValue += item.price_cents
@@ -38,15 +41,16 @@ exports.handler = async event => {
             });
         };
 
+        // code block:: stripe purchase request
         try {
-            // TODO -- Confirm that the Payment Method Belongs to the User
 
+            // TODO -- Confirm that the Payment Method Belongs to the User
             const validItems = priceValueConfirm( postData.items )
             if ( validItems ) {
                 await getTotalValue( postData.Items );
                 await createArrayItemIds( postData.Items );
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
-                const stripe = stripePackage(StripeSecretKey);
+                const stripeInterface = stripePackage(StripeSecretKey);
                 const purchaseData = {
                     source: postData.stripePayment.id,
                     amount: totalValue,
@@ -60,19 +64,24 @@ exports.handler = async event => {
                         // What other pieces of data do we want to include ?
                     }
                 };
-                const reply = await stripe.charges.create(purchaseData);
-                console.log('\n****', path.basename(__filename), '[60]here is stripe reply', reply );
+                const purchaseResp = await stripeInterface.charges.create(purchaseData);
+                console.log('\n****', path.basename(__filename), '[68] here is stripe reply', reply );
 
                 if (reply && (reply.status === 'succeeded')) {
 
-                    const purchaseResp = await CreatePurchase(purchaseData);
-                    console.log('\n****', path.basename(__filename), '[47] purchase reply', purchaseResp);
+                    console.log('\n**** Credit Transaction Success');
+                    console.log('\n****', path.basename(__filename), '[73] purchase reply', purchaseResp);
 
                     replyMessage.action = 'purchase-request-resp-success';
                     replyMessage.message.displayMessage = 'purchase request success';
 
                 // handled error fo
-                } else {}
+                } else {
+
+                    console.log('\n**** Credit Transaction Fail');
+                    console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
+
+                }
 
             } else {
 
@@ -81,19 +90,20 @@ exports.handler = async event => {
 
             }
 
-
             console.log('\n', path.basename(__filename), '[44] : Success DB Write' )
 
+        // error catch: making purchase request
         } catch (e) {
 
             replyMessage.action = 'purchase-request-resp-error';
             replyMessage.message.displayMessage = 'purchase request failed';
 
-            console.log('\n', path.basename(__filename), '[52] : ERROR  DB Write' )
+            console.log('\n', path.basename(__filename), '[96] : Error in Processing' )
             console.log('\n', e.stack)
 
         }
 
+        // code block:: socket response
         try {
 
             const socket_send = await socket.postToConnection({
@@ -104,6 +114,7 @@ exports.handler = async event => {
             await Promise.resolve( socket_send );
             console.log('\n', path.basename(__filename), '[65]: Socket Send to connectcionId: ')
 
+        // error catch: responding with socket call
         } catch (e) {
 
             console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' )
@@ -113,6 +124,7 @@ exports.handler = async event => {
 
         }
 
+    // error catch: json payload parsing
     } catch (e) {
 
         console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' )

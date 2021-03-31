@@ -115,8 +115,26 @@ use case
 ````
 #### List of payloads sent by web client:
 ```javascript
+
+    // PAYMMENT OBJ IDS start with pm_
+    // TOKEN OBJ IDS start with tok_
+
+
     /*
-        paymentObj -- cardId, billing detail, email, name
+        SAMPLE TOKEN OBJ::
+
+        {
+            id: "tok_1IaVpaKsNNk3qPPUhegXi9um",
+            object: "token",
+            card: {…},
+            client_ip: "71.192.44.175",
+            created: 1617065598
+        }
+
+    */
+    /*
+        paymentObj, RETURNED FROM [FE] -- stripe.create.paymentMethod()
+            cardId, billing detail, email, name
 
         //A6 stripe cloud saves the card info and user info submitted and returns a
         ///////CARD_TOKEN = card_a4f923gf9u3fg
@@ -185,6 +203,7 @@ use case
         action: "purchase-request",
         message: {
             stripePayment: paymentMethod,
+            tokenObj: tokenObj,
             userId: userId,
             cogId: cogId,
             items: [ {item_id: uuid, price_cents: 2}, .. ]
@@ -193,7 +212,7 @@ use case
 
     // C
     payload = {
-        action: "get-user-credit-card", // D, B3, B4
+        action: "get-user-credit-cards", // D, B3, B4
         message: {
             userId: userId,
             cogId: cogId,
@@ -206,7 +225,8 @@ use case
         message: {
             userId: userId,
             cogId: cogId,
-        }}
+        }
+    }
 ```
 
 #### List of socket actions:

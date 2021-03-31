@@ -126,14 +126,14 @@ Resources:
     Properties:
       TableName: ${env:CREDIT_CARD_TABLE}
       AttributeDefinitions:
-        - AttributeName: userId
+        - AttributeName: tokenId
           AttributeType: S
-        - AttributeName: emailAddress
+        - AttributeName: userId
           AttributeType: S
       KeySchema:
-        - AttributeName: userId
+        - AttributeName: tokenId
           KeyType: HASH
-        - AttributeName: emailAddress
+        - AttributeName: userId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   NewPurchasesTable:
@@ -141,14 +141,29 @@ Resources:
     Properties:
       TableName: ${env:PURCHASES_TABLE}
       AttributeDefinitions:
-        - AttributeName: userId
+        - AttributeName: creditCardId
           AttributeType: S
-        - AttributeName: emailAddress
+        - AttributeName: userId
           AttributeType: S
       KeySchema:
-        - AttributeName: userId
+        - AttributeName: creditCardId
           KeyType: HASH
-        - AttributeName: emailAddress
+        - AttributeName: userId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  TransactionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:TRANSACTIONS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: creditCardId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: creditCardId
+          KeyType: HASH
+        - AttributeName: userId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
