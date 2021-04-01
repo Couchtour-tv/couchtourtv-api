@@ -8,12 +8,12 @@ import { PurchasesTableName, StripeSecretKey } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
-import { get, put, query, updat } from "../../libs/dynamo-lib";
+import dynamoDb from "../../libs/dynamodb-lib";
 
 
 exports.handler = async event => {
 
-    const { connectionId } = event.requestContext;
+    const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const cogId = event.requestContext.identity.cognitoIdentityId;
 
@@ -22,18 +22,18 @@ exports.handler = async event => {
 
         let postData = JSON.parse(event.body).message;
         let replyMessage = {};
-        let totalValue = 0;
+        let totalValueInCents = 0;
         let allItemsIds = [];
         replyMessage.sender = connectionId;
-        replyMessage.message = null;
+        replyMessage.message = {};
 
-        console.log('\n****', path.basename(__filename), '[29] payload Recevied:', postData );
+        console.log('\n**** createPurchaseRequest.js -- [29] payload Recevied:', postData );
         async function priceValueConfirm( items ) {
             return true
         }
-        async function getTotalValue( items ) {
+        async function getTotalValueInCents( items ) {
             items.forEach( function( item ) {
-                totalValue += item.price_cents
+                totalValueInCents += item.price_cents
             });
         };
         async function createArrayItemIds( items ) {
@@ -48,41 +48,78 @@ exports.handler = async event => {
             // TODO -- Confirm that the Payment Method Belongs to the User
             const validItems = await priceValueConfirm( postData.items )
             if ( validItems ) {
-                await getTotalValue( postData.Items );
-                await createArrayItemIds( postData.Items );
+                await getTotalValueInCents( postData.items );
+                await createArrayItemIds( postData.items );
+
+                console.log('\n\n\n\n\n\n\n\n');
+                console.log("totalValueInCents::", totalValueInCents);
+                console.log("allItemsIds::", allItemsIds);
+                console.log('\n\n\n\n\n\n\n\n');
+
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
-                const purchaseData = {
-                    source: postData.stripePayment.id,
-                    amount: totalValue,
-                    currency: "usd",
-                    metadata: {
-                        requestId: requestItem.requestId,
-                        userId: postData.userId,
-                        email: postData.email,
-                        cogId: postData.cogId,
-                        itemIds: allItemsIds
-                        // What other pieces of data do we want to include ?
-                    }
-                };
-                const purchaseResp = await stripeInterface.charges.create(purchaseData);
+
+                // const purchaseData = {
+                //     // source: postData.stripePayment.id,
+                //     source: postData.tokenObj.token.id,
+                //     amount: totalValueInCents,
+                //     currency: "usd",
+                //     metadata: {
+                //         requestId: requestId,
+                //         userId: postData.userId,
+                //         email: postData.email,
+                //         cogId: postData.cogId,
+                //         itemIds: allItemsIds
+                //         // What other pieces of data do we want to include ?
+                //     }
+                // };
+                // const purchaseResp = await stripeInterface.charges.create(purchaseData);
+
+
+
+
+                const paymentIntent = await stripeInterface.paymentIntents.create({
+                    amount: totalValueInCents,
+                    currency: 'usd',
+                    payment_method_types: ['card'],
+                });
+
+                replyMessage.action = 'purchase-request-resp-success';
+                replyMessage.message.displayMessage = 'purchase request success';
+                replyMessage.derp = paymentIntent;
+
+                // const purchaseData = {
+                //     source: paymentIntent.id,
+                //     amount: totalValueInCents,
+                //     currency: "usd",
+                //     metadata: {
+                //         requestId: requestId,
+                //         userId: postData.userId,
+                //         email: postData.email,
+                //         cogId: postData.cogId,
+                //         itemIds: allItemsIds
+                //         // What other pieces of data do we want to include ?
+                //     }
+                // };
+                // const purchaseResp = await stripeInterface.charges.create(purchaseData);
+
                 console.log('\n****', path.basename(__filename), '[68] here is stripe reply', reply );
 
-                if (reply && (reply.status === 'succeeded')) {
+                // if (reply && (reply.status === 'succeeded')) {
 
-                    console.log('\n**** Credit Transaction Success');
-                    console.log('\n****', path.basename(__filename), '[73] purchase reply', purchaseResp);
+                //     console.log('\n**** Credit Transaction Success');
+                //     console.log('\n****', path.basename(__filename), '[73] purchase reply', purchaseResp);
 
-                    replyMessage.action = 'purchase-request-resp-success';
-                    replyMessage.message.displayMessage = 'purchase request success';
+                //     // replyMessage.action = 'purchase-request-resp-success';
+                //     // replyMessage.message.displayMessage = 'purchase request success';
 
-                // handled error fo
-                } else {
+                // // handled error fo
+                // } else {
 
-                    console.log('\n**** Credit Transaction Fail');
-                    console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
+                //     console.log('\n**** Credit Transaction Fail');
+                //     console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
 
-                }
+                // }
 
             } else {
 
@@ -99,8 +136,9 @@ exports.handler = async event => {
             replyMessage.action = 'purchase-request-resp-error';
             replyMessage.message.displayMessage = 'purchase request failed';
 
-            console.log('\n', path.basename(__filename), '[96] : Error in Processing' )
-            console.log('\n', e.stack)
+            console.log('\n', path.basename(__filename), '[96] : Error in Processing' );
+            console.log('\n', e.stack);
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 
         }
 
@@ -118,8 +156,9 @@ exports.handler = async event => {
         // error catch: responding with socket call
         } catch (e) {
 
-            console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' )
-            console.log('\n', e.stack)
+            console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' );
+            console.log('\n', e.stack);
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 
             return { statusCode: 500, body: e.stack };
 
@@ -128,8 +167,9 @@ exports.handler = async event => {
     // error catch: json payload parsing
     } catch (e) {
 
-        console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' )
-        console.log('\n', e.stack)
+        console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' );
+        console.log('\n', e.stack);
+        console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
 
         return { statusCode: 500, body: e.stack };
 

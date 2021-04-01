@@ -202,11 +202,15 @@ use case
     payload = JSON.stringify({
         action: "purchase-request",
         message: {
-            stripePayment: paymentMethod,
-            tokenObj: tokenObj,
+            stripePayment: {},
+            tokenObj: {},
             userId: userId,
             cogId: cogId,
-            items: [ {item_id: uuid, price_cents: 2}, .. ]
+            items: [
+                {item_id: uuid, price_cents: 2},
+                {item_id: uuid, price_cents: 2},
+                {item_id: uuid, price_cents: 2},
+            ]
         }
     })
 
@@ -231,7 +235,6 @@ use case
 
 #### List of socket actions:
 ```javascript
-
        (socketRespAction === "create-payment-method-resp-success") // A6
 
        (socketRespAction === "create-payment-method-resp-error") // A6
