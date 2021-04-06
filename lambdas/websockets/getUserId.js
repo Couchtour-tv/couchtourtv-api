@@ -29,6 +29,10 @@ exports.handler = async event => {
                 }
             });
 
+            console.log('\n+++++++++++++++++++++++++');
+            console.log( userObj );
+            console.log('+++++++++++++++++++++++++\n');
+
             replyMessage.message = userObj.Items[0];
             replyMessage.action = 'retrieved-user-success';
             replyMessage.message.displayMessage = 'user retrieved';
