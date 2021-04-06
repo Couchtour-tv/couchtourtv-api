@@ -22,7 +22,7 @@ exports.handler = async event => {
         try {
 
             const userObj= await DynamoDb.query({
-                TableName: CreditCardTableName,
+                TableName: UserTableName,
                 Item: {
                     emailAddress: postData.email,
                     cogId: postData.cogId
