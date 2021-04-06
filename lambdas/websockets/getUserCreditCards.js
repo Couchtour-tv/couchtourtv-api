@@ -31,7 +31,7 @@ exports.handler = async event => {
 
             const queryResp = await DynamoDb.query({
                 TableName: CreditCardTableName,
-                IndexName: emailAddressIndex,
+                IndexName: 'emailAddressIndex',
                 Key: { emailAddress: postData.email }
             });
 
