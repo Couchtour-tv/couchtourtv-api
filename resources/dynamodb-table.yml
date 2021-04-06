@@ -133,8 +133,13 @@ Resources:
       KeySchema:
         - AttributeName: paymentMethodId
           KeyType: HASH
-        - AttributeName: emailAddress
-          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: emailAddressIndex
+          KeySchema:
+            - AttributeName: emailAddress
+              KeyType: HASH
+          Projection:
+              ProjectionType: 'ALL'
       BillingMode: PAY_PER_REQUEST
   NewPurchasesTable:
     Type: AWS::DynamoDB::Table
