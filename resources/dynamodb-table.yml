@@ -158,12 +158,12 @@ Resources:
       AttributeDefinitions:
         - AttributeName: creditCardId
           AttributeType: S
-        - AttributeName: userId
+        - AttributeName: emailAddress
           AttributeType: S
       KeySchema:
         - AttributeName: creditCardId
           KeyType: HASH
-        - AttributeName: userId
+        - AttributeName: emailAddress
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------

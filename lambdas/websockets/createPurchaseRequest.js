@@ -42,6 +42,8 @@ exports.handler = async event => {
                 allItemsIds.push( item.item_id )
             });
         };
+        let paymentIntentobj = {};
+        let transactionId = uuidv4();
 
         // code block:: stripe purchase request
         try {
@@ -55,7 +57,7 @@ exports.handler = async event => {
 
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
-                const paymentIntent = await stripeInterface.paymentIntents.create({
+                const paymentIntentobj = await stripeInterface.paymentIntents.create({
                     amount: totalValueInCents,
                     currency: 'usd',
                     payment_method_types: ['card'],
@@ -68,8 +70,22 @@ exports.handler = async event => {
 
                 if (reply && (reply.status === 'succeeded')) {
 
-                    console.log('\n**** Credit Transaction Success');
-                    console.log('\n************** [createPurchaseRequests.js] [73] purchase reply', purchaseResp);
+                    await DynamoDb.put({
+                        TableName: TransactionsTableName,
+                        Item: {
+                            ID:                 transactionId,
+                            emailAddress:       postData.email,
+                            cardId:             postData.cardId,
+                            status:             'INITIATED',
+                            paymentIntent:      paymentIntentobj
+                        }
+                    });
+
+
+
+
+
+
 
                     // replyMessage.action = 'purchase-request-resp-success';
                     // replyMessage.message.displayMessage = 'purchase request success';

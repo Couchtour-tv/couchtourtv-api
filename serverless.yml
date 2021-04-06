@@ -248,6 +248,12 @@ functions:
       - websocket:
           route: user-verify-resend-error
           cors: true
+  websocket-get-used-id:
+    handler: lambdas/websockets/getUserId.handler
+    events:
+      - websocket:
+          route: get-user-id
+          cors: true
   websocket-user-login:
     handler: lambdas/websockets/userLogin.handler
     events:
@@ -287,6 +293,12 @@ functions:
       - websocket:
           route: wallet-get-user-credit-cards
           cors: true
+  websocket-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: purchase-request
+          cors: true
 
 
   websocket-create-payment-method:
@@ -295,12 +307,7 @@ functions:
       - websocket:
           route: create-payment-method
           cors: true
-  websocket-create-purchase-request:
-    handler: lambdas/websockets/createPurchaseRequest.handler
-    events:
-      - websocket:
-          route: purchase-request
-          cors: true
+
 
 
   websocket-get-user-purchases:
