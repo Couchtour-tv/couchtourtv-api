@@ -35,7 +35,7 @@ exports.handler = async event => {
 
             Dynamo.write(userObj, UserTableName );
 
-            replyMessage.action = 'user-signup-success';
+            replyMessage.action = 'wallet-get-user-credit-cards-resp-success';
             replyMessage.message.displayMessage = 'user created';
 
             replyMessage.message.userId = replyMessage.message.ID
@@ -82,7 +82,7 @@ exports.handler = async event => {
 
     }
 
-    return Responses._200({ success: true, message: 'user-signup' });
+    return Responses._200({ success: true, message: 'get-user-credit-card' });
 
 };
 

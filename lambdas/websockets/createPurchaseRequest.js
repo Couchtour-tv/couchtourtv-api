@@ -4,7 +4,7 @@ const path = require('path');
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { PurchasesTableName, StripeSecretKey } from '../common/constants';
+import { PurchasesTableName, StripeSecretKey, TransactionsTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
@@ -28,7 +28,7 @@ exports.handler = async event => {
         replyMessage.sender = connectionId;
         replyMessage.message = {};
 
-        console.log( '\n************** [createPurchaseRequests.js] [29] payload Recevied:', postData );
+        console.log('\n************** [createPurchaseRequests.js] [29] payload Recevied:', postData );
         async function priceValueConfirm( items ) {
             return true
         }
@@ -55,36 +55,32 @@ exports.handler = async event => {
 
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
-
                 const paymentIntent = await stripeInterface.paymentIntents.create({
                     amount: totalValueInCents,
                     currency: 'usd',
                     payment_method_types: ['card'],
                 });
+                console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', reply );
 
                 replyMessage.action = 'purchase-request-resp-success';
                 replyMessage.message.displayMessage = 'purchase request success';
                 replyMessage.derp = paymentIntent;
 
+                if (reply && (reply.status === 'succeeded')) {
 
+                    console.log('\n**** Credit Transaction Success');
+                    console.log('\n************** [createPurchaseRequests.js] [73] purchase reply', purchaseResp);
 
-                console.log('\n****', path.basename(__filename), '[68] here is stripe reply', reply );
+                    // replyMessage.action = 'purchase-request-resp-success';
+                    // replyMessage.message.displayMessage = 'purchase request success';
 
-                // if (reply && (reply.status === 'succeeded')) {
+                // handled error fo
+                } else {
 
-                //     console.log('\n**** Credit Transaction Success');
-                //     console.log('\n****', path.basename(__filename), '[73] purchase reply', purchaseResp);
+                    console.log('\n**** Credit Transaction Fail');
+                    console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
 
-                //     // replyMessage.action = 'purchase-request-resp-success';
-                //     // replyMessage.message.displayMessage = 'purchase request success';
-
-                // // handled error fo
-                // } else {
-
-                //     console.log('\n**** Credit Transaction Fail');
-                //     console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
-
-                // }
+                }
 
             } else {
 

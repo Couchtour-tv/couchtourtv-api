@@ -38,7 +38,7 @@ exports.handler = async event => {
                 expYear:            postData.stripeCardPayment.card.exp_year,
                 brand:              postData.stripeCardPayment.card.brand,
                 savedAt:            Date.now(),
-                lastFourkeykey:     postData.stripeCardPayment.card.last4,
+                lastFour:     postData.stripeCardPayment.card.last4,
                 paymentMethodObj:   postData.stripeCardPayment
             };
 
@@ -56,7 +56,7 @@ exports.handler = async event => {
             }
 
             await DynamoDb.put({ TableName: CreditCardTableName, Item: writeObj });
-            console.log( '\n************** [addUserCreditCard.js] [58] : Success DB Write' )
+            console.log( '\n************** [addUserCreditCard.js] [59] : Success DB Write' )
 
             replyMessage.action = 'wallet-add-credit-card-success-resp';
             replyMessage.message.displayMessage = 'credit card added to wallet';
@@ -68,7 +68,7 @@ exports.handler = async event => {
             replyMessage.action = 'wallet-add-credit-card-error-resp';
             replyMessage.message.displayMessage = 'credit card NOT added to wallet';
 
-            console.log( '\n************** [addUserCreditCard.js] [70] : ERROR  DB Write' )
+            console.log( '\n************** [addUserCreditCard.js] [71] : ERROR  DB Write' )
             console.log('\n', e.stack)
         }
 

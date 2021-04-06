@@ -29,7 +29,7 @@ exports.handler = async event => {
         // -- handle db interaction
         try {
 
-            const queryResp = await DynamoDb.put({
+            const queryResp = await DynamoDb.query({
                 TableName: CreditCardTableName,
                 Key: { emailAddress: postData.email }
             });
@@ -45,7 +45,7 @@ exports.handler = async event => {
             replyMessage.action = 'wallet-get-user-credit-cards-resp-error';
             replyMessage.message.displayMessage = 'retrieved user credit cards';
 
-            console.log( '\n************** [getUserCreditCards.js] [52] : ERROR  DB Write' )
+            console.log( '\n************** [getUserCreditCards.js] [52] : ERROR  DB Fetch' )
             console.log('\n', e.stack)
         }
 
@@ -76,5 +76,5 @@ exports.handler = async event => {
         return { statusCode: 500, body: e.stack };
 
     }
-    return Responses._200({ success: true, message: 'user-signup' });
+    return Responses._200({ success: true, message: 'get-user-credit-cards' });
 };
