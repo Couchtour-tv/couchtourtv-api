@@ -16,6 +16,7 @@ ADD_CARD_TO_WALLET = {
 		"userId": "2f087c03-3fd7-4411-bd18-de87ff1f3485",
 		"cogId": "f06b3aaf-19fb-4510-9440-dbf93a49cea4",
 		"email": "dansSmellyAss@stealyourbiscuit.com",
+		"paymentMethodId": "3de14ab7-1a54-4591-9587-4d7c31baecff",
 		"stripeCardPayment": {
 			"validCard": True,
 			"DOB": "08/27/1987"
