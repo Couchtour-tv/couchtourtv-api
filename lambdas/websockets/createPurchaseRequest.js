@@ -62,10 +62,11 @@ exports.handler = async event => {
                     currency: 'usd',
                     payment_method_types: ['card'],
                 });
-                console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', reply );
+                console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
 
                 if (reply && (reply.status === 'succeeded')) {
 
+                    console.log('\n**** Payment Intent Success');
                     await DynamoDb.put({
                         TableName: TransactionsTableName,
                         Item: {
@@ -83,19 +84,14 @@ exports.handler = async event => {
                     replyMessage.message.transactionId = transactionId;
                     replyMessage.message.purchaseItems = postData.items;
 
-                    console.log('\n**** Payment Intent Success');
-                    console.log('\n************** [createPurchaseRequests.js] [82] purchase reply', paymentIntentobj);
-
                 // handled error fo
                 } else {
 
+                    console.log('\n**** Payment Intent Fail');
                     replyMessage.action = 'create-purchase-intent-resp-error';
                     replyMessage.message.displayMessage = 'create purchase intent error';
                     replyMessage.message.intentObj = paymentIntent;
                     replyMessage.message.purchaseItems = postData.items;
-
-                    console.log('\n**** Payment Intent Fail');
-                    console.log('\n************** [createPurchaseRequests.js] [82] purchase reply', paymentIntentobj);
 
                 }
 
