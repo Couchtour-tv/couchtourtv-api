@@ -24,6 +24,17 @@ ADD_CARD_TO_WALLET = {
 	}
 }
 
+GET_USER_OBJ = {
+	"action": "get-user-id",
+	"message": {
+		"cogId": "ac31df0a-2847-4123-8daa-e57227c52924",
+        "email": "bugs.bunny@looneytunes.com"
+	}
+}
+
+
+
+
 ## --------------------------------------------------------------------
 ## Adds a credit card to DB for the User
 # -- Add A Card to User Wallet

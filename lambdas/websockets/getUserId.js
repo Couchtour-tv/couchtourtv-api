@@ -23,15 +23,9 @@ exports.handler = async event => {
 
             const userObj= await DynamoDb.query({
                 TableName: UserTableName,
-                Item: {
-                    emailAddress: postData.email,
-                    cogId: postData.cogId
-                }
+                KeyConditionExpression: 'emailAddress = :v1',
+                ExpressionAttributeValues: { ':v1': postData.email}
             });
-
-            console.log('\n+++++++++++++++++++++++++');
-            console.log( userObj );
-            console.log('+++++++++++++++++++++++++\n');
 
             replyMessage.message = userObj.Items[0];
             replyMessage.action = 'retrieved-user-success';
