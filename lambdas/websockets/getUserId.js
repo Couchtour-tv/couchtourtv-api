@@ -52,11 +52,11 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[55]: Socket Send to connectcionId: ', connectionId )
+            console.log('\n************** [getUserId.js] [55]: Socket Send to connectcionId: ', connectionId )
 
         } catch (e) {
 
-            console.log('\n', path.basename(__filename), '[59] : Error Return Socket Message to Client:' )
+            console.log('\n************** [getUserId.js] [59] : Error Return Socket Message to Client:' )
             console.log('\n', e.stack)
             return { statusCode: 500, body: e.stack };
 
@@ -64,7 +64,7 @@ exports.handler = async event => {
 
     } catch (e) {
 
-        console.log('\n', path.basename(__filename), '[67] : Error in Parsing Payload :' )
+        console.log('\n************** [getUserId.js] [67] : Error in Parsing Payload :' )
         console.log('\n', e.stack)
         return { statusCode: 500, body: e.stack };
 
