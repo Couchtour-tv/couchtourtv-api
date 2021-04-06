@@ -126,12 +126,12 @@ Resources:
     Properties:
       TableName: ${env:CREDIT_CARD_TABLE}
       AttributeDefinitions:
-        - AttributeName: tokenId
+        - AttributeName: paymentMethodId
           AttributeType: S
         - AttributeName: userId
           AttributeType: S
       KeySchema:
-        - AttributeName: tokenId
+        - AttributeName: paymentMethodId
           KeyType: HASH
         - AttributeName: userId
           KeyType: RANGE

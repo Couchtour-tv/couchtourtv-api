@@ -13,7 +13,7 @@ LOCAL_WS_SERVER = 'ws://localhost:3001'
 ws = websocket.WebSocket()
 ws.connect( LOCAL_WS_SERVER )
 
-ws.send( json.dumps( CREDIT_CARD_PURCHASE ) )
+ws.send( json.dumps( ADD_CARD_TO_WALLET ) )
 
 resp = ws.recv()
 print('\n\n\n Resp: ')

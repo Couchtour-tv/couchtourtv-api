@@ -188,24 +188,105 @@ use case
         "type": "card"
     */
 
-    //A6, A7
-    payload = JSON.stringify({
-        action: "create-payment-method",
-        message: {
-          userId: userId,
-          cogId: cogId,
-          stripePayment : paymentMethod
-      }
-    })
 
-    // B5
-    payload = JSON.stringify({
-        action: "purchase-request",
+    // ---------------------------------------------------------
+    // STRIPE NOTES
+    //
+    // CREATE PAYMENT TOKEN OBJECTS
+    //      https://stripe.com/docs/api/tokens/create_card
+    //          card.csv_check
+    //
+    // CREATE PAYMENTMETHOD OBJECT
+    //      https://stripe.com/docs/api/payment_methods/object
+    //          card.checks.csv_check
+    //
+    // ---------------------------------------------------------
+    //
+    // ---------------------------------------------------------
+    // A6, A7
+    // --- Add Tokenized Card to Users Wallet
+    //
+    const payload = JSON.stringify({
+        action: "wallet-add-user-credit-card",
         message: {
-            stripePayment: {},
-            tokenObj: {},
             userId: userId,
             cogId: cogId,
+            email: email,
+            paymentMethodId: paymentMethodId,
+            stripeCardPayment: paymentMethod,
+            // stripeCardToken: stripeCardToken
+        }
+    })
+    // --
+    // Serverside - save cards to Database, keys my user/email
+    //      check for valid cards
+    //      create enaum attribute/values for columns
+    // ---------------------------------------------------------
+    //
+    // ---------------------------------------------------------
+    // --- Delete Card From Wallet
+    //
+    const payload = JSON.stringify({
+        action: "wallet-delete-user-credit-card",
+        message: {
+            userId: userId,
+            cogId: cogId,
+            email: email,
+            stripeCardPayment: paymentMethod,
+            // stripeCardToken: stripeCardToken
+        }
+    })
+    // --
+    // Serverside -
+    //
+    // ---------------------------------------------------------
+    //
+    // ---------------------------------------------------------
+    // --- Update Card in Wallet
+    //
+    const payload = JSON.stringify({
+        action: "wallet-update-user-credit-card",
+        message: {
+            userId: userId,
+            cogId: cogId,
+            email: email,
+            stripeCardPayment: paymentMethod,
+            // stripeCardToken: stripeCardToken
+        }
+    })
+    // --
+    // Serverside -
+    //
+    // ---------------------------------------------------------
+
+    // ---------------------------------------------------------
+    // C
+    const payload = {
+        action: "get-user-credit-cards", // D, B3, B4
+        message: {
+            userId: userId,
+            cogId: cogId,
+            email: email
+        }
+    }
+    // -- Serverside
+    //      query for cards,
+    //      two arrays for inactive VS active
+    // { cardId: id, expiryear, expirmon, lastfour, cardBrand }
+    // ---------------------------------------------------------
+
+    // ---------------------------------------------------------
+    // B5
+    //
+    const payload = JSON.stringify({
+        action: "create-purchase-intent",
+        message: {
+            userId: userId,
+            cogId: cogId,
+            email: email,
+            cardId: cardId,
+            // stripeCardPayment: paymentMethod,
+            // stripeCardToken: stripeCardToken
             items: [
                 {item_id: uuid, price_cents: 2},
                 {item_id: uuid, price_cents: 2},
@@ -213,25 +294,67 @@ use case
             ]
         }
     })
+    // ServerSide --
+    //      Validates Cost, Totals Costs, Creates intent, Replies Intent ID
+    //          sp that client can pair intent ID with card token to finalize purchase
+    //          " payment-intent-client-secret "
+    //          prememptively creative a transaction for our recrods (UUID)
+    /*
+    resp = {
+        transactionId
+        items: [{}]
+        user
+        cardId
+        payment-intent-client-secret
+    }
+    */
+    // ---------------------------------------------------------
 
-    // C
-    payload = {
-        action: "get-user-credit-cards", // D, B3, B4
+    // ---------------------------------------------------------
+    //
+    //  Update The Backend with Transaction Status
+    //      ACK -- acknowledge -- "i Recieved your message"
+    const payload = {
+        action: "payment-transaction-status",
         message: {
-            userId: userId,
-            cogId: cogId,
+            cogId
+            transcationId
+            status
         }
     }
+    // update transactions
+    // update purchases
+    // ---------------------------------------------------------
 
+    // ---------------------------------------------------------
     // D
-    payload = {
+    const payload = {
         action: "get-user-purchases",
         message: {
             userId: userId,
             cogId: cogId,
+            email: email
         }
     }
+    //
+    // -- Serverside
+    //      query for purchase history
+    // ---------------------------------------------------------
+
+    /*
+        NOTES
+
+        card validation is checks/cvc_checks
+            paymentMethod obj
+            cardToken obj
+
+        given Dan's workflow
+            where can we can get transcation status ?
+
+    */
 ```
+
+
 
 #### List of socket actions:
 ```javascript

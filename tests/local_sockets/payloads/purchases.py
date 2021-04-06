@@ -10,6 +10,18 @@ Token Are Always Single User
 ## --------------------------------------------------------------------
 ## UUID GENERATOR :: https://www.uuidgenerator.net/version4
 ## --------------------------------------------------------------------
+ADD_CARD_TO_WALLET = {
+	"action": "wallet-add-user-credit-card",
+	"message": {
+		"userId": "2f087c03-3fd7-4411-bd18-de87ff1f3485",
+		"cogId": "f06b3aaf-19fb-4510-9440-dbf93a49cea4",
+		"email": "dansSmellyAss@stealyourbiscuit.com",
+		"stripeCardPayment": {
+			"validCard": True,
+			"DOB": "08/27/1987"
+		}
+	}
+}
 
 ## --------------------------------------------------------------------
 ## Adds a credit card to DB for the User

@@ -287,6 +287,12 @@ functions:
       - websocket:
           route: purchase-request
           cors: true
+  websocket-add-user-credit-cards:
+    handler: lambdas/websockets/addUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-add-user-credit-card
+          cors: true
   websocket-get-user-credit-cards:
     handler: lambdas/websockets/getUserCreditCards.handler
     events:
