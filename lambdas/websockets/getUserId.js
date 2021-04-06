@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const path = require('path');
 
-import { OptionsAPIGateway } from '../common/constants';
+import { OptionsAPIGateway, UserTableName } from '../common/constants';
 import Responses from '../common/API_Responses';
 // import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
