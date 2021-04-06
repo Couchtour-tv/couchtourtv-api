@@ -32,7 +32,8 @@ exports.handler = async event => {
             const queryResp = await DynamoDb.query({
                 TableName: CreditCardTableName,
                 IndexName: 'emailAddressIndex',
-                Key: { emailAddress: postData.email }
+                KeyConditionExpression: 'emailAddress = :v1',
+                ExpressionAttributeValues: { ':v1': postData.email}
             });
 
             replyMessage.creditCards = queryResp.Items;
@@ -44,7 +45,7 @@ exports.handler = async event => {
         } catch (e) {
 
             replyMessage.action = 'wallet-get-user-credit-cards-resp-error';
-            replyMessage.message.displayMessage = 'retrieved user credit cards';
+            replyMessage.message.displayMessage = 'NOT retrieved user credit cards';
 
             console.log( '\n************** [getUserCreditCards.js] [52] : ERROR  DB Fetch' )
             console.log('\n', e.stack)

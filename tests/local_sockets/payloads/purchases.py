@@ -18,9 +18,52 @@ ADD_CARD_TO_WALLET = {
 		"email": "dansSmellyAss@stealyourbiscuit.com",
 		"paymentMethodId": "3de14ab7-1a54-4591-9587-4d7c31baecff",
 		"stripeCardPayment": {
-			"validCard": True,
-			"DOB": "08/27/1987"
-		}
+			"id": "pm_1IWWRr2eZvKYlo2C5L5hFZFo",
+            "object": "payment_method",
+            "billing_details": {
+                "address": {
+                    "city": "Abbotsford",
+                    "country": "CA",
+                    "line1": "32497 South Fraser Way",
+                    "line2": None,
+                    "postal_code": "V2T 1X4",
+                    "state": "British Columbia"
+                },
+                "email": "jenny@example.com",
+                "name": None,
+                "phone": "+15555555555"
+            },
+            "card": {
+                "brand": "visa",
+                "checks": {
+                    "address_line1_check": None,
+                    "address_postal_code_check": None,
+                    "cvc_check": "pass"
+                },
+                "country": "US",
+                "exp_month": 8,
+                "exp_year": 2022,
+                "fingerprint": "Xt5EWLLDS7FJjR1c",
+                "funding": "credit",
+                "generated_from": None,
+                "last4": "4242",
+                "networks": {
+                    "available": [ "visa" ],
+                "preferred": None
+            },
+            "three_d_secure_usage": {
+                "supported": True
+            },
+            "wallet": None
+            },
+            "created": 123456789,
+            "customer": None,
+            "livemode": False,
+            "metadata": {
+                "order_id": "123456789"
+            },
+            "type": "card"
+        }
 	}
 }
 
@@ -31,6 +74,32 @@ GET_USER_OBJ = {
         "email": "bugs.bunny@looneytunes.com"
 	}
 }
+
+GET_USER_CREDIT_CARDS = {
+    'action': "wallet-get-user-credit-cards",
+    'message': {
+    	"userId": "2f087c03-3fd7-4411-bd18-de87ff1f3485",
+    	"cogId": "f06b3aaf-19fb-4510-9440-dbf93a49cea4",
+    	"email": "dansSmellyAss@stealyourbiscuit.com",
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -87,8 +87,8 @@ exports.handler = async event => {
 
 
 
-                    // replyMessage.action = 'purchase-request-resp-success';
-                    // replyMessage.message.displayMessage = 'purchase request success';
+                    replyMessage.action = 'purchase-request-resp-success';
+                    replyMessage.message.displayMessage = 'purchase request success';
 
                 // handled error fo
                 } else {
