@@ -128,12 +128,12 @@ Resources:
       AttributeDefinitions:
         - AttributeName: paymentMethodId
           AttributeType: S
-        - AttributeName: userId
+        - AttributeName: emailAddress
           AttributeType: S
       KeySchema:
         - AttributeName: paymentMethodId
           KeyType: HASH
-        - AttributeName: userId
+        - AttributeName: emailAddress
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   NewPurchasesTable:

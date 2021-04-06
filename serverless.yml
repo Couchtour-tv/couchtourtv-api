@@ -275,18 +275,6 @@ functions:
 
   ## ------------------------------------------------------
   ## -- CouchTour Purchases
-  websocket-create-payment-method:
-    handler: lambdas/websockets/createPaymentMethod.handler
-    events:
-      - websocket:
-          route: create-payment-method
-          cors: true
-  websocket-create-purchase-request:
-    handler: lambdas/websockets/createPurchaseRequest.handler
-    events:
-      - websocket:
-          route: purchase-request
-          cors: true
   websocket-add-user-credit-cards:
     handler: lambdas/websockets/addUserCreditCard.handler
     events:
@@ -299,6 +287,22 @@ functions:
       - websocket:
           route: get-user-credit-card
           cors: true
+
+
+  websocket-create-payment-method:
+    handler: lambdas/websockets/createPaymentMethod.handler
+    events:
+      - websocket:
+          route: create-payment-method
+          cors: true
+  websocket-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: purchase-request
+          cors: true
+
+
   websocket-get-user-purchases:
     handler: lambdas/websockets/getUserPurchases.handler
     events:

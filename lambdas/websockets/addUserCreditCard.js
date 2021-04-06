@@ -31,6 +31,7 @@ exports.handler = async event => {
             let checksObj = postData.stripeCardPayment.card.checks;
             let writeObj = {
                 ID:                 uuidv4(),
+                emailAddress:       postData.email,
                 paymentMethodId:    postData.paymentMethodId,
                 userId:             postData.userId,
                 expMonth:           postData.stripeCardPayment.card.exp_month,
@@ -80,11 +81,11 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[65]: Socket Send to connectcionId: ')
+            console.log('\n', path.basename(__filename), '[84]: Socket Send to connectcionId: ')
 
         } catch (e) {
 
-            console.log( '\n************** [addUserCreditCard.js] [69] : Error Return Socket Message to Client:' )
+            console.log( '\n************** [addUserCreditCard.js] [88] : Error Return Socket Message to Client:' )
             console.log('\n', e.stack)
             return { statusCode: 500, body: e.stack };
         }
@@ -92,10 +93,10 @@ exports.handler = async event => {
     // -- error handling body parse
     } catch (e) {
 
-        console.log( '\n************** [addUserCreditCard.js] [78] : Error in Parsing Payload :' )
+        console.log( '\n************** [addUserCreditCard.js] [96] : Error in Parsing Payload :' )
         console.log('\n', e.stack)
         return { statusCode: 500, body: e.stack };
 
     }
-    return Responses._200({ success: true, message: 'user-signup' });
+    return Responses._200({ success: true, message: 'user-add-credit-card' });
 };
