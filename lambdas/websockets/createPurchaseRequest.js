@@ -8,7 +8,8 @@ import { PurchasesTableName, StripeSecretKey } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
-import dynamoDb from "../../libs/dynamodb-lib";
+// import Dynamo from '../common/Dynamo';
+import DynamoDb from '../../libs/dynamodb-lib';
 
 
 exports.handler = async event => {
@@ -27,7 +28,7 @@ exports.handler = async event => {
         replyMessage.sender = connectionId;
         replyMessage.message = {};
 
-        console.log('\n**** createPurchaseRequest.js -- [29] payload Recevied:', postData );
+        console.log( '\n************** [createPurchaseRequests.js] [29] payload Recevied:', postData );
         async function priceValueConfirm( items ) {
             return true
         }
@@ -48,35 +49,12 @@ exports.handler = async event => {
             // TODO -- Confirm that the Payment Method Belongs to the User
             const validItems = await priceValueConfirm( postData.items )
             if ( validItems ) {
+
                 await getTotalValueInCents( postData.items );
                 await createArrayItemIds( postData.items );
 
-                console.log('\n\n\n\n\n\n\n\n');
-                console.log("totalValueInCents::", totalValueInCents);
-                console.log("allItemsIds::", allItemsIds);
-                console.log('\n\n\n\n\n\n\n\n');
-
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
-
-                // const purchaseData = {
-                //     // source: postData.stripePayment.id,
-                //     source: postData.tokenObj.token.id,
-                //     amount: totalValueInCents,
-                //     currency: "usd",
-                //     metadata: {
-                //         requestId: requestId,
-                //         userId: postData.userId,
-                //         email: postData.email,
-                //         cogId: postData.cogId,
-                //         itemIds: allItemsIds
-                //         // What other pieces of data do we want to include ?
-                //     }
-                // };
-                // const purchaseResp = await stripeInterface.charges.create(purchaseData);
-
-
-
 
                 const paymentIntent = await stripeInterface.paymentIntents.create({
                     amount: totalValueInCents,
@@ -88,20 +66,7 @@ exports.handler = async event => {
                 replyMessage.message.displayMessage = 'purchase request success';
                 replyMessage.derp = paymentIntent;
 
-                // const purchaseData = {
-                //     source: paymentIntent.id,
-                //     amount: totalValueInCents,
-                //     currency: "usd",
-                //     metadata: {
-                //         requestId: requestId,
-                //         userId: postData.userId,
-                //         email: postData.email,
-                //         cogId: postData.cogId,
-                //         itemIds: allItemsIds
-                //         // What other pieces of data do we want to include ?
-                //     }
-                // };
-                // const purchaseResp = await stripeInterface.charges.create(purchaseData);
+
 
                 console.log('\n****', path.basename(__filename), '[68] here is stripe reply', reply );
 

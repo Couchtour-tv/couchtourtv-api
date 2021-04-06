@@ -13,7 +13,7 @@ exports.handler = async event => {
 
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const { connectionId } = event.requestContext;
-    // const { cogId } = event.requestContext.identity.cognitoIdentityId;
+    // const cogId = event.requestContext.identity.cognitoIdentityId;
 
     try {
 

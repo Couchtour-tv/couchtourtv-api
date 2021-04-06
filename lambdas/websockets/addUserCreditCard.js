@@ -12,7 +12,7 @@ exports.handler = async event => {
 
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const { connectionId } = event.requestContext;
-    // const { cogId } = event.requestContext.identity.cognitoIdentityId;
+    // const cogId  = event.requestContext.identity.cognitoIdentityId;
 
     try {
 
@@ -55,7 +55,7 @@ exports.handler = async event => {
 
             }
 
-            await DynamoDb.put({ CreditCardTableName, Item: writeObj });
+            await DynamoDb.put({ TableName: CreditCardTableName, Item: writeObj });
             console.log( '\n************** [addUserCreditCard.js] [58] : Success DB Write' )
 
             replyMessage.action = 'wallet-add-credit-card-success-resp';
