@@ -3,8 +3,9 @@ const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import Dynamo from '../common/Dynamo';
-import { UserTableName } from '../common/constants';
+// import Dynamo from '../common/Dynamo';
+import DynamoDb from '../../libs/dynamodb-lib';
+import { CreditCardTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -25,29 +26,30 @@ exports.handler = async event => {
         replyMessage.action = null;
         replyMessage.message = {};
 
+        // -- handle db interaction
         try {
 
-            Dynamo.write(userObj, UserTableName );
+            const queryResp = await DynamoDb.put({
+                TableName: CreditCardTableName,
+                Key: { emailAddress: postData.email }
+            });
 
+            replyMessage.creditCards = queryResp.Items;
             replyMessage.action = 'wallet-get-user-credit-cards-resp-success';
-            replyMessage.message.displayMessage = 'user created';
+            replyMessage.message.displayMessage = 'retrieved user credit cards';
 
-            replyMessage.message.userId = replyMessage.message.ID
-            delete replyMessage.message.ID
-
-            console.log('\n', path.basename(__filename), '[44] : Success DB Write' )
+            console.log( '\n************** [getUserCreditCards.js] [44] : Success DB Get' )
 
         } catch (e) {
 
-            replyMessage.action = 'user-signup-error';
-            replyMessage.message.displayMessage = 'user not created';
-            replyMessage.message.loggedIn = false;
+            replyMessage.action = 'wallet-get-user-credit-cards-resp-error';
+            replyMessage.message.displayMessage = 'retrieved user credit cards';
 
-            console.log('\n', path.basename(__filename), '[52] : ERROR  DB Write' )
+            console.log( '\n************** [getUserCreditCards.js] [52] : ERROR  DB Write' )
             console.log('\n', e.stack)
-
         }
 
+        // -- handle socket return
         try {
 
             const socket_send = await socket.postToConnection({
@@ -56,27 +58,23 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[65]: Socket Send to connectcionId: ')
+            console.log( '\n************** [getUserCreditCards.js] [61]: Socket Send to connectcionId: ')
 
         } catch (e) {
 
-            console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' )
+            console.log( '\n************** [getUserCreditCards.js] [65] : Error Return Socket Message to Client:' )
             console.log('\n', e.stack)
-
             return { statusCode: 500, body: e.stack };
 
         }
 
+    // -- error handling body parse
     } catch (e) {
 
-        console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' )
+        console.log( '\n************** [getUserCreditCards.js] [78] : Error in Parsing Payload :' )
         console.log('\n', e.stack)
-
         return { statusCode: 500, body: e.stack };
 
     }
-
     return Responses._200({ success: true, message: 'user-signup' });
-
 };
-
