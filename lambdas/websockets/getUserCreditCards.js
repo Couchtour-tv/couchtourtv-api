@@ -10,8 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 exports.handler = async event => {
 
-    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+    const { connectionId } = event.requestContext;
+    // const { cogId } = event.requestContext.identity.cognitoIdentityId;
 
     try {
 
@@ -19,23 +20,16 @@ exports.handler = async event => {
         let replyMessage = {};
         replyMessage.sender = connectionId;
 
-        console.log( '\n**************', path.basename(__filename), '[22] payload Recevied:', postData );
-
-        let userObj = {};
-        userObj.ID = uuidv4();
-        userObj.emailAddress = postData.email;
-        userObj.cogId = postData.cogId;
-        userObj.emailVerified = postData.emailVerified;
-        userObj.loggedIn = true;
+        console.log( '\n************** [getUserCreditCards.js] [23] payload Recevied:', postData );
 
         replyMessage.action = null;
-        replyMessage.message = userObj;
+        replyMessage.message = {};
 
         try {
 
             Dynamo.write(userObj, UserTableName );
 
-            replyMessage.action = 'user-signup-success';
+            replyMessage.action = 'wallet-get-user-credit-cards-resp-success';
             replyMessage.message.displayMessage = 'user created';
 
             replyMessage.message.userId = replyMessage.message.ID

@@ -3,7 +3,7 @@ const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import DynamoDb from '../../libs/handler-lib';
+import DynamoDb from '../../libs/dynamodb-lib';
 import { CreditCardTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -58,14 +58,14 @@ exports.handler = async event => {
             await DynamoDb.put({ CreditCardTableName, Item: writeObj });
             console.log( '\n************** [addUserCreditCard.js] [58] : Success DB Write' )
 
-            replyMessage.action = 'wallet-add-credit-card-success';
+            replyMessage.action = 'wallet-add-credit-card-success-resp';
             replyMessage.message.displayMessage = 'credit card added to wallet';
             replyMessage.message.userId = postData.userId;
             replyMessage.message.paymentMethodId = postData.paymentMethodId;
 
         } catch (e) {
 
-            replyMessage.action = 'wallet-add-credit-card-error';
+            replyMessage.action = 'wallet-add-credit-card-error-resp';
             replyMessage.message.displayMessage = 'credit card NOT added to wallet';
 
             console.log( '\n************** [addUserCreditCard.js] [70] : ERROR  DB Write' )

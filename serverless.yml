@@ -285,7 +285,7 @@ functions:
     handler: lambdas/websockets/getUserCreditCards.handler
     events:
       - websocket:
-          route: get-user-credit-card
+          route: wallet-get-user-credit-cards
           cors: true
 
 
