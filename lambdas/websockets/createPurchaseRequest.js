@@ -64,7 +64,7 @@ exports.handler = async event => {
                 });
                 console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
 
-                if (reply && (reply.status === 'succeeded')) {
+                if (paymentIntentobj && (paymentIntentobj.status === 'succeeded')) {
 
                     console.log('\n**** Payment Intent Success');
                     await DynamoDb.put({
