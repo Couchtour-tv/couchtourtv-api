@@ -297,7 +297,7 @@ functions:
     handler: lambdas/websockets/createPurchaseRequest.handler
     events:
       - websocket:
-          route: purchase-request
+          route: create-purchase-intent
           cors: true
 
 

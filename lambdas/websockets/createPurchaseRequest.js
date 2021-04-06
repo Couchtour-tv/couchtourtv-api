@@ -64,10 +64,6 @@ exports.handler = async event => {
                 });
                 console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', reply );
 
-                replyMessage.action = 'purchase-request-resp-success';
-                replyMessage.message.displayMessage = 'purchase request success';
-                replyMessage.derp = paymentIntent;
-
                 if (reply && (reply.status === 'succeeded')) {
 
                     await DynamoDb.put({
@@ -81,31 +77,35 @@ exports.handler = async event => {
                         }
                     });
 
+                    replyMessage.action = 'create-purchase-intent-resp-success';
+                    replyMessage.message.displayMessage = 'create purchase intent success';
+                    replyMessage.message.paymentIntentobj = paymentIntentobj;
+                    replyMessage.message.transactionId = transactionId;
+                    replyMessage.message.purchaseItems = postData.items;
 
-
-
-
-
-
-                    replyMessage.action = 'purchase-request-resp-success';
-                    replyMessage.message.displayMessage = 'purchase request success';
+                    console.log('\n**** Payment Intent Success');
+                    console.log('\n************** [createPurchaseRequests.js] [82] purchase reply', paymentIntentobj);
 
                 // handled error fo
                 } else {
 
-                    console.log('\n**** Credit Transaction Fail');
-                    console.log('\n****', path.basename(__filename), '[82] purchase reply', purchaseResp);
+                    replyMessage.action = 'create-purchase-intent-resp-error';
+                    replyMessage.message.displayMessage = 'create purchase intent error';
+                    replyMessage.message.intentObj = paymentIntent;
+                    replyMessage.message.purchaseItems = postData.items;
+
+                    console.log('\n**** Payment Intent Fail');
+                    console.log('\n************** [createPurchaseRequests.js] [82] purchase reply', paymentIntentobj);
 
                 }
 
             } else {
 
-                replyMessage.action = 'purchase-request-resp-error';
-                replyMessage.message.displayMessage = 'purchase request failed';
+                replyMessage.action = 'create-purchase-intent-resp-error';
+                replyMessage.message.displayMessage = 'item price invalid';
+                replyMessage.message.purchaseItems = postData.items;
 
             }
-
-            console.log('\n', path.basename(__filename), '[44] : Success DB Write' )
 
         // error catch: making purchase request
         } catch (e) {
@@ -113,10 +113,8 @@ exports.handler = async event => {
             replyMessage.action = 'purchase-request-resp-error';
             replyMessage.message.displayMessage = 'purchase request failed';
 
-            console.log('\n', path.basename(__filename), '[96] : Error in Processing' );
+            console.log('\n************** [createPurchaseRequests.js] [96] : Error in Processing' );
             console.log('\n', e.stack);
-            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-
         }
 
         // code block:: socket response
@@ -128,15 +126,13 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[65]: Socket Send to connectcionId: ')
+            console.log('\n************** [createPurchaseRequests.js] [133]: Socket Send to connectcionId: ')
 
         // error catch: responding with socket call
         } catch (e) {
 
-            console.log('\n', path.basename(__filename), '[69] : Error Return Socket Message to Client:' );
+            console.log('\n************** [createPurchaseRequests.js] [138] : Error Return Socket Message to Client:' );
             console.log('\n', e.stack);
-            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-
             return { statusCode: 500, body: e.stack };
 
         }
@@ -146,13 +142,8 @@ exports.handler = async event => {
 
         console.log('\n', path.basename(__filename), '[78] : Error in Parsing Payload :' );
         console.log('\n', e.stack);
-        console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
-
         return { statusCode: 500, body: e.stack };
 
     }
-
     return Responses._200({ success: true, message: 'user-signup' });
-
 };
-

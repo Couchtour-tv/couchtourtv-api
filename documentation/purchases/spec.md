@@ -139,53 +139,56 @@ use case
         //A6 stripe cloud saves the card info and user info submitted and returns a
         ///////CARD_TOKEN = card_a4f923gf9u3fg
 
-        "id": "pm_1IWWRr2eZvKYlo2C5L5hFZFo",
-        "object": "payment_method",
-        "billing_details": {
-            "address": {
-                "city": "Abbotsford",
-                "country": "CA",
-                "line1": "32497 South Fraser Way",
-                "line2": null,
-                "postal_code": "V2T 1X4",
-                "state": "British Columbia"
+        {
+
+            "id": "pm_1IWWRr2eZvKYlo2C5L5hFZFo",
+            "object": "payment_method",
+            "billing_details": {
+                "address": {
+                    "city": "Abbotsford",
+                    "country": "CA",
+                    "line1": "32497 South Fraser Way",
+                    "line2": null,
+                    "postal_code": "V2T 1X4",
+                    "state": "British Columbia"
+                },
+                "email": "jenny@example.com",
+                "name": null,
+                "phone": "+15555555555"
             },
-            "email": "jenny@example.com",
-            "name": null,
-            "phone": "+15555555555"
-        },
-        //B3. 3. web-client request from sls-api , current payment methods aka current
-        //status: live cards
-        "card": {
-            "brand": "visa",
-            "checks": {
-                "address_line1_check": null,
-                "address_postal_code_check": null,
-                "cvc_check": "pass"    //A3
+            //B3. 3. web-client request from sls-api , current payment methods aka current
+            //status: live cards
+            "card": {
+                "brand": "visa",
+                "checks": {
+                    "address_line1_check": null,
+                    "address_postal_code_check": null,
+                    "cvc_check": "pass"    //A3
+                },
+                "country": "US",
+                "exp_month": 8,
+                "exp_year": 2022,
+                "fingerprint": "Xt5EWLLDS7FJjR1c",
+                "funding": "credit",
+                "generated_from": null,
+                "last4": "4242",
+                "networks": {
+                    "available": [ "visa" ],
+                "preferred": null
             },
-            "country": "US",
-            "exp_month": 8,
-            "exp_year": 2022,
-            "fingerprint": "Xt5EWLLDS7FJjR1c",
-            "funding": "credit",
-            "generated_from": null,
-            "last4": "4242",
-            "networks": {
-                "available": [ "visa" ],
-            "preferred": null
-        },
-        "three_d_secure_usage": {
-            "supported": true
-        },
-        "wallet": null
-        },
-        "created": 123456789,
-        "customer": null,
-        "livemode": false,
-        "metadata": {
-            "order_id": "123456789"
-        },
-        "type": "card"
+            "three_d_secure_usage": {
+                "supported": true
+            },
+            "wallet": null
+            },
+            "created": 123456789,
+            "customer": null,
+            "livemode": false,
+            "metadata": {
+                "order_id": "123456789"
+            },
+            "type": "card"
+        }
     */
 
 
@@ -213,7 +216,7 @@ use case
             cogId: cogId,
             email: email,
             paymentMethodId: paymentMethodId,
-            stripeCardPayment: paymentMethod,
+            stripeCardPayment: paymentMethod
             // stripeCardToken: stripeCardToken
         }
     })
@@ -285,8 +288,7 @@ use case
             cogId: cogId,
             email: email,
             cardId: cardId,
-            // stripeCardPayment: paymentMethod,
-            // stripeCardToken: stripeCardToken
+            paymentMethodId: ididid,
             items: [
                 {item_id: uuid, price_cents: 2},
                 {item_id: uuid, price_cents: 2},
