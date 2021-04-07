@@ -119,16 +119,16 @@ exports.handler = async event => {
                 console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
 
                 console.log('\n**** Payment Intent Success');
-                await DynamoDb.put({
-                    TableName: TransactionsTableName,
-                    Item: {
-                        ID:                 transactionId,
-                        emailAddress:       postData.email,
-                        cardId:             postData.cardId,
-                        status:             'INITIATED',
-                        paymentIntent:      paymentIntentobj
-                    }
-                });
+                // await DynamoDb.put({
+                //     TableName: TransactionsTableName,
+                //     Item: {
+                //         ID:                 transactionId,
+                //         emailAddress:       postData.email,
+                //         cardId:             postData.cardId,
+                //         status:             'INITIATED',
+                //         paymentIntent:      paymentIntentobj
+                //     }
+                // });
 
                 replyMessage.action = 'create-purchase-intent-resp-success';
                 replyMessage.message.displayMessage = 'create purchase intent success';
