@@ -90,7 +90,7 @@ exports.handler = async event => {
                     console.log('\n**** Payment Intent Fail');
                     replyMessage.action = 'create-purchase-intent-resp-error';
                     replyMessage.message.displayMessage = 'create purchase intent error';
-                    replyMessage.message.intentObj = paymentIntent;
+                    replyMessage.message.intentObj = paymentIntentObj;
                     replyMessage.message.purchaseItems = postData.items;
 
                 }

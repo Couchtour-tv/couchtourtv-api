@@ -317,11 +317,12 @@ use case
     //  Update The Backend with Transaction Status
     //      ACK -- acknowledge -- "i Recieved your message"
     const payload = {
-        action: "payment-transaction-status",
+        action: "payment-transaction-status-update",
         message: {
             cogId
             transcationId
-            status
+            status,
+            items
         }
     }
     // update transactions
