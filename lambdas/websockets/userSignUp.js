@@ -4,13 +4,14 @@ const path = require('path');
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { UserTableName } from '../common/constants';
+import { UserTableName, StripeSecretKey } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
+import stripePackage from "stripe";
 
 
 exports.handler = async event => {
 
-    const { connectionId } = event.requestContext;
+    const { connectionId, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
@@ -33,6 +34,36 @@ exports.handler = async event => {
 
         try {
 
+            const writeUserObj = {
+                name: postData.userName,
+                email: postData.email,
+                metedata: {
+                    codIg: postData.cogId,
+                    awsRequest.Id: requestId,
+                    createdAt: Date.now().toString(),
+                    description: 'userSignUp'
+                }
+            };
+            const stripeCreateCustomerResp = await stripe.customers.create( writeUserObj );
+
+            userObj.stripeUserId = stripeCreateCustomerResp.id;
+            userObj.stripeUserResp = stripeCreateCustomerResp;
+
+            replyMessage.createdStripeUser = true;
+            console.log('\n--userSignUp: [53] : Success Create Stripe User' )
+
+        } catch (e) {
+
+            userObj.stripeUserId = null;
+            userObj.stripeUserResp = null;
+
+            replyMessage.createdStripeUser = false;
+            console.log('\n--userSignUp: [61] : Error Create Stripe User' )
+
+        }
+
+        try {
+
             Dynamo.write(userObj, UserTableName );
 
             replyMessage.action = 'user-signup-success';
@@ -41,7 +72,7 @@ exports.handler = async event => {
             replyMessage.message.userId = replyMessage.message.ID
             delete replyMessage.message.ID
 
-            console.log('\n', path.basename(__filename), '[44] : Success DB Write' )
+            console.log('\n--userSignUp: [44] : Success DB Write' )
 
         } catch (e) {
 

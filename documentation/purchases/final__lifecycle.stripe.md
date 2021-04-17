@@ -28,7 +28,7 @@ const successPayload = JSON.stringify({
 ========================================================================
 
 =================================================
-# card_declined, decline_code: generic_decline 
+# card_declined, decline_code: generic_decline
 =================================================
 # Card Number:      4000000000000002
 # paymentMethod:    pm_card_chargeDeclined
@@ -82,14 +82,14 @@ const successPayload = JSON.stringify({
 =================================================
 # Card Number:      4000000000000101
 # paymentMethod:    pm_card_cvcCheckFail
-# token:            tok_cvcCheckFail 
+# token:            tok_cvcCheckFail
 _________________________________________________
 # Card Number:      4000000000000127
 # paymentMethod:    pm_card_chargeDeclinedIncorrectCvc
 # token:            tok_chargeDeclinedIncorrectCvc
 _________________________________________________
-# todo enable UI to update card. 
-# after this error pupulate message, button that asks to update card. 
+# todo enable UI to update card.
+# after this error pupulate message, button that asks to update card.
 # send stripe-process-error-incorrect-cvc then UI update then wallet-update-user-credit-card
 
     - MESSAGE: 'Your Transaction Failed Due to Mismatched CSV numbers. Please update Your Card'
@@ -107,7 +107,7 @@ const updatePayload = JSON.stringify({
   message: {
     stripeCardPayment: paymentMethod,
     userId: userId,
-    cardId: cardId, 
+    cardId: cardId,
     email: userEmail,
     cogId: localCogId,
   },
@@ -135,7 +135,7 @@ const successPayload = JSON.stringify({
 
 
 =================================================
-# card_declined, decline_code: fraudulent         
+# card_declined, decline_code: fraudulent
 =================================================
 # Card Number:      4100000000000019
 # paymentMethod:    pm_card_chargeDeclinedFraudulent
@@ -176,7 +176,7 @@ const successPayload = JSON.stringify({
 
 
 =================================================
-# card_declined, decline_code: insufficient_funds 
+# card_declined, decline_code: insufficient_funds
 =================================================
 # Card Number:      4000000000009995
 # paymentMethod:    pm_card_chargeDeclinedInsufficientFunds
@@ -362,27 +362,35 @@ const successPayload = JSON.stringify({
 # stripe-process-success-transaction-update
     stripe-process-success-transaction-update-resp-successs
     stripe-process-success-transaction-update-resp-error
+
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
+
 # stripe-process-error-incorrect-cvc
     stripe-process-error-incorrect-cvc-resp-success
     stripe-process-error-incorrect-cvc-resp-error
+
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
+
 # stripe-process-error-insufficient-funds
     stripe-process-error-insufficient-funds-resp-success
     stripe-process-error-insufficient-funds-resp-error
+
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
+
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
+
 # stripe-process-error-card-expired
     stripe-process-error-card-expired-resp-success
     stripe-process-error-card-expired-resp-error
+
 # stripe-process-error-payment-failure
     stripe-process-error-payment-failure-resp-success
     stripe-process-error-payment-failure-resp-error
@@ -404,29 +412,32 @@ const successPayload = JSON.stringify({
     wallet-get-user-credit-cards-resp-success
     wallet-get-user-credit-cards-resp-error
 
-# get-user-id
+# need to create stripe user, add stripeUserId to userObj
+#   - handle error and resp for socket call
+
+# get-user-id [[ --DONE-- ]]
     get-user-id-resp-success
     get-user-id-resp-error
 
 # create-purchase-intent
-    create-purchase-intent-resp-success 
-    create-purchase-intent-resp-error 
+    create-purchase-intent-resp-success
+    create-purchase-intent-resp-error
 
 # ____________________________________________________________________
-## not currently used actions: 
+## not currently used actions:
         view-purchases-resp-success
         view-purchases-resp-error
         get-payment-intent
 
 
-# not currently used actions responses: 
+# not currently used actions responses:
         chose-existing-payment-method-resp-success
         chose-existing-payment-method-resp-error
 
         purchase-request-resp-success
         purchase-request-resp-error
 
-        create-payment-method-resp-success          
+        create-payment-method-resp-success
         create-payment-method-resp-error
 
         get-user-credit-cards-resp-success
