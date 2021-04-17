@@ -208,21 +208,6 @@ functions:
           cors: true
 
   ## ------------------------------------------------------
-  ## -- CouchTour Patron
-  websocket-get-videos:
-    handler: lambdas/websockets/getVideos.handler
-    events:
-      - websocket:
-          route: getvideos
-          cors: true
-  websocket-add-device-id:
-    handler: lambdas/websockets/addDeviceId.handler
-    events:
-      - websocket:
-          route: add-device-id
-          cors: true
-
-  ## ------------------------------------------------------
   ## -- CouchTour User Auth
   websocket-user-verify-success:
     handler: lambdas/websockets/userVerifySuccess.handler
@@ -248,12 +233,6 @@ functions:
       - websocket:
           route: user-verify-resend-error
           cors: true
-  websocket-get-used-id:
-    handler: lambdas/websockets/getUserId.handler
-    events:
-      - websocket:
-          route: get-user-id
-          cors: true
   websocket-user-login:
     handler: lambdas/websockets/userLogin.handler
     events:
@@ -278,9 +257,39 @@ functions:
       - websocket:
           route: user-signup-error
           cors: true
+  websocket-get-used-id:
+    handler: lambdas/websockets/getUserId.handler
+    events:
+      - websocket:
+          route: get-user-id
+          cors: true
+
+  ## ------------------------------------------------------
+  ## -- CouchTour Patron
+  websocket-get-videos:
+    handler: lambdas/websockets/getVideos.handler
+    events:
+      - websocket:
+          route: getvideos
+          cors: true
+  websocket-add-device-id:
+    handler: lambdas/websockets/addDeviceId.handler
+    events:
+      - websocket:
+          route: add-device-id
+          cors: true
+  websocket-get-user-purchases:
+    handler: lambdas/websockets/getUserPurchases.handler
+    events:
+      - websocket:
+          route: get-user-purchases
+          cors: true
+
 
   ## ------------------------------------------------------
   ## -- CouchTour Purchases
+  #
+  # -- wallet and success
   websocket-add-user-credit-cards:
     handler: lambdas/websockets/addUserCreditCard.handler
     events:
@@ -299,8 +308,6 @@ functions:
       - websocket:
           route: create-purchase-intent
           cors: true
-
-
   websocket-create-payment-method:
     handler: lambdas/websockets/createPaymentMethod.handler
     events:
@@ -310,12 +317,7 @@ functions:
 
 
 
-  websocket-get-user-purchases:
-    handler: lambdas/websockets/getUserPurchases.handler
-    events:
-      - websocket:
-          route: get-user-purchases
-          cors: true
+
 
 # Create our resources with separate CloudFormation templates
 resources:
@@ -328,3 +330,52 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
