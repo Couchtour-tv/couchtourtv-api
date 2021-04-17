@@ -39,7 +39,7 @@ exports.handler = async event => {
                 email: postData.email,
                 metedata: {
                     codIg: postData.cogId,
-                    awsRequest.Id: requestId,
+                    awsRequestId: requestId,
                     createdAt: Date.now().toString(),
                     description: 'userSignUp'
                 }

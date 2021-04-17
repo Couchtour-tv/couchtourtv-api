@@ -8,7 +8,7 @@ Stripe test credit card cannot be random numbers
 there s list of them
 4242 4242 4242 4242
 4111 1111 1111 1111
-WORKS
+WORKSw
 credit cards
 use case
 
@@ -37,7 +37,7 @@ use case
         8. sls-api stores the card token info in a DB connected to userID
             credit card records are never delete, a deleted record is made by switching 'active' to false
             for credit card states we use 'status' ,
-                states are :live, :expired, :cancelled, :error, :fail_checks
+
 
         card_id     card_token       expmont  expyear   userid              createdate      card        lastFour  active  status
         UUID        BUGGS_BUNNY         12      2025   user_dynamodb_ider_id   Date.now()     VISA        5678      true     live

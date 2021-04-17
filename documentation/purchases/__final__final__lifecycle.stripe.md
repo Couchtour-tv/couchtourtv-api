@@ -59,7 +59,7 @@ _________________________________________________
 ```javascript
 const successPayload = JSON.stringify({
   // action: "payment-transaction-status-update",
-    action: "stripe-process-error-card-deactivate",
+  action: "stripe-process-error-card-deactivate",
   message: {
     stripeConfirmationTransactionPayload: confirmCardPayment,
     userId: userId,
@@ -355,83 +355,226 @@ const successPayload = JSON.stringify({
 })
 ```
 
-
-
-
 # ----------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------
 
 
+# ================================================================================================================
 # ============================ STRIPE ERROR ACTIONS AND RESPONSES ===============================
 
+
+# --------------------------------------------
 # stripe-process-success-transaction-update
     stripe-process-success-transaction-update-resp-successs
     stripe-process-success-transaction-update-resp-error
 
+## STEPS ::
+* update transaction record
+    * update state to 'COMPLETE'
+* grab purchase item with transactionId
+    * update state to 'COMPLETE'
+    * update errorStatus to null
+
+
+# --------------------------------------------
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
 
+## STEPS ::
+  * update card record
+    status: cancelled
+    active: false
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorState
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'Deactivate'
+    * update state to 'ERROR'
+
+# --------------------------------------------
 # stripe-process-error-incorrect-cvc
     stripe-process-error-incorrect-cvc-resp-success
     stripe-process-error-incorrect-cvc-resp-error
 
+## STEPS ::
+  * update card record
+    status: error
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorStatus
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'incorrect-cvc'
+    * update state to 'ERROR'
+
+# --------------------------------------------
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
 
+## STEPS ::
+  * update card record
+    status: cancelled
+    active: false
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorStatus
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'Deactivate'
+    * update state to 'ERROR'
+
+# --------------------------------------------
 # stripe-process-error-insufficient-funds
     stripe-process-error-insufficient-funds-resp-success
     stripe-process-error-insufficient-funds-resp-error
 
+## STEPS ::
+  * update card record
+    status: error
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorStatus
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'insufficient-funds'
+    * update state to 'ERROR'
+
+# --------------------------------------------
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
 
+## STEPS ::
+  *
+  *
+  *
+
+# --------------------------------------------
 # stripe-process-error-card-deactivate
     stripe-process-error-card-deactivate-resp-success
     stripe-process-error-card-deactivate-resp-error
 
+## STEPS ::
+  *
+  *
+  *
+
+# --------------------------------------------
 # stripe-process-error-card-expired
     stripe-process-error-card-expired-resp-success
     stripe-process-error-card-expired-resp-error
 
+## STEPS ::
+  * update card record
+    status: expired
+    active: false
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorStatus
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'expired-card'
+    * update state to 'ERROR'
+
+# --------------------------------------------
 # stripe-process-error-payment-failure
     stripe-process-error-payment-failure-resp-success
     stripe-process-error-payment-failure-resp-error
 
+## STEPS ::
+  * update card record
+    status: error
+  * update transaction record
+      * update state to 'ERROR'
+  * grab purchase item with transactionId
+    * errorStatus
+      * if errorStatus is Null:
+        * create errorStatus
+      * else
+        * add errorStatus Date.now(): 'process-failure'
+    * update state to 'ERROR'
 
-
-
+# ================================================================================================================
 # ============================ STRIPE ACTIONS AND RESPONSES ===============================
 
+
+# --------------------------------------------
+# get-user-id
+    get-user-id-resp-success
+    get-user-id-resp-error
+
+## STEPS ::
+  *
+
+
+# --------------------------------------------
+# wallet-get-user-credit-cards
+    wallet-get-user-credit-cards-resp-success
+    wallet-get-user-credit-cards-resp-error
+
+## STEPS ::
+  * get all credit cards userId = postData.userId and status:live and actve:true
+
+
+# --------------------------------------------
+# create-purchase-intent
+    create-purchase-intent-resp-success
+    create-purchase-intent-resp-error
+
+## STEPS ::
+  * retrieve stripeCustomerId, either
+    * retrieve stripeCustomerId :: postDate.stripeCustomerId / query user using userId
+  * create transaction record
+    * create transaction id
+    * set state to BEGIN
+    * createdAt: Date.now()
+    * stripeResponse: null
+  * create purchase
+    * stash items with transaction id
+
+
+# --------------------------------------------
 # wallet-add-user-credit-card
     wallet-add-user-credit-card-resp-success
     wallet-add-user-credit-card-resp-error
 
+## STEPS ::
+  * create card item
+  card_id     card_token       expmonth  expyear   userid              createdate      card        lastFour  active  status
+  UUID        BUGGS_BUNNY         12      2025   user_dynamodb_ider_id   Date.now()     VISA        5678      true     live
+
+
+# --------------------------------------------
 # wallet-update-user-credit-card
     wallet-update-user-credit-card-resp-success
     wallet-update-user-credit-card-resp-error
 
-# wallet-get-user-credit-cards
-    wallet-get-user-credit-cards-resp-success
-    wallet-get-user-credit-cards-resp-error
-*** --only return cards that are live
-
-# need to create stripe user, add stripeUserId to userObj
-#   - handle error and resp for socket call
-
-# get-user-id [[ --DONE-- ]]
-    get-user-id-resp-success
-    get-user-id-resp-error
+## STEPS ::
+  * cardId ... last four / expyear / expmonth
 
 
-# create-purchase-intent
-    create-purchase-intent-resp-success
-    create-purchase-intent-resp-error
-*** --need to verify that the card belongs to user and the card is live
+# --------------------------------------------
+# wallet-delete-user-credit-card
+    wallet-delete-user-credit-card-resp-success
+    wallet-delete-user-credit-card-resp-error
 
+## STEPS ::
+  * cardId .. active: false
 
+# ____________________________________________________________________
 # ____________________________________________________________________
 ## not currently used actions:
         view-purchases-resp-success
@@ -453,20 +596,27 @@ const successPayload = JSON.stringify({
         get-user-credit-cards-resp-error
 
 
+
+
 # ----------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------
-TABLES ::::::
-### ----------------------------------------------------------------------------------------------
+
+# :::::::::::: TABLES ::::::
+
 
 -- USERS
 
 --- CreditCards
+
 
   card_id     card_token       expmont  expyear   userid              createdate      card        lastFour  active  status
   UUID        BUGGS_BUNNY         12      2025   user_dynamodb_ider_id   Date.now()     VISA        5678      true     live
 
   STATUSES
     :live, :expired, :cancelled, :error, :fail_checks
+
+  ACTIVE ( for "deleted" cards )
+    :true :false
 
   retrieve credit card
   get creditCard.statusUpdate
@@ -489,6 +639,7 @@ TABLES ::::::
 
 # ----------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------
+
 
 
 //TODO
@@ -568,55 +719,3 @@ do we want to enable a user to reactivate a card again
   },
   "type": "card"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
