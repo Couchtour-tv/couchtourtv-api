@@ -285,7 +285,6 @@ functions:
           route: get-user-purchases
           cors: true
 
-
   ## ------------------------------------------------------
   ## -- CouchTour Purchases
   #
@@ -320,10 +319,6 @@ functions:
           route: create-payment-method
           cors: true
 
-
-
-
-
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors
@@ -335,52 +330,3 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

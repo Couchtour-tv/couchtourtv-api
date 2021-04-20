@@ -43,9 +43,6 @@ _________________________________________________
 # token:            tok_riskLevelHighest
 _________________________________________________
 
-
-
-
 - MESSAGE: 'Your Card Was Declined For An Unknown Reason, Please Contact Your Card Issuer For More Information'
 - MESSAGE: 'We Will Be DeActiviating This Card Until It Your Issuer Resolves This. Please Add or Choose Anohther Card To Process This Payment'
 	- BACKEND: Send payload to Deactivate Card
