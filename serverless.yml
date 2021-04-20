@@ -296,8 +296,8 @@ functions:
       - websocket:
           route: wallet-add-user-credit-card
           cors: true
-  websocket-add-user-credit-cards:
-    handler: lambdas/websockets/addUserCreditCard.handler
+  websocket-delete-user-credit-cards:
+    handler: lambdas/websockets/deleteUserCreditCard.handler
     events:
       - websocket:
           route: wallet-delete-user-credit-card
