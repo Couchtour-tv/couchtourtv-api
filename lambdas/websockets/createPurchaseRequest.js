@@ -4,7 +4,7 @@ const path = require('path');
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { PurchasesTableName, StripeSecretKey, TransactionsTableName } from '../common/constants';
+import { PurchasesTableName, StripeSecretKey, TransactionsTableName, UserTableName } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
@@ -46,65 +46,9 @@ exports.handler = async event => {
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
 
-        // code block:: stripe purchase request
         try {
 
-            // TODO -- Confirm that the Payment Method Belongs to the User
-            const validItems = await priceValueConfirm( postData.items )
-
-            // if ( validItems ) {
-
-            //     await getTotalValueInCents( postData.items );
-            //     await createArrayItemIds( postData.items );
-
-            //     // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
-            //     const stripeInterface = stripePackage(StripeSecretKey);
-            //     const paymentIntentobj = await stripeInterface.paymentIntents.create({
-            //         amount: totalValueInCents,
-            //         currency: 'usd',
-            //         payment_method_types: ['card'],
-            //     });
-            //     console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
-
-            //     if (paymentIntentobj && (paymentIntentobj.status === 'succeeded')) {
-
-            //         console.log('\n**** Payment Intent Success');
-            //         await DynamoDb.put({
-            //             TableName: TransactionsTableName,
-            //             Item: {
-            //                 ID:                 transactionId,
-            //                 emailAddress:       postData.email,
-            //                 cardId:             postData.cardId,
-            //                 status:             'INITIATED',
-            //                 paymentIntent:      paymentIntentobj
-            //             }
-            //         });
-
-            //         replyMessage.action = 'create-purchase-intent-resp-success';
-            //         replyMessage.message.displayMessage = 'create purchase intent success';
-            //         replyMessage.message.paymentIntentobj = paymentIntentobj;
-            //         replyMessage.message.transactionId = transactionId;
-            //         replyMessage.message.purchaseItems = postData.items;
-
-            //     // handled error fo
-            //     } else {
-
-            //         console.log('\n**** Payment Intent Fail');
-            //         replyMessage.action = 'create-purchase-intent-resp-error';
-            //         replyMessage.message.displayMessage = 'create purchase intent error';
-            //         replyMessage.message.intentObj = {};
-            //         replyMessage.message.purchaseItems = postData.items;
-
-            //     }
-
-            // } else {
-
-            //     replyMessage.action = 'create-purchase-intent-resp-error';
-            //     replyMessage.message.displayMessage = 'item price invalid';
-            //     replyMessage.message.purchaseItems = postData.items;
-
-            // }
-
+            const validItems = await priceValueConfirm( postData.items );
             if ( validItems ) {
 
                 await getTotalValueInCents( postData.items );
@@ -155,11 +99,6 @@ exports.handler = async event => {
                 replyMessage.message.purchaseItems = postData.items;
 
             }
-
-
-
-
-
 
         // error catch: making purchase request
         } catch (e) {
