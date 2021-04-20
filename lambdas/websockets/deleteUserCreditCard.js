@@ -27,7 +27,7 @@ exports.handler = async event => {
         // -- handle db interaction
         try {
 
-            const updateParams = {
+            const updateStatusParams = {
                 TableName: CreditCardTableName,
                 Key: {
                     "paymentMethodId": emailAddress,
@@ -38,9 +38,9 @@ exports.handler = async event => {
                     ":x": 'cancelled'
                 }
             };
-            await DynamoDb.update( updateParams );
+            await DynamoDb.update( updateStatusParams );
 
-            const updateParams = {
+            const updateActiveParams = {
                 TableName: CreditCardTableName,
                 Key: {
                     "paymentMethodId": emailAddress,
@@ -51,7 +51,7 @@ exports.handler = async event => {
                     ":x": false
                 }
             };
-            await DynamoDb.update( updateParams );
+            await DynamoDb.update( updateActiveParams );
 
             replyMessage.action = 'wallet-delete-credit-card-success-resp';
             replyMessage.message.displayMessage = 'SUCCESS in deactivated wallet';
