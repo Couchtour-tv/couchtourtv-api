@@ -46,7 +46,7 @@ exports.handler = async event => {
             };
             const stripeCreateCustomerResp = await stripe.customers.create( writeUserObj );
 
-            userObj.stripeUserId = stripeCreateCustomerResp.id;
+            userObj.stripeCustomerId = stripeCreateCustomerResp.id;
             userObj.stripeUserResp = stripeCreateCustomerResp;
 
             replyMessage.createdStripeUser = true;

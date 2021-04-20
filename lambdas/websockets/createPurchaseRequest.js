@@ -44,6 +44,7 @@ exports.handler = async event => {
         };
         let paymentIntentobj = {};
         let transactionId = uuidv4();
+        let idempotentKey = uuidv4();
 
         // code block:: stripe purchase request
         try {
@@ -109,12 +110,21 @@ exports.handler = async event => {
                 await getTotalValueInCents( postData.items );
                 await createArrayItemIds( postData.items );
 
+                const userObj= await DynamoDb.query({
+                    TableName: UserTableName,
+                    KeyConditionExpression: 'emailAddress = :v1',
+                    ExpressionAttributeValues: { ':v1': postData.email}
+                });
+                const user = userObj.Items[0];
+
                 // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
                 const paymentIntentobj = await stripeInterface.paymentIntents.create({
                     amount: totalValueInCents,
                     currency: 'usd',
                     payment_method_types: ['card'],
+                    customer: user.stripeCustomerId,
+                    idempotency_key: idempotentKey,
                 });
                 console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
 

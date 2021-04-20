@@ -12,7 +12,6 @@ exports.handler = async event => {
 
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const { connectionId } = event.requestContext;
-    // const cogId  = event.requestContext.identity.cognitoIdentityId;
 
     try {
 
@@ -38,7 +37,7 @@ exports.handler = async event => {
                 expYear:            postData.stripeCardPayment.card.exp_year,
                 brand:              postData.stripeCardPayment.card.brand,
                 savedAt:            Date.now(),
-                lastFour:     postData.stripeCardPayment.card.last4,
+                lastFour:           postData.stripeCardPayment.card.last4,
                 paymentMethodObj:   postData.stripeCardPayment
             };
 
@@ -46,12 +45,12 @@ exports.handler = async event => {
             if ( checksObj.cvc_check === 'pass') {
 
                 writeObj.active = true;
-                writeObj.valid = true;
+                writeObj.status = 'live';
 
             } else {
 
                 writeObj.active = false;
-                writeObj.valid = false;
+                writeObj.status = 'fails_checks';
 
             }
 

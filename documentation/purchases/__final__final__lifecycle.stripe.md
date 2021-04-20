@@ -100,37 +100,78 @@ _________________________________________________
     - Update Card Backend
     - Process Payment with another card (No payment-intent-creation necesary, just use another caard obj with exsisting payment-intent)
 
-  # __________________________________________
-```javascript
-const updatePayload = JSON.stringify({
-  action: "wallet-update-user-credit-card",
-  message: {
-    stripeCardPayment: paymentMethod,
-    userId: userId,
-    cardId: cardId,
-    email: userEmail,
-    cogId: localCogId,
-  },
-})
-```
 # __________________________________________
 ```javascript
 const successPayload = JSON.stringify({
   // action: "payment-transaction-status-update",
     action: "stripe-process-error-incorrect-cvc",
-  message: {
-    stripeConfirmationTransactionPayload: confirmCardPayment,
-    userId: userId,
-    cogId: localCogId,
-    email: userEmail,
-    cardId: chosenCard.cardId,
-    transactionId: socketRespData.transactionID,
-    intentId: socketRespData.intentId,
-    statusResp: "ERROR", //stripe status
-    errorCode: errorCode
+    message: {
+      stripeConfirmationTransactionPayload: confirmCardPayment,
+      userId: userId,
+      cogId: localCogId,
+      email: userEmail,
+      cardId: chosenCard.cardId,
+      transactionId: socketRespData.transactionID,
+      intentId: socketRespData.intentId,
+      statusResp: "ERROR", //stripe status
+      errorCode: errorCode
   },
 })
 ```
+
+# __________________________________________
+--- Deactivate User Credit Card
+```javascript
+const deleteCardPayload = JSON.stringify({
+  action: "wallet-delete-user-credit-card",
+  message: {
+    userId: userId,
+    cogId: cogId,
+    email: userEmail,
+    cardId: cardId,
+    stripeCustomerId: stripCustomerId,
+    stripeCardPaymentId: cardData.paymentMethodId,
+  }
+})
+```
+
+# __________________________________________
+--- Add User Credit Card
+```javascript
+const payload = JSON.stringify({
+  action: "wallet-add-user-credit-card",
+  message: {
+    stripeCardPayment: paymentMethod,
+    paymentMethodId: paymentMethod.id,
+    stripeCustomerId: stripeCustomerId,
+    userId: userId,
+    email: userEmail,
+    cogId: localCogId
+  },
+})
+```
+
+# __________________________________________
+```javascript
+// const updatePayload = JSON.stringify({
+//   action: "wallet-update-user-credit-card",
+//   message: {
+//     // newly created paymentMethodObject
+//     stripeCardPayment: paymentMethod,
+//     userId: userId,
+//     // card Id of previous card to deactivate
+//     cardId: cardId,
+//     email: userEmail,
+//     cogId: localCogId,
+//     // stripeUserId: <stripeUserId>,
+//     // lastFour: <last_four>,
+//     // expMonth: <exp_month>,
+//     // expYear: <exp_year>
+
+//   },
+// })
+```
+
 =============================================================================================
 
 
@@ -544,7 +585,6 @@ const successPayload = JSON.stringify({
     * stripeResponse: null
   * create purchase
     * stash items with transaction id
-
 
 # --------------------------------------------
 # wallet-add-user-credit-card
