@@ -8,17 +8,17 @@ import { PurchasesTableName, StripeSecretKey, TransactionsTableName, UserTableNa
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
-// import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
-
-
+/*
+    DOCS ::
+        stripe.charges.create :: https://stripe.com/docs/api/charges/create
+*/
 exports.handler = async event => {
 
     const { connectionId, domainName, stage, requestId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const cogId = event.requestContext.identity.cognitoIdentityId;
 
-    // code block:: json parse
     try {
 
         let postData = JSON.parse(event.body).message;
@@ -28,7 +28,7 @@ exports.handler = async event => {
         replyMessage.sender = connectionId;
         replyMessage.message = {};
 
-        console.log('\n************** [createPurchaseRequests.js] [29] payload Recevied:', postData );
+        console.log('\n************** [createPurchaseRequests.js] [31] payload Recevied:', postData );
         async function priceValueConfirm( items ) {
             return true
         }
@@ -42,7 +42,7 @@ exports.handler = async event => {
                 allItemsIds.push( item.item_id )
             });
         };
-        let paymentIntentobj = {};
+        let paymentIntentobjResp = {};
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
 
@@ -61,18 +61,18 @@ exports.handler = async event => {
                 });
                 const user = userObj.Items[0];
 
-                // DOCS :: stripe.charges.create || https://stripe.com/docs/api/charges/create
                 const stripeInterface = stripePackage(StripeSecretKey);
-                const paymentIntentobj = await stripeInterface.paymentIntents.create({
+                const paymentIntentobjResp = await stripeInterface.paymentIntents.create({
                     amount: totalValueInCents,
                     currency: 'usd',
                     payment_method_types: ['card'],
                     customer: user.stripeCustomerId,
                     idempotency_key: idempotentKey,
                 });
-                console.log( '\n************** [createPurchaseRequests.js] [64] here is stripe reply', paymentIntentobj);
+                console.log('\n--------------- Payment Intent Success');
+                console.log( '\n************** [createPurchaseRequests.js] [64] reply ::', paymentIntentobjResp);
 
-                console.log('\n**** Payment Intent Success');
+
                 // await DynamoDb.put({
                 //     TableName: TransactionsTableName,
                 //     Item: {
@@ -80,19 +80,20 @@ exports.handler = async event => {
                 //         emailAddress:       postData.email,
                 //         cardId:             postData.cardId,
                 //         status:             'INITIATED',
-                //         paymentIntent:      paymentIntentobj
+                //         paymentIntent:      paymentIntentobjResp
                 //     }
                 // });
 
                 replyMessage.action = 'create-purchase-intent-resp-success';
                 replyMessage.message.displayMessage = 'create purchase intent success';
-                replyMessage.message.paymentIntentobj = paymentIntentobj;
+                replyMessage.message.paymentIntentobjResp = paymentIntentobjResp;
                 replyMessage.message.transactionId = transactionId;
+                replyMessage.message.idempotentKey = idempotentKey;
                 replyMessage.message.purchaseItems = postData.items;
 
             } else {
 
-                console.log('\n**** Payment Intent Fail');
+                console.log('\n--------------- Payment Intent Fail');
                 replyMessage.action = 'create-purchase-intent-resp-error';
                 replyMessage.message.displayMessage = 'create purchase intent error';
                 replyMessage.message.intentObj = {};

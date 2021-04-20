@@ -50,6 +50,7 @@ exports.handler = async event => {
             userObj.stripeUserResp = stripeCreateCustomerResp;
 
             replyMessage.createdStripeUser = true;
+
             console.log('\n--userSignUp: [53] : Success Create Stripe User' )
 
         } catch (e) {
