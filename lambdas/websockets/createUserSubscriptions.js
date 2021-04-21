@@ -27,12 +27,27 @@ exports.handler = async event => {
 
         // -- handle db interaction
         try {
+            const stripeInterface = stripePackage(StripeSecretKey);
             const subscriptionParams = await {
                 customer: postData.stripeCustomerId,
                 items: [ {price: postData.priceId } ]
-            }
-            const stripeInterface = stripePackage(StripeSecretKey);
+            };
+            const attachedPaymentMethod = await stripeInterface.paymentMethods.attach(
+                postData.paymentMethodId,
+                { customer: postData.customerId }
+            );
+            const updatedCustomer = stripeInterface.customer.update(
+                postData.customerId,
+                { invoice_settings: { default_payment_method: postData.paymentMethodId }}
+            );
             const createdSubscription = await stripeInterface.subscriptions.create( subscriptionParams );
+
+            console.log( '\n************** attachedPaymentMethod :: ');
+            console.log( attachedPaymentMethod );
+            console.log( '\n************** updatedCustomer ::' );
+            console.log( updatedCustomer );
+            console.log( '\n************** createdSubscription ::' );
+            console.log( createdSubscription );
 
             replyMessage.action = 'create-user-subscription-resp-success';
             replyMessage.message = createdSubscription;
