@@ -65,3 +65,11 @@ python
 --deactivate
 	deactivate
 ```
+
+Databse Seeding
+
+```bash
+aws dynamodb list-tables --endpoint-url http://localhost:8000 >> resources/seeds/tables.json
+aws dynamodb scan --table-name ct-CreditCards --endpoint-url http://localhost:8000 >> resources/seeds/creditCards.json
+aws dynamodb scan --table-name ct-Users --endpoint-url http://localhost:8000 >> resources/seeds/users.json
+```

@@ -32,11 +32,15 @@ custom:
         sources:
           - table: ${env:MEDIA_META_TABLE}
             sources: [./resources/seeds/movieMetaSeed.json]
+          - table: ${env:USER_TABLE}
+            sources: [./resources/seeds/import-users.json]
   seed:
     movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
       sources:
         - [./resources/seeds/movieMetaSeed.json]
+
+
 
 provider:
   name: aws
@@ -286,9 +290,10 @@ functions:
           cors: true
 
   ## ------------------------------------------------------
-  ## -- CouchTour Purchases
+  ## -- Strip Integration
   #
-  # -- wallet and success
+  # -- wallet actions
+  #
   websocket-add-user-credit-cards:
     handler: lambdas/websockets/addUserCreditCard.handler
     events:
@@ -306,6 +311,9 @@ functions:
     events:
       - websocket:
           route: wallet-get-user-credit-cards
+  #
+  # -- purchase transactions
+  #
   websocket-create-purchase-request:
     handler: lambdas/websockets/createPurchaseRequest.handler
     events:
@@ -318,6 +326,25 @@ functions:
       - websocket:
           route: create-payment-method
           cors: true
+  #
+  # -- purchase transaction error handling
+  #
+  #
+  # -- product subscriptions:
+  #
+  websocket-get-product-subscriptions:
+    handler: lambdas/websockets/getProductSubscriptions.handler
+    events:
+      - websocket:
+          route: get-product-subscriptions
+          cors: true
+  websocket-create-user-subscriptions:
+    handler: lambdas/websockets/createUserSubscriptions.handler
+    events:
+      - websocket:
+          route: create-user-subscription
+          cors: true
+
 
 # Create our resources with separate CloudFormation templates
 resources:
