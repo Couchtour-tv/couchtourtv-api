@@ -4,7 +4,7 @@ const path = require('path');
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import DynamoDb from '../../libs/dynamodb-lib';
-import { CreditCardTableName } from '../common/constants';
+import { CreditCardTableName, StripeSecretKey } from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import stripePackage from "stripe";
 
