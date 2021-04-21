@@ -34,10 +34,10 @@ exports.handler = async event => {
             };
             const attachedPaymentMethod = await stripeInterface.paymentMethods.attach(
                 postData.paymentMethodId,
-                { customer: postData.customerId }
+                { customer: postData.stripeCustomerId }
             );
-            const updatedCustomer = stripeInterface.customer.update(
-                postData.customerId,
+            const updatedCustomer = await stripeInterface.customers.update(
+                postData.stripeCustomerId,
                 { invoice_settings: { default_payment_method: postData.paymentMethodId }}
             );
             const createdSubscription = await stripeInterface.subscriptions.create( subscriptionParams );
