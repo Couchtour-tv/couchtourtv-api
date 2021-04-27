@@ -22,15 +22,15 @@ exports.handler = async event => {
         try {
 
             const eventsObj = await DynamoDb.scan({ TableName: EventsTableName });
-            replyMessage.message.events= eventsObj.Items;
+            replyMessage.events = eventsObj.Items;
             replyMessage.action = 'get-all-events-resp-success';
-            replyMessage.message.displayMessage = 'events retrieved';
+            replyMessage.displayMessage = 'events retrieved';
 
         } catch (e) {
 
-            replyMessage.message = {};
-            replyMessage.action = 'retrieved-user-error';
-            replyMessage.message.displayMessage = 'user NOT retrieved';
+            replyMessage.events = {};
+            replyMessage.action = 'get-all-events-resp-error';
+            replyMessage.displayMessage = 'events NOT retrieved';
 
             console.log('\n************** [getAllEvents.js] [50] : ERROR  DB Update' )
             console.log('\n', e.stack)

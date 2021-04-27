@@ -22,15 +22,15 @@ exports.handler = async event => {
         try {
 
             const ticketsObj = await DynamoDb.scan({ TableName: TicketsTableName });
-            replyMessage.message.tickets = ticketsObj.Items;
+            replyMessage.tickets = ticketsObj.Items;
             replyMessage.action = 'get-all-tickets-resp-success';
-            replyMessage.message.displayMessage = 'tickets retrieved';
+            replyMessage.displayMessage = 'tickets retrieved';
 
         } catch (e) {
 
-            replyMessage.message = {};
+            replyMessage.tickets = {};
             replyMessage.action = 'get-all-tickets-resp-error';
-            replyMessage.message.displayMessage = 'tickets NOT retrieved';
+            replyMessage.displayMessage = 'tickets NOT retrieved';
 
             console.log('\n************** [getAllTickets.js] [50] : ERROR  DB Fetch' )
             console.log('\n', e.stack)
