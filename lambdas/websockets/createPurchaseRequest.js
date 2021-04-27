@@ -4,15 +4,41 @@ const path = require('path');
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import Dynamo from '../common/Dynamo';
-import { PurchasesTableName, StripeSecretKey, TransactionsTableName, UserTableName } from '../common/constants';
+import {
+    PurchasesTableName, StripeSecretKey, TransactionsTableName,
+    UserTableName, AcquisitionsTableName
+} from '../common/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { CreatePurchase } from "../models/Purchase";
 import stripePackage from "stripe";
 import DynamoDb from '../../libs/dynamodb-lib';
+
 /*
     DOCS ::
-        stripe.charges.create :: https://stripe.com/docs/api/charges/create
+        stripe.charges.create
+            https://stripe.com/docs/api/charges/create
+
+    Sample Payload
+        const createIntentPayload = JSON.stringify({
+          action: "create-purchase-intent",
+          message: {
+            userId: userId,
+            cogId: localCogId,
+            email: userEmail,
+            cardId: chosenCard.cardId,
+            paymentMethodId: chosenCard.paymentMethodObj?.id,
+            items: [purchaseIntentItems],
+          },
+        })
+
+        purchaseIntentItems: [
+              { item_id: "42424545hj5jkh5kjh5k55l29er", price_cents: 200 },
+              { item_id: "24534lkjlkjljklkj324lkj4lkj", price_cents: 200 },
+              { item_id: "kjhsfkjppqa4324234kjhkjwh6j8", price_cents: 200 },
+            ]
 */
+
+
 exports.handler = async event => {
 
     const { connectionId, domainName, stage, requestId } = event.requestContext;
@@ -42,16 +68,11 @@ exports.handler = async event => {
                 allItemsIds.push( item.item_id )
             });
         };
-        async function printObj( obj ) {
-            console.log('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
-            console.log(' async Obj print: ');
-            console.log(obj);
-            console.log('++++++++++++++++++++++++++++++++++++++');
-        };
 
         let paymentIntentobjResp = {};
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
+        let acquiredId = uuidv4();
 
         try {
 
@@ -68,8 +89,7 @@ exports.handler = async event => {
                 });
                 const user = userObj.Items[0];
 
-                const stripeInterface = stripePackage(StripeSecretKey);
-
+                const stripeInterface = await stripePackage(StripeSecretKey);
                 const paymentIntentStripePayload = await {
                     amount: totalValueInCents,
                     currency: 'usd',
@@ -77,24 +97,44 @@ exports.handler = async event => {
                     customer: user.stripeCustomerId,
                     idempotency_key: idempotentKey,
                 };
-
-                await printObj( paymentIntentStripePayload );
-
                 const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload );
+
                 console.log('\n--------------- Payment Intent Success');
                 console.log( '\n************** [createPurchaseRequests.js] [64] reply ::', paymentIntentobjResp);
 
+                const transactionWriteObj = {
+                    TableName: TransactionsTableName,
+                    Item: {
+                        ID:                 transactionId,
+                        emailAddress:       postData.email,
+                        cardId:             postData.cardId,
+                        prevTransactionId:  null,
+                        transIdempotentKey: idempotentKey,
+                        acquiredId:         acquiredId,
+                        status:             'INITIATED',
+                        type:               'non-subscription',
+                        requestJson:        paymentIntentobjResp,
+                        created_at:         Date.now(),
+                        responseJson:       paymentIntentobjResp,
+                        updatedAt:          Date.now(),
+                        updatedJson:        {}
+                    }
+                };
+                const acquiredWriteObj = {
+                    TableName: AcquisitionsTableName,
+                    Item: {
+                        ID:                 acquiredId,
+                        transactionId:      transactionId,
+                        userId:             postData.userId,
+                        status:             'INITIATED',
+                        type:               'non-subscription',
+                        items:              postData.items
 
-                // await DynamoDb.put({
-                //     TableName: TransactionsTableName,
-                //     Item: {
-                //         ID:                 transactionId,
-                //         emailAddress:       postData.email,
-                //         cardId:             postData.cardId,
-                //         status:             'INITIATED',
-                //         paymentIntent:      paymentIntentobjResp
-                //     }
-                // });
+                    }
+                };
+
+                await DynamoDb.put(transactionWriteObj);
+                await DynamoDb.put(acquiredWriteObj);
 
                 replyMessage.action = 'create-purchase-intent-resp-success';
                 replyMessage.message.displayMessage = 'create purchase intent success';
@@ -102,6 +142,8 @@ exports.handler = async event => {
                 replyMessage.message.transactionId = transactionId;
                 replyMessage.message.idempotentKey = idempotentKey;
                 replyMessage.message.purchaseItems = postData.items;
+                replyMessage.message.acquiredId = acquiredId;
+
 
             } else {
 

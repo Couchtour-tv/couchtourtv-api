@@ -30,6 +30,7 @@ export const CreditCardTableName = process.env.CREDIT_CARD_TABLE;
 export const TransactionsTableName = process.env.TRANSACTIONS_TABLE;
 export const EventsTableName = process.env.EVENTS_TABLE;
 export const TicketsTableName = process.env.TICKETS_TABLE;
+export const AcquisitionsTableName = process.env.ACQUISITIONS_TABLE;
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID;

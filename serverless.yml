@@ -206,7 +206,8 @@ functions:
           route: onlinenow
           cors: true
 
-  ## ------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   ## -- CouchTour Admin
   websocket-upload-media-meta:
     handler: lambdas/websockets/uploadMediaMeta.handler
@@ -214,8 +215,8 @@ functions:
       - websocket:
           route: upload-media-meta
           cors: true
-
-  ## ------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   ## -- CouchTour User Auth
   websocket-user-verify-success:
     handler: lambdas/websockets/userVerifySuccess.handler
@@ -271,8 +272,8 @@ functions:
       - websocket:
           route: get-user-id
           cors: true
-
-  ## ------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   ## -- CouchTour Patron
   websocket-get-videos:
     handler: lambdas/websockets/getVideos.handler
@@ -292,7 +293,8 @@ functions:
       - websocket:
           route: get-user-purchases
           cors: true
-  ## ------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   ## -- Shows & Events
   websocket-get-all-events:
     handler: lambdas/websockets/getAllEvents.handler
@@ -306,16 +308,22 @@ functions:
       - websocket:
           route: get-all-tickets
           cors: true
-  ## ------------------------------------------------------
-  ## -- Strip Integration
-  #
-  # -- wallet actions
-  #
+
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: purchase / subscriptions / products
   websocket-add-user-credit-cards:
     handler: lambdas/websockets/addUserCreditCard.handler
     events:
       - websocket:
           route: wallet-add-user-credit-card
+          cors: true
+  websocket-get-user-credit-cards:
+    handler: lambdas/websockets/getUserCreditCards.handler
+    events:
+      - websocket:
+          route: wallet-get-user-credit-cards
           cors: true
   websocket-delete-user-credit-cards:
     handler: lambdas/websockets/deleteUserCreditCard.handler
@@ -323,47 +331,89 @@ functions:
       - websocket:
           route: wallet-delete-user-credit-card
           cors: true
-  websocket-get-user-credit-cards:
-    handler: lambdas/websockets/getUserCreditCards.handler
-    events:
-      - websocket:
-          route: wallet-get-user-credit-cards
-  #
-  # -- purchase transactions
-  #
-  websocket-create-purchase-request:
+  # websocket-update-user-credit-cards:
+  #   handler: lambdas/websockets/deleteUserCreditCard.handler
+  #   events:
+  #     - websocket:
+  #         route: wallet-update-user-credit-card
+  #         cors: true
+  websocket-stripe-create-purchase-request:
     handler: lambdas/websockets/createPurchaseRequest.handler
     events:
       - websocket:
           route: create-purchase-intent
           cors: true
-  websocket-create-payment-method:
-    handler: lambdas/websockets/createPaymentMethod.handler
-    events:
-      - websocket:
-          route: create-payment-method
-          cors: true
-  #
-  # -- purchase transaction error handling
-  #
-  #
-  # -- product subscriptions:
-  #
-  websocket-get-product-subscriptions:
+  websocket-stripe-get-product-subscriptions:
     handler: lambdas/websockets/getProductSubscriptions.handler
     events:
       - websocket:
           route: get-product-subscriptions
           cors: true
-  websocket-create-user-subscriptions:
+  websocket-stripe-create-user-subscriptions:
     handler: lambdas/websockets/createUserSubscriptions.handler
     events:
       - websocket:
           route: create-user-subscription
           cors: true
+  # websocket-stripe-process-success-transaction-update:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-success-transaction-update
+  #         cors: true
+  # -----------------------------------------------------------------
+  # --- Stashing
+  # websocket-stripe-create-payment-method:
+  #   handler: lambdas/websockets/createPaymentMethod.handler
+  #   events:
+  #     - websocket:
+  #         route: create-payment-method
+  #         cors: true
+  # -----------------------------------------------------------------
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: transaction error handling
+  # websocket-stripe-process-error-card-deactivate:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-card-deactivate
+  #         cors: true
+  # websocket-stripe-process-error-incorrect-cvc:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-incorrect-cvc
+  #         cors: true
+  # websocket-stripe-process-error-insufficient-funds:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-insufficient-funds
+  #         cors: true
+  # websocket-stripe-process-error-card-expired:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-card-expired
+  #         cors: true
+  # websocket-stripe-process-error-payment-failure:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-payment-failure
+  #         cors: true
+  # websocket-stripe-process-error-incorrect-zipcode:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-incorrect-zipcode
+  #         cors: true
 
 
-
+## ----------------------------------------------------------------------------------
+## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors

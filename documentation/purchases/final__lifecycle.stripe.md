@@ -403,33 +403,47 @@ const successPayload = JSON.stringify({
 
 
 
+((((((((((((((((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))))))))))))))))
+
+#
+    stripe-process-error-payment-failure-resp-success
+    stripe-process-error-payment-failure-resp-error
+
+
+
 # ============================ STRIPE ACTIONS AND RESPONSES ===============================
 
-# wallet-add-user-credit-card
+# !!!!! wallet-add-user-credit-card
     wallet-add-user-credit-card-resp-success
     wallet-add-user-credit-card-resp-error
+
+#  !!!!! get-user-id [[ --DONE-- ]]
+    get-user-id-resp-success
+    get-user-id-resp-error
+
+* !!!!! wallet-delete-user-credit-card
+
+#  !!!!! wallet-get-user-credit-cards
+    wallet-get-user-credit-cards-resp-success
+    wallet-get-user-credit-cards-resp-error
+*** --only return cards that are live
+
+# !!!!! create-purchase-intent
+    create-purchase-intent-resp-success
+    create-purchase-intent-resp-error
+*** --need to verify that the card belongs to user and the card is live
 
 # wallet-update-user-credit-card
     wallet-update-user-credit-card-resp-success
     wallet-update-user-credit-card-resp-error
 
-# wallet-get-user-credit-cards
-    wallet-get-user-credit-cards-resp-success
-    wallet-get-user-credit-cards-resp-error
-*** --only return cards that are live
-
 # need to create stripe user, add stripeUserId to userObj
 #   - handle error and resp for socket call
 
-# get-user-id [[ --DONE-- ]]
-    get-user-id-resp-success
-    get-user-id-resp-error
 
 
-# create-purchase-intent
-    create-purchase-intent-resp-success
-    create-purchase-intent-resp-error
-*** --need to verify that the card belongs to user and the card is live
+
+
 
 
 # ____________________________________________________________________
