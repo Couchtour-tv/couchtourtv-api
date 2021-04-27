@@ -29,7 +29,7 @@ dynamodb.listTables({}, function(err, data) {
 table scan / return all items, given tablename
 
 ``` javascript
-var params = { TableName: 'ct-Users' };
+var params = { TableName: 'ct-Events' };
 // var params = { TableName: 'ct-MediaMeta' };
 dynamodb.scan(params, function(err, data) {
     if (err) ppJson(err); // an error occurred
