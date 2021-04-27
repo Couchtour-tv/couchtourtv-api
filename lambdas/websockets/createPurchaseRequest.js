@@ -42,6 +42,13 @@ exports.handler = async event => {
                 allItemsIds.push( item.item_id )
             });
         };
+        async function printObj( obj ) {
+            console('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
+            console.log(' async Obj print: ');
+            console.log(obj);
+            console.log('++++++++++++++++++++++++++++++++++++++');
+        };
+
         let paymentIntentobjResp = {};
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
@@ -71,10 +78,7 @@ exports.handler = async event => {
                     idempotency_key: idempotentKey,
                 };
 
-                console.log('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
-                console.log('paymentIntentStripePayload :: ');
-                console.log(paymentIntentStripePayload);
-                console.log('++++++++++++++++++++++++++++++++++++++')
+                await printObj( paymentIntentStripePayload );
 
                 const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload );
                 console.log('\n--------------- Payment Intent Success');
