@@ -1,17 +1,56 @@
 [{
-	"ID": "24f60b47-f814-4ece-8d98-c52ec2ed66be",
-	"eventId": "evt_24f60b47-f814-4ece-8d98-c52ec2ed66be",
-	"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/event-landing-biscuits.jpeg",
-	"eventFeature": {
-		"description": "The Disco Biscuits Present 'In Space when I'm With You'",
-		"type": "coffee"
+		"ID": "24f60b47-f814-4ece-8d98-c52ec2ed66be",
+		"bandName": "The Disco Biscuits",
+		"timeOfEvent": "WED/8:00 PM",
+		"isLive": true,
+		"eventId": "evt_24f60b47-f814-4ece-8d98-c52ec2ed66be",
+		"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/event-landing-biscuits.jpeg",
+		"eventFeature": {
+			"description": "The Disco Biscuits Present 'In Space when I'm With You'",
+			"type": "coffee"
+		},
+		"priceDescription": {
+			"description": "Tickets start at $15",
+			"type": "money"
+		},
+		"eventDetail": {
+			"description": "New 60+ minute show from Ardmore Music Hall",
+			"type": "flag"
+		}
 	},
-	"priceDescription": {
-		"description": "Tickets start at $15",
-		"type": "money"
+	{
+		"ID": "41b2489b-d047-42bd-8369-fee2ec4e5e54",
+		"eventId": "evt_41b2489b-d047-42bd-8369-fee2ec4e5e54",
+		"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/blue-notes-wallpaper.jpeg",
+		"eventFeature": {
+			"description": "Hootie and the Blowfish Present 'The Dolphins Make Me Cry'",
+			"type": "coffee"
+		},
+		"priceDescription": {
+			"description": "Tickets start at $10",
+			"type": "money"
+		},
+		"eventDetail": {
+			"description": "New 60+ minute show from Webster Music Hall",
+			"type": "flag"
+		}
 	},
-	"eventDetail": {
-		"description": "New 60+ minute show from Ardmore Music Hall",
-		"type": "flag"
+	{
+		"ID": "a24cf286-80d0-4165-9e27-f77e1351a8a3",
+		"eventId": "evt_a24cf286-80d0-4165-9e27-f77e1351a8a3",
+		"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/colorful-notes-wallpaper.jpeg",
+		"eventFeature": {
+			"description": "Jukebox the Ghost Presents 'Story of the Ghost'",
+			"type": "coffee"
+		},
+		"priceDescription": {
+			"description": "Tickets start at $5",
+			"type": "money"
+		},
+		"eventDetail": {
+			"description": "New 60+ minute show from Red Rocks Music Hall",
+			"type": "flag"
+		}
 	}
-}]
+
+]
