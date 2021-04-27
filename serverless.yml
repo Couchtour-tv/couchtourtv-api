@@ -34,6 +34,10 @@ custom:
             sources: [./resources/seeds/movieMetaSeed.json]
           - table: ${env:USER_TABLE}
             sources: [./resources/seeds/import-users.json]
+          - table: ${env:TICKETS_TABLE}
+            sources: [./resources/seeds/tickets.json]
+          - table: ${env:EVENTS_TABLE}
+            sources: [./resources/seeds/events.json]
   seed:
     movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
@@ -288,7 +292,20 @@ functions:
       - websocket:
           route: get-user-purchases
           cors: true
-
+  ## ------------------------------------------------------
+  ## -- Shows & Events
+  websocket-get-all-events:
+    handler: lambdas/websockets/getAllEvents.handler
+    events:
+      - websocket:
+          route: get-all-events
+          cors: true
+  websocket-get-all-tickets:
+    handler: lambdas/websockets/getAllTickets.handler
+    events:
+      - websocket:
+          route: get-all-tickets
+          cors: true
   ## ------------------------------------------------------
   ## -- Strip Integration
   #
@@ -344,6 +361,7 @@ functions:
       - websocket:
           route: create-user-subscription
           cors: true
+
 
 
 # Create our resources with separate CloudFormation templates

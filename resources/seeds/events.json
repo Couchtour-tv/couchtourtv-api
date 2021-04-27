@@ -1,0 +1,17 @@
+[{
+	"ID": "24f60b47-f814-4ece-8d98-c52ec2ed66be",
+	"eventId": "evt_24f60b47-f814-4ece-8d98-c52ec2ed66be",
+	"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/event-landing-biscuits.jpeg",
+	"eventFeature": {
+		"description": "The Disco Biscuits Present 'In Space when I'm With You'",
+		"type": "coffee"
+	},
+	"priceDescription": {
+		"description": "Tickets start at $15",
+		"type": "money"
+	},
+	"eventDetail": {
+		"description": "New 60+ minute show from Ardmore Music Hall",
+		"type": "flag"
+	}
+}]
