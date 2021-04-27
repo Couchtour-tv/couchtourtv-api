@@ -20,6 +20,9 @@
 	},
 	{
 		"ID": "41b2489b-d047-42bd-8369-fee2ec4e5e54",
+		"bandName": "Hootie and the Blowfish",
+		"timeOfEvent": "THURS/8:00 PM",
+		"isLive": false,
 		"eventId": "evt_41b2489b-d047-42bd-8369-fee2ec4e5e54",
 		"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/blue-notes-wallpaper.jpeg",
 		"eventFeature": {
@@ -37,6 +40,9 @@
 	},
 	{
 		"ID": "a24cf286-80d0-4165-9e27-f77e1351a8a3",
+		"bandName": "Jukebox the Ghost",
+		"timeOfEvent": "FRI/8:00 PM",
+		"isLive": false,
 		"eventId": "evt_a24cf286-80d0-4165-9e27-f77e1351a8a3",
 		"landingImageUrl": "https://temp-image-tickets.s3.amazonaws.com/colorful-notes-wallpaper.jpeg",
 		"eventFeature": {
@@ -52,5 +58,4 @@
 			"type": "flag"
 		}
 	}
-
 ]
