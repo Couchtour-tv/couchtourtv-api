@@ -62,13 +62,21 @@ exports.handler = async event => {
                 const user = userObj.Items[0];
 
                 const stripeInterface = stripePackage(StripeSecretKey);
-                const paymentIntentobjResp = await stripeInterface.paymentIntents.create({
+
+                const paymentIntentStripePayload = await {
                     amount: totalValueInCents,
                     currency: 'usd',
                     payment_method_types: ['card'],
                     customer: user.stripeCustomerId,
                     idempotency_key: idempotentKey,
-                });
+                };
+
+                console('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
+                console.log('paymentIntentStripePayload :: ');
+                console.log(paymentIntentStripePayload);
+                console.log('++++++++++++++++++++++++++++++++++++++')
+
+                const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload );
                 console.log('\n--------------- Payment Intent Success');
                 console.log( '\n************** [createPurchaseRequests.js] [64] reply ::', paymentIntentobjResp);
 

@@ -36,7 +36,7 @@ exports.handler = async event => {
                 postData.paymentMethodId,
                 { customer: postData.customerId }
             );
-            const updatedCustomer = stripeInterface.customer.update(
+            const updatedCustomer = await stripeInterface.customer.update(
                 postData.customerId,
                 { invoice_settings: { default_payment_method: postData.paymentMethodId }}
             );
