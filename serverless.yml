@@ -308,8 +308,12 @@ functions:
       - websocket:
           route: get-all-tickets
           cors: true
-
-
+  websocket-stripe-get-product-subscriptions:
+    handler: lambdas/websockets/getProductSubscriptions.handler
+    events:
+      - websocket:
+          route: get-product-subscriptions
+          cors: true
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Strip Integration: purchase / subscriptions / products
@@ -331,23 +335,17 @@ functions:
       - websocket:
           route: wallet-delete-user-credit-card
           cors: true
-  # websocket-update-user-credit-cards:
-  #   handler: lambdas/websockets/deleteUserCreditCard.handler
-  #   events:
-  #     - websocket:
-  #         route: wallet-update-user-credit-card
-  #         cors: true
   websocket-stripe-create-purchase-request:
     handler: lambdas/websockets/createPurchaseRequest.handler
     events:
       - websocket:
           route: create-purchase-intent
           cors: true
-  websocket-stripe-get-product-subscriptions:
-    handler: lambdas/websockets/getProductSubscriptions.handler
+  websocket-stripe-process-success-transaction-update:
+    handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
     events:
       - websocket:
-          route: get-product-subscriptions
+          route: stripe-process-success-transaction-update
           cors: true
   websocket-stripe-create-user-subscriptions:
     handler: lambdas/websockets/createUserSubscriptions.handler
@@ -355,14 +353,19 @@ functions:
       - websocket:
           route: create-user-subscription
           cors: true
-  # websocket-stripe-process-success-transaction-update:
-  #   handler: lambdas/websockets/.handler
+  # -----------------------------------------------------------------
+  # --- Currently Not-Used
+  #
+  # websocket-update-user-credit-cards:
+  #   handler: lambdas/websockets/deleteUserCreditCard.handler
   #   events:
   #     - websocket:
-  #         route: stripe-process-success-transaction-update
+  #         route: wallet-update-user-credit-card
   #         cors: true
   # -----------------------------------------------------------------
-  # --- Stashing
+  # -----------------------------------------------------------------
+  # --- Stashing, Not Used
+  #
   # websocket-stripe-create-payment-method:
   #   handler: lambdas/websockets/createPaymentMethod.handler
   #   events:
@@ -373,7 +376,7 @@ functions:
 
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-  ## -- Strip Integration: transaction error handling
+  ## -- Strip Integration: transaction :: ERROR :: handling
   # websocket-stripe-process-error-card-deactivate:
   #   handler: lambdas/websockets/.handler
   #   events:
@@ -410,7 +413,6 @@ functions:
   #     - websocket:
   #         route: stripe-process-error-incorrect-zipcode
   #         cors: true
-
 
 ## ----------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------
