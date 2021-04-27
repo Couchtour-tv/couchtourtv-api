@@ -22,7 +22,7 @@ exports.handler = async event => {
         try {
 
             const eventsObj = await DynamoDb.scan({ TableName: EventsTableName });
-            replyMessage.message = eventsObj;
+            replyMessage.message.events= eventsObj.Items;
             replyMessage.action = 'get-all-events-resp-success';
             replyMessage.message.displayMessage = 'events retrieved';
 
