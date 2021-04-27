@@ -71,7 +71,7 @@ exports.handler = async event => {
                     idempotency_key: idempotentKey,
                 };
 
-                console('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
+                console.log('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
                 console.log('paymentIntentStripePayload :: ');
                 console.log(paymentIntentStripePayload);
                 console.log('++++++++++++++++++++++++++++++++++++++')
