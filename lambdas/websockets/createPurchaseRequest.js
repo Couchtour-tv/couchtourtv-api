@@ -43,7 +43,7 @@ exports.handler = async event => {
             });
         };
         async function printObj( obj ) {
-            console('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
+            console.log('\n\n\n\n++++++++++++++++++++++++++++++++++++++');
             console.log(' async Obj print: ');
             console.log(obj);
             console.log('++++++++++++++++++++++++++++++++++++++');
