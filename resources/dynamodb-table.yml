@@ -139,7 +139,7 @@ Resources:
             - AttributeName: emailAddress
               KeyType: HASH
           Projection:
-              ProjectionType: 'ALL'
+            ProjectionType: "ALL"
       BillingMode: PAY_PER_REQUEST
   NewPurchasesTable:
     Type: AWS::DynamoDB::Table
@@ -174,7 +174,7 @@ Resources:
   UserAcquisitionTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${env:TRANSACTIONS_TABLE}
+      TableName: ${env:ACQUISITIONS_TABLE}
       AttributeDefinitions:
         - AttributeName: transactionId
           AttributeType: S
