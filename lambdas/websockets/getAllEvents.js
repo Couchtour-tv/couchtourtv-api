@@ -17,7 +17,7 @@ exports.handler = async event => {
         let replyMessage = {};
         replyMessage.sender = connectionId;
 
-        console.log('\n************** [getAllEvents.js] [20] payload Recevied:', postData );
+        console.log('\n************** [getAllEvents.js] [20] payload Received:', event.body );
 
         try {
 
