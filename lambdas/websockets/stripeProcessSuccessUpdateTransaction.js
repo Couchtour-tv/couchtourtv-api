@@ -18,18 +18,18 @@ import DynamoDb from '../../libs/dynamodb-lib';
         - only gets executed when front end renders a successful transaction
 
     Sample Payload
-        const successPayload = JSON.stringify({
-          action: "stripe-process-success-transaction-update",
+        action: "stripe-process-success-transaction-update",
           message: {
-            stripeConfirmationPayload: confirmCardPayment,
+            stripeConfirmationRespPayload: confirmCardPayment,
             userId: userId,
             cogId: localCogId,
             email: userEmail,
             cardId: chosenCard.cardId,
             transactionId: transactionID,
-            intentId: intentId,
+            NOT NECESSARY -- intentId: intentId,
             statusResp: "SUCCESS", //stripe status
-            acquiredId: acquiredId
+            acquiredId: acquiredId,
+            stripeConfirmPaymentMetaPayload: metaPayload
           },
         })
 */

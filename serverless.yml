@@ -314,6 +314,12 @@ functions:
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Shows & Events
+  websocket-get-user-tickets:
+    handler: lambdas/websockets/getUserTickets.handler
+    events:
+      - websocket:
+          route: get-user-tickets
+          cors: true
   websocket-get-all-events:
     handler: lambdas/websockets/getAllEvents.handler
     events:
@@ -371,6 +377,7 @@ functions:
       - websocket:
           route: create-user-subscription
           cors: true
+
   # -----------------------------------------------------------------
   # --- Currently Not-Used
   #
