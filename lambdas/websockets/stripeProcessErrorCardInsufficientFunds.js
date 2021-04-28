@@ -1,17 +1,9 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import Dynamo from '../common/Dynamo';
-import {
-    PurchasesTableName, StripeSecretKey, TransactionsTableName,
-    UserTableName, AcquisitionsTableName
-} from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
-import { CreatePurchase } from "../models/Purchase";
-import stripePackage from "stripe";
 import DynamoDb from '../../libs/dynamodb-lib';
+import { CreditCardTableName, TransactionsTableName, AcquisitionsTableName } from '../common/constants';
 
 /*
     NOTE:
@@ -37,9 +29,8 @@ import DynamoDb from '../../libs/dynamodb-lib';
 
 exports.handler = async event => {
 
-    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
-    const cogId = event.requestContext.identity.cognitoIdentityId;
 
     try {
 
@@ -91,16 +82,16 @@ exports.handler = async event => {
 
             replyMessage.action = 'stripe-process-error-insufficient-funds-resp-success';
             replyMessage.message.displayMessage = 'purchase and transaction records updated';
-            replyMessage.message.transactionId = transactionId;
-            replyMessage.message.acquiredId = acquiredId;
+            replyMessage.message.transactionId = postData.transactionId;
+            replyMessage.message.acquiredId = postData.acquiredId;
 
         // error catch: making purchase request
         } catch (e) {
 
             replyMessage.action = 'stripe-process-error-insufficient-funds-resp-error';
             replyMessage.message.displayMessage = 'purchase and transaction records NOT updated';
-            replyMessage.message.transactionId = transactionId;
-            replyMessage.message.acquiredId = acquiredId;
+            replyMessage.message.transactionId = postData.transactionId;
+            replyMessage.message.acquiredId = postData.acquiredId;
 
             console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [96] : Error in Processing' );
             console.log('\n', e.stack);

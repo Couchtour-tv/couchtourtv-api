@@ -1,11 +1,8 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import DynamoDb from '../../libs/dynamodb-lib';
-import { CreditCardTableName, StripeSecretKey } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
+import { StripeSecretKey } from '../common/constants';
 import stripePackage from "stripe";
 
 
@@ -59,7 +56,7 @@ exports.handler = async event => {
             replyMessage.action = 'create-user-subscription-resp-error';
             replyMessage.message.displayMessage = 'ERROR: created user subscription';
 
-            console.log( '\n************** [createUserSubscriptions.js][71]: ERROR - Creating User Subscription::' )
+            console.log( '\n************** [createUserSubscriptions.js] [71]: ERROR - Creating User Subscription::' )
             console.log('\n', e.stack)
         }
 
@@ -72,7 +69,7 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[84]: Socket Send to connectcionId: ')
+            console.log( '\n************** [createUserSubscriptions.js] [84]: Socket Send to connectcionId: ')
 
         } catch (e) {
 

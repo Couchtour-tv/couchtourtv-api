@@ -1,14 +1,9 @@
 const AWS = require("aws-sdk")
-const path = require("path")
 
 import { OptionsAPIGateway } from "../common/constants"
 import Responses from "../common/API_Responses"
-import Dynamo from "../common/Dynamo"
-import {
-    PurchasesTableName, StripeSecretKey, TransactionsTableName, UserTableName, AcquisitionsTableName
-} from "../common/constants"
+import { StripeSecretKey, TransactionsTableName, UserTableName, AcquisitionsTableName } from "../common/constants"
 import { v4 as uuidv4 } from "uuid"
-import { CreatePurchase } from "../models/Purchase"
 import stripePackage from "stripe"
 import DynamoDb from "../../libs/dynamodb-lib"
 
@@ -43,9 +38,9 @@ import DynamoDb from "../../libs/dynamodb-lib"
 */
 
 exports.handler = async (event) => {
-    const { connectionId, domainName, stage, requestId } = event.requestContext
-    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway)
-    const cogId = event.requestContext.identity.cognitoIdentityId
+
+    const { connectionId } = event.requestContext;
+    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
         let postData = JSON.parse(event.body).message
@@ -70,7 +65,6 @@ exports.handler = async (event) => {
             });
         }
 
-        let paymentIntentobjResp = {};
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
         let acquiredId = uuidv4();

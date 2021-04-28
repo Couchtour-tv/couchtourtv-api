@@ -3,7 +3,6 @@ const path = require('path');
 
 import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
 import Responses from '../common/API_Responses';
-// import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
 
 exports.handler = async event => {
@@ -26,13 +25,21 @@ exports.handler = async event => {
                     acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
                 );
             };
+            async function executeTicketQuery ( ticket ) {
+                return DynamoDb.query({
+                    TableName: TicketsTableName,
+                    KeyConditionExpression: 'ticketId = :v1',
+                    ExpressionAttributeValues: { ':v1': ticket.item_id }
+                });
+            };
 
             async function retrieveTicketObjs ( filteredAcquisitions ) {
                 let acquiredTicketIds = [];
                 filteredAcquisitions.forEach( transactions, function( transaction ) {
                     transaction.items.forEach( ticket, function( ticket ) {
                         // acquiredTicketIds.push( ticket.item_id );
-                        const ticektObj = await DynamoDb.query({
+                        // const ticektObj = await executeTicketQuery( ticket );
+                        const ticektObj = DynamoDb.query({
                             TableName: TicketsTableName,
                             KeyConditionExpression: 'ticketId = :v1',
                             ExpressionAttributeValues: { ':v1': ticket.item_id }
@@ -41,7 +48,7 @@ exports.handler = async event => {
                     });
                 });
                 return acquiredTicketIds
-            ;
+            };
 
             const acquiredItems = await DynamoDb.query({
                 TableName: AcquisitionsTableName,

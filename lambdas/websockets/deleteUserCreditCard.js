@@ -1,12 +1,9 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
 import DynamoDb from '../../libs/dynamodb-lib';
 import { CreditCardTableName } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
-
 
 exports.handler = async event => {
 
@@ -30,8 +27,8 @@ exports.handler = async event => {
             const updateStatusParams = {
                 TableName: CreditCardTableName,
                 Key: {
-                    "paymentMethodId": emailAddress,
-                    "emailAddressogId": cogId
+                    "paymentMethodId": postData.emailAddress,
+                    "emailAddressogId": postData.cogId
                 },
                 UpdateExpression: `set status = :x`,
                 ExpressionAttributeValues: {
@@ -43,8 +40,8 @@ exports.handler = async event => {
             const updateActiveParams = {
                 TableName: CreditCardTableName,
                 Key: {
-                    "paymentMethodId": emailAddress,
-                    "emailAddressogId": cogId
+                    "paymentMethodId": postData.emailAddress,
+                    "emailAddressogId": postData.cogId
                 },
                 UpdateExpression: `set active = :x`,
                 ExpressionAttributeValues: {
@@ -76,7 +73,7 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n', path.basename(__filename), '[84]: Socket Send to connectcionId: ')
+            console.log( '\n************** [deleteUserCreditCard.js] [84]: Socket Send to connectcionId: ')
 
         } catch (e) {
 

@@ -44,7 +44,8 @@ exports.handler = async event => {
                     description: 'userSignUp'
                 }
             };
-            const stripeCreateCustomerResp = await stripe.customers.create( writeUserObj );
+            const stripeInterface = await stripePackage(StripeSecretKey);
+            const stripeCreateCustomerResp = await stripeInterface.customers.create( writeUserObj );
 
             userObj.stripeCustomerId = stripeCreateCustomerResp.id;
             userObj.stripeUserResp = stripeCreateCustomerResp;
