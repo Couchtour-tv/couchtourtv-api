@@ -1,0 +1,39 @@
+[
+    {
+        "date": "1618890150565",
+        "cogId": "us-east-1:93f82372-8253-4c9f-b413-6bfe104a41dc",
+        "emailVerified": true,
+        "emailAddress": "gohambuddy6942@gmail.com",
+        "ID": "e3c30fe5-1b25-4df4-831e-d4dc94410748",
+        "loggedIn": false,
+        "stripeCustomerId": "cus_JKqSv9wyHVuLPn",
+        "stripeCustomer": {}
+    },{
+        "date": "1618890209728",
+        "cogId": "us-east-1:2d4ba99f-7377-497c-8a20-2f9431a396f0",
+        "emailVerified": true,
+        "emailAddress": "goham699@gmail.com",
+        "ID": "0a9f2db3-331e-4218-90fa-7d968ac76923",
+        "loggedIn": false,
+        "stripeCustomerId": "cus_JKqTtWytwMhtif",
+        "stripeCustomer": {}
+    },{
+        "date": "1618890286479",
+        "cogId": "us-east-1:a497a7c3-5234-4c8d-a09c-236df0ab295b",
+        "emailVerified": true,
+        "emailAddress": "danstuart4242@gmail.com",
+        "ID": "2be0090a-aa4b-443f-ba93-601cc4f6d3eb",
+        "loggedIn": false,
+        "stripeCustomerId": "cus_JKqUSycVVVuT0o",
+        "stripeCustomer": {}
+    },{
+        "date": "1618889983172",
+        "cogId": "us-east-1:51e7e8c2-2ed4-4fe7-b51a-e80921569907",
+        "emailVerified": true,
+        "emailAddress": "stuheadz@gmail.com",
+        "ID": "cb7650ca-214a-43df-a23d-27e8d7e585e0",
+        "loggedIn": true,
+        "stripeCustomerId": "cus_JKqRBV2q1nVWwM",
+        "stripeCustomer": {}
+    }
+]

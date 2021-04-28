@@ -1,0 +1,84 @@
+User Goes To Checkout / Make Payment
+
+	"Wallet" ( Socket Call:: Get User Cards )
+
+		get all cards for user
+
+		{ last_four, expomon, expoyear, name on card, id }
+
+		STATUS == ACTIVE
+		ACTION != deleted
+		ACTION != non expired
+
+	Add New Card [Regardless of Saving]
+
+		****
+		any card validation, token creation, token/card id create
+		with stripe happens on front end js world
+		****
+
+		create token -- stripe.create.token()
+		create payment method -- stripe.create.paymentMethod()
+
+			takes card info ( type, etx )
+
+		make socket call
+			{ action: "create-payment-method" }
+			paymentMethod obj
+			token obj
+			cogId
+			userId
+			email
+
+		backend saves card item
+			associate
+				'customer_id' ( card_id )
+				user_id
+				token
+				last four
+				verified
+				expomon
+				expoyear
+
+		socket replies with success or error
+
+	make a payemnt
+
+		with existing card in wallet
+
+			[FE] -- user chooses payment method from
+			[FE] -- send socket card_id
+			[BE] -- create payment intent
+		    [BE] -- execute transaction
+		    [BE] -- update databse with transaction info IE success failure
+		    [BE] -- on success or failure respon to [FE] with client secret AND paymentMethodObject (saved in DB -- see Add New Card)
+		    [FE] -- stripe.create.confirmCardPayment()
+
+		 with manually entered card
+
+			[FE] -- create token -- stripe.create.token()
+			[FE] -- create payment method -- stripe.create.paymentMethod()
+			[FE] -- socket call
+				// --- B5
+				{
+			        action: "purchase-request",
+			        message: {
+			            stripePayment: paymentMethod,
+			            tokenObj: tokenObj,
+			            userId: userId,
+			            cogId: cogId,
+			            items: [ {item_id: uuid, price_cents: 2}, .. ]
+			        }
+			    }
+
+		    [BE]-- create payment intent
+		    [BE]-- execute transaction
+		    [BE]-- update databse with transaction info IE success failure
+		    [BE]-- on success or failure respon to [FE] with client secret
+		    	(because [FE] has paymentMethodObj from before and secret key -- verify transaction)
+		    		 ---- stripe.create.confirmCardPayment()
+
+
+Two Token Types:
+	permanent
+	single

@@ -33,6 +33,12 @@ custom:
         sources:
           - table: ${env:MEDIA_META_TABLE}
             sources: [./resources/seeds/movieMetaSeed.json]
+          - table: ${env:USER_TABLE}
+            sources: [./resources/seeds/import-users.json]
+          - table: ${env:TICKETS_TABLE}
+            sources: [./resources/seeds/tickets.json]
+          - table: ${env:EVENTS_TABLE}
+            sources: [./resources/seeds/events.json]
   seed:
     movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
@@ -217,12 +223,76 @@ functions:
       - websocket:
           route: onlinenow
           cors: true
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Admin
   websocket-upload-media-meta:
     handler: lambdas/websockets/uploadMediaMeta.handler
     events:
       - websocket:
           route: upload-media-meta
           cors: true
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour User Auth
+  websocket-user-verify-success:
+    handler: lambdas/websockets/userVerifySuccess.handler
+    events:
+      - websocket:
+          route: user-verify-success
+          cors: true
+  websocket-user-verify-error:
+    handler: lambdas/websockets/userVerifyError.handler
+    events:
+      - websocket:
+          route: user-verify-error
+          cors: true
+  websocket-user-verify-resend-success:
+    handler: lambdas/websockets/userVerifyResendSuccess.handler
+    events:
+      - websocket:
+          route: user-verify-resend-success
+          cors: true
+  websocket-user-verify-resend-error:
+    handler: lambdas/websockets/userVerifyResendError.handler
+    events:
+      - websocket:
+          route: user-verify-resend-error
+          cors: true
+  websocket-user-login:
+    handler: lambdas/websockets/userLogin.handler
+    events:
+      - websocket:
+          route: user-login
+          cors: true
+  websocket-user-logout:
+    handler: lambdas/websockets/userLogout.handler
+    events:
+      - websocket:
+          route: user-logout
+          cors: true
+  websocket-user-signUp:
+    handler: lambdas/websockets/userSignUp.handler
+    events:
+      - websocket:
+          route: user-signup
+          cors: true
+  websocket-user-signUp-error:
+    handler: lambdas/websockets/userSignUpError.handler
+    events:
+      - websocket:
+          route: user-signup-error
+          cors: true
+  websocket-get-used-id:
+    handler: lambdas/websockets/getUserId.handler
+    events:
+      - websocket:
+          route: get-user-id
+          cors: true
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Patron
   websocket-get-videos:
     handler: lambdas/websockets/getVideos.handler
     events:
@@ -235,7 +305,135 @@ functions:
       - websocket:
           route: add-device-id
           cors: true
+  websocket-get-user-purchases:
+    handler: lambdas/websockets/getUserPurchases.handler
+    events:
+      - websocket:
+          route: get-user-purchases
+          cors: true
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Shows & Events
+  websocket-get-all-events:
+    handler: lambdas/websockets/getAllEvents.handler
+    events:
+      - websocket:
+          route: get-all-events
+          cors: true
+  websocket-get-all-tickets:
+    handler: lambdas/websockets/getAllTickets.handler
+    events:
+      - websocket:
+          route: get-all-tickets
+          cors: true
+  websocket-stripe-get-product-subscriptions:
+    handler: lambdas/websockets/getProductSubscriptions.handler
+    events:
+      - websocket:
+          route: get-product-subscriptions
+          cors: true
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: purchase / subscriptions / products
+  websocket-add-user-credit-cards:
+    handler: lambdas/websockets/addUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-add-user-credit-card
+          cors: true
+  websocket-get-user-credit-cards:
+    handler: lambdas/websockets/getUserCreditCards.handler
+    events:
+      - websocket:
+          route: wallet-get-user-credit-cards
+          cors: true
+  websocket-delete-user-credit-cards:
+    handler: lambdas/websockets/deleteUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-delete-user-credit-card
+          cors: true
+  websocket-stripe-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: create-purchase-intent
+          cors: true
+  websocket-stripe-process-success-transaction-update:
+    handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
+    events:
+      - websocket:
+          route: stripe-process-success-transaction-update
+          cors: true
+  websocket-stripe-create-user-subscriptions:
+    handler: lambdas/websockets/createUserSubscriptions.handler
+    events:
+      - websocket:
+          route: create-user-subscription
+          cors: true
+  # -----------------------------------------------------------------
+  # --- Currently Not-Used
+  #
+  # websocket-update-user-credit-cards:
+  #   handler: lambdas/websockets/deleteUserCreditCard.handler
+  #   events:
+  #     - websocket:
+  #         route: wallet-update-user-credit-card
+  #         cors: true
+  # -----------------------------------------------------------------
+  # -----------------------------------------------------------------
+  # --- Stashing, Not Used
+  #
+  # websocket-stripe-create-payment-method:
+  #   handler: lambdas/websockets/createPaymentMethod.handler
+  #   events:
+  #     - websocket:
+  #         route: create-payment-method
+  #         cors: true
+  # -----------------------------------------------------------------
 
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: transaction :: ERROR :: handling
+  # websocket-stripe-process-error-card-deactivate:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-card-deactivate
+  #         cors: true
+  # websocket-stripe-process-error-incorrect-cvc:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-incorrect-cvc
+  #         cors: true
+  # websocket-stripe-process-error-insufficient-funds:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-insufficient-funds
+  #         cors: true
+  # websocket-stripe-process-error-card-expired:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-card-expired
+  #         cors: true
+  # websocket-stripe-process-error-payment-failure:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-payment-failure
+  #         cors: true
+  # websocket-stripe-process-error-incorrect-zipcode:
+  #   handler: lambdas/websockets/.handler
+  #   events:
+  #     - websocket:
+  #         route: stripe-process-error-incorrect-zipcode
+  #         cors: true
+
+## ----------------------------------------------------------------------------------
+## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors

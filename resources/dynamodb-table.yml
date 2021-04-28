@@ -71,7 +71,7 @@ Resources:
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
-  # -- Stubbed Out for Prototyping
+  # -- Media
   MediaMetaTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -87,7 +87,7 @@ Resources:
         - AttributeName: movieId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
-  DeviesTable:
+  DevicesTable:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: ${env:DEVICES_TABLES}
@@ -100,6 +100,118 @@ Resources:
         - AttributeName: userId
           KeyType: HASH
         - AttributeName: deviceId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  # -----------------------------------------------
+  # -- Users
+  UserTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:USER_TABLE}
+      AttributeDefinitions:
+        - AttributeName: emailAddress
+          AttributeType: S
+        - AttributeName: cogId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: emailAddress
+          KeyType: HASH
+        - AttributeName: cogId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  # -----------------------------------------------
+  # -- Purchases
+  CreditCardTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:CREDIT_CARD_TABLE}
+      AttributeDefinitions:
+        - AttributeName: paymentMethodId
+          AttributeType: S
+        - AttributeName: emailAddress
+          AttributeType: S
+      KeySchema:
+        - AttributeName: paymentMethodId
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: emailAddressIndex
+          KeySchema:
+            - AttributeName: emailAddress
+              KeyType: HASH
+          Projection:
+            ProjectionType: "ALL"
+      BillingMode: PAY_PER_REQUEST
+  NewPurchasesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:PURCHASES_TABLE}
+      AttributeDefinitions:
+        - AttributeName: creditCardId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: creditCardId
+          KeyType: HASH
+        - AttributeName: userId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  TransactionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:TRANSACTIONS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: creditCardId
+          AttributeType: S
+        - AttributeName: emailAddress
+          AttributeType: S
+      KeySchema:
+        - AttributeName: creditCardId
+          KeyType: HASH
+        - AttributeName: emailAddress
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  UserAcquisitionTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:ACQUISITIONS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: transactionId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: transactionId
+          KeyType: HASH
+        - AttributeName: userId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+  # -----------------------------------------------
+  # -- Media
+  EventsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:EVENTS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: eventId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: eventId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+  TicketsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:TICKETS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: ticketId
+          AttributeType: S
+        - AttributeName: eventId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: ticketId
+          KeyType: HASH
+        - AttributeName: eventId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------

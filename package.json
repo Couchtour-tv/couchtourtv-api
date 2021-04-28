@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "serverless": "^2.9.0",
-    "serverless-vpc-plugin": "^1.0.2",
+    "serverless-vpc-plugin": "^1.0.3",
     "stripe": "^8.39.0",
     "uuid": "^7.0.3"
   }

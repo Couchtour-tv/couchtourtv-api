@@ -1,0 +1,15 @@
+{
+    "TableNames": [
+        "ct-CreditCards",
+        "ct-Devices",
+        "ct-MediaMeta",
+        "ct-NewPurchases",
+        "ct-Notes",
+        "ct-Sockets",
+        "ct-Transactions",
+        "ct-Users",
+        "ct-movies",
+        "ct-purchases",
+        "ct-request-responses"
+    ]
+}

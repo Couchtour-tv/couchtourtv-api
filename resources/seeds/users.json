@@ -1,0 +1,87 @@
+{
+    "Items": [
+        {
+            "date": {
+                "N": "1618890150565"
+            },
+            "cogId": {
+                "S": "us-east-1:93f82372-8253-4c9f-b413-6bfe104a41dc"
+            },
+            "emailVerified": {
+                "BOOL": true
+            },
+            "emailAddress": {
+                "S": "gohambuddy6942@gmail.com"
+            },
+            "ID": {
+                "S": "e3c30fe5-1b25-4df4-831e-d4dc94410748"
+            },
+            "loggedIn": {
+                "BOOL": false
+            }
+        },
+        {
+            "date": {
+                "N": "1618890209728"
+            },
+            "cogId": {
+                "S": "us-east-1:2d4ba99f-7377-497c-8a20-2f9431a396f0"
+            },
+            "emailVerified": {
+                "BOOL": true
+            },
+            "emailAddress": {
+                "S": "goham699@gmail.com"
+            },
+            "ID": {
+                "S": "0a9f2db3-331e-4218-90fa-7d968ac76923"
+            },
+            "loggedIn": {
+                "BOOL": false
+            }
+        },
+        {
+            "date": {
+                "N": "1618890286479"
+            },
+            "cogId": {
+                "S": "us-east-1:a497a7c3-5234-4c8d-a09c-236df0ab295b"
+            },
+            "emailVerified": {
+                "BOOL": true
+            },
+            "emailAddress": {
+                "S": "danstuart4242@gmail.com"
+            },
+            "ID": {
+                "S": "2be0090a-aa4b-443f-ba93-601cc4f6d3eb"
+            },
+            "loggedIn": {
+                "BOOL": false
+            }
+        },
+        {
+            "date": {
+                "N": "1618889983172"
+            },
+            "cogId": {
+                "S": "us-east-1:51e7e8c2-2ed4-4fe7-b51a-e80921569907"
+            },
+            "emailVerified": {
+                "BOOL": true
+            },
+            "emailAddress": {
+                "S": "stuheadz@gmail.com"
+            },
+            "ID": {
+                "S": "cb7650ca-214a-43df-a23d-27e8d7e585e0"
+            },
+            "loggedIn": {
+                "BOOL": true
+            }
+        }
+    ],
+    "Count": 4,
+    "ScannedCount": 4,
+    "ConsumedCapacity": null
+}
