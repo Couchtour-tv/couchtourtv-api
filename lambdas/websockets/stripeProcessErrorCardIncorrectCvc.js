@@ -1,0 +1,135 @@
+const AWS = require('aws-sdk');
+const path = require('path');
+
+import { OptionsAPIGateway } from '../common/constants';
+import Responses from '../common/API_Responses';
+import Dynamo from '../common/Dynamo';
+import {
+    PurchasesTableName, StripeSecretKey, TransactionsTableName,
+    UserTableName, AcquisitionsTableName, CreditCardTableName
+} from '../common/constants';
+import { v4 as uuidv4 } from 'uuid';
+import { CreatePurchase } from "../models/Purchase";
+import stripePackage from "stripe";
+import DynamoDb from '../../libs/dynamodb-lib';
+
+/*
+    Sample Payload
+        const genericDeclinePayload = JSON.stringify({
+            action: "stripe-process-error-incorrect-cvc",
+            message: {
+                stripeCardConfirmRespPayload:       <js obj response cardConfirmAttempt>,
+                stripeCardConfirmReqPayload:        <js obj request payload>,
+                userId:                             userId,
+                cogId:                              localCogId,
+                email:                              userEmail,
+                cardId:                             chosenCard.cardId,
+                transactionId:                      transactionID,
+                intentId:                           intentId,
+                statusResp:                         "SUCCESS", //stripe status
+                acquiredId:                         acquiredId,
+                paymentMethodId:                    paymentMethodId
+            }
+        });
+*/
+exports.handler = async event => {
+
+    const { connectionId, domainName, stage, requestId } = event.requestContext;
+    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+    const cogId = event.requestContext.identity.cognitoIdentityId;
+
+    try {
+
+        let postData = JSON.parse(event.body).message;
+        let replyMessage = {};
+        replyMessage.sender = connectionId;
+        replyMessage.message = {};
+
+        console.log('\n************** [stripeProcessErrorCardIncorrectCvc.js] [31] payload Recevied:', postData );
+        try {
+            const transactionUpdateObj = {
+                TableName: TransactionsTableName,
+                Key: {
+                    "ID":           postData.transactionId,
+                    "emailAddress": postData.email,
+                    "cardId":       postData.cardId
+                },
+                UpdateExpression: `set status = :x AND updatedAt = :y AND requestJson = :z AND responseJson = :a`,
+                ExpressionAttributeValues: {
+                    ":x":   'ERROR',
+                    ":y":   Date.now(),
+                    ":z":   postData.stripeCardConfirmReqPayload,
+                    ":a":   postData.stripeCardConfirmRespPayload
+                }
+            };
+            const acquisitionUpdateObj = {
+                TableName: AcquisitionsTableName,
+                Key: {
+                    "ID":            postData.acquiredId,
+                    "transactionId": postData.transactionId,
+                    "userId":        postData.userId
+                },
+                UpdateExpression: `set status = :x`,
+                ExpressionAttributeValues: { ":x": 'ERROR' }
+            };
+            const creditCardUpdateObj = {
+                TableName: CreditCardTableName,
+                Key: {
+                    "ID":               postData.cardId,
+                    "paymentMethodId":  postData.paymentMethodId,
+                    "emailAddress":     postData.email
+                },
+                UpdateExpression: `set status = :x`,
+                ExpressionAttributeValues: { ":x": 'ERROR' }
+            };
+            await DynamoDb.update(transactionUpdateObj);
+            await DynamoDb.update(acquisitionUpdateObj);
+            await DynamoDb.update(creditCardUpdateObj);
+
+            replyMessage.action = 'stripe-process-error-incorrect-cvc-resp-success';
+            replyMessage.message.displayMessage = 'transaction / credit card / acquisition records updated';
+            replyMessage.message.transactionId = transactionId;
+            replyMessage.message.acquiredId = acquiredId;
+
+        // error catch: making purchase request
+        } catch (e) {
+
+            replyMessage.action = 'stripe-process-error-incorrect-cvc-resp-error';
+            replyMessage.message.displayMessage = 'transaction / credit card / acquisition records NOT updated';
+            replyMessage.message.transactionId = transactionId;
+            replyMessage.message.acquiredId = acquiredId;
+
+            console.log('\n************** [stripeProcessErrorCardIncorrectCvc.js] [96] : Error in Processing' );
+            console.log('\n', e.stack);
+        }
+
+        // code block:: socket response
+        try {
+
+            const socket_send = await socket.postToConnection({
+                ConnectionId: connectionId,
+                Data: JSON.stringify(replyMessage)
+            }).promise();
+
+            await Promise.resolve( socket_send );
+            console.log('\n************** [stripeProcessErrorCardIncorrectCvc.js] [133]: Socket Send to connectcionId: ')
+
+        // error catch: responding with socket call
+        } catch (e) {
+
+            console.log('\n************** [stripeProcessErrorCardIncorrectCvc.js] [138] : Error Return Socket Message to Client:' );
+            console.log('\n', e.stack);
+            return { statusCode: 500, body: e.stack };
+
+        }
+
+    // error catch: json payload parsing
+    } catch (e) {
+
+        console.log('\n************** [stripeProcessErrorCardIncorrectCvc.js] [78] : Error in Parsing Payload :' );
+        console.log('\n', e.stack);
+        return { statusCode: 500, body: e.stack };
+
+    }
+    return Responses._200({ success: true, message: 'stripe-process-error-incorrect-cvc' });
+};
