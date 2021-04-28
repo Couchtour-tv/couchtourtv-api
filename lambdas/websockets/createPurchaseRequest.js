@@ -68,6 +68,12 @@ exports.handler = async event => {
                 allItemsIds.push( item.item_id )
             });
         };
+        async function awaitableConsoleLog( obj ) {
+            console.log('+++++++++++++++++++++++');
+            console.log('-- awaitableConsole :: ');
+            console.log( obj )
+            console.log('+++++++++++++++++++++++');
+        };
 
         let paymentIntentobjResp = {};
         let transactionId = uuidv4();
@@ -98,6 +104,7 @@ exports.handler = async event => {
                     idempotencyKey: idempotentKey
                     // idempotency_key: idempotentKey,
                 };
+                await awaitableConsoleLog( paymentIntentStripePayload );
                 const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload );
 
                 console.log('\n--------------- Payment Intent Success');
