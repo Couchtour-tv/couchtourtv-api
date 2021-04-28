@@ -95,7 +95,8 @@ exports.handler = async event => {
                     currency: 'usd',
                     payment_method_types: ['card'],
                     customer: user.stripeCustomerId,
-                    idempotency_key: idempotentKey,
+                    idempotencyKey: idempotentKey
+                    // idempotency_key: idempotentKey,
                 };
                 const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload );
 
