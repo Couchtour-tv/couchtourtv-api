@@ -189,8 +189,24 @@ functions:
       - http:
           path: confirm-stripe-checkout
           method: POST
-
-          authorizer: aws_iam
+  stripeEverythingWebhook:
+    handler: lambdas/webhooks/stripeEverything.handler
+    events:
+      - http:
+          path: everything
+          method: POST
+  stripePaymentIntentSuccessWebhook:
+    handler: lambdas/webhooks/stripePaymentIntentSuccess.handler
+    events:
+      - http:
+          path: payment-intent-success
+          method: POST
+  stripeChargeSuccessWebhook:
+    handler: lambdas/webhooks/stripeChargeSuccess.handler
+    events:
+      - http:
+          path: charge-success
+          method: POST
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- WEBSOCKETS
