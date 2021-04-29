@@ -7,8 +7,8 @@ exports.handler = async event => {
 
     const { connectionId } = event.requestContext;
 
-    // await Dynamo.delete(connectionId, SocketTableName);
     console.log(connectionId, SocketTableName);
+    await Dynamo.delete(connectionId, SocketTableName);
 
     return Responses._200({ message: 'disconnected' });
 };

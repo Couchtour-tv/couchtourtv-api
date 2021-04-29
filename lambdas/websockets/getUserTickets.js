@@ -1,32 +1,32 @@
-const AWS = require('aws-sdk');
-const path = require('path');
+// const AWS = require('aws-sdk');
+// const path = require('path');
 
-import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
+// import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
 import Responses from '../common/API_Responses';
-import DynamoDb from '../../libs/dynamodb-lib';
+// import DynamoDb from '../../libs/dynamodb-lib';
 
 
-function filterSuccess ( acquisitions ) {
-    return acquisitions.Items.filter(
-        acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
-    );
-};
+// function filterSuccess ( acquisitions ) {
+//     return acquisitions.Items.filter(
+//         acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
+//     );
+// };
 
-function retrieveTicketObjs ( filteredAcquisitions ) {
-    let acquiredTicketIds = [];
-    filteredAcquisitions.forEach( transactions, function( transaction ) {
-        transaction.items.forEach( ticket, function( ticket ) {
-            // acquiredTicketIds.push( ticket.item_id );
-            const ticketObj =  DynamoDb.query({
-                TableName: TicketsTableName,
-                KeyConditionExpression: 'ticketId = :v1',
-                ExpressionAttributeValues: { ':v1': ticket.item_id }
-            });
-            acquiredTicketIds.push( ticketObj );
-        });
-    });
-    return acquiredTicketIds
-};
+// function retrieveTicketObjs ( filteredAcquisitions ) {
+//     let acquiredTicketIds = [];
+//     filteredAcquisitions.forEach( transactions, function( transaction ) {
+//         transaction.items.forEach( ticket, function( ticket ) {
+//             // acquiredTicketIds.push( ticket.item_id );
+//             const ticketObj =  DynamoDb.query({
+//                 TableName: TicketsTableName,
+//                 KeyConditionExpression: 'ticketId = :v1',
+//                 ExpressionAttributeValues: { ':v1': ticket.item_id }
+//             });
+//             acquiredTicketIds.push( ticketObj );
+//         });
+//     });
+//     return acquiredTicketIds
+// };
 
 
 exports.handler = async event => {
