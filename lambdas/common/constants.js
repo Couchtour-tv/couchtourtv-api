@@ -15,7 +15,7 @@ export const SNSTableName = process.env.SNS_MESSAGES_TABLE;
 // DynamoDB  initializer
 export const OptionsDynamoDB = {
 	apiVersion: process.env.DYNAMODB_APIVERSION,
-	region: process.env.AWS_REGION,
+	region: process.env.CODE_AWS_REGION,
 	endpoint: process.env.DYNAMODB_ENDPOINT
 };
 
