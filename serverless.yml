@@ -432,11 +432,11 @@ functions:
       - websocket:
           route: stripe-process-error-payment-failure
           cors: true
-  websocket-stripe-process-error-incorrect-zipcode:
-    handler: lambdas/websockets/stripeProcessErrorCardIncorrectZipCode.handler
+  websocket-stripe-process-error-incorrect-zip:
+    handler: lambdas/websockets/stripeProcessErrorCardIncorrectZip.handler
     events:
       - websocket:
-          route: stripe-process-error-incorrect-zipcode
+          route: stripe-process-error-incorrect-zip
           cors: true
 
 ## ----------------------------------------------------------------------------------
