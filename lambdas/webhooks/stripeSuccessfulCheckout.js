@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk');
+// const AWS = require('aws-sdk');
 
 import Responses from '../common/API_Responses';
 import { StripeSuccessfulCheckoutTableName } from '../common/constants';
@@ -23,7 +23,7 @@ exports.handler = async event => {
 
     } catch (error) {
 
-        console.log('\n', e.stack);
+        console.log('\n', error.stack);
         return Responses._400({ 'success': false });
     }
 };

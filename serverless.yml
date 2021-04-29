@@ -1,5 +1,5 @@
 service: branchdna-api
-
+useDotenv: true
 # Create an optimized package for our functions
 package:
   individually: true
@@ -35,8 +35,8 @@ custom:
             sources: [./resources/seeds/movieMetaSeed.json]
           - table: ${env:USER_TABLE}
             sources: [./resources/seeds/import-users.json]
-          - table: ${env:TICKETS_TABLE}
-            sources: [./resources/seeds/tickets.json]
+          # - table: ${env:TICKETS_TABLE}
+          #   sources: [./resources/seeds/tickets.json]
           - table: ${env:EVENTS_TABLE}
             sources: [./resources/seeds/events.json]
   seed:
@@ -68,6 +68,9 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
+  lambdaHashingVersion: 20201221
+  httpApi:
+    cors: true
 
   # These environment variables are made available to our functions
   # under process.env.
@@ -75,30 +78,33 @@ provider:
     tableName: ${env:DEPLOY_STAGE}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      # Restrict our IAM role permissions to
-      # the specific table for the stage
-      Resource:
-        - "*"
-    - Effect: Allow
-      Action:
-        - sns:SetSMSAttributes
-        - sns:Publish
-      Resource: '*'
-    - Effect: Allow
-      Action:
-        - cognito-idp:AdminGetUser
-        - cognito-idp:ListUsers
-      Resource: "*"
+  # iamRoleStatements:
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          # Restrict our IAM role permissions to
+          # the specific table for the stage
+          Resource:
+            - "*"
+        - Effect: Allow
+          Action:
+            - sns:SetSMSAttributes
+            - sns:Publish
+          Resource: '*'
+        - Effect: Allow
+          Action:
+            - cognito-idp:AdminGetUser
+            - cognito-idp:ListUsers
+          Resource: "*"
 
 functions:
   ## ----------------------------------------------------------------------------------
@@ -110,7 +116,7 @@ functions:
       - http:
           path: notes
           method: post
-          cors: true
+
           authorizer: aws_iam
   get:
     handler: lambdas/notes/get.main
@@ -118,7 +124,7 @@ functions:
       - http:
           path: notes/{id}
           method: get
-          cors: true
+
           authorizer: aws_iam
   list:
     handler: lambdas/notes/list.main
@@ -126,7 +132,7 @@ functions:
       - http:
           path: notes
           method: get
-          cors: true
+
           authorizer: aws_iam
   update:
     handler: lambdas/notes/update.main
@@ -134,7 +140,7 @@ functions:
       - http:
           path: notes/{id}
           method: put
-          cors: true
+
           authorizer: aws_iam
   delete:
     handler: lambdas/notes/delete.main
@@ -142,7 +148,7 @@ functions:
       - http:
           path: notes/{id}
           method: delete
-          cors: true
+
           authorizer: aws_iam
   purchases:
     handler: lambdas/purchases/list.main
@@ -150,7 +156,7 @@ functions:
       - http:
           path: purchases
           method: get
-          cors: true
+
           authorizer: aws_iam
 
   billing:
@@ -159,7 +165,7 @@ functions:
       - http:
           path: billing
           method: post
-          cors: true
+
           authorizer: aws_iam
   sendSMS:
     handler: lambdas/endpoints/sendSMS.handler
@@ -167,7 +173,7 @@ functions:
       - http:
           path: send-sms
           method: POST
-          cors: true
+
           authorizer: aws_iam
   deviceActivate:
     handler: lambdas/tvapps/deviceActivate.handler
@@ -175,7 +181,7 @@ functions:
       - http:
           path: device-activate
           method: POST
-          cors: true
+
           authorizer: aws_iam
   stripeSuccessfulCheckoutWebhook:
     handler: lambdas/webhooks/stripeSuccessfulCheckout.handler
@@ -183,7 +189,7 @@ functions:
       - http:
           path: confirm-stripe-checkout
           method: POST
-          cors: true
+
           authorizer: aws_iam
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
@@ -193,49 +199,49 @@ functions:
     events:
       - websocket:
           route: $connect
-          cors: true
+
   websocket-disconnect:
     handler: lambdas/websockets/disconnect.handler
     events:
       - websocket:
           route: $disconnect
-          cors: true
+
   websocket-default:
     handler: lambdas/websockets/default.handler
     events:
       - websocket:
           route: $default
-          cors: true
+
   websocket-message:
     handler: lambdas/websockets/message.handler
     events:
       - websocket:
           route: message
-          cors: true
+
   websocket-sendmessage:
     handler: lambdas/websockets/sendmessage.handler
     events:
       - websocket:
           route: sendmessage
-          cors: true
+
   websocket-echo:
     handler: lambdas/websockets/echo.handler
     events:
       - websocket:
           route: echo
-          cors: true
+
   websocket-whoami:
     handler: lambdas/websockets/whoami.handler
     events:
       - websocket:
           route: whoami
-          cors: true
+
   websocket-onlinenow:
     handler: lambdas/websockets/onlinenow.handler
     events:
       - websocket:
           route: onlinenow
-          cors: true
+
 
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
@@ -245,7 +251,7 @@ functions:
     events:
       - websocket:
           route: upload-media-meta
-          cors: true
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- CouchTour User Auth
@@ -254,55 +260,55 @@ functions:
     events:
       - websocket:
           route: user-verify-success
-          cors: true
+
   websocket-user-verify-error:
     handler: lambdas/websockets/userVerifyError.handler
     events:
       - websocket:
           route: user-verify-error
-          cors: true
+
   websocket-user-verify-resend-success:
     handler: lambdas/websockets/userVerifyResendSuccess.handler
     events:
       - websocket:
           route: user-verify-resend-success
-          cors: true
+
   websocket-user-verify-resend-error:
     handler: lambdas/websockets/userVerifyResendError.handler
     events:
       - websocket:
           route: user-verify-resend-error
-          cors: true
+
   websocket-user-login:
     handler: lambdas/websockets/userLogin.handler
     events:
       - websocket:
           route: user-login
-          cors: true
+
   websocket-user-logout:
     handler: lambdas/websockets/userLogout.handler
     events:
       - websocket:
           route: user-logout
-          cors: true
+
   websocket-user-signUp:
     handler: lambdas/websockets/userSignUp.handler
     events:
       - websocket:
           route: user-signup
-          cors: true
+
   websocket-user-signUp-error:
     handler: lambdas/websockets/userSignUpError.handler
     events:
       - websocket:
           route: user-signup-error
-          cors: true
+
   websocket-get-used-id:
     handler: lambdas/websockets/getUserId.handler
     events:
       - websocket:
           route: get-user-id
-          cors: true
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- CouchTour Patron
@@ -311,19 +317,19 @@ functions:
     events:
       - websocket:
           route: getvideos
-          cors: true
+
   websocket-add-device-id:
     handler: lambdas/websockets/addDeviceId.handler
     events:
       - websocket:
           route: add-device-id
-          cors: true
+
   websocket-get-user-purchases:
     handler: lambdas/websockets/getUserPurchases.handler
     events:
       - websocket:
           route: get-user-purchases
-          cors: true
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Shows & Events
@@ -332,25 +338,25 @@ functions:
     events:
       - websocket:
           route: get-user-tickets
-          cors: true
+
   websocket-get-all-events:
     handler: lambdas/websockets/getAllEvents.handler
     events:
       - websocket:
           route: get-all-events
-          cors: true
+
   websocket-get-all-tickets:
     handler: lambdas/websockets/getAllTickets.handler
     events:
       - websocket:
           route: get-all-tickets
-          cors: true
+
   websocket-stripe-get-product-subscriptions:
     handler: lambdas/websockets/getProductSubscriptions.handler
     events:
       - websocket:
           route: get-product-subscriptions
-          cors: true
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Strip Integration: purchase / subscriptions / products
@@ -359,37 +365,37 @@ functions:
     events:
       - websocket:
           route: wallet-add-user-credit-card
-          cors: true
+
   websocket-get-user-credit-cards:
     handler: lambdas/websockets/getUserCreditCards.handler
     events:
       - websocket:
           route: wallet-get-user-credit-cards
-          cors: true
+
   websocket-delete-user-credit-cards:
     handler: lambdas/websockets/deleteUserCreditCard.handler
     events:
       - websocket:
           route: wallet-delete-user-credit-card
-          cors: true
+
   websocket-stripe-create-purchase-request:
     handler: lambdas/websockets/createPurchaseRequest.handler
     events:
       - websocket:
           route: create-purchase-intent
-          cors: true
+
   websocket-stripe-success-transaction-update:
     handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
     events:
       - websocket:
           route: stripe-process-success-transaction-update
-          cors: true
+
   websocket-stripe-create-user-subscriptions:
     handler: lambdas/websockets/createUserSubscriptions.handler
     events:
       - websocket:
           route: create-user-subscription
-          cors: true
+
 
   # -----------------------------------------------------------------
   # --- Currently Not-Used
@@ -399,7 +405,7 @@ functions:
   #   events:
   #     - websocket:
   #         route: wallet-update-user-credit-card
-  #         cors: true
+  #
   # -----------------------------------------------------------------
   # -----------------------------------------------------------------
   # --- Stashing, Not Used
@@ -409,7 +415,7 @@ functions:
   #   events:
   #     - websocket:
   #         route: create-payment-method
-  #         cors: true
+  #
   # -----------------------------------------------------------------
 
   ## ----------------------------------------------------------------------------------
@@ -420,37 +426,37 @@ functions:
     events:
       - websocket:
           route: stripe-process-error-card-deactivate
-          cors: true
+
   websocket-stripe-error-incorrect-cvc:
     handler: lambdas/websockets/stripeProcessErrorCardIncorrectCvc.handler
     events:
       - websocket:
           route: stripe-process-error-incorrect-cvc
-          cors: true
+
   websocket-stripe-error-insufficient-funds:
     handler: lambdas/websockets/stripeProcessErrorCardInsufficientFunds.handler
     events:
       - websocket:
           route: stripe-process-error-insufficient-funds
-          cors: true
+
   websocket-stripe-error-card-expired:
     handler: lambdas/websockets/stripeProcessErrorCardExpired.handler
     events:
       - websocket:
           route: stripe-process-error-card-expired
-          cors: true
+
   websocket-stripe-error-payment-failure:
     handler: lambdas/websockets/stripeProcessErrorCardPaymentFailure.handler
     events:
       - websocket:
           route: stripe-process-error-payment-failure
-          cors: true
+
   websocket-stripe-error-incorrect-zip:
     handler: lambdas/websockets/stripeProcessErrorCardIncorrectZip.handler
     events:
       - websocket:
           route: stripe-process-error-incorrect-zipcode
-          cors: true
+
 
 ## ----------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------
