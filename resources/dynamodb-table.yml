@@ -17,7 +17,7 @@ Resources:
   RequestResponsesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ct-request-responses
+      TableName: ${env:REQUEST_RESPONSES}
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
@@ -189,12 +189,12 @@ Resources:
   StripeWebhookSuccessfulCheckout:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${env:STRIPE_WEBHHOOK_SUCCESS_CHECKOUT}
+      TableName: ${env:STRIPE_WEBHOOK_SUCCESS_CHECKOUT}
       AttributeDefinitions:
         - AttributeName: checkoutId
-          AttributeType: s
+          AttributeType: S
         - AttributeName: stripeCustomerId
-          AttributeType: s
+          AttributeType: S
       KeySchema:
         - AttributeName: checkoutId
           KeyType: HASH
