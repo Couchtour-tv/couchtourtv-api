@@ -3,7 +3,6 @@ const path = require('path');
 
 import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
 import Responses from '../common/API_Responses';
-// import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
 
 function filterSuccess ( acquisitions ) {
@@ -42,7 +41,6 @@ exports.handler = async event => {
         console.log('\n************** [get-user-tickets-resp-.js] [20] payload Recevied:', postData );
 
         try {
-
             const acquiredItems = DynamoDb.query({
                 TableName: AcquisitionsTableName,
                 KeyConditionExpression: 'userId = :v1',

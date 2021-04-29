@@ -1,14 +1,9 @@
 const AWS = require("aws-sdk")
-const path = require("path")
 
 import { OptionsAPIGateway } from "../common/constants"
 import Responses from "../common/API_Responses"
-import Dynamo from "../common/Dynamo"
-import {
-    PurchasesTableName, StripeSecretKey, TransactionsTableName, UserTableName, AcquisitionsTableName
-} from "../common/constants"
+import { StripeSecretKey, TransactionsTableName, UserTableName, AcquisitionsTableName } from "../common/constants"
 import { v4 as uuidv4 } from "uuid"
-import { CreatePurchase } from "../models/Purchase"
 import stripePackage from "stripe"
 import DynamoDb from "../../libs/dynamodb-lib"
 
@@ -42,10 +37,26 @@ import DynamoDb from "../../libs/dynamodb-lib"
             ]
 */
 
+
+// function priceValueConfirm(items) {
+//     return true
+// }
+
+function getTotalValueInCents(totalValueInCents, items) {
+    items.forEach(function (item) {
+        totalValueInCents += item.price_cents
+    });
+}
+function createArrayItemIds(allItemsIds, items) {
+    items.forEach(function (item) {
+        allItemsIds.push(item.item_id)
+    });
+}
+
 exports.handler = async (event) => {
-    const { connectionId, domainName, stage, requestId } = event.requestContext
-    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway)
-    const cogId = event.requestContext.identity.cognitoIdentityId
+
+    const { connectionId } = event.requestContext;
+    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
     try {
         let postData = JSON.parse(event.body).message
@@ -56,31 +67,18 @@ exports.handler = async (event) => {
         replyMessage.message = {}
 
         console.log( "\n************** [createPurchaseRequests.js] [31] payload Recevied:", postData );
-        async function priceValueConfirm(items) {
-            return true
-        }
-        async function getTotalValueInCents(items) {
-            items.forEach(function (item) {
-                totalValueInCents += item.price_cents
-            });
-        }
-        async function createArrayItemIds(items) {
-            items.forEach(function (item) {
-                allItemsIds.push(item.item_id)
-            });
-        }
 
-        let paymentIntentobjResp = {};
+
         let transactionId = uuidv4();
         let idempotentKey = uuidv4();
         let acquiredId = uuidv4();
 
         try {
-            const validItems = await priceValueConfirm(postData.items)
+            const validItems = true
 
             if (validItems) {
-                await getTotalValueInCents(postData.items);
-                await createArrayItemIds(postData.items);
+                getTotalValueInCents(totalValueInCents, postData.items);
+                createArrayItemIds(allItemsIds, postData.items);
 
                 const userObj = await DynamoDb.query({
                     TableName: UserTableName,

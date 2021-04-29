@@ -1,19 +1,14 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-// import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
 import { CreditCardTableName } from '../common/constants';
-import { v4 as uuidv4 } from 'uuid';
-
 
 exports.handler = async event => {
 
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
     const { connectionId } = event.requestContext;
-    // const cogId = event.requestContext.identity.cognitoIdentityId;
 
     try {
 

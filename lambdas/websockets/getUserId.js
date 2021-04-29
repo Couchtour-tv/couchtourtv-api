@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway, UserTableName } from '../common/constants';
 import Responses from '../common/API_Responses';

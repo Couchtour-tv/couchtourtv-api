@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const path = require('path');
 
 import { OptionsAPIGateway, EventsTableName } from '../common/constants';
 import Responses from '../common/API_Responses';
@@ -13,7 +12,7 @@ exports.handler = async event => {
 
     try {
 
-        let postData = JSON.parse(event.body).message;
+        // let postData = JSON.parse(event.body).message;
         let replyMessage = {};
         replyMessage.sender = connectionId;
 

@@ -2,15 +2,15 @@ const AWS = require('aws-sdk');
 
 import { OptionsAPIGateway } from '../common/constants';
 import Responses from '../common/API_Responses';
-import { TransactionsTableName, AcquisitionsTableName } from '../common/constants';
 import DynamoDb from '../../libs/dynamodb-lib';
+import { CreditCardTableName, TransactionsTableName, AcquisitionsTableName } from '../common/constants';
 
 /*
     NOTE:
         - only gets executed when front end renders a successful transaction
 
     Sample Payload
-        action: "stripe-process-success-transaction-update",
+        action: "stripe-process-error-insufficient-funds",
           message: {
             stripeConfirmationRespPayload: confirmCardPayment,
             userId: userId,
@@ -32,7 +32,6 @@ exports.handler = async event => {
     const { connectionId } = event.requestContext;
     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 
-
     try {
 
         let postData = JSON.parse(event.body).message;
@@ -40,7 +39,7 @@ exports.handler = async event => {
         replyMessage.sender = connectionId;
         replyMessage.message = {};
 
-        console.log('\n************** [stripeProcessSuccessUpdateTransaction.js] [31] payload Recevied:', postData );
+        console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [31] payload Recevied:', postData );
         try {
             const transactionUpdateObj = {
                 TableName: TransactionsTableName,
@@ -49,11 +48,12 @@ exports.handler = async event => {
                     "emailAddress": postData.email,
                     "cardId":       postData.cardId
                 },
-                UpdateExpression: `set status = :x AND updatedAt = :y AND updatedJson = :z`,
+                UpdateExpression: `set status = :x AND updatedAt = :y AND requestJson = :z AND responseJson = :a`,
                 ExpressionAttributeValues: {
-                    ":x":   'SUCCESS',
+                    ":x":   'ERROR',
                     ":y":   Date.now(),
-                    ":z":   postData.stripeConfirmationPayload
+                    ":z":   postData.stripeCardConfirmReqPayload,
+                    ":a":   postData.stripeCardConfirmRespPayload
                 }
             };
             const acquisitionUpdateObj = {
@@ -64,12 +64,23 @@ exports.handler = async event => {
                     "userId":        postData.userId
                 },
                 UpdateExpression: `set status = :x`,
-                ExpressionAttributeValues: { ":x":   'SUCCESS' }
+                ExpressionAttributeValues: { ":x": 'ERROR' }
+            };
+            const creditCardUpdateObj = {
+                TableName: CreditCardTableName,
+                Key: {
+                    "ID":               postData.cardId,
+                    "paymentMethodId":  postData.paymentMethodId,
+                    "emailAddress":     postData.email
+                },
+                UpdateExpression: `set status = :x`,
+                ExpressionAttributeValues: { ":x": 'ERROR' }
             };
             await DynamoDb.update(transactionUpdateObj);
             await DynamoDb.update(acquisitionUpdateObj);
+            await DynamoDb.update(creditCardUpdateObj);
 
-            replyMessage.action = 'stripe-process-success-transaction-update-resp-success';
+            replyMessage.action = 'stripe-process-error-insufficient-funds-resp-success';
             replyMessage.message.displayMessage = 'purchase and transaction records updated';
             replyMessage.message.transactionId = postData.transactionId;
             replyMessage.message.acquiredId = postData.acquiredId;
@@ -77,12 +88,12 @@ exports.handler = async event => {
         // error catch: making purchase request
         } catch (e) {
 
-            replyMessage.action = 'stripe-process-success-transaction-update-resp-error';
+            replyMessage.action = 'stripe-process-error-insufficient-funds-resp-error';
             replyMessage.message.displayMessage = 'purchase and transaction records NOT updated';
             replyMessage.message.transactionId = postData.transactionId;
             replyMessage.message.acquiredId = postData.acquiredId;
 
-            console.log('\n************** [stripeProcessSuccessUpdateTransaction.js] [96] : Error in Processing' );
+            console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [96] : Error in Processing' );
             console.log('\n', e.stack);
         }
 
@@ -95,12 +106,12 @@ exports.handler = async event => {
             }).promise();
 
             await Promise.resolve( socket_send );
-            console.log('\n************** [stripeProcessSuccessUpdateTransaction.js] [133]: Socket Send to connectcionId: ')
+            console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [133]: Socket Send to connectcionId: ')
 
         // error catch: responding with socket call
         } catch (e) {
 
-            console.log('\n************** [stripeProcessSuccessUpdateTransaction.js] [138] : Error Return Socket Message to Client:' );
+            console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [138] : Error Return Socket Message to Client:' );
             console.log('\n', e.stack);
             return { statusCode: 500, body: e.stack };
 
@@ -109,10 +120,10 @@ exports.handler = async event => {
     // error catch: json payload parsing
     } catch (e) {
 
-        console.log('\n************** [stripeProcessSuccessUpdateTransaction.js] [78] : Error in Parsing Payload :' );
+        console.log('\n************** [stripeProcessErrorCardInsufficientFunds.js] [78] : Error in Parsing Payload :' );
         console.log('\n', e.stack);
         return { statusCode: 500, body: e.stack };
 
     }
-    return Responses._200({ success: true, message: 'stripe-process-success-transaction-update' });
+    return Responses._200({ success: true, message: 'stripe-process-error-insufficient-funds' });
 };

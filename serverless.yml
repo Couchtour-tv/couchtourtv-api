@@ -402,42 +402,42 @@ functions:
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Strip Integration: transaction :: ERROR :: handling
-  # websocket-stripe-process-error-card-deactivate:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-card-deactivate
-  #         cors: true
-  # websocket-stripe-process-error-incorrect-cvc:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-incorrect-cvc
-  #         cors: true
-  # websocket-stripe-process-error-insufficient-funds:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-insufficient-funds
-  #         cors: true
-  # websocket-stripe-process-error-card-expired:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-card-expired
-  #         cors: true
-  # websocket-stripe-process-error-payment-failure:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-payment-failure
-  #         cors: true
-  # websocket-stripe-process-error-incorrect-zipcode:
-  #   handler: lambdas/websockets/.handler
-  #   events:
-  #     - websocket:
-  #         route: stripe-process-error-incorrect-zipcode
-  #         cors: true
+  websocket-stripe-process-error-card-deactivate:
+    handler: lambdas/websockets/stripeProcessErrorCardDeactivate.handler
+    events:
+      - websocket:
+          route: stripe-process-error-card-deactivate
+          cors: true
+  websocket-stripe-process-error-incorrect-cvc:
+    handler: lambdas/websockets/stripeProcessErrorCardIncorrectCvc.handler
+    events:
+      - websocket:
+          route: stripe-process-error-incorrect-cvc
+          cors: true
+  websocket-stripe-process-error-insufficient-funds:
+    handler: lambdas/websockets/stripeProcessErrorCardInsufficientFunds.handler
+    events:
+      - websocket:
+          route: stripe-process-error-insufficient-funds
+          cors: true
+  websocket-stripe-process-error-card-expired:
+    handler: lambdas/websockets/stripProcessErrorCardExpired.handler
+    events:
+      - websocket:
+          route: stripe-process-error-card-expired
+          cors: true
+  websocket-stripe-process-error-payment-failure:
+    handler: lambdas/websockets/stripeProcessErrorCardPaymentFailure.handler
+    events:
+      - websocket:
+          route: stripe-process-error-payment-failure
+          cors: true
+  websocket-stripe-process-error-incorrect-zipcode:
+    handler: lambdas/websockets/stripeProcessErrorCardIncorrectZipCode.handler
+    events:
+      - websocket:
+          route: stripe-process-error-incorrect-zipcode
+          cors: true
 
 ## ----------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------
