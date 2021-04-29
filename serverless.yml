@@ -101,6 +101,9 @@ provider:
       Resource: "*"
 
 functions:
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- API ENDPOINTS
   create:
     handler: lambdas/notes/create.main
     events:
@@ -174,7 +177,17 @@ functions:
           method: POST
           cors: true
           authorizer: aws_iam
-
+  stripeSuccessfulCheckoutWebhook:
+    handler: lambdas/webhooks/stripeSuccessfulCheckout.handler
+    events:
+      - http:
+          path: confirm-stripe-checkout
+          method: POST
+          cors: true
+          authorizer: aws_iam
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- WEBSOCKETS
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:
