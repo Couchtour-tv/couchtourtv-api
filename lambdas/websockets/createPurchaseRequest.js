@@ -121,7 +121,7 @@ exports.handler = async (event) => {
                         type: "non-subscription",
                         requestJson: paymentIntentobjResp,
                         created_at: Date.now(),
-                        responseJson: paymentIntentobjResp,
+                        responseJson: null,
                         updatedAt: Date.now(),
                         updatedJson: {},
                     }
@@ -172,7 +172,7 @@ exports.handler = async (event) => {
         // code block:: socket response
         try {
 
-            const socket_send = await socket .postToConnection({
+            const socket_send = await socket.postToConnection({
                 ConnectionId: connectionId,
                 Data: JSON.stringify(replyMessage)
             }).promise()

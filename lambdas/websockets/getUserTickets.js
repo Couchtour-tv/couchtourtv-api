@@ -47,9 +47,10 @@ exports.handler = async event => {
                 ExpressionAttributeValues: { ':v1': postData.userId}
             });
 
-            const successAcquired = await filterSuccess( acquiredItems );
-            const successfullyAcquiredTickets = await retrieveTicketObjs( successAcquired );
+            const successAcquired = filterSuccess( acquiredItems );
+            const successfullyAcquiredTickets = retrieveTicketObjs( successAcquired );
 
+            await Promise.all( successfullyAcquiredTickets );
             replyMessage.userTickets = successfullyAcquiredTickets;
             replyMessage.action = 'get-user-tickets-resp-success';
             replyMessage.displayMessage = 'user ticekts retrieved';

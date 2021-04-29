@@ -421,7 +421,7 @@ functions:
           route: stripe-process-error-insufficient-funds
           cors: true
   websocket-stripe-process-error-card-expired:
-    handler: lambdas/websockets/stripProcessErrorCardExpired.handler
+    handler: lambdas/websockets/stripeProcessErrorCardExpired.handler
     events:
       - websocket:
           route: stripe-process-error-card-expired
