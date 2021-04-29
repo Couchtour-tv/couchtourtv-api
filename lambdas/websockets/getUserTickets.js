@@ -6,6 +6,28 @@ import Responses from '../common/API_Responses';
 // import Dynamo from '../common/Dynamo';
 import DynamoDb from '../../libs/dynamodb-lib';
 
+function filterSuccess ( acquisitions ) {
+    return acquisitions.Items.filter(
+        acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
+    );
+};
+
+function retrieveTicketObjs ( filteredAcquisitions ) {
+    let acquiredTicketIds = [];
+    filteredAcquisitions.forEach( transactions, function( transaction ) {
+        transaction.items.forEach( ticket, function( ticket ) {
+            // acquiredTicketIds.push( ticket.item_id );
+            const ticketObj =  DynamoDb.query({
+                TableName: TicketsTableName,
+                KeyConditionExpression: 'ticketId = :v1',
+                ExpressionAttributeValues: { ':v1': ticket.item_id }
+            });
+            acquiredTicketIds.push( ticketObj );
+        });
+    });
+    return acquiredTicketIds
+};
+
 exports.handler = async event => {
 
     const { connectionId } = event.requestContext;
@@ -21,29 +43,7 @@ exports.handler = async event => {
 
         try {
 
-            async function filterSuccess ( acquisitions ) {
-                return acquisitions.Items.filter(
-                    acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
-                );
-            };
-
-            async function retrieveTicketObjs ( filteredAcquisitions ) {
-                let acquiredTicketIds = [];
-                filteredAcquisitions.forEach( transactions, function( transaction ) {
-                    transaction.items.forEach( ticket, function( ticket ) {
-                        // acquiredTicketIds.push( ticket.item_id );
-                        const ticektObj = await DynamoDb.query({
-                            TableName: TicketsTableName,
-                            KeyConditionExpression: 'ticketId = :v1',
-                            ExpressionAttributeValues: { ':v1': ticket.item_id }
-                        });
-                        acquiredTicketIds.push( ticektObj );
-                    });
-                });
-                return acquiredTicketIds
-            ;
-
-            const acquiredItems = await DynamoDb.query({
+            const acquiredItems = DynamoDb.query({
                 TableName: AcquisitionsTableName,
                 KeyConditionExpression: 'userId = :v1',
                 ExpressionAttributeValues: { ':v1': postData.userId}
@@ -60,7 +60,7 @@ exports.handler = async event => {
 
             replyMessage.events = {};
             replyMessage.action = 'get-user-tickets-resp-error';
-            replyMessage.displayMessage = 'user ticekts NOT retrieved';
+            replyMessage.displayMessage = 'user tickets NOT retrieved';
 
             console.log('\n************** [get-user-tickets-resp-.js] [50] : ERROR DB Queries' )
             console.log('\n', e.stack)
