@@ -365,7 +365,7 @@ functions:
       - websocket:
           route: create-purchase-intent
           cors: true
-  websocket-stripe-process-success-transaction-update:
+  websocket-stripe-success-transaction-update:
     handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
     events:
       - websocket:
@@ -402,41 +402,41 @@ functions:
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## -- Strip Integration: transaction :: ERROR :: handling
-  websocket-stripe-process-error-card-deactivate:
+  websocket-stripe-error-card-deactivate:
     handler: lambdas/websockets/stripeProcessErrorCardDeactivate.handler
     events:
       - websocket:
           route: stripe-process-error-card-deactivate
           cors: true
-  websocket-stripe-process-error-incorrect-cvc:
+  websocket-stripe-error-incorrect-cvc:
     handler: lambdas/websockets/stripeProcessErrorCardIncorrectCvc.handler
     events:
       - websocket:
           route: stripe-process-error-incorrect-cvc
           cors: true
-  websocket-stripe-process-error-insufficient-funds:
+  websocket-stripe-error-insufficient-funds:
     handler: lambdas/websockets/stripeProcessErrorCardInsufficientFunds.handler
     events:
       - websocket:
           route: stripe-process-error-insufficient-funds
           cors: true
-  websocket-stripe-process-error-card-expired:
+  websocket-stripe-error-card-expired:
     handler: lambdas/websockets/stripeProcessErrorCardExpired.handler
     events:
       - websocket:
           route: stripe-process-error-card-expired
           cors: true
-  websocket-stripe-process-error-payment-failure:
+  websocket-stripe-error-payment-failure:
     handler: lambdas/websockets/stripeProcessErrorCardPaymentFailure.handler
     events:
       - websocket:
           route: stripe-process-error-payment-failure
           cors: true
-  websocket-stripe-process-error-incorrect-zip:
+  websocket-stripe-error-incorrect-zip:
     handler: lambdas/websockets/stripeProcessErrorCardIncorrectZip.handler
     events:
       - websocket:
-          route: stripe-process-error-incorrect-zip
+          route: stripe-process-error-incorrect-zipcode
           cors: true
 
 ## ----------------------------------------------------------------------------------
