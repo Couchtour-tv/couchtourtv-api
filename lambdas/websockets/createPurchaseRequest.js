@@ -104,8 +104,7 @@ exports.handler = async (event) => {
                         all_items:          postData.items
                     }
                 };
-                const idempotencyKeyTest = { idempotencyKey: idempotentKey };
-                const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload, idempotencyKeyTest );
+                const paymentIntentobjResp = await stripeInterface.paymentIntents.create( paymentIntentStripePayload, { idempotencyKey: idempotentKey } );
                 console.log("\n--------------- Payment Intent Success");
                 console.log( "\n************** [createPurchaseRequests.js] [64] reply ::", paymentIntentobjResp );
                 const transactionWriteObj = {

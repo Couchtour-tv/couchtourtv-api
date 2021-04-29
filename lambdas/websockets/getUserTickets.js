@@ -1,33 +1,35 @@
-// const AWS = require('aws-sdk');
-// const path = require('path');
+const AWS = require('aws-sdk');
+const path = require('path');
 
-// import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
-// import Responses from '../common/API_Responses';
-// import DynamoDb from '../../libs/dynamodb-lib';
+import { OptionsAPIGateway, AcquisitionsTableName, TicketsTableName } from '../common/constants';
+import Responses from '../common/API_Responses';
+import DynamoDb from '../../libs/dynamodb-lib';
 
-// function filterSuccess ( acquisitions ) {
-//     return acquisitions.Items.filter(
-//         acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
-//     );
-// };
 
-// function retrieveTicketObjs ( filteredAcquisitions ) {
-//     let acquiredTicketIds = [];
-//     filteredAcquisitions.forEach( transactions, function( transaction ) {
-//         transaction.items.forEach( ticket, function( ticket ) {
-//             // acquiredTicketIds.push( ticket.item_id );
-//             const ticketObj =  DynamoDb.query({
-//                 TableName: TicketsTableName,
-//                 KeyConditionExpression: 'ticketId = :v1',
-//                 ExpressionAttributeValues: { ':v1': ticket.item_id }
-//             });
-//             acquiredTicketIds.push( ticketObj );
-//         });
-//     });
-//     return acquiredTicketIds
-// };
+function filterSuccess ( acquisitions ) {
+    return acquisitions.Items.filter(
+        acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
+    );
+};
 
-// exports.handler = async event => {
+function retrieveTicketObjs ( filteredAcquisitions ) {
+    let acquiredTicketIds = [];
+    filteredAcquisitions.forEach( transactions, function( transaction ) {
+        transaction.items.forEach( ticket, function( ticket ) {
+            // acquiredTicketIds.push( ticket.item_id );
+            const ticketObj =  DynamoDb.query({
+                TableName: TicketsTableName,
+                KeyConditionExpression: 'ticketId = :v1',
+                ExpressionAttributeValues: { ':v1': ticket.item_id }
+            });
+            acquiredTicketIds.push( ticketObj );
+        });
+    });
+    return acquiredTicketIds
+};
+
+
+exports.handler = async event => {
 
 //     const { connectionId } = event.requestContext;
 //     const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
@@ -47,8 +49,9 @@
 //                 ExpressionAttributeValues: { ':v1': postData.userId}
 //             });
 
-//             const successAcquired = filterSuccess( acquiredItems );
-//             const successfullyAcquiredTickets = retrieveTicketObjs( successAcquired );
+
+            // const successfullyAcquiredTickets = retrieveTicketObjs( filterSuccess( acquiredItems ) );
+
 
 //             await Promise.all( successfullyAcquiredTickets );
 //             replyMessage.userTickets = successfullyAcquiredTickets;
@@ -92,5 +95,5 @@
 
 //     }
 
-//     return Responses._200({ success: true, message: 'get-user-tickets' });
-// };
+    return Responses._200({ success: true, message: 'get-user-tickets' });
+};
