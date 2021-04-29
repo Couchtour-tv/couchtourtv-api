@@ -7,14 +7,15 @@ import DynamoDb from '../../libs/dynamodb-lib';
 
 function filterSuccess ( acquisitions ) {
     return acquisitions.Items.filter(
-        acquisition, acquisition.status == 'SUCCESS' && acquisition.type == "non-subscription"
+        acquisition, acquisition.status == 'SUCCESS'
+        // && acquisition.type == "non-subscription"
     );
 };
 
 function retrieveTicketObjs ( filteredAcquisitions ) {
     let acquiredTicketIds = [];
-    filteredAcquisitions.forEach( transactions, function( transaction ) {
-        transaction.items.forEach( ticket, function( ticket ) {
+    filteredAcquisitions.forEach( acquisitionRecords, function( acquisition ) {
+        acquisition.items.forEach( ticketArray, function( ticket ) {
             // acquiredTicketIds.push( ticket.item_id );
             const ticketObj =  DynamoDb.query({
                 TableName: TicketsTableName,
@@ -47,8 +48,7 @@ exports.handler = async event => {
                 ExpressionAttributeValues: { ':v1': postData.userId}
             });
 
-            const successAcquired = filterSuccess( acquiredItems );
-            const successfullyAcquiredTickets = retrieveTicketObjs( successAcquired );
+            const successfullyAcquiredTickets = retrieveTicketObjs( filterSuccess( acquiredItems ) );
 
             await Promise.all( successfullyAcquiredTickets );
             replyMessage.userTickets = successfullyAcquiredTickets;
