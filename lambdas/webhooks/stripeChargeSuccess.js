@@ -26,9 +26,11 @@ exports.handler = async event => {
                     ID: uuidv4(),
                     checkoutId: payload.id,
                     stripeCustomerId: payload.data.object.customer,
+                    email: payload.data.object.billing_details.email,
+                    name: payload.data.object.billing_details.name,
                     receivedAt: Date.now(),
-                    status: "paid",
-                    payload: payload
+                    payload: payload,
+                    video: { video_url: "https://decibel-stream.couchtour.tv/stream/index.m3u8", video_name: 'broadcast' }
                 }
             }
 
@@ -40,6 +42,7 @@ exports.handler = async event => {
 
                 console.log("PAYMENT FAILED")
                 stripeSuccessCheckoutWrite.Item.status = 'error'
+                stripeSuccessCheckoutWrite.Item.video = {}
             }
 
             await DynamoDb.put(stripeSuccessCheckoutWrite)
