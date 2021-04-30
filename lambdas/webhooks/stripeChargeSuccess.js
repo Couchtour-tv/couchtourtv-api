@@ -2,6 +2,8 @@
 
 import Responses from '../common/API_Responses'
 import DynamoDb from '../../libs/dynamodb-lib'
+import { StripeSuccessfulCheckoutTableName } from '../common/constants'
+import { v4 as uuidv4 } from 'uuid'
 
 exports.handler = async event => {
     try {
@@ -18,26 +20,33 @@ exports.handler = async event => {
                 console.log("PAYMENT METHOD DETAILS", payload.data.object.payment_method_details)
             }
 
-            if (pauyload.data.object.paid === true) {
-
-                const stripeSuccessCheckoutWrite = {
-                    TableName: StripeSuccessfulCheckoutTableName,
-                    Item: {
-                        ID: uuidv4(),
-                        checkoutId: payload.id,
-                        stripeCustomerId: payload.data.object.customer,
-                        receivedAt: Date.now(),
-                        payload: payload
-                    }
+            let stripeSuccessCheckoutWrite = {
+                TableName: StripeSuccessfulCheckoutTableName,
+                Item: {
+                    ID: uuidv4(),
+                    checkoutId: payload.id,
+                    stripeCustomerId: payload.data.object.customer,
+                    receivedAt: Date.now(),
+                    status: "paid",
+                    payload: payload
                 }
-                await DynamoDb.put(stripeSuccessCheckoutWrite)
-
-            } else {
-                console.log("PAYMENT FAILED")
             }
 
+            if (payload.data.object.paid === true) {
+
+                stripeSuccessCheckoutWrite.Item.status = 'paid'
+
+            } else {
+
+                console.log("PAYMENT FAILED")
+                stripeSuccessCheckoutWrite.Item.status = 'error'
+            }
+
+            await DynamoDb.put(stripeSuccessCheckoutWrite)
+
         } else {
-            console.log("PAYLOAD NOT EVENT")
+
+            console.log("PAYLOAD NOT EVENT ---------------------------------------------- !!!!!")
         }
 
         return Responses._200({ 'success': true })
