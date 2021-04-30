@@ -1,0 +1,199 @@
+[
+	// 1 -5 -10 -20 50 -100
+
+
+	// -- Horrendous
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $1",
+		"price": "100",
+		"priceId": "price_1IlgycKsNNk3qPPU1jUKujxp"
+
+	},
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $5",
+		"price": "500",
+		"priceId": "price_1Ilh0uKsNNk3qPPUe7jPmYQC"
+
+	},
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $10",
+		"price": "1000",
+		"priceId": "price_1Ilh4ZKsNNk3qPPUzO7vvGvs"
+
+	},
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $20",
+		"price": "2000",
+		"priceId": "price_1Ilh8AKsNNk3qPPUdxmVFvOc"
+
+	},
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $50",
+		"price": "5000",
+		"priceId": "price_1IlhAHKsNNk3qPPUZNEVawAu"
+
+	},
+	{
+		"bandName": "Horrendous",
+		"description": "Extreme!: Horrendous - Band Tip $100",
+		"price": "10000",
+		"priceId": ""
+
+	},
+	// -- Wake
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $1",
+		"price": "100",
+		"priceId": "price_1IlhGjKsNNk3qPPU1nhTKG9x"
+	},
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $5",
+		"price": "500",
+		"priceId": "price_1IlhH8KsNNk3qPPUwQlYMdgo"
+	},
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $10",
+		"price": "1000",
+		"priceId": "price_1IlhHeKsNNk3qPPUbeNOyD5l"
+	},
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $20",
+		"price": "2000",
+		"priceId": "price_1IlhIlKsNNk3qPPUYtNTwQAF"
+	},
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $50",
+		"price": "5000",
+		"priceId": "price_1IlhJFKsNNk3qPPUQRL5hiw7"
+	},
+	{
+		"bandName": "Wake",
+		"description": "Extreme!: Wake - Band Tip $100",
+		"price": "10000",
+		"priceId": "price_1IlhJaKsNNk3qPPUPqf63fFF"
+	},
+	// -- Full of Hell
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $1",
+		"price": "100",
+		"priceId": "price_1IlhKsKsNNk3qPPUSBic1Pa6"
+	},
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $5",
+		"price": "500",
+		"priceId": "price_1IlhLGKsNNk3qPPUVsijt4qw"
+	},
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $10",
+		"price": "1000",
+		"priceId": "price_1IlhLbKsNNk3qPPUBNmtFZXU"
+	},
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $20",
+		"price": "2000",
+		"priceId": "price_1IlhLzKsNNk3qPPU0irMihJJ"
+	},
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $50",
+		"price": "5000",
+		"priceId": "price_1IlhMIKsNNk3qPPUZTwpqPUi"
+	},
+	{
+		"bandName": "Full Of Hell",
+		"description": "Extreme!: Full Of Hell - Band Tip $100",
+		"price": "10000",
+		"priceId": "price_1IlhMdKsNNk3qPPU5tBmzr0m"
+	},
+	// -- MidNight
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $1",
+		"price": "100",
+		"priceId": "price_1IlhPxKsNNk3qPPUuDoP419N"
+	},
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $5",
+		"price": "500",
+		"priceId": "price_1IlhQbKsNNk3qPPUi23SjICp"
+	},
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $10",
+		"price": "1000",
+		"priceId": "price_1IlhR0KsNNk3qPPUy7Fb4AOa"
+	},
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $20",
+		"price": "2000",
+		"priceId": "price_1IlhROKsNNk3qPPUiTCo706N"
+	},
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $50",
+		"price": "5000",
+		"priceId": "price_1IlhRuKsNNk3qPPURoFLUXQu"
+	},
+	{
+		"bandName": "Midnight",
+		"description": "Extreme!: Midnight - Band Tip $100",
+		"price": "10000",
+		"priceId": "price_1IlhSFKsNNk3qPPU3BKVGHp9"
+	},
+	// -- Khemmis
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $1",
+		"price": "100",
+		"priceId": "price_1IlhSaKsNNk3qPPUE0MWGv4I"
+	},
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $5",
+		"price": "500",
+		"priceId": "price_1IlhSuKsNNk3qPPUbz4vDPwl"
+	},
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $10",
+		"price": "1000",
+		"priceId": "price_1IlhTFKsNNk3qPPURbEuiKIv"
+	},
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $20",
+		"price": "2000",
+		"priceId": "price_1IlhTZKsNNk3qPPUTgeyvv9h"
+	},
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $50",
+		"price": "5000",
+		"priceId": "price_1IlhTtKsNNk3qPPUqkZ982Px"
+	},
+	{
+		"bandName": "Khemmis",
+		"description": "Extreme!: Khemmis - Band Tip $100",
+		"price": "10000",
+		"priceId": "price_1IlhUEKsNNk3qPPUvwYIi3Sc"
+	}
+]
+
+
+
