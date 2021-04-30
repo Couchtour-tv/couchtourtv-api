@@ -6,39 +6,69 @@ import dynamoDb from "../../libs/dynamodb-lib";
 
 import { StripeSuccessfulCheckoutTableName } from '../common/constants'
 
+const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 /*
     SAMPLE PAYLOAD:
-        {"action": "get-purchases", "message": { email: <customer_email>, cogId: <cogId> }}
+        {"action": "get-tickets", "message": { email: <customer_email>, cogId: <cogId> }}
 */
 
 exports.handler = async event => {
 
     const { connectionId } = event.requestContext;
-    const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
-
-    const scan_params = { TableName: StripeSuccessfulCheckoutTableName };
-    const video_array = await dynamoDb.scan(scan_params);
-
-    const replyMessage = {
-        action: 'get-user-tickets-resp-success',
-        sender: connectionId,
-        message: video_array.Items
-    };
-
-    const socket_send = await socket.postToConnection({
-        ConnectionId: connectionId,
-        Data: JSON.stringify(replyMessage)
-    }).promise();
 
     try {
-        console.log('\nGETVIDEOS-22 - Promise.all now ');
+        let postData = JSON.parse(event.body).message;
+        const email = postData.email;
+
+        let filterExpression = `email = :email`
+        let expressionAttributes = {
+            ':email': email
+        }
+
+        const records = await Dynamo.scan({
+            TableName: StripeSuccessfulCheckoutTableName,
+            filterExpression,
+            expressionAttributes,
+        })
+
+        await Promise.all( records );
+
+        if (records.Count > 0 ) {
+
+            const replyMessage = {
+                action: 'get-tickets-resp-success',
+                sender: connectionId,
+                message: { video_url: "https://decibel-stream.couchtour.tv/stream/index.m3u8", video_name: 'broadcast' }
+            };
+
+        } else {
+
+            const replyMessage = {
+                action: 'get-tickets-resp-success',
+                sender: connectionId,
+                message: { video_url: null }
+            };
+
+        }
+
+        const socket_send = await socket.postToConnection({
+            ConnectionId: connectionId,
+            Data: JSON.stringify(replyMessage)
+        }).promise();
+
+        console.log('\GET_TICKETS-22 - Promise.all now ');
         await Promise.resolve( socket_send );
-    } catch (e) {
-        console.log('\nGETVIDEOS-25 - error on promises', e.stack);
-        return { statusCode: 500, body: e.stack };
+
+    } catch (error) {
+
+        console.log('\GET_TICKETS-22 - Promise.all ERROR ');
+        console.log('\GET_TICKETS-25 - error on promises', error.stack);
+        return { statusCode: 500, body: error.stack };
+
     }
 
-    return Responses._200({ success: true, message: 'delivervideos' });
+    return Responses._200({ success: true, message: 'get-tickets' });
+
 };
 
 

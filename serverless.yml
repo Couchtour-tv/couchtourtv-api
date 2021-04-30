@@ -367,6 +367,12 @@ functions:
       - websocket:
           route: get-all-tickets
 
+  websocket-get-tickets:
+    handler: lambdas/websockets/getTickets.handler
+    events:
+      - websocket:
+          route: get-tickets
+
   websocket-stripe-get-product-subscriptions:
     handler: lambdas/websockets/getProductSubscriptions.handler
     events:
