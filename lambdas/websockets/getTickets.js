@@ -25,7 +25,7 @@ exports.handler = async event => {
             ':email': email
         }
 
-        const records = await Dynamo.scan({
+        const records = await dynamoDb.scan({
             TableName: StripeSuccessfulCheckoutTableName,
             filterExpression,
             expressionAttributes,
@@ -33,9 +33,11 @@ exports.handler = async event => {
 
         await Promise.all( records );
 
+        let replyMessage = {};
+
         if (records.Count > 0 ) {
 
-            const replyMessage = {
+            replyMessage = {
                 action: 'get-tickets-resp-success',
                 sender: connectionId,
                 message: { video_url: "https://decibel-stream.couchtour.tv/stream/index.m3u8", video_name: 'broadcast' }
@@ -43,7 +45,7 @@ exports.handler = async event => {
 
         } else {
 
-            const replyMessage = {
+            replyMessage = {
                 action: 'get-tickets-resp-success',
                 sender: connectionId,
                 message: { video_url: null }
@@ -71,13 +73,9 @@ exports.handler = async event => {
 
 };
 
-
 // go into StripeSuccessfulCheckoutTableName
 
 // and get records for email where video is not null
-
-
-
 
     // let filterExpression = `email = :email`
     // let expressionAttributes = {
