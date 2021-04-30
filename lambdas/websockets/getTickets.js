@@ -9,29 +9,33 @@ import { StripeSuccessfulCheckoutTableName } from '../common/constants'
 const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
 /*
     SAMPLE PAYLOAD:
-        {"action": "get-tickets", "message": { email: <customer_email>, cogId: <cogId> }}
+        {"action": "get-tickets", "message": { email: <customer_email>, cogId: <}}
 */
 
 exports.handler = async event => {
+    console.log('\n', '\n', '--------------------  GET_TICKETS  ---------------------', event, '\n');
+    const x = JSON.stringify({ "action": "get-tickets", "message": { "email": "test@example.com", "cogId": "f923fb1308fg10382fg" }})
+    console.log(x)
 
     const { connectionId } = event.requestContext;
-
+    console.log('\GET_TICKETS-18, ', event.requestContext);
     try {
         let postData = JSON.parse(event.body).message;
         const email = postData.email;
 
         let filterExpression = `email = :email`
         let expressionAttributes = {
-            ':email': email
+            ':email': email,
         }
-
+        console.log('\GET_TICKETS-27 - records ', filterExpression, expressionAttributes);
         const records = await dynamoDb.scan({
             TableName: StripeSuccessfulCheckoutTableName,
             filterExpression,
             expressionAttributes,
         })
 
-        await Promise.all( records );
+        console.log('\GET_TICKETS-34 - records ', records);
+        // await Promise.all( records );
 
         let replyMessage = {};
 
