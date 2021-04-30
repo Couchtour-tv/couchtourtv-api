@@ -36,10 +36,11 @@ exports.handler = async event => {
 
         console.log('\GET_TICKETS-34 - records ', records);
         // await Promise.all( records );
+        const records_email = records.Items.map((record) => record.email === email)
 
         let replyMessage = {};
 
-        if (records.Count > 0 ) {
+        if (records_email.length > 0 ) {
 
             replyMessage = {
                 action: 'get-tickets-resp-success',
@@ -79,7 +80,7 @@ exports.handler = async event => {
 
 // go into StripeSuccessfulCheckoutTableName
 
-// and get records for email where video is not null
+// and get records_email for email where video is not null
 
     // let filterExpression = `email = :email`
     // let expressionAttributes = {
