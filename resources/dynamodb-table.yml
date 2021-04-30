@@ -32,7 +32,7 @@ Resources:
   PurchasesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ct-purchases
+      TableName: ${env:PURCHASES_TABLE}
       AttributeDefinitions:
         - AttributeName: purchaseId
           AttributeType: S
@@ -47,7 +47,7 @@ Resources:
   MoviesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ct-movies
+      TableName: ${env:MOVIES_TABLE}
       AttributeDefinitions:
         - AttributeName: movieId
           AttributeType: S
@@ -144,7 +144,7 @@ Resources:
   NewPurchasesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${env:PURCHASES_TABLE}
+      TableName: ${env:NEW_PURCHASES_TABLE}
       AttributeDefinitions:
         - AttributeName: creditCardId
           AttributeType: S
