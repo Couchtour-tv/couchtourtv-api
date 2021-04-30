@@ -3,7 +3,7 @@
 import Responses from '../common/API_Responses'
 // import { StripeSuccessfulCheckoutTableName } from '../common/constants'
 // import DynamoDb from '../../libs/dynamodb-lib'
-import { v4 as uuidv4 } from 'uuid'
+// import { v4 as uuidv4 } from 'uuid'
 
 exports.handler = async event => {
     try {
