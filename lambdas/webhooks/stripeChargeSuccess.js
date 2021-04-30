@@ -30,13 +30,14 @@ exports.handler = async event => {
                     name: payload.data.object.billing_details.name,
                     receivedAt: Date.now(),
                     payload: payload,
+                    status: 'paid',
                     video: { video_url: "https://decibel-stream.couchtour.tv/stream/index.m3u8", video_name: 'broadcast' }
                 }
             }
 
             if (payload.data.object.paid === true) {
 
-                stripeSuccessCheckoutWrite.Item.status = 'paid'
+                // stripeSuccessCheckoutWrite.Item.status = 'paid'
 
             } else {
 
