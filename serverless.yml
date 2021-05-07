@@ -107,9 +107,11 @@ provider:
           Resource: "*"
 
 functions:
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-  ## -- API ENDPOINTS
+  ## -- API HTTPS ENDPOINTS
+
   create:
     handler: lambdas/notes/create.main
     events:
@@ -207,9 +209,17 @@ functions:
       - http:
           path: charge-success
           method: POST
+  maestroEvents:
+    handler: lambdas/webhooks/maestroEvents.handler
+    events:
+      - http:
+          path: maestro-events
+          method: POST
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-  ## -- WEBSOCKETS
+  ## -- WEBSOCKET ACTIONS
+
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:

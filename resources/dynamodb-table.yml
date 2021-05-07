@@ -229,6 +229,21 @@ Resources:
         - AttributeName: eventId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
+  MaestroEventsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:MAESTRO_EVENTS}
+      AttributeDefinitions:
+        - AttributeName: maestroId
+          AttributeType: S
+        - AttributeName: email
+          AttributeType: S
+      KeySchema:
+        - AttributeName: maestroId
+          KeyType: HASH
+        - AttributeName: email
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
   # ChatroomsTable:
   #   Type: AWS::DynamoDB::Table

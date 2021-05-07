@@ -35,6 +35,7 @@ export const StripeSuccessfulCheckoutTableName = process.env.STRIPE_WEBHOOK_SUCC
 export const RequestResponses = process.env.REQUEST_RESPONSES;
 export const MoviesTable = process.env.MOVIES_TABLE;
 export const PurchasesTable = process.env.PURCHASES_TABLE;
+export const MaestroEventsTable = process.env.MAESTRO_EVENTS;
 
 
 // User Pool
