@@ -9,7 +9,6 @@ exports.handler = async event => {
     try {
         const payload = JSON.parse(event.body)
         console.log("MAESTRO EVENTS [11]", payload)
-
         const tempId = uuidv4()
 
         let maestroEventsWrite = {
