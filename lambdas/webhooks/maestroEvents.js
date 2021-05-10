@@ -6,70 +6,70 @@ import { MaestroEventsTable, MaestroSalesTable } from '../common/constants'
 import { v4 as uuidv4 } from 'uuid'
 
 exports.handler = async event => {
-    try {
-        const payload = JSON.parse(event.body)
-        console.log("MAESTRO EVENTS [11] ", payload)
+	try {
+		const payload = JSON.parse(event.body)
+		console.log("MAESTRO EVENTS [11] ", payload)
 
-        const systemId = uuidv4()
-        let email = "test@example.com"
-        let maestroId = "no-maestro-id"
-        let name = null
-        let sku = null
-        let slug = null
+		const systemId = uuidv4()
+		let email = "test@example.com"
+		let maestroId = "no-maestro-id"
+		let name = null
+		let sku = null
+		let slug = null
 
-        let hasAccount = false
-        let hasEvent = false
-        let type = "unknown"
+		let hasAccount = false
+		let hasEvent = false
+		let type = "unknown"
 
-        if (payload.account) {
-            email = payload.account.email
-            maestroId = payload.account.siteId
-            name = payload.account.name
-            type = "maestro"
-            hasAccount = true
-        }
+		if (payload.account) {
+			email = payload.account.email
+			maestroId = payload.account.siteId
+			name = payload.account.name
+			type = "maestro"
+			hasAccount = true
+		}
 
-        if (payload.eventData) {
-            sku = payload.eventData.sku
-            slug = payload.eventData.referer.pageSlug
-            if (sku.match(/lively/)) {
-            	type = "lively"
-            }
-            hasEvent = true
-        }
+		if (payload.eventData) {
+			sku = payload.eventData.sku
+			slug = payload.eventData.referer.pageSlug
+			if (sku.match(/lively/)) {
+				type = "lively"
+			}
+			hasEvent = true
+		}
 
-        let TableName = MaestroEventsTable
-        if (hasAccount && hasEvent) {
-            TableName = MaestroSalesTable
-        }
+		let TableName = MaestroEventsTable
+		if (hasAccount && hasEvent) {
+			TableName = MaestroSalesTable
+		}
 
-        let maestroEventsWrite = {
-            TableName: TableName,
-            Item: {
-                ID: systemId,
-                maestroId: maestroId,
-                email: email,
-                name: name,
-                sku: sku,
-                slug: slug,
-                type: type,
-                createdAt: Date.now(),
-                payload: payload,
-            }
-        }
+		let maestroEventsWrite = {
+			TableName: TableName,
+			Item: {
+				ID: systemId,
+				maestroId: maestroId,
+				email: email,
+				name: name,
+				sku: sku,
+				slug: slug,
+				type: type,
+				createdAt: Date.now(),
+				payload: payload,
+			}
+		}
 
-        console.log("MAESTRO EVENTS [55] ", maestroEventsWrite)
+		console.log("MAESTRO EVENTS [55] ", maestroEventsWrite)
 
 
-        await DynamoDb.put(maestroEventsWrite)
+		await DynamoDb.put(maestroEventsWrite)
 
-        return Responses._200({ 'success': true })
+		return Responses._200({ 'success': true })
 
-    } catch (error) {
+	} catch (error) {
 
-        console.log('\n', error.stack)
-        return Responses._400({ 'success': false })
-    }
+		console.log('\n', error.stack)
+		return Responses._400({ 'success': false })
+	}
 }
 
 // SLUG = payload.eventData.referer.pageSlug == 'disco-biscuits-2021-05-sussex'
