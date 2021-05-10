@@ -36,6 +36,7 @@ export const RequestResponses = process.env.REQUEST_RESPONSES;
 export const MoviesTable = process.env.MOVIES_TABLE;
 export const PurchasesTable = process.env.PURCHASES_TABLE;
 export const MaestroEventsTable = process.env.MAESTRO_EVENTS;
+export const MaestroSalesTable = process.env.MAESTRO_SALES;
 
 
 // User Pool
