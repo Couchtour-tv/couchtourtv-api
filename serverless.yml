@@ -215,6 +215,12 @@ functions:
       - http:
           path: maestro-events
           method: POST
+  livelySales:
+    handler: lambdas/webhooks/livelySales.handler
+    events:
+      - http:
+          path: lively-sales
+          method: GET
 
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
