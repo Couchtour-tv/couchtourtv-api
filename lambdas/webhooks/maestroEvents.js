@@ -30,12 +30,21 @@ exports.handler = async event => {
 		}
 
 		if (payload.eventData) {
-			sku = payload.eventData.sku
-			slug = payload.eventData.referer.pageSlug
-			if (sku.match(/lively/)) {
-				type = "lively"
+			if (payload.eventData.entitlement) {
+				sku = payload.eventData.entitlement.sku
+				slug = payload.eventData.entitlement.name
+				if (sku.match(/lively/)) {
+					type = "lively"
+				}
+				hasEvent = true
+			} else {
+				sku = payload.eventData.sku
+				slug = payload.eventData.referer.pageSlug
+				if (sku.match(/lively/)) {
+					type = "lively"
+				}
+				hasEvent = true
 			}
-			hasEvent = true
 		}
 
 		let TableName = MaestroEventsTable
