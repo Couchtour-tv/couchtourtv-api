@@ -32,7 +32,7 @@ Resources:
   RDSCredentialSecretStore:
     Type: "AWS::SecretsManager::Secret"
     Properties:
-      Name: !Sub RDS-master
+      Name: !Sub RDS-master-dec
       Description: !Sub Credentials for the RDS Service in the ${AWS::StackName} stack
       GenerateSecretString:
         SecretStringTemplate: '{"username": "pgadmin"}'
