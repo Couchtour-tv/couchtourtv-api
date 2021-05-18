@@ -61,7 +61,7 @@ custom:
     CACHE_INSTANCE_SIZE: cache.r6g.large
 
   SQSConfig:
-    QueueName: couchtour-queue.fifo
+    QueueName: couchtour-dec-queue.fifo
     FifoQueue: true
 
 provider:
