@@ -21,7 +21,7 @@ exports.handler = async event => {
 		let hasEvent = false
 		let type = "unknown"
 
-		if (payload.account) {
+		if (payload && payload.account) {
 			email = payload.account.email
 			maestroId = payload.account.siteId
 			name = payload.account.name
@@ -29,7 +29,7 @@ exports.handler = async event => {
 			hasAccount = true
 		}
 
-		if (payload.eventData) {
+		if (payload && payload.eventData) {
 			if (payload.eventData.entitlement) {
 				sku = payload.eventData.entitlement.sku
 				slug = payload.eventData.entitlement.name
@@ -37,13 +37,15 @@ exports.handler = async event => {
 					type = "lively"
 				}
 				hasEvent = true
-			} else {
+			} else if (payload.eventData.referer) {
 				sku = payload.eventData.sku
 				slug = payload.eventData.referer.pageSlug
 				if (sku.match(/lively/)) {
 					type = "lively"
 				}
 				hasEvent = true
+			} else {
+				console.log("MAESTRO EVENTS [48] - UNKNOWN EVENT ", payload)
 			}
 		}
 
