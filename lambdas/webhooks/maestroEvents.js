@@ -23,7 +23,7 @@ exports.handler = async event => {
 
 		if (payload && payload.account) {
 			email = payload.account.email
-			maestroId = payload.account.siteId
+			maestroId = payload.account._id
 			name = payload.account.name
 			type = "maestro"
 			hasAccount = true
@@ -122,24 +122,24 @@ exports.handler = async event => {
 //   signature: 'c0e5de7d-03c7-47cf-aae4-ea38ea8367a4',
 //   originPath: '/',
 //   webhookUrl: 'https://sq3xr6uno2.execute-api.us-east-1.amazonaws.com/prod/maestro-events',
-//   account: {
-//     _id: '5f8988c69bc82600a5829b48',
-//     email: 'helix42@gmail.com',
-//     marketingOptin: false,
-//     name: 'Marnicle Mill *verified*',
-//     normalizedName: 'marnicle mill *verified*',
-//     roles: [
-//       [Object], [Object],
-//       [Object], [Object],
-//       [Object], [Object],
-//       [Object], [Object],
-//       [Object], [Object]
-//     ],
-//     siteId: '5f627f6ae63761002c65fcd6',
-//     subscriptions: [ [Object] ],
-//     uid: 'email-helix42@gmail.com',
-//     created: 1602848966437,
-//     modified: 1617406842750,
-//     tags: []
-//   }
+  // account: {
+  //   _id: '5f8988c69bc82600a5829b48',
+  //   email: 'helix42@gmail.com',
+  //   marketingOptin: false,
+  //   name: 'Marnicle Mill *verified*',
+  //   normalizedName: 'marnicle mill *verified*',
+  //   roles: [
+  //     [Object], [Object],
+  //     [Object], [Object],
+  //     [Object], [Object],
+  //     [Object], [Object],
+  //     [Object], [Object]
+  //   ],
+  //   siteId: '5f627f6ae63761002c65fcd6',
+  //   subscriptions: [ [Object] ],
+  //   uid: 'email-helix42@gmail.com',
+  //   created: 1602848966437,
+  //   modified: 1617406842750,
+  //   tags: []
+  // }
 // }
