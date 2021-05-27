@@ -20,24 +20,14 @@ exports.handler = async event => {
 			expressionAttributes,
 		})
 
-		let scraped_record = {}
 		console.log("LIVELY SALES [23] ", records)
-		const records_lively = records.Items.filter((record) => record.type === 'lively')
-		const api_ready = records_lively.map((record) => {
-			if (record.type === 'lively') {
-				scraped_record.id = record.ID
-				scraped_record.sku = record.sku
-				scraped_record.email = record.email
-				scraped_record.name = record.name
-				scraped_record.slug = record.slug
-				scraped_record.created_at = record.createdAt
-				scraped_record.maestro_id = record.maestroId
-				return scraped_record
-			}
+		let records_lively = records.Items.filter((r) => r.type === 'lively').map((record) => {
+			return { id: record.ID, sku: record.sku, email: record.email, name: record.name,
+				slug: record.slug, created_at: record.createdAt,maestro_id: record.maestroId }
 		})
-		console.log("LIVELY SALES [29] ", api_ready)
+		console.log("LIVELY SALES [29] ", records_lively)
 
-		return Responses._200({ 'success': true, 'data': api_ready })
+		return Responses._200({ 'success': true, 'data': records_lively })
 
 	} catch (error) {
 
