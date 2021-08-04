@@ -83,10 +83,47 @@ get item given emailAddress
 var params = {
   TableName: 'ct-Users',
   Key: { emailAddress: 'carrot@top.com' }
-}
+};
 docClient.get(params, function(err, data) {
     if (err) ppJson(err); // an error occurred
     else ppJson(data); // successful response
+});
+```
+
+#### -------------------------------------------------------------------
+#### delete item
+
+``` javascript
+var params = {
+  TableName: 'ct-Users',
+  Key: { emailAddress: 'stuheadz@gmail.com' }
+};
+docClient.get(params, function(err, data) {
+    if (err) ppJson(err); // an error occurred
+    else ppJson(data); // successful response
+});
+```
+
+```javascript
+var params = {
+  ExpressionAttributeValues: { ':v1': 'stuheadz@gmail.com' },
+  KeyConditionExpression: 'emailAddress = :v1',
+  TableName: 'ct-Users'
+};
+docClient.delete(params, function(err, data) {
+  if (err) ppJson(err);
+  else ppJson(data); 
+});
+```
+
+```javascript
+var params = {
+  TableName: 'ct-Users',
+  Key: { emailAddress: 'stuheadz@gmail.com' }
+};
+docClient.delete(params, function(err, data) {
+  if (err) ppJson(err);
+  else ppJson(data); 
 });
 ```
 

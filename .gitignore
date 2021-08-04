@@ -61,6 +61,9 @@ env.yml
 .env.development.local
 .env.staging.local
 
+# env -- for custom named files
+*.env
+
 # Jetbrains IDEs
 .idea
 
