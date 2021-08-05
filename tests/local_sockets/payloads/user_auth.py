@@ -1,6 +1,13 @@
 import uuid
 
 ## UUID GENERATOR :: https://www.uuidgenerator.net/version4
+GET_USER_ID = {
+    "action": "get-user-id",
+    "message": {
+        "cogId": "us-east-1:51e7e8c2-2ed4-4fe7-b51a-e80921569907",
+        "email": "stuheadz@gmail.com"
+    }   
+}
 
 # -------------------------------------------------------------------------
 # -- get all videos meta

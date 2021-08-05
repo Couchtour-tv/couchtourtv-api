@@ -109,7 +109,9 @@ provider:
 functions:
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-  ## -- API ENDPOINTS
+  ## ---- API ENDPOINTS ::
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   create:
     handler: lambdas/notes/create.main
     events:
@@ -207,9 +209,24 @@ functions:
       - http:
           path: charge-success
           method: POST
+  fetchUserMetaByEmail:
+    handler: lambdas/endpoints/users/getUserMetaData.handler
+    events:
+      - http:
+          path: user-meta
+          method: POST
+  fetchAllPurchaseables:
+    handler: lambdas/endpoints/purchaseables/getAllPurchaseables.handler
+    events:
+      - http:
+          path: all-purchaseables 
+          method: GET
+  
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-  ## -- WEBSOCKETS
+  ## ---- WEBSOCKETS ::
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:

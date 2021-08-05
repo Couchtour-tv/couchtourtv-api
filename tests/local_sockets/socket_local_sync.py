@@ -19,7 +19,8 @@ ws.connect( LOCAL_WS_SERVER )
 # ws.send( json.dumps( GET_USER_CREDIT_CARDS ) )
 
 # ws.send( json.dumps( ALL_EVENTS ) )
-ws.send( json.dumps( ALL_TICKETS ) )
+# ws.send( json.dumps( ALL_TICKETS ) )
+ws.send( json.dumps( GET_USER_ID ) )
 
 resp = ws.recv()
 print('\n\n\n Resp: ')
