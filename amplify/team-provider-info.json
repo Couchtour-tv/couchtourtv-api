@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-couchtourtvamplify-dev-112550-authRole",
+      "UnauthRoleArn": "arn:aws:iam::282197793660:role/amplify-couchtourtvamplify-dev-112550-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::282197793660:role/amplify-couchtourtvamplify-dev-112550-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-couchtourtvamplify-dev-112550-deployment",
+      "UnauthRoleName": "amplify-couchtourtvamplify-dev-112550-unauthRole",
+      "StackName": "amplify-couchtourtvamplify-dev-112550",
+      "StackId": "arn:aws:cloudformation:us-east-1:282197793660:stack/amplify-couchtourtvamplify-dev-112550/75404ba0-f9ef-11eb-b42f-1210b749d873",
+      "AmplifyAppId": "d1yron3r8ymenx"
+    }
+  }
+}
