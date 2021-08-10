@@ -73,3 +73,11 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000 >> resources/seeds
 aws dynamodb scan --table-name ct-CreditCards --endpoint-url http://localhost:8000 >> resources/seeds/creditCards.json
 aws dynamodb scan --table-name ct-Users --endpoint-url http://localhost:8000 >> resources/seeds/users.json
 ```
+
+AMPLIFY
+
+```bash
+npm  -v  7.18.1
+node -v  v16.4.0
+amplify version 5.1.2
+```
