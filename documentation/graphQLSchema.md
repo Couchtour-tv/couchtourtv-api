@@ -4,7 +4,6 @@ In the command line type "aws configure"
 ```bash
 aws configure
 ```
-   
        Configure  AWS  CLI  options. If this command is run with no arguments,
        you will be prompted for configuration values such as your  AWS  Access
        Key  Id and your AWS Secret Access Key.  You can configure a named pro-
@@ -16,6 +15,17 @@ aws configure
        as [None].  Note that the configure command only works with values from
        the config file.  It does not use any configuration values  from  envi-
        ronment variables or the IAM role.
+
+
+Second, run 'npm i -g @aws-amplify/cli' to install the amplify cli
+```bash
+npm i -g @aws-amplify/cli  
+```
+
+WORKFLOW: 
+  We work on the schema (amplify/backend/api/couchtourtvamplify/schema.graphql) from couchtourtv-api using the 'amplify mock' amplify CLI command.
+  Once schema queries and mutations work the way we want them to, we run 'amplify push' in command line to push schema to cloud so we can pull the resources from the cloud into our frontend react project. 
+
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
