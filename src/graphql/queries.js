@@ -1,6 +1,212 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getBand = /* GraphQL */ `
+  query GetBand($id: ID!) {
+    getBand(id: $id) {
+      id
+      bandName
+      socialMediaLinks {
+        id
+        band
+        website
+        logo
+        url
+      }
+      contacts {
+        id
+        name
+      }
+      createdBy
+      updatedBy
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listBands = /* GraphQL */ `
+  query ListBands(
+    $filter: ModelBandFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBands(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        bandName
+        socialMediaLinks {
+          id
+          band
+          website
+          logo
+          url
+        }
+        contacts {
+          id
+          name
+        }
+        createdBy
+        updatedBy
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getEvent = /* GraphQL */ `
+  query GetEvent($id: ID!) {
+    getEvent(id: $id) {
+      id
+      eventId
+      bandName
+      promoter
+      promoterLogo
+      timeOfEvent
+      isLive
+      landingImageUrl
+      eventFeature {
+        id
+        description
+        type
+      }
+      priceDescription {
+        id
+        description
+        type
+      }
+      eventDetail {
+        id
+        description
+        type
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listEvents = /* GraphQL */ `
+  query ListEvents(
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        eventId
+        bandName
+        promoter
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getMerchandise = /* GraphQL */ `
+  query GetMerchandise($id: ID!) {
+    getMerchandise(id: $id) {
+      id
+      type
+      metaData {
+        id
+        priceId
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          createdAt
+          updatedAt
+        }
+        image
+      }
+      band {
+        id
+        bandName
+        socialMediaLinks {
+          id
+          band
+          website
+          logo
+          url
+        }
+        contacts {
+          id
+          name
+        }
+        createdBy
+        updatedBy
+        createdAt
+        updatedAt
+      }
+      active
+      createdBy
+      updatedBy
+      bandId
+      isEvent
+      eventId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listMerchandises = /* GraphQL */ `
+  query ListMerchandises(
+    $filter: ModelMerchandiseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMerchandises(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        type
+        metaData {
+          id
+          priceId
+          image
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          createdAt
+          updatedAt
+        }
+        active
+        createdBy
+        updatedBy
+        bandId
+        isEvent
+        eventId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
@@ -30,6 +236,43 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      creditCards {
+        items {
+          id
+          userID
+          status
+          active
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      transactionAttempts {
+        items {
+          id
+          userID
+          merchID
+          attemptSuccess
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      cogId
+      emailVerified
+      loggedIn
+      email
+      stripeCustomerId
+      stripeCustomer
       createdAt
       updatedAt
     }
@@ -53,6 +296,392 @@ export const listUsers = /* GraphQL */ `
         invitation {
           nextToken
         }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getTransactionAttempt = /* GraphQL */ `
+  query GetTransactionAttempt($id: ID!) {
+    getTransactionAttempt(id: $id) {
+      id
+      userID
+      merchID
+      merchandise {
+        id
+        type
+        metaData {
+          id
+          priceId
+          image
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          createdAt
+          updatedAt
+        }
+        active
+        createdBy
+        updatedBy
+        bandId
+        isEvent
+        eventId
+        createdAt
+        updatedAt
+      }
+      attemptSuccess
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listTransactionAttempts = /* GraphQL */ `
+  query ListTransactionAttempts(
+    $filter: ModelTransactionAttemptFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTransactionAttempts(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        userID
+        merchID
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        attemptSuccess
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getPurchase = /* GraphQL */ `
+  query GetPurchase($id: ID!) {
+    getPurchase(id: $id) {
+      id
+      userID
+      user {
+        id
+        username
+        avatar
+        status
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        createdAt
+        updatedAt
+      }
+      merchandise {
+        id
+        type
+        metaData {
+          id
+          priceId
+          image
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          createdAt
+          updatedAt
+        }
+        active
+        createdBy
+        updatedBy
+        bandId
+        isEvent
+        eventId
+        createdAt
+        updatedAt
+      }
+      creditCard {
+        id
+        userID
+        user {
+          id
+          username
+          avatar
+          status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          createdAt
+          updatedAt
+        }
+        purchases {
+          id
+          userID
+          createdAt
+          updatedAt
+        }
+        status
+        active
+        createdAt
+        updatedAt
+      }
+      transactionAttempt {
+        id
+        userID
+        merchID
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        attemptSuccess
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPurchases = /* GraphQL */ `
+  query ListPurchases(
+    $filter: ModelPurchaseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPurchases(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userID
+        user {
+          id
+          username
+          avatar
+          status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          createdAt
+          updatedAt
+        }
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        creditCard {
+          id
+          userID
+          status
+          active
+          createdAt
+          updatedAt
+        }
+        transactionAttempt {
+          id
+          userID
+          merchID
+          attemptSuccess
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCreditCard = /* GraphQL */ `
+  query GetCreditCard($id: ID!) {
+    getCreditCard(id: $id) {
+      id
+      userID
+      user {
+        id
+        username
+        avatar
+        status
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        createdAt
+        updatedAt
+      }
+      purchases {
+        id
+        userID
+        user {
+          id
+          username
+          avatar
+          status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          createdAt
+          updatedAt
+        }
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        creditCard {
+          id
+          userID
+          status
+          active
+          createdAt
+          updatedAt
+        }
+        transactionAttempt {
+          id
+          userID
+          merchID
+          attemptSuccess
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      status
+      active
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCreditCards = /* GraphQL */ `
+  query ListCreditCards(
+    $filter: ModelCreditCardFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCreditCards(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userID
+        user {
+          id
+          username
+          avatar
+          status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          createdAt
+          updatedAt
+        }
+        purchases {
+          id
+          userID
+          createdAt
+          updatedAt
+        }
+        status
+        active
         createdAt
         updatedAt
       }
@@ -77,6 +706,21 @@ export const getChatRoomUser = /* GraphQL */ `
         invitation {
           nextToken
         }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
         createdAt
         updatedAt
       }
@@ -121,6 +765,12 @@ export const listChatRoomUsers = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }
@@ -174,6 +824,12 @@ export const getChatRoom = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }
@@ -236,6 +892,21 @@ export const getInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
         createdAt
         updatedAt
       }
@@ -250,6 +921,21 @@ export const getInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
         createdAt
         updatedAt
       }
@@ -296,6 +982,12 @@ export const listInvitations = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }
@@ -304,6 +996,12 @@ export const listInvitations = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }
@@ -343,6 +1041,21 @@ export const getMessage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
         createdAt
         updatedAt
       }
@@ -388,6 +1101,12 @@ export const listMessages = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }
@@ -397,6 +1116,53 @@ export const listMessages = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCreditCardByUserID = /* GraphQL */ `
+  query GetCreditCardByUserID(
+    $userID: ID
+    $sortDirection: ModelSortDirection
+    $filter: ModelCreditCardFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getCreditCardByUserID(
+      userID: $userID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        userID
+        user {
+          id
+          username
+          avatar
+          status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          createdAt
+          updatedAt
+        }
+        purchases {
+          id
+          userID
+          createdAt
+          updatedAt
+        }
+        status
+        active
+        createdAt
         updatedAt
       }
       nextToken
@@ -431,6 +1197,12 @@ export const messagesByChatRoom = /* GraphQL */ `
           username
           avatar
           status
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
           createdAt
           updatedAt
         }

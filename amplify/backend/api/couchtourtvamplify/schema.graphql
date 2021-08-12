@@ -1,12 +1,230 @@
+enum InvitationStatus {
+  accepted
+  invited
+  rejected
+  expired
+}
+
+enum CardStatus {
+  expired
+  inefficientFunds
+  delinquint
+  stolen
+  unverified
+  international
+}
+
+enum MerchandiseType {
+  vod
+  stream
+  bandMerch
+  tips
+  bandChat
+  ticket
+}
+
+type VODMetaData {
+  id: ID!
+  movieId: String
+  artistId: String
+  date: String
+  publishedAt: String
+  duration: Int
+  likeCount: Int
+  dislikeCount: Int
+  location: String
+  bandName: String
+  title: String
+  description: String
+  photo: String
+  set: String
+  link: String
+}
+
+type StreamMetaData {
+  id: ID!
+  streamId: String
+  eventId: String
+  bandName: String
+  promoter: String
+  promoterLogo: String
+  timeOfEvent: String
+  isLive: Boolean
+  landingImageUrl: String
+  eventFeature: EventFeature
+  priceDescription: PriceDescription
+  eventDetail: EventDetail
+}
+
+type EventDetail {
+  id: ID!
+  description: String
+  type: String
+}
+
+type PriceDescription {
+  id: ID!
+  description: String
+  type: String
+}
+
+type EventFeature {
+  id: ID!
+  description: String
+  type: String
+}
+
+
+type BandMerchMetaData {
+  id: ID!
+  priceId: String
+  band: Band
+  image: String
+}
+
+type TipsMetaData {
+  id: ID!
+  tipId: String
+  name: String
+  type: String
+  description: String
+  unitLabel: String
+  url: String
+}
+
+type BandChatMetaData {
+  id: ID!
+  priceId: String
+  band: String
+}
+
+type TicketMetaData {
+  id: ID!
+  ticketId: String
+  eventId: String
+  priceId: String
+  title: String
+  price: Int
+  image: String
+  successUrl: String
+  cancelUrl: String
+  boxedItems: [TicketBoxedItem]
+  attributes: [TicketAttribute]
+  soldOut: Boolean
+}
+
+type TicketBoxedItem {
+  id: ID!
+  description: String!
+}
+
+type TicketAttribute {
+  id: ID!
+  description: String!
+}
+type Band
+  @model {
+    id: ID!
+    bandName: String
+    socialMediaLinks: [SocialMediaLink]
+    contacts: [Contact]
+    createdBy: String
+    updatedBy: String
+  }
+
+type SocialMediaLink {
+  id: ID!
+  band: String
+  website: String
+  logo: String
+  url: String
+}
+
+type Contact {
+  id: ID!
+  name: String
+
+}
+
+type Event
+  @model {
+  id: ID!
+  eventId: String
+  bandName: String
+  promoter: String
+  promoterLogo: String
+  timeOfEvent: String
+  isLive: Boolean
+  landingImageUrl: String
+  eventFeature: EventFeature
+  priceDescription: PriceDescription
+  eventDetail: EventDetail
+  }
+
+type Merchandise
+  @model {
+    id: ID!
+    type: MerchandiseType
+    metaData: BandMerchMetaData
+    band: Band
+    active: Boolean
+    createdBy: String
+    updatedBy: String
+    bandId: String
+    isEvent: Boolean
+    eventId: String
+  }
+
 type User
   @model {
     id: ID!
     username: String!
     avatar: String
     status: String
-    chatRoomUser: [ChatRoomUser] @connection(keyName:"byUser", fields: ["id"])
+    chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
     invitation: [Invitation] @connection(fields: ["id"])
-}
+    creditCards: [CreditCard] @connection(keyName: "userIDCreditCardIndex", fields: ["id"])
+    transactionAttempts: [TransactionAttempt] @connection(keyName: "userIDTransactionIndex", fields: ["id"])
+    purchases: [Purchase] @connection(keyName: "userIDPurchasesIndex", fields: ["id"])
+    cogId: String
+    emailVerified: Boolean
+    loggedIn: Boolean
+    email: String
+    stripeCustomerId: String
+    stripeCustomer: String
+}  
+
+type TransactionAttempt
+  @model
+  @key(name: "userIDTransactionIndex", fields: ["userID"]) {
+    id: ID!
+    userID: ID!
+    merchID: String
+    merchandise: Merchandise
+    attemptSuccess: Boolean
+  }
+
+type Purchase
+  @model 
+  @key(name: "userIDPurchasesIndex", fields: ["userID"]) {
+    id: ID!
+    userID: ID!
+    user: User
+    merchandise: [Merchandise]
+    creditCard: CreditCard
+    transactionAttempt: [TransactionAttempt]
+  }
+
+type CreditCard
+  @model
+  @key(name: "userIDCreditCardIndex", fields: ["userID"], queryField: "getCreditCardByUserID") {
+    id: ID!
+    userID: ID!
+    user: User @connection(fields: ["userID"])
+    purchases: [Purchase]
+    status: CardStatus
+    active: Boolean
+  }
 
 type ChatRoomUser 
   @model
@@ -40,13 +258,6 @@ type Invitation
     chatRoomID: ID!
     chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
     status: InvitationStatus
-}
-
-enum InvitationStatus {
-  accepted
-  invited
-  rejected
-  expired
 }
 
 type Message 

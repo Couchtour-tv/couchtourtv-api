@@ -79,5 +79,5 @@ AMPLIFY
 ```bash
 npm  -v  7.18.1
 node -v  v16.4.0
-amplify version 5.1.2
+amplify version 5.3.0
 ```
