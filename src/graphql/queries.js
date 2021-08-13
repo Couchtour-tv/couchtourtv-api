@@ -211,6 +211,7 @@ export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
       id
+      completedSignUp
       username
       avatar
       status
@@ -287,6 +288,7 @@ export const listUsers = /* GraphQL */ `
     listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        completedSignUp
         username
         avatar
         status
@@ -397,6 +399,7 @@ export const getPurchase = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -454,6 +457,7 @@ export const getPurchase = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -514,6 +518,7 @@ export const listPurchases = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -568,6 +573,7 @@ export const getCreditCard = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -600,6 +606,7 @@ export const getCreditCard = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -662,6 +669,7 @@ export const listCreditCards = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -697,6 +705,7 @@ export const getChatRoomUser = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -762,6 +771,7 @@ export const listChatRoomUsers = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -821,6 +831,7 @@ export const getChatRoom = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -883,6 +894,7 @@ export const getInvitation = /* GraphQL */ `
       id
       invitedUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -912,6 +924,7 @@ export const getInvitation = /* GraphQL */ `
       }
       createdByUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -979,6 +992,7 @@ export const listInvitations = /* GraphQL */ `
         id
         invitedUser {
           id
+          completedSignUp
           username
           avatar
           status
@@ -993,6 +1007,7 @@ export const listInvitations = /* GraphQL */ `
         }
         createdByUser {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1032,6 +1047,7 @@ export const getMessage = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1098,6 +1114,7 @@ export const listMessages = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1116,6 +1133,55 @@ export const listMessages = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getUserByUsername = /* GraphQL */ `
+  query GetUserByUsername(
+    $username: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getUserByUsername(
+      username: $username
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        completedSignUp
+        username
+        avatar
+        status
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactionAttempts {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        createdAt
         updatedAt
       }
       nextToken
@@ -1142,6 +1208,7 @@ export const getCreditCardByUserID = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1194,6 +1261,7 @@ export const messagesByChatRoom = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status

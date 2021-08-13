@@ -143,7 +143,6 @@ type SocialMediaLink {
 type Contact {
   id: ID!
   name: String
-
 }
 
 type Event
@@ -176,8 +175,10 @@ type Merchandise
   }
 
 type User
-  @model {
+  @model 
+  @key(name: "getUserByUsername", fields: ["username"], queryField: "getUserByUsername") {
     id: ID!
+    completedSignUp: Boolean
     username: String!
     avatar: String
     status: String

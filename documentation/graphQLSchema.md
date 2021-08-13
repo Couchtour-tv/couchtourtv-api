@@ -24,7 +24,8 @@ npm i -g @aws-amplify/cli
 
 WORKFLOW: 
   We work on the schema (amplify/backend/api/couchtourtvamplify/schema.graphql) from couchtourtv-api using the 'amplify mock' amplify CLI command.
-  Once schema queries and mutations work the way we want them to, we run 'amplify push' in command line to push schema to cloud so we can pull the resources from the cloud into our frontend react project. 
+  Once schema queries and mutations work the way we want them to, we run 'amplify push' in command line to push schema to cloud so we can pull the 
+  resources from the cloud into our frontend react project. 
 
 
 
@@ -79,7 +80,8 @@ An extended ISO 8601 date and time string in the format YYYY-MM-DDThh:mm:ss.sssZ
 
 
 
-Model directive automatically adds createdAt and updatedAt timestamps to each entities. The timestamp field names can be changed by passing timestamps attribute to the directive
+Model directive automatically adds createdAt and updatedAt timestamps to each entities. 
+The timestamp field names can be changed by passing timestamps attribute to the directive
 
 ```
 type Post @model(timestamps:{createdAt: "createdOn", updatedAt: "updatedOn"}) {
@@ -89,13 +91,34 @@ type Post @model(timestamps:{createdAt: "createdOn", updatedAt: "updatedOn"}) {
 }
 ```
 
-
+    example: 
+        Please view this next immediate section on wider screen. "Index Name", "Partition Key", "Sort Key", 
+        and "GraphQL Query Name" are labels for the syntax directly below them. 
+```
+type PostEditor
+  @model        Index Name            Partition Key   Sort Key              GraphQL Query Name
+  @key(name: "categoryIndex", fields: ["category",  "priority"], queryField: "todosByCategory"){
+  id: ID!   
+  name: String!
+  description: String
+  category: String
+  priority: Int
+  }
+```
+__________________________________________________________________________________________________________
 
 @connection
-The @connection directive enables you to specify relationships between @model types. Currently, this supports one-to-one, one-to-many, and many-to-one relationships. You may implement many-to-many relationships using two one-to-many connections and a joining @model type. See the usage section for details.
+The @connection directive enables you to specify relationships between @model types. 
+Currently, this supports one-to-one, one-to-many, and many-to-one relationships. 
+You may implement many-to-many relationships using two one-to-many connections and a joining @model type. 
+See the usage section for details.
+
 https://docs.amplify.aws/cli/graphql-transformer/connection
 
-    Note: After you have pushed a @connection directive you should not try to change it. If you try to change it, the DynamoDB UpdateTable operation will fail. Should you need to change a @connection, you should add a new @connection that implements the new access pattern, update your application to use the new @connection, and then delete the old @connection when it’s no longer needed.
+    Note: After you have pushed a @connection directive you should not try to change it. If you try to change it, 
+    the DynamoDB UpdateTable operation will fail. Should you need to change a @connection, you should add a new @connection 
+    that implements the new access pattern, update your application to use the new @connection, and then delete the old @connection 
+    when it’s no longer needed.
 
 
 
@@ -105,7 +128,8 @@ https://www.youtube.com/watch?v=VG2XWoD-rS0&ab_channel=NaderDabit
 
 
 Data access patterns
-In the DynamoDB documentation for modeling relational data in a NoSQL database, there is an in depth example of 17 access patterns from the First Steps for Modeling Relational Data in DynamoDB page.
+In the DynamoDB documentation for modeling relational data in a NoSQL database, there is an in depth example of 17 access patterns from the 
+First Steps for Modeling Relational Data in DynamoDB page.
 https://docs.amplify.aws/cli/graphql-transformer/dataaccess
 
 ___________________________________________________________________________________________

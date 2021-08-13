@@ -311,6 +311,7 @@ export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
+      completedSignUp
       username
       avatar
       status
@@ -382,6 +383,7 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
       id
+      completedSignUp
       username
       avatar
       status
@@ -453,6 +455,7 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
       id
+      completedSignUp
       username
       avatar
       status
@@ -638,6 +641,7 @@ export const onCreatePurchase = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -695,6 +699,7 @@ export const onCreatePurchase = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -750,6 +755,7 @@ export const onUpdatePurchase = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -807,6 +813,7 @@ export const onUpdatePurchase = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -862,6 +869,7 @@ export const onDeletePurchase = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -919,6 +927,7 @@ export const onDeletePurchase = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -974,6 +983,7 @@ export const onCreateCreditCard = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1006,6 +1016,7 @@ export const onCreateCreditCard = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1063,6 +1074,7 @@ export const onUpdateCreditCard = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1095,6 +1107,7 @@ export const onUpdateCreditCard = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1152,6 +1165,7 @@ export const onDeleteCreditCard = /* GraphQL */ `
       userID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1184,6 +1198,7 @@ export const onDeleteCreditCard = /* GraphQL */ `
         userID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1242,6 +1257,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1302,6 +1318,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1362,6 +1379,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1448,6 +1466,7 @@ export const onCreateChatRoom = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1507,6 +1526,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1566,6 +1586,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
         chatRoomID
         user {
           id
+          completedSignUp
           username
           avatar
           status
@@ -1597,6 +1618,7 @@ export const onCreateInvitation = /* GraphQL */ `
       id
       invitedUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1626,6 +1648,7 @@ export const onCreateInvitation = /* GraphQL */ `
       }
       createdByUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1688,6 +1711,7 @@ export const onUpdateInvitation = /* GraphQL */ `
       id
       invitedUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1717,6 +1741,7 @@ export const onUpdateInvitation = /* GraphQL */ `
       }
       createdByUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1779,6 +1804,7 @@ export const onDeleteInvitation = /* GraphQL */ `
       id
       invitedUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1808,6 +1834,7 @@ export const onDeleteInvitation = /* GraphQL */ `
       }
       createdByUser {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1874,6 +1901,7 @@ export const onCreateMessage = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1935,6 +1963,7 @@ export const onUpdateMessage = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
@@ -1996,6 +2025,7 @@ export const onDeleteMessage = /* GraphQL */ `
       chatRoomID
       user {
         id
+        completedSignUp
         username
         avatar
         status
