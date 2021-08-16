@@ -314,7 +314,7 @@ export const onCreateUser = /* GraphQL */ `
       completedSignUp
       username
       avatar
-      status
+      awayMessageStatus
       chatRoomUser {
         items {
           id
@@ -343,12 +343,21 @@ export const onCreateUser = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
         nextToken
       }
-      transactionAttempts {
+      transactions {
         items {
           id
           userID
@@ -374,6 +383,10 @@ export const onCreateUser = /* GraphQL */ `
       email
       stripeCustomerId
       stripeCustomer
+      subscriptionId
+      accessToken
+      idToken
+      refreshToken
       createdAt
       updatedAt
     }
@@ -386,7 +399,7 @@ export const onUpdateUser = /* GraphQL */ `
       completedSignUp
       username
       avatar
-      status
+      awayMessageStatus
       chatRoomUser {
         items {
           id
@@ -415,12 +428,21 @@ export const onUpdateUser = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
         nextToken
       }
-      transactionAttempts {
+      transactions {
         items {
           id
           userID
@@ -446,6 +468,10 @@ export const onUpdateUser = /* GraphQL */ `
       email
       stripeCustomerId
       stripeCustomer
+      subscriptionId
+      accessToken
+      idToken
+      refreshToken
       createdAt
       updatedAt
     }
@@ -458,7 +484,7 @@ export const onDeleteUser = /* GraphQL */ `
       completedSignUp
       username
       avatar
-      status
+      awayMessageStatus
       chatRoomUser {
         items {
           id
@@ -487,12 +513,21 @@ export const onDeleteUser = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
         nextToken
       }
-      transactionAttempts {
+      transactions {
         items {
           id
           userID
@@ -518,14 +553,18 @@ export const onDeleteUser = /* GraphQL */ `
       email
       stripeCustomerId
       stripeCustomer
+      subscriptionId
+      accessToken
+      idToken
+      refreshToken
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateTransactionAttempt = /* GraphQL */ `
-  subscription OnCreateTransactionAttempt {
-    onCreateTransactionAttempt {
+export const onCreateTransaction = /* GraphQL */ `
+  subscription OnCreateTransaction {
+    onCreateTransaction {
       id
       userID
       merchID
@@ -560,9 +599,9 @@ export const onCreateTransactionAttempt = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTransactionAttempt = /* GraphQL */ `
-  subscription OnUpdateTransactionAttempt {
-    onUpdateTransactionAttempt {
+export const onUpdateTransaction = /* GraphQL */ `
+  subscription OnUpdateTransaction {
+    onUpdateTransaction {
       id
       userID
       merchID
@@ -597,9 +636,9 @@ export const onUpdateTransactionAttempt = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTransactionAttempt = /* GraphQL */ `
-  subscription OnDeleteTransactionAttempt {
-    onDeleteTransactionAttempt {
+export const onDeleteTransaction = /* GraphQL */ `
+  subscription OnDeleteTransaction {
+    onDeleteTransaction {
       id
       userID
       merchID
@@ -644,7 +683,7 @@ export const onCreatePurchase = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -654,7 +693,7 @@ export const onCreatePurchase = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -666,6 +705,10 @@ export const onCreatePurchase = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -702,13 +745,17 @@ export const onCreatePurchase = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -720,10 +767,19 @@ export const onCreatePurchase = /* GraphQL */ `
         }
         status
         active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
         createdAt
         updatedAt
       }
-      transactionAttempt {
+      transactions {
         id
         userID
         merchID
@@ -758,7 +814,7 @@ export const onUpdatePurchase = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -768,7 +824,7 @@ export const onUpdatePurchase = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -780,6 +836,10 @@ export const onUpdatePurchase = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -816,13 +876,17 @@ export const onUpdatePurchase = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -834,10 +898,19 @@ export const onUpdatePurchase = /* GraphQL */ `
         }
         status
         active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
         createdAt
         updatedAt
       }
-      transactionAttempt {
+      transactions {
         id
         userID
         merchID
@@ -872,7 +945,7 @@ export const onDeletePurchase = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -882,7 +955,7 @@ export const onDeletePurchase = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -894,6 +967,10 @@ export const onDeletePurchase = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -930,13 +1007,17 @@ export const onDeletePurchase = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -948,10 +1029,19 @@ export const onDeletePurchase = /* GraphQL */ `
         }
         status
         active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
         createdAt
         updatedAt
       }
-      transactionAttempt {
+      transactions {
         id
         userID
         merchID
@@ -986,7 +1076,7 @@ export const onCreateCreditCard = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -996,7 +1086,7 @@ export const onCreateCreditCard = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1008,6 +1098,10 @@ export const onCreateCreditCard = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1019,13 +1113,17 @@ export const onCreateCreditCard = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1046,10 +1144,19 @@ export const onCreateCreditCard = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
-        transactionAttempt {
+        transactions {
           id
           userID
           merchID
@@ -1062,6 +1169,15 @@ export const onCreateCreditCard = /* GraphQL */ `
       }
       status
       active
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
       createdAt
       updatedAt
     }
@@ -1077,7 +1193,7 @@ export const onUpdateCreditCard = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1087,7 +1203,7 @@ export const onUpdateCreditCard = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1099,6 +1215,10 @@ export const onUpdateCreditCard = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1110,13 +1230,17 @@ export const onUpdateCreditCard = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1137,10 +1261,19 @@ export const onUpdateCreditCard = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
-        transactionAttempt {
+        transactions {
           id
           userID
           merchID
@@ -1153,6 +1286,15 @@ export const onUpdateCreditCard = /* GraphQL */ `
       }
       status
       active
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
       createdAt
       updatedAt
     }
@@ -1168,7 +1310,7 @@ export const onDeleteCreditCard = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1178,7 +1320,7 @@ export const onDeleteCreditCard = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1190,6 +1332,10 @@ export const onDeleteCreditCard = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1201,13 +1347,17 @@ export const onDeleteCreditCard = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1228,10 +1378,19 @@ export const onDeleteCreditCard = /* GraphQL */ `
           userID
           status
           active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
           createdAt
           updatedAt
         }
-        transactionAttempt {
+        transactions {
           id
           userID
           merchID
@@ -1244,6 +1403,15 @@ export const onDeleteCreditCard = /* GraphQL */ `
       }
       status
       active
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
       createdAt
       updatedAt
     }
@@ -1260,7 +1428,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1270,7 +1438,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1282,6 +1450,10 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1321,7 +1493,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1331,7 +1503,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1343,6 +1515,10 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1382,7 +1558,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1392,7 +1568,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1404,6 +1580,10 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1469,13 +1649,17 @@ export const onCreateChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1529,13 +1713,17 @@ export const onUpdateChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1589,13 +1777,17 @@ export const onDeleteChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          status
+          awayMessageStatus
           cogId
           emailVerified
           loggedIn
           email
           stripeCustomerId
           stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
           createdAt
           updatedAt
         }
@@ -1621,7 +1813,7 @@ export const onCreateInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1631,7 +1823,7 @@ export const onCreateInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1643,6 +1835,10 @@ export const onCreateInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1651,7 +1847,7 @@ export const onCreateInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1661,7 +1857,7 @@ export const onCreateInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1673,6 +1869,10 @@ export const onCreateInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1714,7 +1914,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1724,7 +1924,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1736,6 +1936,10 @@ export const onUpdateInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1744,7 +1948,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1754,7 +1958,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1766,6 +1970,10 @@ export const onUpdateInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1807,7 +2015,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1817,7 +2025,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1829,6 +2037,10 @@ export const onDeleteInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1837,7 +2049,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1847,7 +2059,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1859,6 +2071,10 @@ export const onDeleteInvitation = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1904,7 +2120,7 @@ export const onCreateMessage = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1914,7 +2130,7 @@ export const onCreateMessage = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1926,6 +2142,10 @@ export const onCreateMessage = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -1966,7 +2186,7 @@ export const onUpdateMessage = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -1976,7 +2196,7 @@ export const onUpdateMessage = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -1988,6 +2208,10 @@ export const onUpdateMessage = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }
@@ -2028,7 +2252,7 @@ export const onDeleteMessage = /* GraphQL */ `
         completedSignUp
         username
         avatar
-        status
+        awayMessageStatus
         chatRoomUser {
           nextToken
         }
@@ -2038,7 +2262,7 @@ export const onDeleteMessage = /* GraphQL */ `
         creditCards {
           nextToken
         }
-        transactionAttempts {
+        transactions {
           nextToken
         }
         purchases {
@@ -2050,6 +2274,10 @@ export const onDeleteMessage = /* GraphQL */ `
         email
         stripeCustomerId
         stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
         createdAt
         updatedAt
       }

@@ -6,6 +6,7 @@ enum InvitationStatus {
 }
 
 enum CardStatus {
+  active
   expired
   inefficientFunds
   delinquint
@@ -21,6 +22,13 @@ enum MerchandiseType {
   tips
   bandChat
   ticket
+}
+
+enum TransactionStatus {
+  initiated
+  complete
+  errored
+  canceled
 }
 
 type VODMetaData {
@@ -74,7 +82,6 @@ type EventFeature {
   type: String
 }
 
-
 type BandMerchMetaData {
   id: ID!
   priceId: String
@@ -122,15 +129,14 @@ type TicketAttribute {
   id: ID!
   description: String!
 }
-type Band
-  @model {
-    id: ID!
-    bandName: String
-    socialMediaLinks: [SocialMediaLink]
-    contacts: [Contact]
-    createdBy: String
-    updatedBy: String
-  }
+type Band @model {
+  id: ID!
+  bandName: String
+  socialMediaLinks: [SocialMediaLink]
+  contacts: [Contact]
+  createdBy: String
+  updatedBy: String
+}
 
 type SocialMediaLink {
   id: ID!
@@ -145,8 +151,7 @@ type Contact {
   name: String
 }
 
-type Event
-  @model {
+type Event @model {
   id: ID!
   eventId: String
   bandName: String
@@ -158,117 +163,153 @@ type Event
   eventFeature: EventFeature
   priceDescription: PriceDescription
   eventDetail: EventDetail
-  }
+}
 
-type Merchandise
-  @model {
-    id: ID!
-    type: MerchandiseType
-    metaData: BandMerchMetaData
-    band: Band
-    active: Boolean
-    createdBy: String
-    updatedBy: String
-    bandId: String
-    isEvent: Boolean
-    eventId: String
-  }
+type Merchandise @model {
+  id: ID!
+  type: MerchandiseType
+  metaData: BandMerchMetaData
+  band: Band
+  active: Boolean
+  createdBy: String
+  updatedBy: String
+  bandId: String
+  isEvent: Boolean
+  eventId: String
+}
 
 type User
-  @model 
-  @key(name: "getUserByUsername", fields: ["username"], queryField: "getUserByUsername") {
-    id: ID!
-    completedSignUp: Boolean
-    username: String!
-    avatar: String
-    status: String
-    chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
-    invitation: [Invitation] @connection(fields: ["id"])
-    creditCards: [CreditCard] @connection(keyName: "userIDCreditCardIndex", fields: ["id"])
-    transactionAttempts: [TransactionAttempt] @connection(keyName: "userIDTransactionIndex", fields: ["id"])
-    purchases: [Purchase] @connection(keyName: "userIDPurchasesIndex", fields: ["id"])
-    cogId: String
-    emailVerified: Boolean
-    loggedIn: Boolean
-    email: String
-    stripeCustomerId: String
-    stripeCustomer: String
-}  
+  @model
+  @key(
+    name: "getUserByUsername"
+    fields: ["username"]
+    queryField: "getUserByUsername"
+  )
+  @key(
+    name: "getSubscriptionIdByUserId"
+    fields: ["id"]
+    queryField: "getSubscriptionIdByUserId"
+  ) {
+  id: ID!
+  completedSignUp: Boolean
+  username: String!
+  avatar: String
+  awayMessageStatus: String
+  chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
+  invitation: [Invitation] @connection(fields: ["id"])
+  creditCards: [CreditCard]
+    @connection(keyName: "userIDCreditCardIndex", fields: ["id"])
+  transactions: [Transaction]
+    @connection(keyName: "userIDTransactionIndex", fields: ["id"])
+  purchases: [Purchase]
+    @connection(keyName: "userIDPurchasesIndex", fields: ["id"])
+  cogId: String
+  emailVerified: Boolean
+  loggedIn: Boolean
+  email: String
+  stripeCustomerId: String
+  stripeCustomer: String
+  subscriptionId: String
+  accessToken: String
+  idToken: String
+  refreshToken: String
+}
 
-type TransactionAttempt
+type Transaction
   @model
   @key(name: "userIDTransactionIndex", fields: ["userID"]) {
-    id: ID!
-    userID: ID!
-    merchID: String
-    merchandise: Merchandise
-    attemptSuccess: Boolean
-  }
+  id: ID!
+  userID: ID!
+  merchID: String
+  merchandise: Merchandise
+  attemptSuccess: Boolean
+}
 
-type Purchase
-  @model 
-  @key(name: "userIDPurchasesIndex", fields: ["userID"]) {
-    id: ID!
-    userID: ID!
-    user: User
-    merchandise: [Merchandise]
-    creditCard: CreditCard
-    transactionAttempt: [TransactionAttempt]
-  }
+type Purchase @model @key(name: "userIDPurchasesIndex", fields: ["userID"]) {
+  id: ID!
+  userID: ID!
+  user: User
+  merchandise: [Merchandise]
+  creditCard: CreditCard
+  transactions: [Transaction]
+}
 
 type CreditCard
   @model
-  @key(name: "userIDCreditCardIndex", fields: ["userID"], queryField: "getCreditCardByUserID") {
-    id: ID!
-    userID: ID!
-    user: User @connection(fields: ["userID"])
-    purchases: [Purchase]
-    status: CardStatus
-    active: Boolean
-  }
+  @key(
+    name: "userIDCreditCardIndex"
+    fields: ["userID"]
+    queryField: "getCreditCardByUserID"
+  ) {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  purchases: [Purchase]
+  status: CardStatus
+  active: Boolean
+  brand: String
+  email: String
+  expMonth: String
+  expYear: String
+  lastFour: String
+  paymentMethodObj: String
+  created: Int
+  postalCode: String
+  name: String
+}
 
-type ChatRoomUser 
+type ChatRoomUser
   @model
   @key(name: "byUser", fields: ["userID", "chatRoomID"])
   @key(name: "byChatRoom", fields: ["chatRoomID", "userID"]) {
-    id: ID!
-    userID: ID!
-    chatRoomID: ID!
-    user: User @connection(fields: ["userID"])
-    chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
-  }
-
-type ChatRoom
-  @model {
-    id: ID!
-    chatRoomUsers: [ChatRoomUser] @connection(keyName: "byChatRoom", fields: ["id"])
-    messages: [Message] @connection(keyName: "byChatRoom", fields: ["id"])
-    lastMessageID: ID
-    lastMessage: Message @connection(fields: ["lastMessageID"])
-  }
-
-type Invitation
-  @model 
-  @key(name: "invitationByInvitedUser", fields: ["invitedUserID", "createdByUserID"])
-  @key(name: "invitationByCreatedByUser", fields: ["createdByUserID", "invitedUserID"]) {
-    id: ID!
-    invitedUser: User @connection(fields: ["invitedUserID"])
-    createdByUser: User @connection(fields: ["createdByUserID"])
-    invitedUserID: ID!
-    createdByUserID: ID!
-    chatRoomID: ID!
-    chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
-    status: InvitationStatus
+  id: ID!
+  userID: ID!
+  chatRoomID: ID!
+  user: User @connection(fields: ["userID"])
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
 }
 
-type Message 
+type ChatRoom @model {
+  id: ID!
+  chatRoomUsers: [ChatRoomUser]
+    @connection(keyName: "byChatRoom", fields: ["id"])
+  messages: [Message] @connection(keyName: "byChatRoom", fields: ["id"])
+  lastMessageID: ID
+  lastMessage: Message @connection(fields: ["lastMessageID"])
+}
+
+type Invitation
   @model
-  @key(name: "byChatRoom", fields: ["chatRoomID", "createdAt"], queryField: "messagesByChatRoom") {
-    id: ID!
-    createdAt: String!
-    content: String!
-    userID: ID!
-    chatRoomID: ID!
-    user: User @connection(fields: ["userID"])
-    chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
-  }
+  @key(
+    name: "invitationByInvitedUser"
+    fields: ["invitedUserID", "createdByUserID"]
+  )
+  @key(
+    name: "invitationByCreatedByUser"
+    fields: ["createdByUserID", "invitedUserID"]
+  ) {
+  id: ID!
+  invitedUser: User @connection(fields: ["invitedUserID"])
+  createdByUser: User @connection(fields: ["createdByUserID"])
+  invitedUserID: ID!
+  createdByUserID: ID!
+  chatRoomID: ID!
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+  status: InvitationStatus
+}
+
+type Message
+  @model
+  @key(
+    name: "byChatRoom"
+    fields: ["chatRoomID", "createdAt"]
+    queryField: "messagesByChatRoom"
+  ) {
+  id: ID!
+  createdAt: String!
+  content: String!
+  userID: ID!
+  chatRoomID: ID!
+  user: User @connection(fields: ["userID"])
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+}

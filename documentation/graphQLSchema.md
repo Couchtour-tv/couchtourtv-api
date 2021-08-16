@@ -79,6 +79,36 @@ An extended ISO 8601 date and time string in the format YYYY-MM-DDThh:mm:ss.sssZ
 ```
 
 
+Schema
+=======
+GraphQL Schema => schema
+Built-in scalar types
+=====================
+GraphQL Int     => Int
+GraphQL Float   => Float
+GraphQL String  => String
+GraphQL Boolean => Boolean
+GraphQL ID      => ID
+Type Definitions
+================
+Scalar Type        => scalar
+Object Type        => type
+Interface Type     => interface
+Union Type         => union
+Enum Type          => enum
+Input Object Type  => input
+Type Markers
+============
+Non-null Type                    => <type>!     e.g String!
+List Type                        => [<type>]    e.g [String]
+List of Non-null Types           => [<type>!]   e.g [String!]
+Non-null List Type               => [<type>]!   e.g [String]!
+Non-null List of Non-null Types  => [<type>!]!  e.g [String!]!
+
+
+
+
+
 
 Model directive automatically adds createdAt and updatedAt timestamps to each entities. 
 The timestamp field names can be changed by passing timestamps attribute to the directive
@@ -91,8 +121,9 @@ type Post @model(timestamps:{createdAt: "createdOn", updatedAt: "updatedOn"}) {
 }
 ```
 
+__________________________________________________________________________________________________________
     example: 
-        Please view this next immediate section on wider screen. "Index Name", "Partition Key", "Sort Key", 
+        Please view this next immediate section on a wide screen. "Index Name", "Partition Key", "Sort Key", 
         and "GraphQL Query Name" are labels for the syntax directly below them. 
 ```
 type PostEditor
@@ -233,3 +264,35 @@ type User @model {
   posts: [PostEditor] @connection(keyName: "byEditor", fields: ["id"])
 }
 ```
+
+
+
+
+
+_________________________________________________________________
+    How to send a GraphQL query to AWS AppSync from the commandline?
+    https://stackoverflow.com/questions/60068428/how-to-send-a-graphql-query-to-aws-appsync-from-the-commandline
+```python
+#!/usr/bin/env python3
+import os
+
+cmd = """curl -i -H 'Content-Type: application/json' -H "x-api-key: <ENTER YOUR API KEY FROM THE APPSYNC SETTINGS PAGE>" -H "Host: <ENTER YOUR HOST ENDPOINT FROM THE APPSYNC API SETTINGS PAGE >" -X POST -d '{"query": "query {listEvents {items {id}}}"}' https://<ENTER YOUR HOST ENDPOINT FROM THE APPSYNC API SETTINGS PAGE>/graphql"""
+
+def doGraphqlRequest():    
+    os.system(cmd)
+
+print("Starting request to Appsync endpoint")
+doGraphQLRequest()
+print("Finsihed request to Appsync endpoint")
+```
+
+
+
+Time Stamps
+https://stackoverflow.com/questions/58144742/unable-to-serialise-awsdate-from-rds-in-appsync-response-mapping-template
+
+
+Add a nested JSON data item to the DynamoDB table
+https://aws.amazon.com/premiumsupport/knowledge-center/appsync-nested-json-data-in-dynamodb/
+
+https://www.youtube.com/watch?v=A91naQavlIU&ab_channel=AmazonWebServices
