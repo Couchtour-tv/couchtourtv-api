@@ -186,8 +186,8 @@ type User
     queryField: "getUserByUsername"
   )
   @key(
-    name: "getSubscriptionIdByUserId"
-    fields: ["id"]
+    name: "subscriptionIdByUserId"
+    fields: ["subscriptionId"]
     queryField: "getSubscriptionIdByUserId"
   ) {
   id: ID!
@@ -217,21 +217,34 @@ type User
 
 type Transaction
   @model
-  @key(name: "userIDTransactionIndex", fields: ["userID"]) {
+  @key(name: "userIDTransactionIndex", fields: ["userID"])
+  @key(name: "creditCardIdTransactionIndex", fields: ["creditCardId"]) {
   id: ID!
   userID: ID!
-  merchID: String
+  merchID: ID
   merchandise: Merchandise
   attemptSuccess: Boolean
+  errorObject: String
+  paymentIntent: String
+  creditCard: CreditCard @connection(fields: ["creditCardId"])
+  creditCardId: ID
+  Purchase: Purchase @connection(fields: ["paymentIntent"])
+  purchaseId: ID
 }
 
-type Purchase @model @key(name: "userIDPurchasesIndex", fields: ["userID"]) {
+type Purchase
+  @model
+  @key(name: "userIDPurchasesIndex", fields: ["userID"])
+  @key(name: "creditCardIdPurchaseIndex", fields: ["creditCardId"]) {
   id: ID!
   userID: ID!
   user: User
   merchandise: [Merchandise]
-  creditCard: CreditCard
-  transactions: [Transaction]
+  creditCard: CreditCard @connection(fields: ["creditCardId"])
+  paymentIntent: String
+  transactions: Transaction @connection(fields: ["paymentIntent"])
+  creditCardId: ID
+  transactionId: ID
 }
 
 type CreditCard
@@ -244,7 +257,10 @@ type CreditCard
   id: ID!
   userID: ID!
   user: User @connection(fields: ["userID"])
+  transactions: [Transaction]
+    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
   purchases: [Purchase]
+    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
   status: CardStatus
   active: Boolean
   brand: String

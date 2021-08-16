@@ -219,18 +219,18 @@ ________________________________________________________________________________
 Belongs to
 You can make a connection bi-directional by adding a many-to-one connection to types that already have a one-to-many connection. In this case you add a connection from Comment to Post since each comment belongs to a post:
 ```
-type Post @model {
+type Post @model { creditcard
   id: ID!
   title: String!
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) transactions
 }
 
-type Comment @model
+type Comment @model transactions
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
   content: String!
-  post: Post @connection(fields: ["postID"])
+  post: Post @connection(fields: ["postID"]) creditcard
 }
 ```
 ___________________________________________________________________________________________

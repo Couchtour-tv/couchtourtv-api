@@ -363,6 +363,10 @@ export const onCreateUser = /* GraphQL */ `
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
@@ -372,6 +376,9 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           userID
+          paymentIntent
+          creditCardId
+          transactionId
           createdAt
           updatedAt
         }
@@ -448,6 +455,10 @@ export const onUpdateUser = /* GraphQL */ `
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
@@ -457,6 +468,9 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           userID
+          paymentIntent
+          creditCardId
+          transactionId
           createdAt
           updatedAt
         }
@@ -533,6 +547,10 @@ export const onDeleteUser = /* GraphQL */ `
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
@@ -542,6 +560,9 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           userID
+          paymentIntent
+          creditCardId
+          transactionId
           createdAt
           updatedAt
         }
@@ -594,6 +615,121 @@ export const onCreateTransaction = /* GraphQL */ `
         updatedAt
       }
       attemptSuccess
+      errorObject
+      paymentIntent
+      creditCard {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        status
+        active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
+        createdAt
+        updatedAt
+      }
+      creditCardId
+      Purchase {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        paymentIntent
+        transactions {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        transactionId
+        createdAt
+        updatedAt
+      }
+      purchaseId
       createdAt
       updatedAt
     }
@@ -631,6 +767,121 @@ export const onUpdateTransaction = /* GraphQL */ `
         updatedAt
       }
       attemptSuccess
+      errorObject
+      paymentIntent
+      creditCard {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        status
+        active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
+        createdAt
+        updatedAt
+      }
+      creditCardId
+      Purchase {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        paymentIntent
+        transactions {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        transactionId
+        createdAt
+        updatedAt
+      }
+      purchaseId
       createdAt
       updatedAt
     }
@@ -668,6 +919,121 @@ export const onDeleteTransaction = /* GraphQL */ `
         updatedAt
       }
       attemptSuccess
+      errorObject
+      paymentIntent
+      creditCard {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        status
+        active
+        brand
+        email
+        expMonth
+        expYear
+        lastFour
+        paymentMethodObj
+        created
+        postalCode
+        name
+        createdAt
+        updatedAt
+      }
+      creditCardId
+      Purchase {
+        id
+        userID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          createdAt
+          updatedAt
+        }
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          bandId
+          isEvent
+          eventId
+          createdAt
+          updatedAt
+        }
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        paymentIntent
+        transactions {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        transactionId
+        createdAt
+        updatedAt
+      }
+      purchaseId
       createdAt
       updatedAt
     }
@@ -759,11 +1125,11 @@ export const onCreatePurchase = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        transactions {
+          nextToken
+        }
         purchases {
-          id
-          userID
-          createdAt
-          updatedAt
+          nextToken
         }
         status
         active
@@ -779,6 +1145,7 @@ export const onCreatePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      paymentIntent
       transactions {
         id
         userID
@@ -796,9 +1163,41 @@ export const onCreatePurchase = /* GraphQL */ `
           updatedAt
         }
         attemptSuccess
+        errorObject
+        paymentIntent
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        Purchase {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        purchaseId
         createdAt
         updatedAt
       }
+      creditCardId
+      transactionId
       createdAt
       updatedAt
     }
@@ -890,11 +1289,11 @@ export const onUpdatePurchase = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        transactions {
+          nextToken
+        }
         purchases {
-          id
-          userID
-          createdAt
-          updatedAt
+          nextToken
         }
         status
         active
@@ -910,6 +1309,7 @@ export const onUpdatePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      paymentIntent
       transactions {
         id
         userID
@@ -927,9 +1327,41 @@ export const onUpdatePurchase = /* GraphQL */ `
           updatedAt
         }
         attemptSuccess
+        errorObject
+        paymentIntent
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        Purchase {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        purchaseId
         createdAt
         updatedAt
       }
+      creditCardId
+      transactionId
       createdAt
       updatedAt
     }
@@ -1021,11 +1453,11 @@ export const onDeletePurchase = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        transactions {
+          nextToken
+        }
         purchases {
-          id
-          userID
-          createdAt
-          updatedAt
+          nextToken
         }
         status
         active
@@ -1041,6 +1473,7 @@ export const onDeletePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      paymentIntent
       transactions {
         id
         userID
@@ -1058,9 +1491,41 @@ export const onDeletePurchase = /* GraphQL */ `
           updatedAt
         }
         attemptSuccess
+        errorObject
+        paymentIntent
+        creditCard {
+          id
+          userID
+          status
+          active
+          brand
+          email
+          expMonth
+          expYear
+          lastFour
+          paymentMethodObj
+          created
+          postalCode
+          name
+          createdAt
+          updatedAt
+        }
+        creditCardId
+        Purchase {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        purchaseId
         createdAt
         updatedAt
       }
+      creditCardId
+      transactionId
       createdAt
       updatedAt
     }
@@ -1105,67 +1570,32 @@ export const onCreateCreditCard = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      purchases {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          createdAt
-          updatedAt
-        }
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          bandId
-          isEvent
-          eventId
-          createdAt
-          updatedAt
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          createdAt
-          updatedAt
-        }
-        transactions {
+      transactions {
+        items {
           id
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       status
       active
@@ -1222,67 +1652,32 @@ export const onUpdateCreditCard = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      purchases {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          createdAt
-          updatedAt
-        }
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          bandId
-          isEvent
-          eventId
-          createdAt
-          updatedAt
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          createdAt
-          updatedAt
-        }
-        transactions {
+      transactions {
+        items {
           id
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       status
       active
@@ -1339,67 +1734,32 @@ export const onDeleteCreditCard = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      purchases {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          createdAt
-          updatedAt
-        }
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          bandId
-          isEvent
-          eventId
-          createdAt
-          updatedAt
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          createdAt
-          updatedAt
-        }
-        transactions {
+      transactions {
+        items {
           id
           userID
           merchID
           attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
           createdAt
           updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       status
       active
