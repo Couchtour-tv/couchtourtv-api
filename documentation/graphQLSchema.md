@@ -27,6 +27,8 @@ WORKFLOW:
   Once schema queries and mutations work the way we want them to, we run 'amplify push' in command line to push schema to cloud so we can pull the 
   resources from the cloud into our frontend react project. 
 
+  Then run 'amplify codegen' from react project directory to generage graphql functions. 
+  The first time you do this you need to run 'amplify codegen <ApiId>'
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -183,14 +185,14 @@ ____________________________________
 Has One
 You can also define the field you would like to use for the connection by populating the first argument to the fields array and matching it to a field on the type:
 ```
-type Project @model {
+type Project @model { //merch/ band
   id: ID!
   name: String
   teamID: ID!
   team: Team @connection(fields: ["teamID"])
 }
 
-type Team @model {
+type Team @model { //picture
   id: ID!
   name: String!
 }
@@ -201,13 +203,13 @@ ________________________________________________________________________________
 
 Has Many
 ```
-type Post @model {
+type Post @model { //subscription
   id: ID!
   title: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }
 
-type Comment @model
+type Comment @model //merch
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
@@ -219,13 +221,13 @@ ________________________________________________________________________________
 Belongs to
 You can make a connection bi-directional by adding a many-to-one connection to types that already have a one-to-many connection. In this case you add a connection from Comment to Post since each comment belongs to a post:
 ```
-type Post @model { creditcard
+type Post @model { //creditcard
   id: ID!
   title: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) transactions
 }
 
-type Comment @model transactions
+type Comment @model //transactions
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
@@ -239,7 +241,7 @@ ________________________________________________________________________________
 Many-to-many connections
 You can implement many to many using two 1-M @connections, an @key, and a joining @model. For example:
 ```
-type Post @model {
+type Post @model { //mechandise
   id: ID!
   title: String!
   editors: [PostEditor] @connection(keyName: "byPost", fields: ["id"])
@@ -258,16 +260,12 @@ type PostEditor
   editor: User! @connection(fields: ["editorID"])
 }
 
-type User @model {
+type User @model {  //subscriptions
   id: ID!
   username: String!
   posts: [PostEditor] @connection(keyName: "byEditor", fields: ["id"])
 }
 ```
-
-
-
-
 
 _________________________________________________________________
     How to send a GraphQL query to AWS AppSync from the commandline?
@@ -296,3 +294,4 @@ Add a nested JSON data item to the DynamoDB table
 https://aws.amazon.com/premiumsupport/knowledge-center/appsync-nested-json-data-in-dynamodb/
 
 https://www.youtube.com/watch?v=A91naQavlIU&ab_channel=AmazonWebServices
+
