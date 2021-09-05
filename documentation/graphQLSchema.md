@@ -203,13 +203,13 @@ ________________________________________________________________________________
 
 Has Many
 ```
-type Post @model { //subscription
+type Post @model { //chatroom
   id: ID!
   title: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }
 
-type Comment @model //merch
+type Comment @model //invitations
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
@@ -224,10 +224,10 @@ You can make a connection bi-directional by adding a many-to-one connection to t
 type Post @model { //creditcard
   id: ID!
   title: String!
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) transactions
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) chatroom
 }
 
-type Comment @model //transactions
+type Comment @model //invitations
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!

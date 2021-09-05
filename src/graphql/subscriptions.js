@@ -1,6 +1,93 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const newOnCreateMessage = /* GraphQL */ `
+  subscription NewOnCreateMessage {
+    newOnCreateMessage {
+      id
+      createdAt
+      content
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        subscriptionId
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          nextToken
+        }
+        messages {
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+        }
+        invitation {
+          nextToken
+        }
+        chatRoomName
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
 export const onCreateEvent = /* GraphQL */ `
   subscription OnCreateEvent {
     onCreateEvent {
@@ -152,6 +239,7 @@ export const onCreateCartMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -260,6 +348,7 @@ export const onUpdateCartMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -368,6 +457,7 @@ export const onDeleteCartMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -927,6 +1017,7 @@ export const onCreateMerchandiseTransaction = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1070,6 +1161,7 @@ export const onUpdateMerchandiseTransaction = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1213,6 +1305,7 @@ export const onDeleteMerchandiseTransaction = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1312,6 +1405,7 @@ export const onCreateEntitlement = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1412,6 +1506,7 @@ export const onUpdateEntitlement = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1512,6 +1607,7 @@ export const onDeleteEntitlement = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1942,6 +2038,7 @@ export const onCreateMerchandise = /* GraphQL */ `
         maestro_channel
         description
         price
+        videoURL
       }
       bandMerchType
       subscriptionMerchandise {
@@ -2146,6 +2243,7 @@ export const onUpdateMerchandise = /* GraphQL */ `
         maestro_channel
         description
         price
+        videoURL
       }
       bandMerchType
       subscriptionMerchandise {
@@ -2350,6 +2448,7 @@ export const onDeleteMerchandise = /* GraphQL */ `
         maestro_channel
         description
         price
+        videoURL
       }
       bandMerchType
       subscriptionMerchandise {
@@ -2513,6 +2612,7 @@ export const onCreateSubscriptionMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -2651,6 +2751,7 @@ export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -2789,6 +2890,7 @@ export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -2932,6 +3034,7 @@ export const onCreateSubscriptionModel = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3047,6 +3150,7 @@ export const onUpdateSubscriptionModel = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3162,6 +3266,7 @@ export const onDeleteSubscriptionModel = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3272,6 +3377,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3410,6 +3516,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3548,6 +3655,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3691,6 +3799,7 @@ export const onCreatePackage = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3806,6 +3915,7 @@ export const onUpdatePackage = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -3921,6 +4031,7 @@ export const onDeletePackage = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -4096,6 +4207,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -4261,6 +4373,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -4426,6 +4539,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -5715,6 +5829,10 @@ export const onCreateChatRoomUser = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -5797,6 +5915,10 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -5879,6 +6001,10 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -5943,11 +6069,25 @@ export const onCreateChatRoom = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
         updatedAt
       }
+      invitation {
+        items {
+          id
+          invitedUserID
+          createdByUserID
+          chatRoomID
+          status
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      chatRoomName
       createdAt
       updatedAt
     }
@@ -6009,11 +6149,25 @@ export const onUpdateChatRoom = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
         updatedAt
       }
+      invitation {
+        items {
+          id
+          invitedUserID
+          createdByUserID
+          chatRoomID
+          status
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      chatRoomName
       createdAt
       updatedAt
     }
@@ -6075,11 +6229,25 @@ export const onDeleteChatRoom = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
         updatedAt
       }
+      invitation {
+        items {
+          id
+          invitedUserID
+          createdByUserID
+          chatRoomID
+          status
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      chatRoomName
       createdAt
       updatedAt
     }
@@ -6211,6 +6379,10 @@ export const onCreateInvitation = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -6346,6 +6518,10 @@ export const onUpdateInvitation = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -6481,6 +6657,10 @@ export const onDeleteInvitation = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -6566,6 +6746,10 @@ export const onCreateMessage = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -6649,6 +6833,10 @@ export const onUpdateMessage = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -6732,6 +6920,10 @@ export const onDeleteMessage = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }

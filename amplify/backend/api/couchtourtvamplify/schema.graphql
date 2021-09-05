@@ -48,6 +48,7 @@ type VODMetaData {
   maestro_channel: String
   description: String
   price: String
+  videoURL: String
 }
 
 type StreamMetaData {
@@ -427,8 +428,16 @@ type CreditCard
 
 type ChatRoomUser
   @model
-  @key(name: "byUser", fields: ["userID", "chatRoomID"])
-  @key(name: "byChatRoom", fields: ["chatRoomID", "userID"]) {
+  @key(
+    name: "byUser"
+    fields: ["userID", "chatRoomID"]
+    queryField: "getChatRoomUserByUserID"
+  )
+  @key(
+    name: "byChatRoom"
+    fields: ["chatRoomID", "userID"]
+    queryField: "getChatRoomUsersByChatRoomID"
+  ) {
   id: ID!
   userID: ID!
   chatRoomID: ID!
@@ -440,13 +449,16 @@ type ChatRoom @model {
   id: ID!
   chatRoomUsers: [ChatRoomUser]
     @connection(keyName: "byChatRoom", fields: ["id"])
-  messages: [Message] @connection(keyName: "byChatRoom", fields: ["id"])
+  messages: [Message] @connection(keyName: "byChatRoomM", fields: ["id"])
   lastMessageID: ID
   lastMessage: Message @connection(fields: ["lastMessageID"])
+  invitation: [Invitation] @connection(keyName: "byChatRoomInv", fields: ["id"])
+  chatRoomName: String
 }
 
 type Invitation
   @model
+  @key(name: "byChatRoomInv", fields: ["chatRoomID"])
   @key(
     name: "invitationByInvitedUser"
     fields: ["invitedUserID", "createdByUserID"]
@@ -468,7 +480,7 @@ type Invitation
 type Message
   @model
   @key(
-    name: "byChatRoom"
+    name: "byChatRoomM"
     fields: ["chatRoomID", "createdAt"]
     queryField: "messagesByChatRoom"
   ) {
@@ -479,4 +491,8 @@ type Message
   chatRoomID: ID!
   user: User @connection(fields: ["userID"])
   chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+}
+
+type Subscription {
+  newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
 }

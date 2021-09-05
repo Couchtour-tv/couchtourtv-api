@@ -317,6 +317,7 @@ export const getEntitlement = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -678,6 +679,7 @@ export const getMerchandise = /* GraphQL */ `
         maestro_channel
         description
         price
+        videoURL
       }
       bandMerchType
       subscriptionMerchandise {
@@ -842,6 +844,7 @@ export const listMerchandises = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -946,6 +949,7 @@ export const getSubscriptionModel = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1114,6 +1118,7 @@ export const getPackage = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -1874,6 +1879,10 @@ export const getChatRoomUser = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -1917,6 +1926,7 @@ export const listChatRoomUsers = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
@@ -1983,11 +1993,25 @@ export const getChatRoom = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
         updatedAt
       }
+      invitation {
+        items {
+          id
+          invitedUserID
+          createdByUserID
+          chatRoomID
+          status
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      chatRoomName
       createdAt
       updatedAt
     }
@@ -2017,6 +2041,10 @@ export const listChatRooms = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -2150,6 +2178,10 @@ export const getInvitation = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -2216,6 +2248,7 @@ export const listInvitations = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
@@ -2303,6 +2336,10 @@ export const getMessage = /* GraphQL */ `
           chatRoomID
           updatedAt
         }
+        invitation {
+          nextToken
+        }
+        chatRoomName
         createdAt
         updatedAt
       }
@@ -2347,6 +2384,7 @@ export const listMessages = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
@@ -2423,6 +2461,7 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -2531,6 +2570,7 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           maestro_channel
           description
           price
+          videoURL
         }
         bandMerchType
         subscriptionMerchandise {
@@ -2707,6 +2747,118 @@ export const getCreditCardByUserID = /* GraphQL */ `
     }
   }
 `;
+export const getChatRoomUserByUserID = /* GraphQL */ `
+  query GetChatRoomUserByUserID(
+    $userID: ID
+    $chatRoomID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelChatRoomUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getChatRoomUserByUserID(
+      userID: $userID
+      chatRoomID: $chatRoomID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        userID
+        chatRoomID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          pictureId
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          cartId
+          createdAt
+          updatedAt
+        }
+        chatRoom {
+          id
+          lastMessageID
+          chatRoomName
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
+  query GetChatRoomUsersByChatRoomID(
+    $chatRoomID: ID
+    $userID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelChatRoomUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getChatRoomUsersByChatRoomID(
+      chatRoomID: $chatRoomID
+      userID: $userID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        userID
+        chatRoomID
+        user {
+          id
+          completedSignUp
+          username
+          avatar
+          pictureId
+          awayMessageStatus
+          cogId
+          emailVerified
+          loggedIn
+          email
+          stripeCustomerId
+          stripeCustomer
+          subscriptionId
+          accessToken
+          idToken
+          refreshToken
+          cartId
+          createdAt
+          updatedAt
+        }
+        chatRoom {
+          id
+          lastMessageID
+          chatRoomName
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const messagesByChatRoom = /* GraphQL */ `
   query MessagesByChatRoom(
     $chatRoomID: ID
@@ -2754,6 +2906,7 @@ export const messagesByChatRoom = /* GraphQL */ `
         chatRoom {
           id
           lastMessageID
+          chatRoomName
           createdAt
           updatedAt
         }
