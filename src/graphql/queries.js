@@ -349,6 +349,7 @@ export const getEntitlement = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -751,6 +752,10 @@ export const getMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -876,6 +881,7 @@ export const listMerchandises = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -981,6 +987,7 @@ export const getSubscriptionModel = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1057,171 +1064,6 @@ export const listSubscriptionModels = /* GraphQL */ `
     }
   }
 `;
-export const getPackage = /* GraphQL */ `
-  query GetPackage($id: ID!) {
-    getPackage(id: $id) {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listPackages = /* GraphQL */ `
-  query ListPackages(
-    $filter: ModelPackageFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listPackages(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getPurchase = /* GraphQL */ `
   query GetPurchase($id: ID!) {
     getPurchase(id: $id) {
@@ -1254,6 +1096,12 @@ export const getPurchase = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -1568,6 +1416,32 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      packages {
+        items {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       cogId
       emailVerified
       loggedIn
@@ -1677,6 +1551,12 @@ export const listUsers = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -1707,6 +1587,187 @@ export const listUsers = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getPackage = /* GraphQL */ `
+  query GetPackage($id: ID!) {
+    getPackage(id: $id) {
+      id
+      name
+      description
+      price
+      priceId
+      productId
+      active
+      userID
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        createdAt
+        updatedAt
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPackages = /* GraphQL */ `
+  query ListPackages(
+    $filter: ModelPackageFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPackages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          stripeMetaData
+          bandId
+          bandMerchType
+          subscriptionId
+          packageId
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
           nextToken
         }
         createdAt
@@ -1748,6 +1809,12 @@ export const getCreditCard = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -1921,6 +1988,12 @@ export const getChatRoomUser = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -2183,6 +2256,12 @@ export const getInvitation = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -2245,6 +2324,12 @@ export const getInvitation = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -2421,6 +2506,12 @@ export const getMessage = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -2631,6 +2722,7 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -2740,6 +2832,7 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -2794,6 +2887,12 @@ export const getUserByUsername = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId

@@ -38,6 +38,12 @@ export const newOnCreateMessage = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -282,6 +288,7 @@ export const onCreateCartMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -391,6 +398,7 @@ export const onUpdateCartMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -500,6 +508,7 @@ export const onDeleteCartMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1066,6 +1075,7 @@ export const onCreateMerchandiseTransaction = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1210,6 +1220,7 @@ export const onUpdateMerchandiseTransaction = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1354,6 +1365,7 @@ export const onDeleteMerchandiseTransaction = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1454,6 +1466,7 @@ export const onCreateEntitlement = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1555,6 +1568,7 @@ export const onUpdateEntitlement = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -1656,6 +1670,7 @@ export const onDeleteEntitlement = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -2127,6 +2142,10 @@ export const onCreateMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -2332,6 +2351,10 @@ export const onUpdateMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -2537,6 +2560,10 @@ export const onDeleteMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -2661,6 +2688,7 @@ export const onCreateSubscriptionMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -2800,6 +2828,7 @@ export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -2939,6 +2968,7 @@ export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3083,6 +3113,7 @@ export const onCreateSubscriptionModel = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3199,6 +3230,7 @@ export const onUpdateSubscriptionModel = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3315,6 +3347,7 @@ export const onDeleteSubscriptionModel = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3426,6 +3459,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3442,6 +3476,10 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -3565,6 +3603,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3581,6 +3620,10 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -3704,6 +3747,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -3720,6 +3764,10 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
         priceId
         productId
         active
+        userID
+        userPackages {
+          nextToken
+        }
         merchandiseId
         merchandise {
           id
@@ -3749,354 +3797,6 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
         }
         createdAt
         updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePackage = /* GraphQL */ `
-  subscription OnCreatePackage {
-    onCreatePackage {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePackage = /* GraphQL */ `
-  subscription OnUpdatePackage {
-    onUpdatePackage {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePackage = /* GraphQL */ `
-  subscription OnDeletePackage {
-    onDeletePackage {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
       }
       createdAt
       updatedAt
@@ -4257,6 +3957,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -4424,6 +4125,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -4591,6 +4293,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
           priceId
           productId
           active
+          userID
           merchandiseId
           createdAt
           updatedAt
@@ -4636,6 +4339,12 @@ export const onCreatePurchase = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -4816,6 +4525,12 @@ export const onUpdatePurchase = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -4992,6 +4707,12 @@ export const onDeletePurchase = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -5230,6 +4951,32 @@ export const onCreateUser = /* GraphQL */ `
         }
         nextToken
       }
+      packages {
+        items {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       cogId
       emailVerified
       loggedIn
@@ -5390,6 +5137,32 @@ export const onUpdateUser = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      packages {
+        items {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      userPackages {
+        items {
+          id
+          userID
+          packageId
           createdAt
           updatedAt
         }
@@ -5560,6 +5333,32 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      packages {
+        items {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       cogId
       emailVerified
       loggedIn
@@ -5633,6 +5432,759 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
+export const onCreateUserPackage = /* GraphQL */ `
+  subscription OnCreateUserPackage {
+    onCreateUserPackage {
+      id
+      userID
+      packageId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          stripeMetaData
+          bandId
+          bandMerchType
+          subscriptionId
+          packageId
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUserPackage = /* GraphQL */ `
+  subscription OnUpdateUserPackage {
+    onUpdateUserPackage {
+      id
+      userID
+      packageId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          stripeMetaData
+          bandId
+          bandMerchType
+          subscriptionId
+          packageId
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUserPackage = /* GraphQL */ `
+  subscription OnDeleteUserPackage {
+    onDeleteUserPackage {
+      id
+      userID
+      packageId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          stripeMetaData
+          bandId
+          bandMerchType
+          subscriptionId
+          packageId
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreatePackage = /* GraphQL */ `
+  subscription OnCreatePackage {
+    onCreatePackage {
+      id
+      name
+      description
+      price
+      priceId
+      productId
+      active
+      userID
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        createdAt
+        updatedAt
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdatePackage = /* GraphQL */ `
+  subscription OnUpdatePackage {
+    onUpdatePackage {
+      id
+      name
+      description
+      price
+      priceId
+      productId
+      active
+      userID
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        createdAt
+        updatedAt
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeletePackage = /* GraphQL */ `
+  subscription OnDeletePackage {
+    onDeletePackage {
+      id
+      name
+      description
+      price
+      priceId
+      productId
+      active
+      userID
+      userPackages {
+        items {
+          id
+          userID
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        createdAt
+        updatedAt
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateCreditCard = /* GraphQL */ `
   subscription OnCreateCreditCard {
     onCreateCreditCard {
@@ -5665,6 +6217,12 @@ export const onCreateCreditCard = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -5781,6 +6339,12 @@ export const onUpdateCreditCard = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -5893,6 +6457,12 @@ export const onDeleteCreditCard = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -6010,6 +6580,12 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -6109,6 +6685,12 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -6206,6 +6788,12 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -6548,6 +7136,12 @@ export const onCreateInvitation = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -6610,6 +7204,12 @@ export const onCreateInvitation = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -6713,6 +7313,12 @@ export const onUpdateInvitation = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -6775,6 +7381,12 @@ export const onUpdateInvitation = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -6878,6 +7490,12 @@ export const onDeleteInvitation = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -6940,6 +7558,12 @@ export const onDeleteInvitation = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId
@@ -7047,6 +7671,12 @@ export const onCreateMessage = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -7147,6 +7777,12 @@ export const onUpdateMessage = /* GraphQL */ `
         purchases {
           nextToken
         }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
         cogId
         emailVerified
         loggedIn
@@ -7245,6 +7881,12 @@ export const onDeleteMessage = /* GraphQL */ `
           nextToken
         }
         purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
           nextToken
         }
         cogId

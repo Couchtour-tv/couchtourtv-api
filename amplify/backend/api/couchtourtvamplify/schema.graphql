@@ -317,20 +317,6 @@ type PackageMerchandise
   package: Package @connection(fields: ["packageId"])
 }
 
-type Package @model {
-  id: ID!
-  name: String
-  description: String
-  price: String
-  priceId: String
-  productId: String
-  active: Boolean
-  merchandiseId: ID
-  merchandise: Merchandise @connection(fields: ["merchandiseId"])
-  packageMerchandise: [PackageMerchandise]
-    @connection(keyName: "byPackage", fields: ["id"])
-}
-
 type MerchandisePurchase
   @model(queries: null)
   @key(name: "byPurchase", fields: ["purchaseId", "merchandiseId"])
@@ -381,6 +367,9 @@ type User
     @connection(keyName: "userIDTransactionIndex", fields: ["id"])
   purchases: [Purchase]
     @connection(keyName: "userIDPurchasesIndex", fields: ["id"])
+  packages: [Package]
+    @connection(keyName: "userIDPackagesIndex", fields: ["id"])
+  userPackages: [UserPackage] @connection(keyName: "byUserP", fields: ["id"])
   cogId: String
   emailVerified: Boolean
   loggedIn: Boolean
@@ -397,6 +386,33 @@ type User
   cartId: ID
   entitlements: [Entitlement]
     @connection(keyName: "byUserEntitlement", fields: ["id"])
+}
+
+type UserPackage
+  @model(queries: null)
+  @key(name: "byUserP", fields: ["userID", "packageId"])
+  @key(name: "byUPackage", fields: ["packageId", "userID"]) {
+  id: ID!
+  userID: ID!
+  packageId: ID!
+  user: User! @connection(fields: ["userID"])
+  package: Package! @connection(fields: ["packageId"])
+}
+
+type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
+  id: ID!
+  name: String
+  description: String
+  price: String
+  priceId: String
+  productId: String
+  active: Boolean
+  userID: ID
+  userPackages: [UserPackage] @connection(keyName: "byUPackage", fields: ["id"])
+  merchandiseId: ID
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  packageMerchandise: [PackageMerchandise]
+    @connection(keyName: "byPackage", fields: ["id"])
 }
 
 type CreditCard

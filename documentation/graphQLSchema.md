@@ -1,4 +1,161 @@
 
+Command	Description
+
+amplify configure	                  -Configures the AWS access credentials, AWS Region and sets up a new AWS User Profile
+
+amplify init	                      -Initializes a new project, sets up deployment resources in the cloud and prepares your project for Amplify.
+
+amplify configure project	          -Updates configuration settings used to setup the project during the init step.
+
+amplify add <category>	            -Adds cloud features to your app.
+
+amplify update <category>	          -Updates existing cloud features in your app.
+
+amplify push [--no-gql-override]    -Provisions cloud resources with the latest local developments. The 'no-gql-override' flag does not 
+                                    automatically compile your annotated GraphQL schema and will override your local AppSync resolvers and templates.
+
+amplify pull	                      -Fetch upstream backend environment definition changes from the cloud and updates the local environment to match
+                                    that definition.
+
+amplify publish	                    -Runs amplify push, publishes a static assets to Amazon S3 and Amazon CloudFront (*hosting category is required).
+
+amplify status [ <category>...]	    -Displays the state of local resources that haven't been pushed to the cloud (Create/Update/Delete).
+
+amplify status -v [ <category>...]	-Verbose mode - Shows the detailed verbose diff between local and deployed resources, including cloudformation-diff
+
+amplify serve	                      -Runs amplify push, and then executes the project's start command to test run the client-side application.
+
+amplify delete	                    -Deletes resources tied to the project.
+
+amplify help | amplify <category> help	-Displays help for the core CLI.
+
+amplify codegen add | generate	    -Performs generation of strongly typed objects using a GraphQL schema.
+
+amplify env add | list | remove | get | pull | import | checkout	See the multienv docs. https://docs.amplify.aws/cli/teams/overview/
+
+==================================================================================================
+amplify cli github: (very helpful)
+https://github.com/aws-amplify/amplify-cli
+
+amplify team environments:
+https://docs.amplify.aws/cli/teams/overview/
+
+multiple front-ends
+https://docs.amplify.aws/cli/teams/multi-frontend/
+
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+i have a working appsync/graphsql ecosystem described in code 
+-- i want to push it to a fresh cloud environment 
+-- what are the commands i need to run ?
+
+
+==========================  Possible Solution #  1 ========================== 
+----------------
+```bash
+amplify configure
+```
+Description: Configures the AWS access credentials, AWS Region and sets up a new AWS User Profile
+----------------
+```bash
+amplify init        
+```
+Description: Initializes a new project, sets up deployment resources in the cloud and prepares your project for Amplify.
+----------------
+
+```bash
+amplify add codegen --apiId hdjajmu3szeexlkvvmfcnugjaq
+```
+Description: 	Performs generation of strongly typed objects using a GraphQL schema.
+Note: 'hdjajmu3szeexlkvvmfcnugjaq' is the apiId for appsync found in appsync/ APIs in the aws console
+----------------
+==========================================================================
+
+
+========================== Possible Solution # 2 =========================
+You would do this from your existing amplify project, and add another api that points to the cloud.
+```bash
+amplify add api
+amplify push
+```
+Description: Adds cloud features to your app and pushes to the cloud.
+==========================================================================
+
+
+==========================  Possible Solution # 3 ========================
+```bash
+amplify update api
+amplify push
+```
+Description: Updates existing cloud features in your app and pushes to the cloud. 
+==========================================================================
+
+==========================  Possible Solution # 4 ========================
+```bash
+amplify configure project
+amplify push
+```
+Description: Updates configuration settings used to setup the project during the init step and pushes to the cloud.
+==========================================================================
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+i have a working appsync/graphsql ecosystem described in code 
+-- i want to edit the schema and update the datastore on an existing cloud envirtonment 
+-- what are the commands i need to run ?
+
+After you edit the schema
+```bash
+amplify push --y
+```
+Note: the '--y' sets the script to automatically answer 'yes' to the questions asked when executing 'amplify push'
+
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+i have a working appsync/graphsql ecosystem described in code 
+-- i want to edit and update the apiroutes  on an existing cloud envirtonment 
+-- what are the commands i need to run ?
+
+==========================  Possible Solution # 1 ========================
+```bash
+amplify update api
+amplify push
+```
+Description: Updates existing cloud features in your app and pushes to the cloud. 
+==========================================================================
+
+==========================  Possible Solution # 2 ========================
+```bash
+amplify configure project
+amplify push
+```
+Description: Updates configuration settings used to setup the project during the init step and pushes to the cloud.
+==========================================================================
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+i have a working appsync/graphsql ecosystem described in code 
+-- i want to edit and update the auth configuration on an existing cloud envirtonment 
+-- what are the commands i need to run ?
+
+----------------------
+```bash
+amplify auth remove
+amplify push
+```
+Description: Removes Auth resource from your local backend. The resource is removed from the cloud on the next push command.
+----------------------
+```bash
+amplify auth add
+```
+Description: Takes you through steps in the CLI to add an Auth resource to your backend.
+----------------------
+
+
+
+
 First, configure your aws profile:
 In the command line type "aws configure"
 ```bash
@@ -20,6 +177,10 @@ aws configure
 Second, run 'npm i -g @aws-amplify/cli' to install the amplify cli
   ```bash
   npm i -g @aws-amplify/cli  
+  ```
+  or
+  ```bash
+curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL
   ```
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -300,7 +461,7 @@ ________________________________________________________________________________
 Many-to-many connections
 You can implement many to many using two 1-M @connections, an @key, and a joining @model. For example:
 ```
-type Post @model { //mechandise
+type Post @model { //user
   id: ID!
   title: String!
   editors: [PostEditor] @connection(keyName: "byPost", fields: ["id"])
@@ -319,7 +480,7 @@ type PostEditor
   editor: User! @connection(fields: ["editorID"])
 }
 
-type User @model {  //subscriptions
+type User @model {  //package
   id: ID!
   username: String!
   posts: [PostEditor] @connection(keyName: "byEditor", fields: ["id"])
