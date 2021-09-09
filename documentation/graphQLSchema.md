@@ -18,9 +18,68 @@ aws configure
 
 
 Second, run 'npm i -g @aws-amplify/cli' to install the amplify cli
+  ```bash
+  npm i -g @aws-amplify/cli  
+  ```
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* https://docs.amplify.aws/cli/start/install/
+  ```bash
+  amplify configure
+  ```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* Infrastructure-as-code with amplify
+    https://docs.amplify.aws/cli/#infrastructure-as-code
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* https://docs.amplify.aws/cli/start/workflows/#initialize-new-project
 ```bash
-npm i -g @aws-amplify/cli  
+amplify init
 ```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* https://docs.amplify.aws/cli/graphql-transformer/overview/
+  ```bash
+  amplify add api
+  ```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* use amplify status to check status of amplify auth, api, and storage
+```bash
+amplify status
+```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* https://docs.amplify.aws/cli/storage/overview/
+* https://docs.amplify.aws/cli/storage/import/
+  ```bash
+  amplify add storage
+  amplify import storage
+  ```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* https://docs.amplify.aws/cli/auth/overview/
+* https://docs.amplify.aws/cli/auth/import/
+  ```bash
+  amplify add auth
+  amplify import auth
+  ```
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
 
 WORKFLOW: 
   We work on the schema (amplify/backend/api/couchtourtvamplify/schema.graphql) from couchtourtv-api using the 'amplify mock' amplify CLI command.

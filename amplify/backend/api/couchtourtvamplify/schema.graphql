@@ -387,7 +387,9 @@ type User
   email: String
   stripeCustomerId: String
   stripeCustomer: String
-  subscriptionId: String
+  stripeSubscriptionId: String
+  subscriptionId: ID
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
   accessToken: String
   idToken: String
   refreshToken: String
