@@ -14,14 +14,16 @@ amplify update <category>	          -Updates existing cloud features in your app
 amplify push [--no-gql-override]    -Provisions cloud resources with the latest local developments. The 'no-gql-override' flag does not 
                                     automatically compile your annotated GraphQL schema and will override your local AppSync resolvers and templates.
 
-amplify pull	                      -Fetch upstream backend environment definition changes from the cloud and updates the local environment to match
-                                    that definition.
+amplify pull	                      -Fetch upstream backend environment definition changes from the cloud and updates the local environment to
+                                    match that definition.
 
-amplify publish	                    -Runs amplify push, publishes a static assets to Amazon S3 and Amazon CloudFront (*hosting category is required).
+amplify publish	                    -Runs amplify push, publishes a static assets to Amazon S3 and Amazon CloudFront (*hosting category is
+                                    required).
 
 amplify status [ <category>...]	    -Displays the state of local resources that haven't been pushed to the cloud (Create/Update/Delete).
 
-amplify status -v [ <category>...]	-Verbose mode - Shows the detailed verbose diff between local and deployed resources, including cloudformation-diff
+amplify status -v [ <category>...]	-Verbose mode - Shows the detailed verbose diff between local and deployed resources, including 
+                                    cloudformation-diff
 
 amplify serve	                      -Runs amplify push, and then executes the project's start command to test run the client-side application.
 
@@ -515,3 +517,65 @@ https://aws.amazon.com/premiumsupport/knowledge-center/appsync-nested-json-data-
 
 https://www.youtube.com/watch?v=A91naQavlIU&ab_channel=AmazonWebServices
 
+
+
+
+
+
+# @auth
+
+https://docs.amplify.aws/cli/graphql-transformer/auth/#auth
+https://docs.amplify.aws/cli/graphql-transformer/auth/#static-group-authorization
+ { allow: groups, groups: ["Admin"], operations: [create, update, read] }
+ { allow: groups, groups: ["Admin"], }
+
+
+```graphql
+@model
+@auth(rules: [
+  {allow: groups, groups: ["Admin"], queries: null, mutations: [create, get, list, update, delete]},
+  {allow: groups, groups: ["User"], queries: [get,list], mutations: null}
+])
+```
+
+
+
+##  Public
+### The simplest case
+```
+type Post @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  title: String!
+}
+```
+##  Public
+### public authorization with provider override
+```
+type Post @model @auth(rules: [{ allow: public, provider: iam }]) {
+  id: ID!
+  title: String!
+}
+```
+
+##  Private
+### The simplest case
+```
+type Post @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  title: String!
+}
+```
+##  Private
+### private authorization with provider override
+```
+type Post @model @auth(rules: [{ allow: private, provider: iam }]) {
+  id: ID!
+  title: String!
+}
+```
+
+	            owner	        groups	      public	      private
+userPools	      ✅	           ✅	                         ✅
+oidc	          ✅            ✅		
+apiKey			                                ✅	
+iam			                                    ✅           	✅

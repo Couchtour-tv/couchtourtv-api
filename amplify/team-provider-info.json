@@ -28,5 +28,45 @@
         }
       }
     }
+  },
+  "ctqa": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-couchtourtvamplify-ctqa-160727-authRole",
+      "UnauthRoleArn": "arn:aws:iam::950853004262:role/amplify-couchtourtvamplify-ctqa-160727-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::950853004262:role/amplify-couchtourtvamplify-ctqa-160727-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-couchtourtvamplify-ctqa-160727-deployment",
+      "UnauthRoleName": "amplify-couchtourtvamplify-ctqa-160727-unauthRole",
+      "StackName": "amplify-couchtourtvamplify-ctqa-160727",
+      "StackId": "arn:aws:cloudformation:us-east-1:950853004262:stack/amplify-couchtourtvamplify-ctqa-160727/abee10a0-1660-11ec-8b8f-0ea8b0d0f7df",
+      "AmplifyAppId": "dw09j5g5awqmm"
+    },
+    "categories": {
+      "auth": {
+        "couchtourtvamplify5a547970": {
+          "userPoolId": "us-east-1_z9K8entLF",
+          "userPoolName": "stg-branchdna-user-pool",
+          "webClientId": "5j4tlva36nhscrb3c3e73fq6bm",
+          "nativeClientId": "5j4tlva36nhscrb3c3e73fq6bm",
+          "identityPoolId": "us-east-1:46bebd9b-79a4-4848-a8fe-f6895a5590c6",
+          "identityPoolName": "stg_branchdna_IdentityPool",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::950853004262:role/branchdna-api-stg-CognitoAuthRole-17RABLV7XPGP5",
+          "authRoleName": "branchdna-api-stg-CognitoAuthRole-17RABLV7XPGP5",
+          "unauthRoleArn": "arn:aws:iam::950853004262:role/amplify-couchtourtvamplify-ctqa-160727-unauthRole",
+          "unauthRoleName": "amplify-couchtourtvamplify-ctqa-160727-unauthRole"
+        }
+      },
+      "storage": {
+        "couchtourtvamplify524fe98a": {
+          "bucketName": "ct-appsync",
+          "region": "us-east-1"
+        },
+        "couchtour0d287ab9": {
+          "bucketName": "ct-appsync",
+          "region": "us-east-1"
+        }
+      }
+    }
   }
 }

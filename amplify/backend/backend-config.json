@@ -6,23 +6,39 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authcouchtourtvamplify445d149b"
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": ""
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authcouchtourtvamplify5a547970"
+              }
+            }
+          ]
         }
       }
     }
   },
   "auth": {
-    "couchtourtvamplify445d149b": {
+    "couchtourtvamplify5a547970": {
       "service": "Cognito",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false
+    }
+  },
+  "storage": {
+    "couchtour0d287ab9": {
+      "service": "S3",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }

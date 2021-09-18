@@ -51,12 +51,16 @@ type VODMetaData {
   videoURL: String
 }
 
+
 type StreamMetaData {
   id: ID!
   streamId: String
   eventId: String
   bandName: String
   promoter: String
+  videoURL: String
+  nameOfEvent: String
+  location: String
   promoterLogo: String
   timeOfEvent: String
   isLive: Boolean
@@ -221,7 +225,7 @@ type S3Object {
   key: String!
 }
 
-type Picture @model @aws_cognito_user_pools {
+type Picture @model {
   id: ID!
   name: String
   owner: String
@@ -253,6 +257,7 @@ type Merchandise
   createdBy: String
   updatedBy: String
   isEvent: Boolean
+  streamMetaData: StreamMetaData
   name: String
   description: String
   image: Picture @connection(fields: ["pictureId"])

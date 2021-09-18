@@ -125,6 +125,20 @@ export const createCartMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -238,6 +252,20 @@ export const updateCartMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -351,6 +379,20 @@ export const deleteCartMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -930,6 +972,20 @@ export const createMerchandiseTransaction = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1078,6 +1134,20 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1226,6 +1296,20 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1330,6 +1414,20 @@ export const createEntitlement = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1435,6 +1533,20 @@ export const updateEntitlement = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1540,6 +1652,20 @@ export const deleteEntitlement = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -1972,6 +2098,35 @@ export const createMerchandise = /* GraphQL */ `
       createdBy
       updatedBy
       isEvent
+      streamMetaData {
+        id
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
       name
       description
       image {
@@ -2184,6 +2339,35 @@ export const updateMerchandise = /* GraphQL */ `
       createdBy
       updatedBy
       isEvent
+      streamMetaData {
+        id
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
       name
       description
       image {
@@ -2396,6 +2580,35 @@ export const deleteMerchandise = /* GraphQL */ `
       createdBy
       updatedBy
       isEvent
+      streamMetaData {
+        id
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
       name
       description
       image {
@@ -2597,6 +2810,20 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -2740,6 +2967,20 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -2883,6 +3124,20 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3031,6 +3286,20 @@ export const createSubscriptionModel = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3151,6 +3420,20 @@ export const updateSubscriptionModel = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3271,6 +3554,20 @@ export const deleteSubscriptionModel = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3386,6 +3683,20 @@ export const createPackageMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3533,6 +3844,20 @@ export const updatePackageMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3680,6 +4005,20 @@ export const deletePackageMerchandise = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -3893,6 +4232,20 @@ export const createMerchandisePurchase = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -4064,6 +4417,20 @@ export const updateMerchandisePurchase = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -4235,6 +4602,20 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -5877,6 +6258,20 @@ export const createPackage = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -6008,6 +6403,20 @@ export const updatePackage = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
@@ -6139,6 +6548,20 @@ export const deletePackage = /* GraphQL */ `
         createdBy
         updatedBy
         isEvent
+        streamMetaData {
+          id
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
         name
         description
         image {
