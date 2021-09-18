@@ -281,7 +281,6 @@ export const getEntitlement = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -628,7 +627,6 @@ export const getMerchandise = /* GraphQL */ `
       updatedBy
       isEvent
       streamMetaData {
-        id
         streamId
         eventId
         bandName
@@ -856,7 +854,6 @@ export const listMerchandises = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -976,7 +973,6 @@ export const getSubscriptionModel = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1703,7 +1699,6 @@ export const getPackage = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -2739,7 +2734,6 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -2863,7 +2857,6 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName

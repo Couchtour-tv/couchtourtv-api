@@ -126,7 +126,6 @@ export const createCartMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -253,7 +252,6 @@ export const updateCartMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -380,7 +378,6 @@ export const deleteCartMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -973,7 +970,6 @@ export const createMerchandiseTransaction = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1135,7 +1131,6 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1297,7 +1292,6 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1415,7 +1409,6 @@ export const createEntitlement = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1534,7 +1527,6 @@ export const updateEntitlement = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -1653,7 +1645,6 @@ export const deleteEntitlement = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -2099,7 +2090,6 @@ export const createMerchandise = /* GraphQL */ `
       updatedBy
       isEvent
       streamMetaData {
-        id
         streamId
         eventId
         bandName
@@ -2340,7 +2330,6 @@ export const updateMerchandise = /* GraphQL */ `
       updatedBy
       isEvent
       streamMetaData {
-        id
         streamId
         eventId
         bandName
@@ -2581,7 +2570,6 @@ export const deleteMerchandise = /* GraphQL */ `
       updatedBy
       isEvent
       streamMetaData {
-        id
         streamId
         eventId
         bandName
@@ -2811,7 +2799,6 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -2968,7 +2955,6 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3125,7 +3111,6 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3287,7 +3272,6 @@ export const createSubscriptionModel = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3421,7 +3405,6 @@ export const updateSubscriptionModel = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3555,7 +3538,6 @@ export const deleteSubscriptionModel = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3684,7 +3666,6 @@ export const createPackageMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -3845,7 +3826,6 @@ export const updatePackageMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -4006,7 +3986,6 @@ export const deletePackageMerchandise = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -4233,7 +4212,6 @@ export const createMerchandisePurchase = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -4418,7 +4396,6 @@ export const updateMerchandisePurchase = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -4603,7 +4580,6 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -6259,7 +6235,6 @@ export const createPackage = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -6404,7 +6379,6 @@ export const updatePackage = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
@@ -6549,7 +6523,6 @@ export const deletePackage = /* GraphQL */ `
         updatedBy
         isEvent
         streamMetaData {
-          id
           streamId
           eventId
           bandName
