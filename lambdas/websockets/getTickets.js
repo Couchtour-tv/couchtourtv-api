@@ -1,0 +1,102 @@
+const AWS = require('aws-sdk');
+
+import { OptionsAPIGateway } from '../common/constants';
+import Responses from '../common/API_Responses';
+import dynamoDb from "../../libs/dynamodb-lib";
+
+import { StripeSuccessfulCheckoutTableName } from '../common/constants'
+
+const socket = new AWS.ApiGatewayManagementApi(OptionsAPIGateway);
+/*
+    SAMPLE PAYLOAD:
+        {"action": "get-tickets", "message": { email: <customer_email>, cogId: <}}
+*/
+
+exports.handler = async event => {
+    console.log('\n', '\n', '--------------------  GET_TICKETS  ---------------------', event, '\n');
+    const x = JSON.stringify({ "action": "get-tickets", "message": { "email": "test@example.com", "cogId": "f923fb1308fg10382fg" }})
+    console.log(x)
+
+    const { connectionId } = event.requestContext;
+    console.log('\GET_TICKETS-18, ', event.requestContext);
+    try {
+        let postData = JSON.parse(event.body).message;
+        const email = postData.email;
+
+        let filterExpression = `email = :email`
+        let expressionAttributes = {
+            ':email': email,
+        }
+        console.log('\GET_TICKETS-27 - records ', filterExpression, expressionAttributes);
+        const records = await dynamoDb.scan({
+            TableName: StripeSuccessfulCheckoutTableName,
+            filterExpression,
+            expressionAttributes,
+        })
+
+        console.log('\GET_TICKETS-34 - records ', records);
+        // await Promise.all( records );
+        const records_email = records.Items.map((record) => record.email === email)
+
+        let replyMessage = {};
+
+        if (records_email.length > 0 ) {
+
+            replyMessage = {
+                action: 'get-tickets-resp-success',
+                sender: connectionId,
+                message: { video_url: "https://decibel-stream.couchtour.tv/stream/index.m3u8", video_name: 'broadcast' }
+            };
+
+        } else {
+
+            replyMessage = {
+                action: 'get-tickets-resp-success',
+                sender: connectionId,
+                message: { video_url: null }
+            };
+
+        }
+
+        const socket_send = await socket.postToConnection({
+            ConnectionId: connectionId,
+            Data: JSON.stringify(replyMessage)
+        }).promise();
+
+        console.log('\GET_TICKETS-22 - Promise.all now ');
+        await Promise.resolve( socket_send );
+
+    } catch (error) {
+
+        console.log('\GET_TICKETS-22 - Promise.all ERROR ');
+        console.log('\GET_TICKETS-25 - error on promises', error.stack);
+        return { statusCode: 500, body: error.stack };
+
+    }
+
+    return Responses._200({ success: true, message: 'get-tickets' });
+
+};
+
+// go into StripeSuccessfulCheckoutTableName
+
+// and get records_email for email where video is not null
+
+    // let filterExpression = `email = :email`
+    // let expressionAttributes = {
+    //     ':email': <user_email>,
+    // }
+
+
+    // const records = await Dynamo.scan({
+    //     TableName: tableName,
+    //     filterExpression,
+    //     expressionAttributes,
+    // })
+
+     // const purchase_record  = records.map((record) => video.video_url  === "https://decibel-stream.couchtour.tv/stream/index.m3u8")
+
+
+     // purchase_reord .first _200
+// {/*{"action": "send-purchases-web", "message": { "video": { <url>, <name>, <email> , <customerId>  }}} */}
+

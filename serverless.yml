@@ -107,11 +107,17 @@ provider:
           Resource: "*"
 
 functions:
+
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
+<<<<<<< HEAD
   ## ---- API ENDPOINTS ::
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
+=======
+  ## -- API HTTPS ENDPOINTS
+
+>>>>>>> Staging
   create:
     handler: lambdas/notes/create.main
     events:
@@ -208,6 +214,7 @@ functions:
       - http:
           path: charge-success
           method: POST
+<<<<<<< HEAD
   fetchUserMetaByEmail:
     handler: lambdas/endpoints/users/getUserMetaData.handler
     events:
@@ -252,6 +259,23 @@ functions:
   ## ---- WEBSOCKETS ::
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
+  ## -- MAESTROS
+  maestroEvents:
+    handler: lambdas/webhooks/maestroEvents.handler
+    events:
+      - http:
+          path: maestro-events
+          method: POST
+  livelySales:
+    handler: lambdas/webhooks/livelySales.handler
+    events:
+      - http:
+          path: lively-sales
+          method: GET
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- APPLICATIONS ACTIONS
   websocket-connect:
     handler: lambdas/websockets/connect.handler
     events:
@@ -408,6 +432,12 @@ functions:
     events:
       - websocket:
           route: get-all-tickets
+
+  websocket-get-tickets:
+    handler: lambdas/websockets/getTickets.handler
+    events:
+      - websocket:
+          route: get-tickets
 
   websocket-stripe-get-product-subscriptions:
     handler: lambdas/websockets/getProductSubscriptions.handler
