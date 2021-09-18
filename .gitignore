@@ -61,6 +61,9 @@ env.yml
 .env.development.local
 .env.staging.local
 
+env-stash-qa-cloud-test.txt
+env-stash-qa-cloud.txt
+
 # env - all custom naming
 *.env
 

@@ -118,7 +118,6 @@ functions:
       - http:
           path: notes
           method: post
-
           authorizer: aws_iam
   get:
     handler: lambdas/notes/get.main
@@ -221,6 +220,32 @@ functions:
       - http:
           path: all-purchaseables 
           method: GET
+  ## ----------------------------------------------------------------------------------
+  ## ---- Stripe Integreation ::
+  stripe-api-map:
+    handler: lambdas/endpoints/stripe/apiMap.main
+    events:
+      - http:
+          path: api/v1/stripe-api-map
+          method: get
+          authorizer: aws_iam
+  
+  stripe-create-payment-intent:
+    handler: lambdas/endpoints/stripe/createPaymentIntent.main
+    events:
+      - http:
+          path: api/v1/stripe-create-payment-intent
+          method: post
+          authorizer: aws_iam
+
+  stripe-create-customer:
+    handler: lambdas/endpoints/stripe/createCustomer.main
+    events:
+      - http:
+          path: api/v1/stripe-create-customer
+          method: post
+          authorizer: aws_iam
+
   
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
