@@ -87,3 +87,5 @@ amplify version 5.3.0
 SAMPLE MESSAGE: 
 
  { "action": "get-tickets", "message": { "email": "test@example.com", "cogId": "f923fb1308fg10382fg" }}
+
+TEST FOR STAGING PUSH
