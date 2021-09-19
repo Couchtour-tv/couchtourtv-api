@@ -303,19 +303,20 @@ functions:
     events:
       - http:
           path: api/v1/stripe-create-product
-          method: post
+          method: any
           # authorizer: aws_iam
           cors:
             origin: '*'
             headers:
               - Content-Type
-              - X-Amz-Date33
               - Accept
+              - X-Amz-Date
               - Authorization
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+            
   stripe-retrieve-product:
     handler: lambdas/endpoints/stripe/retrieveProduct.main
     events:
