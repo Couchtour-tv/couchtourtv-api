@@ -1,7 +1,9 @@
 import Responses from '../../common/API_Responses';
 import { StripeSecretKey } from '../../common/constants';
 // const stripe = require("stripe")(StripeSecretKey);
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const TestKey = 'sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS';
+const stripe = require("stripe")(TestKey);
 
 exports.handler = async event => {
   console.log('createProduct-event ::', event);
@@ -13,6 +15,7 @@ exports.handler = async event => {
     console.log('-secret Key as obj: ', StripeSecretKey);
     console.log('-secret Key as process: ', process.env.STRIPE_SECRET_KEY);
     console.log('-stripe Obj: ', stripe);
+    console.log('-envvarbs: ', process.env);
     const { name, images, metadata, description } = body;
     const product = await stripe.products.create({
       name, images, metadata, description
