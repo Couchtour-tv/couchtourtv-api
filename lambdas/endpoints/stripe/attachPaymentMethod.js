@@ -6,16 +6,10 @@ exports.handler = async event => {
   console.log('attachPaymentMethod-event ::', event);
   try {
     const body = await JSON.parse(event.body);
-    let { exp_month, exp_year, payment_method } = body;
-    const paymentMethod = await stripe.paymentMethods.update(
-      payment_method,
-      {
-        metadata: {
-          order_id: "6735"
-        },
-        exp_month,
-        exp_year
-      }
+    let { customer, payment_method } = body;
+    const paymentMethod = await stripe.paymentMethods.attach(
+      payment_method,   // payment method id ex. 'pm_1JPGywKsNNk3qPPUWzdJqFcp'
+      { customer }      // customerid ex `cus_jl2l80ggljkj08JKJ7G`
     );
     console.log("Attach Payment Method | Succeeded |:", paymentMethod);
     return Responses._200(paymentMethod);
