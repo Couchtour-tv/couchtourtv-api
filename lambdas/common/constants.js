@@ -49,10 +49,24 @@ export const OptionsCognito = {
 // Credit card processing
 export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 export const StripeCurrency = process.env.STRIPE_CURRENCY;
-export const StripeCustomerDescirption = process.env.ENV_STRIPE_CUSTOMER_DESCRIPTION;
-export const StripeIntentDescirption = process.env.ENV_STRIPE_INTENT_DESCRIPTION;
+export const StripeCustomerDescirption = process.env.STRIPE_CUSTOMER_DESCRIPTION;
+export const StripeIntentDescirption = process.env.STRIPE_INTENT_DESCRIPTION;
+export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
 export const StripeApiMap = {
 	apiMap: 'api/v1/stripe-api-map',
 	createPaymentIntent: 'api/v1/stripe-create-payment-intent',
-	createCustomer: 'api/v1/stripe-create-customer'
+	createCustomer: 'api/v1/stripe-create-customer',
+	attachPaymentMethod: 'api/v1/stripe-attach-payment-method',
+	detachPaymentMethod: 'api/v1/stripe-detach-payment-method',
+	updatePaymentMethod: 'api/v1/stripe-update-payment-method',
+	updatePaymentMethod: 'api/v1/stripe-update-payment-method',
+	createPriceObj: 'api/v1/stripe-create-price',
+	createReoccuringPriceObj: 'api/v1/stripe-create-reoccuring-price',
+	createProduct: 'api/v1/stripe-create-product',
+	retrieveProduct: 'api/v1/stripe-retrieve-product',
+	listProducts: 'api/v1/stripe-list-products',
+	updateProducts: 'api/v1/stripe-update-product',
+	createSubsription: 'api/v1/stripe-create-subscription',
+	updateSubscription: 'api/v1/stripe-update-subscription',
+	cancelSubscription: 'api/v1/stripe-cancel-subscription'
 };
