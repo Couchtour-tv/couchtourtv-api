@@ -71,6 +71,34 @@ provider:
   lambdaHashingVersion: 20201221
   httpApi:
     cors: true
+    # --------------------
+    # cors:
+    #   origin: '*'
+    #   headers:
+    #     - Content-Type
+    #     - X-Amz-Date
+    #     - Authorization
+    #     - X-Api-Key
+    #     - X-Amz-Security-Token
+    #   allowCredentials: false
+    # --------------------
+    # allowedOrigins:
+    #     - '*'
+    # allowedMethods:
+    #   - GET
+    #   - OPTIONS
+    #   - POST
+    #   - PUT
+    #   - DELETE
+    # allowedHeaders:
+    #   - Content-Type
+    #   - X-Amz-Date
+    #   - Authorization
+    #   - X-Api-Key
+    #   - X-Amz-Security-Token
+    #   - X-Amz-User-Agent
+    #   - X-Transaction-Key
+    #   - Access-Control-Allow-Origin
 
   # These environment variables are made available to our functions
   # under process.env.
@@ -276,7 +304,18 @@ functions:
       - http:
           path: api/v1/stripe-create-product
           method: post
-          authorizer: aws_iam
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date33
+              - Accept
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-retrieve-product:
     handler: lambdas/endpoints/stripe/retrieveProduct.main
     events:
