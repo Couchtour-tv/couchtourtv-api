@@ -110,14 +110,9 @@ functions:
 
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-<<<<<<< HEAD
   ## ---- API ENDPOINTS ::
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
-=======
-  ## -- API HTTPS ENDPOINTS
-
->>>>>>> Staging
   create:
     handler: lambdas/notes/create.main
     events:
@@ -131,7 +126,6 @@ functions:
       - http:
           path: notes/{id}
           method: get
-
           authorizer: aws_iam
   list:
     handler: lambdas/notes/list.main
@@ -139,7 +133,6 @@ functions:
       - http:
           path: notes
           method: get
-
           authorizer: aws_iam
   update:
     handler: lambdas/notes/update.main
@@ -147,7 +140,6 @@ functions:
       - http:
           path: notes/{id}
           method: put
-
           authorizer: aws_iam
   delete:
     handler: lambdas/notes/delete.main
@@ -155,7 +147,6 @@ functions:
       - http:
           path: notes/{id}
           method: delete
-
           authorizer: aws_iam
   purchases:
     handler: lambdas/purchases/list.main
@@ -163,16 +154,13 @@ functions:
       - http:
           path: purchases
           method: get
-
           authorizer: aws_iam
-
   billing:
     handler: lambdas/purchases/billing.main
     events:
       - http:
           path: billing
           method: post
-
           authorizer: aws_iam
   sendSMS:
     handler: lambdas/endpoints/sendSMS.handler
@@ -180,7 +168,6 @@ functions:
       - http:
           path: send-sms
           method: POST
-
           authorizer: aws_iam
   deviceActivate:
     handler: lambdas/tvapps/deviceActivate.handler
@@ -188,7 +175,6 @@ functions:
       - http:
           path: device-activate
           method: POST
-
           authorizer: aws_iam
   stripeSuccessfulCheckoutWebhook:
     handler: lambdas/webhooks/stripeSuccessfulCheckout.handler
@@ -214,7 +200,6 @@ functions:
       - http:
           path: charge-success
           method: POST
-<<<<<<< HEAD
   fetchUserMetaByEmail:
     handler: lambdas/endpoints/users/getUserMetaData.handler
     events:
@@ -334,8 +319,6 @@ functions:
           path: api/v1/stripe-cancel-subscription
           method: post
           authorizer: aws_iam
-
-  
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## ---- WEBSOCKETS ::
