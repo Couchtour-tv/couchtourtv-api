@@ -17,7 +17,7 @@ exports.handler = async event => {
     return Responses._200(product);
   } catch (error) {
     console.log('Create Product Price Object | Error |', error);
-    return Responses._500({
+    return Responses._400({
       message: "Create Product Price Object failed",
       success: false
     });

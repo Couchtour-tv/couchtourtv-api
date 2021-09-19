@@ -299,7 +299,7 @@ functions:
           method: post
           authorizer: aws_iam
   stripe-create-product:
-    handler: lambdas/endpoints/stripe/createProduct.main
+    handler: lambdas/endpoints/stripe/createProduct.handler
     events:
       - http:
           path: api/v1/stripe-create-product
