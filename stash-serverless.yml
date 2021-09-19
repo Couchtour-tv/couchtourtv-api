@@ -337,6 +337,219 @@ functions:
       - http:
           path: lively-sales
           method: GET
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- APPLICATIONS ACTIONS
+  websocket-connect:
+    handler: lambdas/websockets/connect.handler
+    events:
+      - websocket:
+          route: $connect
+
+  websocket-disconnect:
+    handler: lambdas/websockets/disconnect.handler
+    events:
+      - websocket:
+          route: $disconnect
+
+  websocket-default:
+    handler: lambdas/websockets/default.handler
+    events:
+      - websocket:
+          route: $default
+
+  websocket-message:
+    handler: lambdas/websockets/message.handler
+    events:
+      - websocket:
+          route: message
+
+  websocket-sendmessage:
+    handler: lambdas/websockets/sendmessage.handler
+    events:
+      - websocket:
+          route: sendmessage
+
+  websocket-echo:
+    handler: lambdas/websockets/echo.handler
+    events:
+      - websocket:
+          route: echo
+
+  websocket-whoami:
+    handler: lambdas/websockets/whoami.handler
+    events:
+      - websocket:
+          route: whoami
+
+  websocket-onlinenow:
+    handler: lambdas/websockets/onlinenow.handler
+    events:
+      - websocket:
+          route: onlinenow
+
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Admin
+  websocket-upload-media-meta:
+    handler: lambdas/websockets/uploadMediaMeta.handler
+    events:
+      - websocket:
+          route: upload-media-meta
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour User Auth
+  websocket-user-verify-success:
+    handler: lambdas/websockets/userVerifySuccess.handler
+    events:
+      - websocket:
+          route: user-verify-success
+
+  websocket-user-verify-error:
+    handler: lambdas/websockets/userVerifyError.handler
+    events:
+      - websocket:
+          route: user-verify-error
+
+  websocket-user-verify-resend-success:
+    handler: lambdas/websockets/userVerifyResendSuccess.handler
+    events:
+      - websocket:
+          route: user-verify-resend-success
+
+  websocket-user-verify-resend-error:
+    handler: lambdas/websockets/userVerifyResendError.handler
+    events:
+      - websocket:
+          route: user-verify-resend-error
+
+  websocket-user-login:
+    handler: lambdas/websockets/userLogin.handler
+    events:
+      - websocket:
+          route: user-login
+
+  websocket-user-logout:
+    handler: lambdas/websockets/userLogout.handler
+    events:
+      - websocket:
+          route: user-logout
+
+  websocket-user-signUp:
+    handler: lambdas/websockets/userSignUp.handler
+    events:
+      - websocket:
+          route: user-signup
+
+  websocket-user-signUp-error:
+    handler: lambdas/websockets/userSignUpError.handler
+    events:
+      - websocket:
+          route: user-signup-error
+
+  websocket-get-used-id:
+    handler: lambdas/websockets/getUserId.handler
+    events:
+      - websocket:
+          route: get-user-id
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Patron
+  websocket-get-videos:
+    handler: lambdas/websockets/getVideos.handler
+    events:
+      - websocket:
+          route: getvideos
+
+  websocket-add-device-id:
+    handler: lambdas/websockets/addDeviceId.handler
+    events:
+      - websocket:
+          route: add-device-id
+
+  websocket-get-user-purchases:
+    handler: lambdas/websockets/getUserPurchases.handler
+    events:
+      - websocket:
+          route: get-user-purchases
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Shows & Events
+  websocket-get-user-tickets:
+    handler: lambdas/websockets/getUserTickets.handler
+    events:
+      - websocket:
+          route: get-user-tickets
+
+  websocket-get-all-events:
+    handler: lambdas/websockets/getAllEvents.handler
+    events:
+      - websocket:
+          route: get-all-events
+
+  websocket-get-all-tickets:
+    handler: lambdas/websockets/getAllTickets.handler
+    events:
+      - websocket:
+          route: get-all-tickets
+
+  websocket-get-tickets:
+    handler: lambdas/websockets/getTickets.handler
+    events:
+      - websocket:
+          route: get-tickets
+
+  websocket-stripe-get-product-subscriptions:
+    handler: lambdas/websockets/getProductSubscriptions.handler
+    events:
+      - websocket:
+          route: get-product-subscriptions
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: purchase / subscriptions / products
+  websocket-add-user-credit-cards:
+    handler: lambdas/websockets/addUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-add-user-credit-card
+
+  websocket-get-user-credit-cards:
+    handler: lambdas/websockets/getUserCreditCards.handler
+    events:
+      - websocket:
+          route: wallet-get-user-credit-cards
+
+  websocket-delete-user-credit-cards:
+    handler: lambdas/websockets/deleteUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-delete-user-credit-card
+
+  websocket-stripe-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: create-purchase-intent
+
+  websocket-stripe-success-transaction-update:
+    handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
+    events:
+      - websocket:
+          route: stripe-process-success-transaction-update
+
+  websocket-stripe-create-user-subscriptions:
+    handler: lambdas/websockets/createUserSubscriptions.handler
+    events:
+      - websocket:
+          route: create-user-subscription
+
+
   # -----------------------------------------------------------------
   # --- Currently Not-Used
   #
