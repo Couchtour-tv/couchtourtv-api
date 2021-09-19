@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('createSubscription-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { priceId, customer } = body;
     const subscription = await stripe.subscriptions.create({
       customer,

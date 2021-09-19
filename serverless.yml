@@ -243,61 +243,149 @@ functions:
   ## ----------------------------------------------------------------------------------
   ## ---- Stripe Integreation ::
   stripe-api-map:
-    handler: lambdas/endpoints/stripe/apiMap.main
+    handler: lambdas/endpoints/stripe/apiMap.handler
     events:
       - http:
           path: api/v1/stripe-api-map
-          method: get
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-payment-intent:
-    handler: lambdas/endpoints/stripe/createPaymentIntent.main
+    handler: lambdas/endpoints/stripe/createPaymentIntent.handler
     events:
       - http:
           path: api/v1/stripe-create-payment-intent
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-customer:
-    handler: lambdas/endpoints/stripe/createCustomer.main
+    handler: lambdas/endpoints/stripe/createCustomer.handler
     events:
       - http:
           path: api/v1/stripe-create-customer
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-attach-payment-method:
-    handler: lambdas/endpoints/stripe/attachPaymentMethod.main
+    handler: lambdas/endpoints/stripe/attachPaymentMethod.handler
     events:
       - http:
           path: api/v1/stripe-attach-payment-method
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-detach-payment-method:
-    handler: lambdas/endpoints/stripe/detachPaymentMethod.main
+    handler: lambdas/endpoints/stripe/detachPaymentMethod.handler
     events:
       - http:
           path: api/v1/stripe-detach-payment-method
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-update-payment-method:
-    handler: lambdas/endpoints/stripe/updatePaymentMethod.main
+    handler: lambdas/endpoints/stripe/updatePaymentMethod.handler
     events:
       - http:
           path: api/v1/stripe-update-payment-method
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-price:
-    handler: lambdas/endpoints/stripe/createPrice.main
+    handler: lambdas/endpoints/stripe/createPrice.handler
     events:
       - http:
           path: api/v1/stripe-create-price
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-reoccuring-price:
-    handler: lambdas/endpoints/stripe/createReoccuringPrice.main
+    handler: lambdas/endpoints/stripe/createReoccuringPrice.handler
     events:
       - http:
           path: api/v1/stripe-create-reoccuring-price
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-product:
     handler: lambdas/endpoints/stripe/createProduct.handler
     events:
@@ -315,50 +403,115 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-            allowCredentials: true
-            
+            allowCredentials: true            
   stripe-retrieve-product:
-    handler: lambdas/endpoints/stripe/retrieveProduct.main
+    handler: lambdas/endpoints/stripe/retrieveProduct.handler
     events:
       - http:
           path: api/v1/stripe-retrieve-product
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-list-products:
-    handler: lambdas/endpoints/stripe/listProducts.main
+    handler: lambdas/endpoints/stripe/listProducts.handler
     events:
       - http:
           path: api/v1/stripe-list-products
-          method: get
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-update-product:
-    handler: lambdas/endpoints/stripe/updateProduct.main
+    handler: lambdas/endpoints/stripe/updateProduct.handler
     events:
       - http:
           path: api/v1/stripe-update-product
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-subscription:
-    handler: lambdas/endpoints/stripe/createSubscription.main
+    handler: lambdas/endpoints/stripe/createSubscription.handler
     events:
       - http:
           path: api/v1/stripe-create-subscription
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-update-subscription:
-    handler: lambdas/endpoints/stripe/updateSubscription.main
+    handler: lambdas/endpoints/stripe/updateSubscription.handler
     events:
       - http:
           path: api/v1/stripe-update-subscription
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-cancel-subscription:
-    handler: lambdas/endpoints/stripe/cancelSubscription.main
+    handler: lambdas/endpoints/stripe/cancelSubscription.handler
     events:
       - http:
           path: api/v1/stripe-cancel-subscription
-          method: post
-          authorizer: aws_iam
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## ---- WEBSOCKETS ::

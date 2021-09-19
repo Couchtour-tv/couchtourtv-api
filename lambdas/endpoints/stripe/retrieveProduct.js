@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('retrieveProduct-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { productId } = body;
     const product = await stripe.products.retrieve(productId);
     console.log("Retrieve Product Price Object | Succeeded |:", product);

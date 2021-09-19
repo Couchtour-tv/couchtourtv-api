@@ -40,18 +40,25 @@ export const MaestroSalesTable = process.env.MAESTRO_SALES;
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID;
-
 // Cognito
 export const OptionsCognito = {
 	region: process.env.COGNITO_REGION
 };
 
-// Credit card processing
-export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
-export const StripeCurrency = process.env.STRIPE_CURRENCY;
-export const StripeCustomerDescirption = process.env.STRIPE_CUSTOMER_DESCRIPTION;
-export const StripeIntentDescirption = process.env.STRIPE_INTENT_DESCRIPTION;
-export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
+// ----- Credit card processing:
+
+// export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
+// export const StripeCurrency = process.env.STRIPE_CURRENCY;
+// export const StripeCustomerDescirption = process.env.STRIPE_CUSTOMER_DESCRIPTION;
+// export const StripeIntentDescirption = process.env.STRIPE_INTENT_DESCRIPTION;
+// export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
+
+export const StripeSecretKey = 'sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS';
+export const StripeCurrency = "USD";
+export const StripeCustomerDescirption = "qa.couchtour.tv-customer";
+export const StripeIntentDescirption = "qa.couchtour.tv-intent";
+export const StripeReoccuringPaymentInterval = "month";
+
 export const StripeApiMap = {
 	apiMap: 'api/v1/stripe-api-map',
 	createPaymentIntent: 'api/v1/stripe-create-payment-intent',

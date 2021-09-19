@@ -6,7 +6,7 @@ const stripe = require("stripe")(StripeSecretKey)
 exports.handler = async event => {
     console.log('createPaymentIntent-event ::', event);
     try {
-      const body = JSON.parse(event.body);
+      const body = await JSON.parse(event.body);
       let { email } = body;
       const customer = await stripe.customers.create({
         description: StripeCustomerDescirption,

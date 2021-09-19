@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('CancelSubscription-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { subscriptionId } = body;
     const deletedSubscription = await stripe.subscriptions.del( subscriptionId );
     console.log("Cancelled Subscription | Succeeded |:", deletedSubscription);

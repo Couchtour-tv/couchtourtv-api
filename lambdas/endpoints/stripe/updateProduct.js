@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('updateProduct-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { name, images, metadata, description, id } = body;
     const product = await stripe.products.update(
       name, images, metadata, description, id

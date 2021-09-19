@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('createPrice-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { unit_amount, product } = body;
     const price = await stripe.prices.create({
       unit_amount,

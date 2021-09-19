@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey);
 exports.handler = async event => {
   console.log('updateSubscription-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     const { subscriptionId, newPriceId } = body;
     const subscription = await stripe.subscriptions.retrieve( subscriptionId );
     const updatedSubscription = await stripe.subscriptions.update(

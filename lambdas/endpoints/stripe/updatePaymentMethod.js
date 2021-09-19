@@ -5,7 +5,7 @@ const stripe = require("stripe")(StripeSecretKey)
 exports.handler = async event => {
   console.log('updatePaymentMethod-event ::', event);
   try {
-    const body = JSON.parse(event.body);
+    const body = await JSON.parse(event.body);
     let { exp_month, exp_year, payment_method } = body;
     const paymentMethod = await stripe.paymentMethods.update(
       payment_method,
