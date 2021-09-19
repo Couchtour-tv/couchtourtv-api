@@ -59,7 +59,6 @@ export const StripeApiMap = {
 	attachPaymentMethod: 'api/v1/stripe-attach-payment-method',
 	detachPaymentMethod: 'api/v1/stripe-detach-payment-method',
 	updatePaymentMethod: 'api/v1/stripe-update-payment-method',
-	updatePaymentMethod: 'api/v1/stripe-update-payment-method',
 	createPriceObj: 'api/v1/stripe-create-price',
 	createReoccuringPriceObj: 'api/v1/stripe-create-reoccuring-price',
 	createProduct: 'api/v1/stripe-create-product',
