@@ -14,7 +14,7 @@ exports.handler = async event => {
       customer
     })
     console.log("Payment Intent Succeed:", paymentIntent)
-    return Responses._200(paymentIntent.client_secret);
+    return Responses._200(paymentIntent);
   } catch (error) {
     console.log('error', error);
     return Responses._500({
