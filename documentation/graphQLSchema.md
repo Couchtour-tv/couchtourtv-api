@@ -407,14 +407,14 @@ ____________________________________
 Has One
 You can also define the field you would like to use for the connection by populating the first argument to the fields array and matching it to a field on the type:
 ```
-type Project @model { //merch/ band
+type Project @model { DCM
   id: ID!
   name: String
   teamID: ID!
   team: Team @connection(fields: ["teamID"])
 }
 
-type Team @model { //picture
+type Team @model { DCMObject
   id: ID!
   name: String!
 }
@@ -443,13 +443,13 @@ ________________________________________________________________________________
 Belongs to
 You can make a connection bi-directional by adding a many-to-one connection to types that already have a one-to-many connection. In this case you add a connection from Comment to Post since each comment belongs to a post:
 ```
-type Post @model { //creditcard
+type Post @model { merchandise
   id: ID!
   title: String!
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) chatroom
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) 
 }
 
-type Comment @model //invitations
+type Comment @model //DMObects
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
@@ -579,3 +579,16 @@ userPools	      ✅	           ✅	                         ✅
 oidc	          ✅            ✅		
 apiKey			                                ✅	
 iam			                                    ✅           	✅
+
+
+
+https://docs.amplify.aws/lib/graphqlapi/query-data/q/platform/js/#simple-query
+```javascript
+import { API } from 'aws-amplify';
+import * as queries from './graphql/queries';
+
+const todos = await API.graphql({
+  query: queries.listTodos,
+  authMode: 'AWS_IAM'
+});
+```
