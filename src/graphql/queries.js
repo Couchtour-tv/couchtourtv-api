@@ -871,6 +871,7 @@ export const getPurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -2391,6 +2392,7 @@ export const getMerchandise = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }

@@ -280,6 +280,7 @@ type MerchandisePurchase
   active: Boolean
   purchase: Purchase @connection(fields: ["purchaseId"])
   merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  merchandiseVersion: Int
 }
 
 type Purchase

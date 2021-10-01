@@ -3671,6 +3671,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -3856,6 +3857,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -4041,6 +4043,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -4127,6 +4130,7 @@ export const onCreatePurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -4311,6 +4315,7 @@ export const onUpdatePurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -4495,6 +4500,7 @@ export const onDeletePurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -7769,6 +7775,7 @@ export const onCreateMerchandise = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -8022,6 +8029,7 @@ export const onUpdateMerchandise = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -8275,6 +8283,7 @@ export const onDeleteMerchandise = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
