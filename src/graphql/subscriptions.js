@@ -310,6 +310,7 @@ export const onCreateCartMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -436,6 +437,7 @@ export const onUpdateCartMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -562,6 +564,7 @@ export const onDeleteCartMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1145,6 +1148,7 @@ export const onCreateMerchandiseTransaction = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1306,6 +1310,7 @@ export const onUpdateMerchandiseTransaction = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1467,6 +1472,7 @@ export const onDeleteMerchandiseTransaction = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1584,6 +1590,7 @@ export const onCreateEntitlement = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1702,6 +1709,7 @@ export const onUpdateEntitlement = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1820,6 +1828,7 @@ export const onDeleteEntitlement = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -1929,6 +1938,7 @@ export const onCreateBand = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -1990,6 +2000,7 @@ export const onUpdateBand = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -2051,6 +2062,7 @@ export const onDeleteBand = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -2227,6 +2239,7 @@ export const onCreateSubscriptionMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -2259,6 +2272,7 @@ export const onCreateSubscriptionMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -2383,6 +2397,7 @@ export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -2415,6 +2430,7 @@ export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -2539,6 +2555,7 @@ export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -2571,6 +2588,7 @@ export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -2700,6 +2718,7 @@ export const onCreateSubscriptionModel = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -2833,6 +2852,7 @@ export const onUpdateSubscriptionModel = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -2966,6 +2986,7 @@ export const onDeleteSubscriptionModel = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -3094,6 +3115,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -3130,6 +3152,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -3254,6 +3277,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -3290,6 +3314,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -3414,6 +3439,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -3450,6 +3476,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -3640,6 +3667,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -3824,6 +3852,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -4008,6 +4037,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -4723,6 +4753,7 @@ export const onCreateUser = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -4914,6 +4945,7 @@ export const onUpdateUser = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -5105,6 +5137,7 @@ export const onDeleteUser = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -5250,6 +5283,7 @@ export const onCreateUserPackage = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -5373,6 +5407,7 @@ export const onUpdateUserPackage = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -5496,6 +5531,7 @@ export const onDeleteUserPackage = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -5636,6 +5672,7 @@ export const onCreatePackage = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -5780,6 +5817,7 @@ export const onUpdatePackage = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -5924,6 +5962,7 @@ export const onDeletePackage = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
@@ -7888,6 +7927,7 @@ export const onCreateMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -7931,6 +7971,7 @@ export const onCreateMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -7948,11 +7989,13 @@ export const onCreateMerchandise = /* GraphQL */ `
           updatedByUserEmail
           previousMerchId
           decomissionedMerchandiseJSON
+          version
           createdAt
           updatedAt
         }
         nextToken
       }
+      version
       createdAt
       updatedAt
     }
@@ -8137,6 +8180,7 @@ export const onUpdateMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -8180,6 +8224,7 @@ export const onUpdateMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -8197,11 +8242,13 @@ export const onUpdateMerchandise = /* GraphQL */ `
           updatedByUserEmail
           previousMerchId
           decomissionedMerchandiseJSON
+          version
           createdAt
           updatedAt
         }
         nextToken
       }
+      version
       createdAt
       updatedAt
     }
@@ -8386,6 +8433,7 @@ export const onDeleteMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -8429,6 +8477,7 @@ export const onDeleteMerchandise = /* GraphQL */ `
           bandMerchType
           subscriptionId
           packageId
+          version
           createdAt
           updatedAt
         }
@@ -8446,11 +8495,13 @@ export const onDeleteMerchandise = /* GraphQL */ `
           updatedByUserEmail
           previousMerchId
           decomissionedMerchandiseJSON
+          version
           createdAt
           updatedAt
         }
         nextToken
       }
+      version
       createdAt
       updatedAt
     }
@@ -8567,10 +8618,12 @@ export const onCreateDecomissionedMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
       decomissionedMerchandiseJSON
+      version
       createdAt
       updatedAt
     }
@@ -8687,10 +8740,12 @@ export const onUpdateDecomissionedMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
       decomissionedMerchandiseJSON
+      version
       createdAt
       updatedAt
     }
@@ -8807,10 +8862,12 @@ export const onDeleteDecomissionedMerchandise = /* GraphQL */ `
         decomissionedMerchandises {
           nextToken
         }
+        version
         createdAt
         updatedAt
       }
       decomissionedMerchandiseJSON
+      version
       createdAt
       updatedAt
     }

@@ -518,6 +518,7 @@ type Merchandise
   package: Package @connection(fields: ["packageId"])
   packageId: ID
   decomissionedMerchandises: [DecomissionedMerchandise] @connection(keyName: "byMerchandiseForDM", fields: ["id"])
+  version: Int
 }
 
 type DecomissionedMerchandise @model 
@@ -528,4 +529,5 @@ type DecomissionedMerchandise @model
   previousMerchId: ID
   merchandise: Merchandise  @connection(fields: ["previousMerchId"])
   decomissionedMerchandiseJSON: String
+  version: Int
 }
