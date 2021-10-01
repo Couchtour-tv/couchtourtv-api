@@ -231,57 +231,6 @@ type Picture @model {
   file: S3Object
 }
 
-type Merchandise
-  @model
-  @key(name: "byBand", fields: ["bandId"])
-  @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
-  @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
-  @key(
-    name: "getMerchandiseBySubscriptionId"
-    fields: ["subscriptionId"]
-    queryField: "getMerchandiseBySubscriptionId"
-  )
-  @key(
-    name: "getMerchandiseByPackageId"
-    fields: ["packageId"]
-    queryField: "getMerchandiseByPackageId"
-  ) {
-  id: ID!
-  type: MerchandiseType
-  transactions: [MerchandiseTransaction]
-    @connection(keyName: "byMerchandiseTransaction", fields: ["id"])
-  merchandisePurchases: [MerchandisePurchase]
-    @connection(keyName: "byMerchandise", fields: ["id"])
-  active: Boolean
-  createdBy: String
-  updatedBy: String
-  isEvent: Boolean
-  streamMetaData: StreamMetaData
-  name: String
-  description: String
-  image: Picture @connection(fields: ["pictureId"])
-  pictureId: ID
-  date: String
-  eventId: String
-  productId: String
-  priceId: String
-  price: String
-  stripeMetaData: String
-  carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
-  band: Band @connection(fields: ["bandId"])
-  bandId: ID
-  VODMetaData: VODMetaData
-  bandMerchType: BandMerchType
-  subscriptionMerchandise: [SubscriptionMerchandise]
-    @connection(keyName: "byMerchandiseSubscription", fields: ["id"])
-  packageMerchandise: [PackageMerchandise]
-    @connection(keyName: "byMerchandisePackage", fields: ["id"])
-  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
-  subscriptionId: ID
-  package: Package @connection(fields: ["packageId"])
-  packageId: ID
-}
-
 type SubscriptionMerchandise
   @model(queries: null)
   @key(
@@ -517,4 +466,66 @@ type Message
 
 type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
+}
+
+type Merchandise
+  @model
+  @key(name: "byBand", fields: ["bandId"])
+  @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
+  @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
+  @key(
+    name: "getMerchandiseBySubscriptionId"
+    fields: ["subscriptionId"]
+    queryField: "getMerchandiseBySubscriptionId"
+  )
+  @key(
+    name: "getMerchandiseByPackageId"
+    fields: ["packageId"]
+    queryField: "getMerchandiseByPackageId"
+  ) {
+  id: ID!
+  type: MerchandiseType
+  transactions: [MerchandiseTransaction]
+    @connection(keyName: "byMerchandiseTransaction", fields: ["id"])
+  merchandisePurchases: [MerchandisePurchase]
+    @connection(keyName: "byMerchandise", fields: ["id"])
+  active: Boolean
+  createdBy: String
+  updatedBy: String
+  isEvent: Boolean
+  streamMetaData: StreamMetaData
+  name: String
+  description: String
+  image: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  date: String
+  eventId: String
+  productId: String
+  priceId: String
+  price: String
+  stripeMetaData: String
+  carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
+  band: Band @connection(fields: ["bandId"])
+  bandId: ID
+  VODMetaData: VODMetaData
+  bandMerchType: BandMerchType
+  subscriptionMerchandise: [SubscriptionMerchandise]
+    @connection(keyName: "byMerchandiseSubscription", fields: ["id"])
+  packageMerchandise: [PackageMerchandise]
+    @connection(keyName: "byMerchandisePackage", fields: ["id"])
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+  subscriptionId: ID
+  package: Package @connection(fields: ["packageId"])
+  packageId: ID
+  decomissionedMerchandises: [DecomissionedMerchandise] @connection(keyName: "byMerchandiseForDM", fields: ["id"])
+}
+
+type DecomissionedMerchandise @model 
+  @key(name: "byMerchandiseForDM", fields: ["previousMerchId"]) {
+  id: ID!
+  updatedByUserId: ID
+  updatedByUserEmail: String
+  previousMerchId: ID
+  merchandise: Merchandise  @connection(fields: ["previousMerchId"])
+  decomissionedMerchandiseJSON: String
 }
