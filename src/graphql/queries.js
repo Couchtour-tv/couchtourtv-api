@@ -308,6 +308,7 @@ export const getEntitlement = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -406,6 +407,7 @@ export const listEntitlements = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -499,6 +501,7 @@ export const getBand = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -654,6 +657,7 @@ export const getSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -771,6 +775,7 @@ export const listSubscriptionModels = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -1201,6 +1206,7 @@ export const getUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -1387,6 +1393,7 @@ export const getPackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1504,6 +1511,7 @@ export const listPackages = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2450,6 +2458,7 @@ export const getMerchandise = /* GraphQL */ `
       productId
       priceId
       price
+      platformFee
       stripeMetaData
       carts {
         items {
@@ -2546,6 +2555,7 @@ export const getMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2590,6 +2600,7 @@ export const getMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2673,6 +2684,7 @@ export const listMerchandises = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2792,6 +2804,7 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2897,6 +2910,7 @@ export const listDecomissionedMerchandises = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -3298,6 +3312,7 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3425,6 +3440,7 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken

@@ -153,6 +153,7 @@ export const createCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -283,6 +284,7 @@ export const updateCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -413,6 +415,7 @@ export const deleteCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1009,6 +1012,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1174,6 +1178,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1339,6 +1344,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1460,6 +1466,7 @@ export const createEntitlement = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1582,6 +1589,7 @@ export const updateEntitlement = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1704,6 +1712,7 @@ export const deleteEntitlement = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -1884,6 +1893,7 @@ export const createBand = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -1949,6 +1959,7 @@ export const updateBand = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2014,6 +2025,7 @@ export const deleteBand = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2145,6 +2157,7 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2236,6 +2249,7 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2306,6 +2320,7 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2397,6 +2412,7 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2467,6 +2483,7 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2558,6 +2575,7 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -2633,6 +2651,7 @@ export const createSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2770,6 +2789,7 @@ export const updateSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -2907,6 +2927,7 @@ export const deleteSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3039,6 +3060,7 @@ export const createPackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3134,6 +3156,7 @@ export const createPackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -3204,6 +3227,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3299,6 +3323,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -3369,6 +3394,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3464,6 +3490,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -3600,6 +3627,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3789,6 +3817,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -3978,6 +4007,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -4768,6 +4798,7 @@ export const createUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -4963,6 +4994,7 @@ export const updateUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -5158,6 +5190,7 @@ export const deleteUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -5307,6 +5340,7 @@ export const createUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -5434,6 +5468,7 @@ export const updateUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -5561,6 +5596,7 @@ export const deleteUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -5647,6 +5683,7 @@ export const createPackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -5795,6 +5832,7 @@ export const updatePackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -5943,6 +5981,7 @@ export const deletePackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -7919,6 +7958,7 @@ export const createMerchandise = /* GraphQL */ `
       productId
       priceId
       price
+      platformFee
       stripeMetaData
       carts {
         items {
@@ -8015,6 +8055,7 @@ export const createMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8059,6 +8100,7 @@ export const createMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8176,6 +8218,7 @@ export const updateMerchandise = /* GraphQL */ `
       productId
       priceId
       price
+      platformFee
       stripeMetaData
       carts {
         items {
@@ -8272,6 +8315,7 @@ export const updateMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8316,6 +8360,7 @@ export const updateMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8433,6 +8478,7 @@ export const deleteMerchandise = /* GraphQL */ `
       productId
       priceId
       price
+      platformFee
       stripeMetaData
       carts {
         items {
@@ -8529,6 +8575,7 @@ export const deleteMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8573,6 +8620,7 @@ export const deleteMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
           bandId
           bandMerchType
@@ -8659,6 +8707,7 @@ export const createDecomissionedMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -8784,6 +8833,7 @@ export const updateDecomissionedMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
@@ -8909,6 +8959,7 @@ export const deleteDecomissionedMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken

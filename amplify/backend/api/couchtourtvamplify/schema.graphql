@@ -51,7 +51,6 @@ type VODMetaData {
   videoURL: String
 }
 
-
 type StreamMetaData {
   streamId: String
   eventId: String
@@ -504,6 +503,7 @@ type Merchandise
   productId: String
   priceId: String
   price: String
+  platformFee: Int
   stripeMetaData: String
   carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
   band: Band @connection(fields: ["bandId"])
@@ -518,17 +518,19 @@ type Merchandise
   subscriptionId: ID
   package: Package @connection(fields: ["packageId"])
   packageId: ID
-  decomissionedMerchandises: [DecomissionedMerchandise] @connection(keyName: "byMerchandiseForDM", fields: ["id"])
+  decomissionedMerchandises: [DecomissionedMerchandise]
+    @connection(keyName: "byMerchandiseForDM", fields: ["id"])
   version: Int
 }
 
-type DecomissionedMerchandise @model 
+type DecomissionedMerchandise
+  @model
   @key(name: "byMerchandiseForDM", fields: ["previousMerchId"]) {
   id: ID!
   updatedByUserId: ID
   updatedByUserEmail: String
   previousMerchId: ID
-  merchandise: Merchandise  @connection(fields: ["previousMerchId"])
+  merchandise: Merchandise @connection(fields: ["previousMerchId"])
   decomissionedMerchandiseJSON: String
   version: Int
 }
