@@ -503,7 +503,7 @@ type Merchandise
   productId: String
   priceId: String
   price: String
-  platformFee: Int
+  platformFee: String
   stripeMetaData: String
   carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
   band: Band @connection(fields: ["bandId"])
