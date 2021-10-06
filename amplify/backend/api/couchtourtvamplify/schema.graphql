@@ -535,3 +535,11 @@ type DecomissionedMerchandise
   decomissionedMerchandiseJSON: String
   version: Int
 }
+
+type DefaultPlatformFeePercentages @model {
+  id: ID!
+  ticket_stream_event: String
+  vod: String
+  package: String
+  subscription: String
+}

@@ -9076,3 +9076,51 @@ export const deleteDecomissionedMerchandise = /* GraphQL */ `
     }
   }
 `;
+export const createDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation CreateDefaultPlatformFeePercentages(
+    $input: CreateDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    createDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      vod
+      package
+      subscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation UpdateDefaultPlatformFeePercentages(
+    $input: UpdateDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    updateDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      vod
+      package
+      subscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation DeleteDefaultPlatformFeePercentages(
+    $input: DeleteDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    deleteDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      vod
+      package
+      subscription
+      createdAt
+      updatedAt
+    }
+  }
+`;

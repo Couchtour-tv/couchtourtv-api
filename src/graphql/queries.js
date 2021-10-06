@@ -2938,6 +2938,43 @@ export const listDecomissionedMerchandises = /* GraphQL */ `
     }
   }
 `;
+export const getDefaultPlatformFeePercentages = /* GraphQL */ `
+  query GetDefaultPlatformFeePercentages($id: ID!) {
+    getDefaultPlatformFeePercentages(id: $id) {
+      id
+      ticket_stream_event
+      vod
+      package
+      subscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDefaultPlatformFeePercentages = /* GraphQL */ `
+  query ListDefaultPlatformFeePercentages(
+    $filter: ModelDefaultPlatformFeePercentagesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDefaultPlatformFeePercentages(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        ticket_stream_event
+        vod
+        package
+        subscription
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getUserByUsername = /* GraphQL */ `
   query GetUserByUsername(
     $username: String
