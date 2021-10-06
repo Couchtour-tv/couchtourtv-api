@@ -300,6 +300,7 @@ export const onCreateCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -428,6 +429,7 @@ export const onUpdateCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -556,6 +558,7 @@ export const onDeleteCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1141,6 +1144,7 @@ export const onCreateMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1304,6 +1308,7 @@ export const onUpdateMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1467,6 +1472,7 @@ export const onDeleteMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1586,6 +1592,7 @@ export const onCreateEntitlement = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1706,6 +1713,7 @@ export const onUpdateEntitlement = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1826,6 +1834,7 @@ export const onDeleteEntitlement = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2241,6 +2250,7 @@ export const onCreateSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2401,6 +2411,7 @@ export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2561,6 +2572,7 @@ export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2726,6 +2738,7 @@ export const onCreateSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2861,6 +2874,7 @@ export const onUpdateSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2996,6 +3010,7 @@ export const onDeleteSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3126,6 +3141,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3147,6 +3163,7 @@ export const onCreatePackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -3290,6 +3307,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3311,6 +3329,7 @@ export const onUpdatePackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -3454,6 +3473,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3475,6 +3495,7 @@ export const onDeletePackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -3684,6 +3705,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3871,6 +3893,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4058,6 +4081,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4733,6 +4757,7 @@ export const onCreateUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4926,6 +4951,7 @@ export const onUpdateUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5119,6 +5145,7 @@ export const onDeleteUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5295,6 +5322,7 @@ export const onCreateUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -5420,6 +5448,7 @@ export const onUpdateUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -5545,6 +5574,7 @@ export const onDeleteUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -5596,6 +5626,7 @@ export const onCreatePackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -5704,6 +5735,7 @@ export const onCreatePackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5742,6 +5774,7 @@ export const onUpdatePackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -5850,6 +5883,7 @@ export const onUpdatePackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5888,6 +5922,7 @@ export const onDeletePackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -5996,6 +6031,7 @@ export const onDeletePackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -7992,6 +8028,7 @@ export const onCreateMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -8249,6 +8286,7 @@ export const onUpdateMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -8506,6 +8544,7 @@ export const onDeleteMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -8665,6 +8704,7 @@ export const onCreateDecomissionedMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -8788,6 +8828,7 @@ export const onUpdateDecomissionedMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -8911,6 +8952,7 @@ export const onDeleteDecomissionedMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID

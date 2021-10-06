@@ -361,6 +361,7 @@ export const getEntitlement = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -710,6 +711,7 @@ export const getSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1155,6 +1157,7 @@ export const getUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1338,6 +1341,7 @@ export const getPackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -1446,6 +1450,7 @@ export const getPackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1489,6 +1494,7 @@ export const listPackages = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -2578,6 +2584,7 @@ export const getMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -2737,6 +2744,7 @@ export const listMerchandises = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2857,6 +2865,7 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3365,6 +3374,7 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3493,6 +3503,7 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID

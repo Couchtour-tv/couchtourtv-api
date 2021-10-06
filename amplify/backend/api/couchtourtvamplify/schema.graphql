@@ -358,6 +358,7 @@ type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
   description: String
   price: String
   priceId: String
+  platformFee: String
   productId: String
   active: Boolean
   userID: ID
