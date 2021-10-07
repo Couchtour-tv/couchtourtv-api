@@ -170,6 +170,35 @@ type Transaction
   purchaseId: ID
 }
 
+type CreditCard
+  @model
+  @key(
+    name: "userIDCreditCardIndex"
+    fields: ["userID"]
+    queryField: "getCreditCardByUserID"
+  ) {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  transactions: [Transaction]
+    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
+  purchases: [Purchase]
+    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
+  status: CardStatus
+  active: Boolean
+  deleted: Boolean
+  brand: String
+  email: String
+  expMonth: String
+  expYear: String
+  lastFour: String
+  paymentMethodObj: String
+  created: Int
+  postalCode: String
+  name: String
+  previousCardId: ID
+}
+
 type MerchandiseTransaction
   @model(queries: null)
   @key(name: "byTransaction", fields: ["transactionId"])
@@ -369,35 +398,6 @@ type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
     @connection(keyName: "byPackage", fields: ["id"])
 }
 
-type CreditCard
-  @model
-  @key(
-    name: "userIDCreditCardIndex"
-    fields: ["userID"]
-    queryField: "getCreditCardByUserID"
-  ) {
-  id: ID!
-  userID: ID!
-  user: User @connection(fields: ["userID"])
-  transactions: [Transaction]
-    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
-  purchases: [Purchase]
-    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
-  status: CardStatus
-  active: Boolean
-  deleted: Boolean
-  brand: String
-  email: String
-  expMonth: String
-  expYear: String
-  lastFour: String
-  paymentMethodObj: String
-  created: Int
-  postalCode: String
-  name: String
-  previousCardId: ID
-}
-
 type ChatRoomUser
   @model
   @key(
@@ -522,6 +522,20 @@ type Merchandise
   decomissionedMerchandises: [DecomissionedMerchandise]
     @connection(keyName: "byMerchandiseForDM", fields: ["id"])
   version: Int
+  associatedMerchandise: [AssociatedMerchandise]
+    @connection(keyName: "byMerchandiseAssociation", fields: ["id"])
+  associatedMerchandiseEnabled: Boolean
+}
+
+type AssociatedMerchandise
+  @model
+  @key(name: "byMerchandiseAssociation", fields: ["associatedToId"]) {
+  id: ID!
+  associatedMerchandise: Merchandise
+    @connection(fields: ["associatedMerchandiseId"])
+  associatedMerchandiseId: ID
+  associatedTo: Merchandise @connection(fields: ["associatedToId"])
+  associatedToId: ID
 }
 
 type DecomissionedMerchandise

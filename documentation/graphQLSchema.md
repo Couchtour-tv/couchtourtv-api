@@ -407,14 +407,14 @@ ____________________________________
 Has One
 You can also define the field you would like to use for the connection by populating the first argument to the fields array and matching it to a field on the type:
 ```
-type Project @model { DCM
+type Project @model { associatedMerch
   id: ID!
   name: String
   teamID: ID!
   team: Team @connection(fields: ["teamID"])
 }
 
-type Team @model { DCMObject
+type Team @model { merch
   id: ID!
   name: String!
 }
@@ -449,7 +449,7 @@ type Post @model { merchandise
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) 
 }
 
-type Comment @model //DMObects
+type Comment @model associatedMERCH
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
