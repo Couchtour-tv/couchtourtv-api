@@ -3327,6 +3327,49 @@ export const listDefaultPlatformFeePercentages = /* GraphQL */ `
     }
   }
 `;
+export const getContact = /* GraphQL */ `
+  query GetContact($lastName: String!, $firstName: String!, $age: Int!) {
+    getContact(lastName: $lastName, firstName: $firstName, age: $age) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listContacts = /* GraphQL */ `
+  query ListContacts(
+    $lastName: String
+    $firstNameAge: ModelContactPrimaryCompositeKeyConditionInput
+    $filter: ModelContactFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listContacts(
+      lastName: $lastName
+      firstNameAge: $firstNameAge
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getCreditCardByUserID = /* GraphQL */ `
   query GetCreditCardByUserID(
     $userID: ID
@@ -3913,6 +3956,66 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           nextToken
         }
         associatedMerchandiseEnabled
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const contactsByFavoriteColor = /* GraphQL */ `
+  query ContactsByFavoriteColor(
+    $lastName: String
+    $favoriteColor: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContactFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    contactsByFavoriteColor(
+      lastName: $lastName
+      favoriteColor: $favoriteColor
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const contactsByFavoriteFoorAndColor = /* GraphQL */ `
+  query ContactsByFavoriteFoorAndColor(
+    $favoriteFood: String
+    $favoriteColor: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContactFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    contactsByFavoriteFoorAndColor(
+      favoriteFood: $favoriteFood
+      favoriteColor: $favoriteColor
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
         createdAt
         updatedAt
       }

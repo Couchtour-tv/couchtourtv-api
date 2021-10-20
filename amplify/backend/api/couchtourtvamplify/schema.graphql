@@ -317,7 +317,7 @@ type Purchase
   @key(name: "creditCardIdPurchaseIndex", fields: ["creditCardId"]) {
   id: ID!
   userID: ID!
-  user: User
+  user: User @connection(fields: ["userID"])
   merchandisePurchases: [MerchandisePurchase]
     @connection(keyName: "byPurchase", fields: ["id"])
   creditCard: CreditCard @connection(fields: ["creditCardId"])
@@ -556,4 +556,24 @@ type DefaultPlatformFeePercentages @model {
   vod: String
   package: String
   subscription: String
+}
+
+type Contact
+  @model
+  @key(fields: ["lastName", "firstName", "age"])
+  @key(
+    name: "contactsByFavoriteColor"
+    fields: ["lastName", "favoriteColor"]
+    queryField: "contactsByFavoriteColor"
+  )
+  @key(
+    name: "contactsByFavoriteFoodAndColor"
+    fields: ["favoriteFood", "favoriteColor"]
+    queryField: "contactsByFavoriteFoorAndColor"
+  ) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+  favoriteColor: String
+  favoriteFood: String
 }

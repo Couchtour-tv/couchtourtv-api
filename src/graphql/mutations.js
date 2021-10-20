@@ -10012,3 +10012,51 @@ export const deleteDefaultPlatformFeePercentages = /* GraphQL */ `
     }
   }
 `;
+export const createContact = /* GraphQL */ `
+  mutation CreateContact(
+    $input: CreateContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    createContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateContact = /* GraphQL */ `
+  mutation UpdateContact(
+    $input: UpdateContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    updateContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteContact = /* GraphQL */ `
+  mutation DeleteContact(
+    $input: DeleteContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    deleteContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;

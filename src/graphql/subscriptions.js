@@ -9893,3 +9893,42 @@ export const onDeleteDefaultPlatformFeePercentages = /* GraphQL */ `
     }
   }
 `;
+export const onCreateContact = /* GraphQL */ `
+  subscription OnCreateContact {
+    onCreateContact {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateContact = /* GraphQL */ `
+  subscription OnUpdateContact {
+    onUpdateContact {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteContact = /* GraphQL */ `
+  subscription OnDeleteContact {
+    onDeleteContact {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
