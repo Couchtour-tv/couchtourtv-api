@@ -41,14 +41,27 @@ const listUsersEmailsAndUserNames = gql`
     }
   }
 `
+
+//Couchtourapisandbox-dev
 const REACT_APP_API_APPSYNC_URL =
-  "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql"
+  "https://ojvjqrhj2jbj3cayqa4iqrj4yy.appsync-api.us-east-1.amazonaws.com/graphql"
+
+//couchtourtvamplify-ctqa
+// const REACT_APP_API_APPSYNC_URL =
+//   "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql"
+
 // "http://localhost:3000/stg/api/v1/graphql-test"
 // "https://2ygrym23r3.execute-api.us-east-1.amazonaws.com/stg"
 // REACT_APP_API_GATEWAY_REGION = "us-east-1"
 // const REACT_APP_API_GATEWAY_NAME = "stg-branchdna-api"
 // const API_APPSYNC_NAME_GRAPHQLAPIKEYOUTPUT = "oghrbdggl5e53jkhdrau2kzz4e"
-const API_APPSYNC_NAME_GRAPHQLAPIKEYOUTPUT = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
+
+//Couchtourapisandbox-dev
+const API_APPSYNC_NAME_GRAPHQLAPIKEYOUTPUT = "da2-bo4hop4hdvbdfel5fzreoa77ye"
+
+//couchtourtvamplify-ctqa
+// const API_APPSYNC_NAME_GRAPHQLAPIKEYOUTPUT = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
+
 // const API_APPSYNC_NAME_GRAPHQLAPIKEYOUTPUT = "couchtourtvamplify-ctqa"
 //  /stg/api/v1/graphql-test
 
