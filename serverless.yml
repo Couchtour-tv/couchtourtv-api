@@ -518,7 +518,7 @@ functions:
     handler: lambdas/endpoints/graphql/ingestVODmerchandise.handler
     events:
       - http:
-          path: api/v1/ingest-vod-merchandise
+          path: api/v1/vod-merchandise-ingest
           method: any
           # authorizer: aws_iam
           cors:
@@ -536,7 +536,7 @@ functions:
     handler: lambdas/endpoints/graphql/deleteVODmerchandiseById.handler
     events:
       - http:
-          path: api/v1/delete-vod-merchandise-by-id
+          path: api/v1/vod-merchandise-delete-by-id
           method: any
           # authorizer: aws_iam
           cors:
