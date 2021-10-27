@@ -512,91 +512,13 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
-  ## ----------------------------------------------------------------------------------
-  ## ----------------------------------------------------------------------------------
-  ## ---- WEBSOCKETS ::
-  ## ----------------------------------------------------------------------------------
-  ## ----------------------------------------------------------------------------------
-  ## -- MAESTROS
-  maestroEvents:
-    handler: lambdas/webhooks/maestroEvents.handler
-    events:
-      - http:
-          path: maestro-events
-          method: POST
-  livelySales:
-    handler: lambdas/webhooks/livelySales.handler
-    events:
-      - http:
-          path: lively-sales
-          method: GET
-  # -----------------------------------------------------------------
-  # --- Currently Not-Used
-  #
-  # websocket-update-user-credit-cards:
-  #   handler: lambdas/websockets/deleteUserCreditCard.handler
-  #   events:
-  #     - websocket:
-  #         route: wallet-update-user-credit-card
-  #
-  # -----------------------------------------------------------------
-  # -----------------------------------------------------------------
-  # --- Stashing, Not Used
-  #
-  # websocket-stripe-create-payment-method:
-  #   handler: lambdas/websockets/createPaymentMethod.handler
-  #   events:
-  #     - websocket:
-  #         route: create-payment-method
-  #
-  # -----------------------------------------------------------------
-
-  ## ----------------------------------------------------------------------------------
-  ## ----------------------------------------------------------------------------------
-  ## -- Strip Integration: transaction :: ERROR :: handling
-  websocket-stripe-error-card-deactivate:
-    handler: lambdas/websockets/stripeProcessErrorCardDeactivate.handler
-    events:
-      - websocket:
-          route: stripe-process-error-card-deactivate
-
-  websocket-stripe-error-incorrect-cvc:
-    handler: lambdas/websockets/stripeProcessErrorCardIncorrectCvc.handler
-    events:
-      - websocket:
-          route: stripe-process-error-incorrect-cvc
-
-  websocket-stripe-error-insufficient-funds:
-    handler: lambdas/websockets/stripeProcessErrorCardInsufficientFunds.handler
-    events:
-      - websocket:
-          route: stripe-process-error-insufficient-funds
-
-  websocket-stripe-error-card-expired:
-    handler: lambdas/websockets/stripeProcessErrorCardExpired.handler
-    events:
-      - websocket:
-          route: stripe-process-error-card-expired
-
-  websocket-stripe-error-payment-failure:
-    handler: lambdas/websockets/stripeProcessErrorCardPaymentFailure.handler
-    events:
-      - websocket:
-          route: stripe-process-error-payment-failure
-
-  websocket-stripe-error-incorrect-zip:
-    handler: lambdas/websockets/stripeProcessErrorCardIncorrectZip.handler
-    events:
-      - websocket:
-          route: stripe-process-error-incorrect-zipcode
-
-
-## ----------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
+  # API Gateway Socket Definition and Handlers
+  - ${file(resources/socket-definition-and-handlers.yml)}
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
   # S3
