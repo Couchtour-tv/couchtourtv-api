@@ -1,0 +1,146 @@
+
+
+SLUG = payload.eventData.referer.pageSlug == 'disco-biscuits-2021-05-sussex'
+SKU = payload.eventData.sku == '2021-05-sussex-2-day-lively-vips'
+EMAIL = payload.account.email == 'helix42@gmail.com'
+NAME = payload.account.name ==  'Marnicle Mill *verified*'
+MAESTRO_ID = payload.account._id = '5f8988c69bc82600a5829b48'
+
+
+
+VERSION 1
+{
+  eventData: {
+    billingInfo: {
+      complete: true,
+      countryCode: 'UM',
+      error: null,
+      markDefaultPaymentMethod: true,
+      name: '',
+      postalCode: '18037',
+      stateCode: null
+    },
+    idempotencyKey: '62215a09-6e9e-4a16-81d5-2bb2cf60ecd4',
+    paymentMethod: {
+      billing_details: [Object],
+      card: [Object],
+      created: 1620668840,
+      customer: null,
+      id: 'pm_1IpdCNKlS19qVW5lAb8RLRNB',
+      livemode: true,
+      object: 'payment_method',
+      type: 'card'
+    },
+    referer: {
+      origin: 'https://player.couchtour.tv',
+      pageSlug: 'disco-biscuits-2021-05-sussex'
+    },
+    sku: '2021-05-sussex-2-day-lively-vips'
+  },
+  method: 'POST',
+  service: 'billing v1',
+  signature: 'c0e5de7d-03c7-47cf-aae4-ea38ea8367a4',
+  originPath: '/',
+  webhookUrl: 'https://sq3xr6uno2.execute-api.us-east-1.amazonaws.com/prod/maestro-events',
+  account: {
+    _id: '5f8988c69bc82600a5829b48',
+    email: 'helasdfom',
+    marketingOptin: false,
+    name: 'Marnicle Mill *verified*',
+    normalizedName: 'marnicle mill *verified*',
+    roles: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    siteId: '5f627f6ae63761002c65fcd6',
+    subscriptions: [ [Object] ],
+    uid: 'emaiasdfom',
+    created: 1602848966437,
+    modified: 1617406842750,
+    tags: []
+  }
+}
+
+
+VERSION 2
+2021-05-13T15:47:48.290Z  8dde4b30-639b-4445-a94d-c92be598fe4b  INFO  MAESTRO EVENTS [11]  {
+  eventData: {
+    _id: '5f8a1344044c6300a530f144/2021-05-14-sussex-live-stream',
+    accountId: '5f8a1344044c6300a530f144',
+    created: 1620873427600,
+    entitlement: {
+      _id: '6096e5b403877700a5e96f0e',
+      created: 1620501940007,
+      currency: 'usd',
+      modified: 1620501940007,
+      name: '5/14 Livestream',
+      price: 20,
+      recurrence: 'once',
+      siteId: '5f627f6ae63761002c65fcd6',
+      sku: '2021-05-14-sussex-live-stream',
+      subscriptionProvider: 'maestro'
+    },
+    grantedMethod: 'purchased',
+    modified: 1620873431679,
+    siteId: '5f627f6ae63761002c65fcd6',
+    status: 'active'
+  },
+  method: 'POST',
+  service: 'billing v1',
+  signature: 'c0e5de7d-03c7-47cf-aae4-ea38ea8367a4',
+  originPath: '/',
+  webhookUrl: 'https://sq3xr6uno2.execute-api.us-east-1.amazonaws.com/prod/maestro-events',
+  account: {
+    _id: '5f8a1344044c6300a530f144',
+    email: 'madfm',
+    marketingOptin: false,
+    name: 'Michael Checchi',
+    normalizedName: 'michael checchi',
+    roles: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    siteId: '5f627f6ae63761002c65fcd6',
+    subscriptions: [ [Object], [Object], [Object], [Object] ],
+    uid: 'emadfm',
+    created: 1602884420956,
+    modified: 1604164318582,
+    tags: []
+  }
+}
+
+
+VERSION 3
+
+{
+  eventData: {
+    email: 'jamiasdfom',
+    siteId: '5f627f6ae63761002c65fcd6'
+  },
+  method: 'POST',
+  service: 'auth v2',
+  signature: 'c0e5de7d-03c7-47cf-aae4-ea38ea8367a4',
+  originPath: '/',
+  webhookUrl: 'https://sq3xr6uno2.execute-api.us-east-1.amazonaws.com/prod/maestro-events',
+  account: {
+    _id: '5f935cec24f8e700a5c200c7',
+    email: 'jamasdfom',
+    marketingOptin: false,
+    name: 'james jones',
+    normalizedName: 'james jones',
+    roles: [],
+    siteId: '5f627f6ae63761002c65fcd6',
+    subscriptions: [ [Object], [Object] ],
+    uid: 'emaasdfm',
+    created: 1603493100982,
+    modified: 1604098957698,
+    tags: []
+  }
+}
+

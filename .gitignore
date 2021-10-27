@@ -61,6 +61,9 @@ env.yml
 .env.development.local
 .env.staging.local
 
+env-stash-qa-cloud-test.txt
+env-stash-qa-cloud.txt
+
 # env - all custom naming
 *.env
 
@@ -70,7 +73,7 @@ env.yml
 /docs
 /docs/*
 
-# py environment for local socket testing 
+# py environment for local socket testing
 tests/local_sockets/env-socket-test
 tests/local_sockets/env-sockets
 
@@ -78,3 +81,23 @@ tests/local_sockets/env-sockets
 tests/local_sockets/__pycache__/
 tests/local_sockets/__pycache__/*
 *.pyc
+
+#amplify
+amplify/\#current-cloud-backend
+amplify/.config/local-*
+amplify/logs
+amplify/mock-data
+amplify/backend/amplify-meta.json
+amplify/backend/awscloudformation
+amplify/backend/.temp
+build/
+dist/
+node_modules/
+aws-exports.js
+awsconfiguration.json
+amplifyconfiguration.json
+amplifyconfiguration.dart
+amplify-build-config.json
+amplify-gradle-config.json
+amplifytools.xcconfig
+.secret-*
