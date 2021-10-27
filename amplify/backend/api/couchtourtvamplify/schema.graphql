@@ -51,7 +51,6 @@ type VODMetaData {
   videoURL: String
 }
 
-
 type StreamMetaData {
   streamId: String
   eventId: String
@@ -171,6 +170,35 @@ type Transaction
   purchaseId: ID
 }
 
+type CreditCard
+  @model
+  @key(
+    name: "userIDCreditCardIndex"
+    fields: ["userID"]
+    queryField: "getCreditCardByUserID"
+  ) {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  transactions: [Transaction]
+    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
+  purchases: [Purchase]
+    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
+  status: CardStatus
+  active: Boolean
+  deleted: Boolean
+  brand: String
+  email: String
+  expMonth: String
+  expYear: String
+  lastFour: String
+  paymentMethodObj: String
+  created: Int
+  postalCode: String
+  name: String
+  previousCardId: ID
+}
+
 type MerchandiseTransaction
   @model(queries: null)
   @key(name: "byTransaction", fields: ["transactionId"])
@@ -231,57 +259,6 @@ type Picture @model {
   file: S3Object
 }
 
-type Merchandise
-  @model
-  @key(name: "byBand", fields: ["bandId"])
-  @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
-  @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
-  @key(
-    name: "getMerchandiseBySubscriptionId"
-    fields: ["subscriptionId"]
-    queryField: "getMerchandiseBySubscriptionId"
-  )
-  @key(
-    name: "getMerchandiseByPackageId"
-    fields: ["packageId"]
-    queryField: "getMerchandiseByPackageId"
-  ) {
-  id: ID!
-  type: MerchandiseType
-  transactions: [MerchandiseTransaction]
-    @connection(keyName: "byMerchandiseTransaction", fields: ["id"])
-  merchandisePurchases: [MerchandisePurchase]
-    @connection(keyName: "byMerchandise", fields: ["id"])
-  active: Boolean
-  createdBy: String
-  updatedBy: String
-  isEvent: Boolean
-  streamMetaData: StreamMetaData
-  name: String
-  description: String
-  image: Picture @connection(fields: ["pictureId"])
-  pictureId: ID
-  date: String
-  eventId: String
-  productId: String
-  priceId: String
-  price: String
-  stripeMetaData: String
-  carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
-  band: Band @connection(fields: ["bandId"])
-  bandId: ID
-  VODMetaData: VODMetaData
-  bandMerchType: BandMerchType
-  subscriptionMerchandise: [SubscriptionMerchandise]
-    @connection(keyName: "byMerchandiseSubscription", fields: ["id"])
-  packageMerchandise: [PackageMerchandise]
-    @connection(keyName: "byMerchandisePackage", fields: ["id"])
-  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
-  subscriptionId: ID
-  package: Package @connection(fields: ["packageId"])
-  packageId: ID
-}
-
 type SubscriptionMerchandise
   @model(queries: null)
   @key(
@@ -331,6 +308,7 @@ type MerchandisePurchase
   active: Boolean
   purchase: Purchase @connection(fields: ["purchaseId"])
   merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  merchandiseVersion: Int
 }
 
 type Purchase
@@ -339,7 +317,7 @@ type Purchase
   @key(name: "creditCardIdPurchaseIndex", fields: ["creditCardId"]) {
   id: ID!
   userID: ID!
-  user: User
+  user: User @connection(fields: ["userID"])
   merchandisePurchases: [MerchandisePurchase]
     @connection(keyName: "byPurchase", fields: ["id"])
   creditCard: CreditCard @connection(fields: ["creditCardId"])
@@ -409,6 +387,7 @@ type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
   description: String
   price: String
   priceId: String
+  platformFee: String
   productId: String
   active: Boolean
   userID: ID
@@ -417,35 +396,6 @@ type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
   merchandise: Merchandise @connection(fields: ["merchandiseId"])
   packageMerchandise: [PackageMerchandise]
     @connection(keyName: "byPackage", fields: ["id"])
-}
-
-type CreditCard
-  @model
-  @key(
-    name: "userIDCreditCardIndex"
-    fields: ["userID"]
-    queryField: "getCreditCardByUserID"
-  ) {
-  id: ID!
-  userID: ID!
-  user: User @connection(fields: ["userID"])
-  transactions: [Transaction]
-    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
-  purchases: [Purchase]
-    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
-  status: CardStatus
-  active: Boolean
-  deleted: Boolean
-  brand: String
-  email: String
-  expMonth: String
-  expYear: String
-  lastFour: String
-  paymentMethodObj: String
-  created: Int
-  postalCode: String
-  name: String
-  previousCardId: ID
 }
 
 type ChatRoomUser
@@ -517,4 +467,113 @@ type Message
 
 type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
+}
+
+type Merchandise
+  @model
+  @key(name: "byBand", fields: ["bandId"])
+  @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
+  @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
+  @key(
+    name: "getMerchandiseBySubscriptionId"
+    fields: ["subscriptionId"]
+    queryField: "getMerchandiseBySubscriptionId"
+  )
+  @key(
+    name: "getMerchandiseByPackageId"
+    fields: ["packageId"]
+    queryField: "getMerchandiseByPackageId"
+  ) {
+  id: ID!
+  type: MerchandiseType
+  transactions: [MerchandiseTransaction]
+    @connection(keyName: "byMerchandiseTransaction", fields: ["id"])
+  merchandisePurchases: [MerchandisePurchase]
+    @connection(keyName: "byMerchandise", fields: ["id"])
+  active: Boolean
+  createdBy: String
+  updatedBy: String
+  isEvent: Boolean
+  streamMetaData: StreamMetaData
+  name: String
+  description: String
+  image: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  date: String
+  eventId: String
+  productId: String
+  priceId: String
+  price: String
+  platformFee: String
+  stripeMetaData: String
+  carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
+  band: Band @connection(fields: ["bandId"])
+  bandId: ID
+  VODMetaData: VODMetaData
+  bandMerchType: BandMerchType
+  subscriptionMerchandise: [SubscriptionMerchandise]
+    @connection(keyName: "byMerchandiseSubscription", fields: ["id"])
+  packageMerchandise: [PackageMerchandise]
+    @connection(keyName: "byMerchandisePackage", fields: ["id"])
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+  subscriptionId: ID
+  package: Package @connection(fields: ["packageId"])
+  packageId: ID
+  decomissionedMerchandises: [DecomissionedMerchandise]
+    @connection(keyName: "byMerchandiseForDM", fields: ["id"])
+  version: Int
+  associatedMerchandise: [AssociatedMerchandise]
+    @connection(keyName: "byMerchandiseAssociation", fields: ["id"])
+  associatedMerchandiseEnabled: Boolean
+}
+
+type AssociatedMerchandise
+  @model
+  @key(name: "byMerchandiseAssociation", fields: ["associatedToId"]) {
+  id: ID!
+  associatedMerchandise: Merchandise
+    @connection(fields: ["associatedMerchandiseId"])
+  associatedMerchandiseId: ID
+  associatedTo: Merchandise @connection(fields: ["associatedToId"])
+  associatedToId: ID
+}
+
+type DecomissionedMerchandise
+  @model
+  @key(name: "byMerchandiseForDM", fields: ["previousMerchId"]) {
+  id: ID!
+  updatedByUserId: ID
+  updatedByUserEmail: String
+  previousMerchId: ID
+  merchandise: Merchandise @connection(fields: ["previousMerchId"])
+  decomissionedMerchandiseJSON: String
+  version: Int
+}
+
+type DefaultPlatformFeePercentages @model {
+  id: ID!
+  ticket_stream_event: String
+  vod: String
+  package: String
+  subscription: String
+}
+
+type Contact
+  @model
+  @key(fields: ["lastName", "firstName", "age"])
+  @key(
+    name: "contactsByFavoriteColor"
+    fields: ["lastName", "favoriteColor"]
+    queryField: "contactsByFavoriteColor"
+  )
+  @key(
+    name: "contactsByFavoriteFoodAndColor"
+    fields: ["favoriteFood", "favoriteColor"]
+    queryField: "contactsByFavoriteFoorAndColor"
+  ) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+  favoriteColor: String
+  favoriteFood: String
 }

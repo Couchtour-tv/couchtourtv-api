@@ -407,14 +407,14 @@ ____________________________________
 Has One
 You can also define the field you would like to use for the connection by populating the first argument to the fields array and matching it to a field on the type:
 ```
-type Project @model { //merch/ band
+type Project @model { associatedMerch
   id: ID!
   name: String
   teamID: ID!
   team: Team @connection(fields: ["teamID"])
 }
 
-type Team @model { //picture
+type Team @model { merch
   id: ID!
   name: String!
 }
@@ -425,7 +425,7 @@ ________________________________________________________________________________
 
 Has Many
 ```
-type Post @model { //chatroom
+type Post @model { //
   id: ID!
   title: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
@@ -443,18 +443,18 @@ ________________________________________________________________________________
 Belongs to
 You can make a connection bi-directional by adding a many-to-one connection to types that already have a one-to-many connection. In this case you add a connection from Comment to Post since each comment belongs to a post:
 ```
-type Post @model { //creditcard
+type Post @model { user
   id: ID!
   title: String!
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) chatroom
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"]) 
 }
 
-type Comment @model //invitations
+type Comment @model purchases
   @key(name: "byPost", fields: ["postID", "content"]) {
   id: ID!
   postID: ID!
   content: String!
-  post: Post @connection(fields: ["postID"]) creditcard
+  post: Post @connection(fields: ["postID"])
 }
 ```
 ___________________________________________________________________________________________
@@ -579,3 +579,296 @@ userPools	      ✅	           ✅	                         ✅
 oidc	          ✅            ✅		
 apiKey			                                ✅	
 iam			                                    ✅           	✅
+
+
+
+https://docs.amplify.aws/lib/graphqlapi/query-data/q/platform/js/#simple-query
+```javascript
+import { API } from 'aws-amplify';
+import * as queries from './graphql/queries';
+
+const todos = await API.graphql({
+  query: queries.listTodos,
+  authMode: 'AWS_IAM'
+});
+```
+
+
+__________________________________________________________________________________
+
+    (https://medium.com/@jan.hesters/sorting-queries-with-aws-amplifys-key-directive-4c7fd14420cb)
+
+        This generates a new list query called contactsByName. Amplify still sets up the old listContacts query. We generated a global secondary index. To generate a local secondary index, you would have to set up a composite primary key and generate a secondary index with the same partition key as your primary key.
+    [artist, title]
+
+### Primary Keys: 
+    partition key: primary index's hash key, uses single attribute
+      - ie SongId
+      - determines the location for where its stored
+
+
+    composite primary keys: using two attributes 
+      - ie Artist and Title
+      - first attribute is the partition key
+      - second attribute is the sort key
+
+
+
+    If you use two attributes like Artist and Title, you are using composite primary keys. The first attribute is the partition key, and the second attribute is the sort key. Just like with one key, the partition key determines the physical location. Using composite primary keys, items with the same partition key are stored together, but they can be distinguished because they are sorted in order by the sort key. Sort keys are sometimes referred to as the range key.
+
+
+
+### Secondary Keys: 
+
+    - let you do queries against other attributes in addition to the primary key
+    - The table which the secondary index is associated with is called the base table.
+
+    Two types of secondary indexes: global and local
+
+      - Global: 
+        * have both a different partition key and a different sort key from the base table
+
+
+      There are two types of secondary indexes: global and local. Global secondary indexes have both a different partition key and a different sort key from the base table, while secondary indexes have the same partition key, but a different sort key. Their naming comes from the fact that global indexes can query data across all partitions, whereas local indexes are scoped to it’s partition key. It follows that local secondary indexes must always be composite.
+
+
+
+      Note: In the following, if you would also specify an id field, you would have to populate that id yourself. Also, note that changing the partition key might require you to rename your table or to create a new table.
+
+
+
+_____________________________________________________________________________________
+```bash
+type Contact @model @key(fields: ["lastName"]) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+}
+```
+
+    This enables us to query by lastName instead of by id. Since we omitted @key's name argument lastName is now the primary key.
+_____________________________________________________________________________________
+    But this previous schema would prohibit two contacts with the same last name. Let’s use a composite primary key instead to identify by firstName and lastName uniquely. We'll pick lastName as the partition key and firstName as the sort key.
+```bash
+type Contact @model @key(fields: ["lastName", "firstName"]) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+}
+```
+```javascript
+const data = await API.graphql(
+  graphqlOperation(getContact, { lastName, firstName })
+);
+```
+
+_____________________________________________________________________________________
+
+    We can take it even further. What if we also wanted to sort and query the contacts by age? Just add it to the @key field.
+
+```bash
+type Contact @model @key(fields: ["lastName", "firstName", "age"]) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+}
+```
+
+```javascript
+const data = await API.graphql(
+  graphqlOperation(getContact, { firstName, lastName, age })
+);
+
+```
+_____________________________________________________________________________________
+
+    If you want to do list query now, your first instinct might be to stick age alongside lastName and firstName into graphqlOperation, but that won't work because DynamoDB limits queries to two attributes. If you use @key with more than two attributes, the first becomes the partition key (as always), and the sort key will be a composite key made of the rest of the attributes. The new sort key is named by camel casing and adding the attributes used. In our case, we get firstNameAge. This change is reflected in the list query.
+
+```javascript
+const listData = await API.graphql(
+  graphqlOperation(listContacts, {
+    lastName: 'Hesters',
+    firstNameAge: {
+      beginsWith: { firstName, age: 2 },
+    },
+  })
+);
+```
+_____________
+
+    You can still filter queries
+```javascript
+const listData = await API.graphql(
+  graphqlOperation(listContacts, {
+    lastName: 'Hesters',
+    filter: { firstName: { eq: firstName } },
+  })
+);
+```
+
+_____________
+    And you can even combine querying using the sort key with filtering.
+```javascript
+const listData = await API.graphql(
+  graphqlOperation(listContacts, {
+    lastName: 'Hesters',
+    filter: { age: { eq: 25 } },
+    firstNameAge: {
+      beginsWith: { firstName, age: 2 },
+    },
+  })
+);
+```
+_____________________________________________________________________________________
+
+
+    Lastly, if you give @key a name and a queryField value, you automatically use secondary indexes instead of primary keys.
+
+```bash
+
+type Contact
+  @model
+  @key(
+    name: "ByName"
+    fields: ["lastName", "firstName"]
+    queryField: "contactsByName"
+  ) {
+  id: ID!
+  lastName: String!
+  firstName: String!
+  age: Int!
+}
+```
+
+    This generates a new list query called contactsByName. Amplify still sets up the old listContacts query. We generated a global secondary index. To generate a local secondary index, you would have to set up a composite primary key and generate a secondary index with the same partition key as your primary key.
+```javascript
+const data = await API.graphql(
+  graphqlOperation(contactsByName, { lastName })
+);
+```
+    The new query filters all contacts by the given last name and then sorts them by last name and first name.
+
+_____________________________________________________________________________________
+
+
+
+#### Example: 
+
+```bash
+type Contact
+  @model
+  @key(
+    name: "ByOwnerLastNameFirstName"
+    fields: ["owner", "lastName", "firstName"]
+    queryField: "contactsByOwner"
+  )
+  @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  age: Int
+  owner: String
+}
+```
+```bash
+mutation create {
+  createContact(
+    input: { firstName: "Alice", lastName: "Zebra", age: 30 }
+  ) {
+    firstName
+    lastName
+    age
+  }
+}
+```
+
+```javascript
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import {
+  createAppContainer,
+  createStackNavigator,
+  SafeAreaView,
+} from 'react-navigation';
+import { ListItem, Button } from 'react-native-elements';
+import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
+
+import { contactsByOwner } from './src/graphql/queries';
+import config from './aws-exports';
+
+Amplify.configure(config);
+
+function App() {
+  useEffect(() => {
+    async function login() {
+      try {
+        await Auth.signIn('key@tutorial.com', 'password');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    login();
+  }, []);
+
+  const [contacts, setContacts] = useState([]);
+  const [nextToken, setNextToken] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  async function fetchContacts() {
+    setLoading(true);
+    try {
+      const { username: owner } = await Auth.currentAuthenticatedUser();
+      const data = await API.graphql(
+        graphqlOperation(contactsByOwner, { limit: 3, nextToken, owner })
+      );
+      setContacts([...contacts, ...data.data.contactsByOwner.items]);
+      setNextToken(data.data.contactsByOwner.nextToken);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const buttonProps =
+    contacts.length === 0
+      ? { title: 'Fetch Contacts' }
+      : nextToken
+      ? { title: 'Fetch More Contacts' }
+      : { title: 'All Contacts Fetched', disabled: true };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      {contacts.map(({ id, firstName, lastName, age }) => (
+        <ListItem
+          key={id}
+          title={`${firstName} ${lastName}`}
+          subtitle={age.toString()}
+        />
+      ))}
+      <Button
+        disabled={loading}
+        onPress={fetchContacts}
+        loading={loading}
+        {...buttonProps}
+      />
+    </SafeAreaView>
+  );
+}
+
+App.navigationOptions = {
+  title: 'Contacts',
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 7,
+  },
+});
+
+export default createAppContainer(
+  createStackNavigator({ ContactsScreen: App })
+);
+```
