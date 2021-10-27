@@ -512,6 +512,26 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  ## ----------------------------------------------------------------------------------
+  ## ---- data ingestion 
+  # ingest-vod-merchandise:
+  #   handler: lambdas/endpoints/graphql/ingestVODmerchandise.handler
+  #   events:
+  #     - http:
+  #         path: api/v1/ingest-vod-merchandise
+  #         method: any
+  #         # authorizer: aws_iam
+  #         cors:
+  #           origin: '*'
+  #           headers:
+  #             - Content-Type
+  #             - Accept
+  #             - X-Amz-Date
+  #             - Authorization
+  #             - X-Api-Key
+  #             - X-Amz-Security-Token
+  #             - X-Amz-User-Agent
+  #           allowCredentials: true
 ## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
