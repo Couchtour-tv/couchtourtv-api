@@ -25,6 +25,8 @@
     "serverless-offline": "^6.9.0"
   },
   "dependencies": {
+    "graphql": "^15.7.0",
+    "graphql-tag": "^2.12.5",
     "serverless": "^2.9.0",
     "serverless-vpc-plugin": "^1.0.3",
     "stripe": "^8.39.0",

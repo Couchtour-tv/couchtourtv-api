@@ -1,4 +1,4 @@
-band,date,Venue,Location,set,notes,url - vod.couchtour.tv/out/v1/ (unless otherwise specified),maestro_channel - player.couchtour.tv/,duration,thumbnail,description
+band,date,Venue,Location,set,notes,url,maestro_channel,duration,thumbnail,description
 The Disco Biscuits,9/26/21,The Brooklyn Mirage,"Brooklyn, NY",2,,ff5480c530df44ee98744e8144bca570/f48446f9c34f45e9885dfe384b25e057/4f9ee557d2094291a75cad60ec07b7e1/index.m3u8,,,,
 The Disco Biscuits,9/26/21,The Brooklyn Mirage,"Brooklyn, NY",1,,08b7daf12a784ec88873635ac9cb8dfb/f48446f9c34f45e9885dfe384b25e057/4f9ee557d2094291a75cad60ec07b7e1/index.m3u8,,,,
 The Disco Biscuits,9/19/21,Jannus Live,"St. Petersburg, FL",2,,5ac140f8eaa44ea7960675ec6fd87b11/2431173bba8143fabf487b1aa81a9896/6a23184dc8d5404bb94f0ffd7e7ebb20/index.m3u8,,,,

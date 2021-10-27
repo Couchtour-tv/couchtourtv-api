@@ -6,14 +6,18 @@ const graphql = require("graphql");
 const { print } = graphql;
 
 const listUsersEmailsAndUserNames = gql`
-  mutation MyMutation {
-    deleteMerchandise(input: {id: ""}) {
-      id
+  query listUsersEmailsAndUserNames {
+    listUsers {
+      items {
+        id
+        username
+        email
+      }
     }
   }
 `
 exports.handler = async (event) => {
-  console.log('\n\n--Inside [deleteVODmerchandiseById.js]')
+  console.log('\n\n--Inside [deleteAllVODmerchandise.js]')
   try {
     const graphqlData = await axios({
       url: AppSyncUrlOriginal,

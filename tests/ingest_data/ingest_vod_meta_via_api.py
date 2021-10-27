@@ -1,12 +1,40 @@
-import csv, requests
+import csv, requests, sys
 
+"""
+EXAMPLE USAGE;
+	python3 ingest_vod_meta_via_api.py all local
+	python3 ingest_vod_meta_via_api.py all remote
+	python3 ingest_vod_meta_via_api.py one local
+	python3 ingest_vod_meta_via_api.py one remote
+"""
+
+count = 0
+LOCAL_ENDPOINT = 'http://localhost:3000/stg/api/v1/vod-merchandise-ingest'
+REMOTE_ENDPOINT = 'https://2ygrym23r3.execute-api.us-east-1.amazonaws.com/stg/api/v1/vod-merchandise-ingest'
 with open('vod-metadata.csv') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		print('\n---------------')
-		# print(row)
-		api_resp = requests.post(
-			'http://localhost:3000/stg/api/v1/ingest-vod-merchandise', 
-			data = { 'vod_data': row }
-		)
-		print(api_resp.status_code)
+		if sys.argv[2] == 'local':
+			api_resp = requests.post(
+				LOCAL_ENDPOINT,
+				data=row,
+				headers={'Content-Type': 'application/json'}
+			)
+			print(api_resp.status_code)
+			count += 1
+		if sys.argv[2] == 'remote':
+			api_resp = requests.post(
+				REMOTE_ENDPOINT,
+				data=row,
+				headers={'Content-Type': 'application/json'}
+			)
+			print(api_resp.status_code)
+			count += 1
+		if sys.argv[1] == 'all':
+			continue
+		else:
+			if count >= 1:
+				print('\nExecuted 1 API call, exiting..')
+				break
+print('\n\n\n[Finished] Ingested {} VODs'.format(str(count)))
