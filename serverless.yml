@@ -518,7 +518,7 @@ resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
   # API Gateway Socket Definition and Handlers
-  - ${file(resources/socket-definition-and-handlers.yml)}
+  # - ${file(resources/socket-definition-and-handlers.yml)}
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
   # S3
