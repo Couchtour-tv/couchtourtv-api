@@ -7,6 +7,7 @@ const { print } = graphql;
 
 exports.handler = async (event) => {
   console.log('\n\n--Inside [ingestVODmerchandise.js]');
+  
   console.log('event: \n\n', event);
   console.log('event.body: \n\n', event.body);
   console.log('event.body type: \n\n', typeof(event.body));
@@ -15,8 +16,7 @@ exports.handler = async (event) => {
   console.log('body: \n\n', body);
 
   try {
-      
-    console.log('--Creating gql object..')
+    console.log('--Creating gql object..');
     var addOneVODmerchandise = gql`
       mutation addOneVODmerchandise {
         createMerchandise(input: {
@@ -31,39 +31,13 @@ exports.handler = async (event) => {
           price: ""
         }
       ) {
-        date
-        name
-        platformFee
-        price
-        description
-        VODMetaData {
-          band
-          date
-          description
-          location
-          price
-          venue
-          videoURL
-        }
+        id
+        
       }
-    }`
-
-  } catch (error) {
-
-    const _message = "error creating gql: ";
-    console.log(_message, error);
-    return Responses._500({
-      success: false,
-      message: _message
-    });
-  
-  }
-
-  try {
+    }`;
     console.log('--Executing API/gql call..');
     console.log('addOneVODmerchandise:\n\n');
     console.log(addOneVODmerchandise);
-
     const graphqlData = await axios({
       url: "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql",
       method: "post",
@@ -75,7 +49,6 @@ exports.handler = async (event) => {
         // query: addOneVODmerchandise
       },
     });
-
     const gqlResp = graphqlData;
     return {
       statusCode: 200,
@@ -84,15 +57,11 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Origin": "*",
       },
     };
-
   } catch (error) {
-
-    const _message = "error posting to appsync: ";
-    console.log(_message, error)
+    console.log('error:', error);
     return Responses._500({
       success: false,
-      message: _message
+      message: error
     });
-  
   }
 };
