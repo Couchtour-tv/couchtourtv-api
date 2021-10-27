@@ -6,6 +6,12 @@ EXAMPLE USAGE;
 	python3 ingest_vod_meta_via_api.py all remote
 	python3 ingest_vod_meta_via_api.py one local
 	python3 ingest_vod_meta_via_api.py one remote
+
+	curl -X POST -D '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" http://localhost:3000/stg/api/v1/vod-merchandise-ingest 
+
+	apiURL: https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql
+	apiKey: da2-w3fua4opgzaxjgfkfjxs7xvh7m
+	api Gateway: https://2ygrym23r3.execute-api.us-east-1.amazonaws.com/stg/
 """
 
 count = 0

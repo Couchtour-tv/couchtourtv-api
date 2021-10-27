@@ -30,10 +30,7 @@ exports.handler = async (event) => {
           name: "", 
           price: ""
         }
-      ) {
-        id
-        
-      }
+      ) { id }
     }`;
     console.log('--Executing API/gql call..');
     console.log('addOneVODmerchandise:\n\n');
