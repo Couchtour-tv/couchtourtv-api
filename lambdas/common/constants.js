@@ -79,11 +79,11 @@ export const StripeApiMap = {
 };
 
 // ----- AppSync + GraphQL
-// 
+//
 // -- couchtourtvamplify-ctqa
-const AppSyncUrlOriginal = "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql";
-const GraphqlKeyOuputOirginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m";
+export const AppSyncUrlOriginal = "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql";
+export const GraphqlKeyOuputOirginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m";
 //
 // -- couchtourapisandbox-dev
-const AppSyncUrlEdit = "https://ojvjqrhj2jbj3cayqa4iqrj4yy.appsync-api.us-east-1.amazonaws.couchtourtvamplify-ctqa/graphql";
-const GraphqlKeyOuputEdit = "da2-bo4hop4hdvbdfel5fzreoa77ye";
+export const AppSyncUrlEdit = "https://ojvjqrhj2jbj3cayqa4iqrj4yy.appsync-api.us-east-1.amazonaws.couchtourtvamplify-ctqa/graphql";
+export const GraphqlKeyOuputEdit = "da2-bo4hop4hdvbdfel5fzreoa77ye";

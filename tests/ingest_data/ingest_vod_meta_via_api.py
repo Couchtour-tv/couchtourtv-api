@@ -17,6 +17,7 @@ EXAMPLE USAGE;
 count = 0
 LOCAL_ENDPOINT = 'http://localhost:3000/stg/api/v1/vod-merchandise-ingest'
 REMOTE_ENDPOINT = 'https://2ygrym23r3.execute-api.us-east-1.amazonaws.com/stg/api/v1/vod-merchandise-ingest'
+
 with open('vod-metadata.csv') as csvfile:
 	reader = csv.DictReader(csvfile)
 

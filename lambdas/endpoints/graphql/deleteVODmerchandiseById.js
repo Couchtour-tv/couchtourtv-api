@@ -15,7 +15,7 @@ const listUsersEmailsAndUserNames = gql`
 exports.handler = async (event) => {
   console.log('\n\n--Inside [deleteVODmerchandiseById.js]')
   try {
-    const graphqlData = await axios({
+    await axios({
       url: AppSyncUrlOriginal,
       method: "post",
       headers: {
@@ -27,7 +27,9 @@ exports.handler = async (event) => {
     });
     return {
       statusCode: 200,
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        'sucess': true
+      }),
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
