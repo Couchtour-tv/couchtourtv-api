@@ -1,4 +1,4 @@
-import csv, requests, sys
+import csv, requests, sys, json
 
 """
 EXAMPLE USAGE;
@@ -19,13 +19,16 @@ LOCAL_ENDPOINT = 'http://localhost:3000/stg/api/v1/vod-merchandise-ingest'
 REMOTE_ENDPOINT = 'https://2ygrym23r3.execute-api.us-east-1.amazonaws.com/stg/api/v1/vod-merchandise-ingest'
 with open('vod-metadata.csv') as csvfile:
 	reader = csv.DictReader(csvfile)
+
 	for row in reader:
 		print('\n---------------')
 		if sys.argv[2] == 'local':
+			print('type: ', type(row))
 			api_resp = requests.post(
 				LOCAL_ENDPOINT,
-				data=row,
-				headers={'Content-Type': 'application/json'}
+				data=json.dumps(row)
+				# data=row
+				# headers={'Content-Type': 'application/json'}
 			)
 			print(api_resp.status_code)
 			count += 1
