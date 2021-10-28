@@ -1,39 +1,50 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+export const getContactTableAsExample = /* GraphQL */ `
+  query GetContactTableAsExample(
+    $lastName: String!
+    $firstName: String!
+    $age: Int!
+  ) {
+    getContactTableAsExample(
+      lastName: $lastName
+      firstName: $firstName
+      age: $age
+    ) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listContactTableAsExamples = /* GraphQL */ `
+  query ListContactTableAsExamples(
+    $lastName: String
+    $firstNameAge: ModelContactTableAsExamplePrimaryCompositeKeyConditionInput
+    $filter: ModelContactTableAsExampleFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listContactTableAsExamples(
+      lastName: $lastName
+      firstNameAge: $firstNameAge
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
-        id
-        name
-        posts {
-          nextToken
-        }
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
         createdAt
         updatedAt
       }
@@ -41,56 +52,176 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getChannels = /* GraphQL */ `
+  query GetChannels($id: ID!, $shows: String!, $active: String!) {
+    getChannels(id: $id, shows: $shows, active: $active) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listChannels = /* GraphQL */ `
+  query ListChannels(
+    $id: ID
+    $showsActive: ModelchannelsPrimaryCompositeKeyConditionInput
+    $filter: ModelchannelsFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listChannels(
+      id: $id
+      showsActive: $showsActive
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        id
+        shows
+        active
+        createdAt
+        createdByEmail
+        createdById
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getShows = /* GraphQL */ `
+  query GetShows($id: ID!, $videos: String!, $active: String!) {
+    getShows(id: $id, videos: $videos, active: $active) {
+      id
+      videos
+      active
+      createdAt
+      createdByEmail
+      createdById
+      updatedAt
+    }
+  }
+`;
+export const listShows = /* GraphQL */ `
+  query ListShows(
+    $id: ID
+    $videosActive: ModelshowsPrimaryCompositeKeyConditionInput
+    $filter: ModelshowsFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listShows(
+      id: $id
+      videosActive: $videosActive
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        id
+        videos
+        active
+        createdAt
+        createdByEmail
+        createdById
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getVideos = /* GraphQL */ `
+  query GetVideos($id: ID!, $eventId: ID!, $channelId: ID!) {
+    getVideos(id: $id, eventId: $eventId, channelId: $channelId) {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
+      updatedAt
+    }
+  }
+`;
+export const listVideos = /* GraphQL */ `
+  query ListVideos(
+    $id: ID
+    $eventIdChannelId: ModelvideosPrimaryCompositeKeyConditionInput
+    $filter: ModelvideosFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listVideos(
+      id: $id
+      eventIdChannelId: $eventIdChannelId
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        id
+        eventId
+        channelId
+        isProcessed
+        isUploaded
+        bandId
+        createdAt
+        createdByEmail
+        createdById
+        date
+        venue
+        location
+        description
+        price
+        publicUrl
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const contactsByFavoriteColor = /* GraphQL */ `
+  query ContactsByFavoriteColor(
+    $lastName: String
+    $favoriteColor: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContactTableAsExampleFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    contactsByFavoriteColor(
+      lastName: $lastName
+      favoriteColor: $favoriteColor
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
         createdAt
         updatedAt
       }
@@ -98,52 +229,108 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
+export const contactsByFavoriteFoorAndColor = /* GraphQL */ `
+  query ContactsByFavoriteFoorAndColor(
+    $favoriteFood: String
+    $favoriteColor: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContactTableAsExampleFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    contactsByFavoriteFoorAndColor(
+      favoriteFood: $favoriteFood
+      favoriteColor: $favoriteColor
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        lastName
+        firstName
+        age
+        favoriteColor
+        favoriteFood
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const isVideoProcessed = /* GraphQL */ `
+  query IsVideoProcessed(
+    $id: ID
+    $isProcessedIsUploaded: ModelvideosIsProcessedCompositeKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelvideosFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    isVideoProcessed(
+      id: $id
+      isProcessedIsUploaded: $isProcessedIsUploaded
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
-        postID
-        post {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        content
+        eventId
+        channelId
+        isProcessed
+        isUploaded
+        bandId
         createdAt
+        createdByEmail
+        createdById
+        date
+        venue
+        location
+        description
+        price
+        publicUrl
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const isAssociatedToBand = /* GraphQL */ `
+  query IsAssociatedToBand(
+    $id: ID
+    $bandId: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelvideosFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    isAssociatedToBand(
+      id: $id
+      bandId: $bandId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        eventId
+        channelId
+        isProcessed
+        isUploaded
+        bandId
+        createdAt
+        createdByEmail
+        createdById
+        date
+        venue
+        location
+        description
+        price
+        publicUrl
         updatedAt
       }
       nextToken

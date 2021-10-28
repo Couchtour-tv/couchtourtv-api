@@ -1,20 +1,183 @@
-type Blog @model {
-  id: ID!
-  name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+enum InvitationStatus {
+  accepted
+  invited
+  rejected
+  expired
+}
+enum BandMerchType {
+  Hat
+  TShirt
+  Hoodie
+  CD
+  Poster
+}
+enum CardStatus {
+  active
+  expired
+  insufficientFunds
+  delinquent
+  stolen
+  unverified
+  international
+}
+enum TransactionStatus {
+  initiated
+  complete
+  errored
+  canceled
+}
+enum MerchandiseType {
+  vod
+  bandMerch
+  tips
+  bandChat
+  ticket_stream_event
+  subscription
+  package
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type VODMetaData {
+  band: String
+  date: String
+  venue: String
+  location: String
+  maestro_channel: String
+  description: String
+  price: String
+  videoURL: String
+}
+type StreamMetaData {
+  streamId: String
+  eventId: String
+  bandName: String
+  promoter: String
+  videoURL: String
+  nameOfEvent: String
+  location: String
+  promoterLogo: String
+  timeOfEvent: String
+  isLive: Boolean
+  landingImageUrl: String
+  eventFeature: EventFeature
+  priceDescription: PriceDescription
+  eventDetail: EventDetail
+}
+type EventDetail {
   id: ID!
-  title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  description: String
+  type: String
+}
+type PriceDescription {
+  id: ID!
+  description: String
+  type: String
+}
+type EventFeature {
+  id: ID!
+  description: String
+  type: String
+}
+type TipsMetaData {
+  id: ID!
+  tipId: String
+  name: String
+  type: String
+  description: String
+  unitLabel: String
+  url: String
+}
+type BandChatMetaData {
+  id: ID!
+  priceId: String
+  band: String
+}
+type TicketMetaData {
+  id: ID!
+  ticketId: String
+  eventId: String
+  priceId: String
+  title: String
+  price: Int
+  image: String
+  successUrl: String
+  cancelUrl: String
+  boxedItems: [TicketBoxedItem]
+  attributes: [TicketAttribute]
+  soldOut: Boolean
+}
+type TicketBoxedItem {
+  id: ID!
+  description: String!
+}
+type TicketAttribute {
+  id: ID!
+  description: String!
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type ContactTableAsExample
+  @model
+  @key(fields: ["lastName", "firstName", "age"])
+  @key(
+    name: "contactsByFavoriteColor"
+    fields: ["lastName", "favoriteColor"]
+    queryField: "contactsByFavoriteColor"
+  )
+  @key(
+    name: "contactsByFavoriteFoodAndColor"
+    fields: ["favoriteFood", "favoriteColor"]
+    queryField: "contactsByFavoriteFoorAndColor"
+  ) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+  favoriteColor: String
+  favoriteFood: String
+}
+
+type channels @model @key(fields: ["id", "shows", "active"]) {
   id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
-  content: String!
+  shows: String!
+  active: String!
+  createdAt: String!
+  createdByEmail: String!
+  createdById: String!
+}
+
+type shows @model @key(fields: ["id", "videos", "active"]) {
+  id: ID!
+  videos: String!
+  active: String!
+  createdAt: String!
+  createdByEmail: String!
+  createdById: String!
+}
+
+type videos
+  @model
+  @key(fields: ["id", "eventId", "channelId"])
+  @key(
+    name: "isProcessed"
+    fields: ["id", "isProcessed", "isUploaded"]
+    queryField: "isVideoProcessed"
+  )
+  @key(
+    name: "band"
+    fields: ["id", "bandId"]
+    queryField: "isAssociatedToBand"
+  ) {
+  id: ID!
+  eventId: ID!
+  channelId: ID!
+  isProcessed: String!
+  isUploaded: String!
+  bandId: ID!
+  createdAt: String!
+  createdByEmail: String!
+  createdById: String!
+  date: String!
+  venue: String!
+  location: String!
+  description: String!
+  price: String!
+  publicUrl: String!
 }

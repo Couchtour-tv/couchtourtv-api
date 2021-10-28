@@ -1,260 +1,221 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createContactTableAsExample = /* GraphQL */ `
+  mutation CreateContactTableAsExample(
+    $input: CreateContactTableAsExampleInput!
+    $condition: ModelContactTableAsExampleConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+    createContactTableAsExample(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
+export const updateContactTableAsExample = /* GraphQL */ `
+  mutation UpdateContactTableAsExample(
+    $input: UpdateContactTableAsExampleInput!
+    $condition: ModelContactTableAsExampleConditionInput
   ) {
-    updateBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+    updateContactTableAsExample(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
+export const deleteContactTableAsExample = /* GraphQL */ `
+  mutation DeleteContactTableAsExample(
+    $input: DeleteContactTableAsExampleInput!
+    $condition: ModelContactTableAsExampleConditionInput
   ) {
-    deleteBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+    deleteContactTableAsExample(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
+export const createChannels = /* GraphQL */ `
+  mutation CreateChannels(
+    $input: CreateChannelsInput!
+    $condition: ModelchannelsConditionInput
   ) {
-    createPost(input: $input, condition: $condition) {
+    createChannels(input: $input, condition: $condition) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
+export const updateChannels = /* GraphQL */ `
+  mutation UpdateChannels(
+    $input: UpdateChannelsInput!
+    $condition: ModelchannelsConditionInput
   ) {
-    updatePost(input: $input, condition: $condition) {
+    updateChannels(input: $input, condition: $condition) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
+export const deleteChannels = /* GraphQL */ `
+  mutation DeleteChannels(
+    $input: DeleteChannelsInput!
+    $condition: ModelchannelsConditionInput
   ) {
-    deletePost(input: $input, condition: $condition) {
+    deleteChannels(input: $input, condition: $condition) {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
+export const createShows = /* GraphQL */ `
+  mutation CreateShows(
+    $input: CreateShowsInput!
+    $condition: ModelshowsConditionInput
   ) {
-    createComment(input: $input, condition: $condition) {
+    createShows(input: $input, condition: $condition) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const updateShows = /* GraphQL */ `
+  mutation UpdateShows(
+    $input: UpdateShowsInput!
+    $condition: ModelshowsConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    updateShows(input: $input, condition: $condition) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteShows = /* GraphQL */ `
+  mutation DeleteShows(
+    $input: DeleteShowsInput!
+    $condition: ModelshowsConditionInput
   ) {
-    deleteComment(input: $input, condition: $condition) {
+    deleteShows(input: $input, condition: $condition) {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
+      updatedAt
+    }
+  }
+`;
+export const createVideos = /* GraphQL */ `
+  mutation CreateVideos(
+    $input: CreateVideosInput!
+    $condition: ModelvideosConditionInput
+  ) {
+    createVideos(input: $input, condition: $condition) {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
+      updatedAt
+    }
+  }
+`;
+export const updateVideos = /* GraphQL */ `
+  mutation UpdateVideos(
+    $input: UpdateVideosInput!
+    $condition: ModelvideosConditionInput
+  ) {
+    updateVideos(input: $input, condition: $condition) {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
+      updatedAt
+    }
+  }
+`;
+export const deleteVideos = /* GraphQL */ `
+  mutation DeleteVideos(
+    $input: DeleteVideosInput!
+    $condition: ModelvideosConditionInput
+  ) {
+    deleteVideos(input: $input, condition: $condition) {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
       updatedAt
     }
   }

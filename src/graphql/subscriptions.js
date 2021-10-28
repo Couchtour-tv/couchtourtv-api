@@ -1,233 +1,185 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+export const onCreateContactTableAsExample = /* GraphQL */ `
+  subscription OnCreateContactTableAsExample {
+    onCreateContactTableAsExample {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+export const onUpdateContactTableAsExample = /* GraphQL */ `
+  subscription OnUpdateContactTableAsExample {
+    onUpdateContactTableAsExample {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+export const onDeleteContactTableAsExample = /* GraphQL */ `
+  subscription OnDeleteContactTableAsExample {
+    onDeleteContactTableAsExample {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+export const onCreateChannels = /* GraphQL */ `
+  subscription OnCreateChannels {
+    onCreateChannels {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+export const onUpdateChannels = /* GraphQL */ `
+  subscription OnUpdateChannels {
+    onUpdateChannels {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+export const onDeleteChannels = /* GraphQL */ `
+  subscription OnDeleteChannels {
+    onDeleteChannels {
       id
-      title
-      blogID
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      shows
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
+export const onCreateShows = /* GraphQL */ `
+  subscription OnCreateShows {
+    onCreateShows {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
+export const onUpdateShows = /* GraphQL */ `
+  subscription OnUpdateShows {
+    onUpdateShows {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
       updatedAt
     }
   }
 `;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
+export const onDeleteShows = /* GraphQL */ `
+  subscription OnDeleteShows {
+    onDeleteShows {
       id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
+      videos
+      active
       createdAt
+      createdByEmail
+      createdById
+      updatedAt
+    }
+  }
+`;
+export const onCreateVideos = /* GraphQL */ `
+  subscription OnCreateVideos {
+    onCreateVideos {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
+      updatedAt
+    }
+  }
+`;
+export const onUpdateVideos = /* GraphQL */ `
+  subscription OnUpdateVideos {
+    onUpdateVideos {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
+      updatedAt
+    }
+  }
+`;
+export const onDeleteVideos = /* GraphQL */ `
+  subscription OnDeleteVideos {
+    onDeleteVideos {
+      id
+      eventId
+      channelId
+      isProcessed
+      isUploaded
+      bandId
+      createdAt
+      createdByEmail
+      createdById
+      date
+      venue
+      location
+      description
+      price
+      publicUrl
       updatedAt
     }
   }
