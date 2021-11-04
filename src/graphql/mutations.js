@@ -9972,9 +9972,13 @@ export const createDefaultPlatformFeePercentages = /* GraphQL */ `
     createDefaultPlatformFeePercentages(input: $input, condition: $condition) {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }
@@ -9988,9 +9992,13 @@ export const updateDefaultPlatformFeePercentages = /* GraphQL */ `
     updateDefaultPlatformFeePercentages(input: $input, condition: $condition) {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }
@@ -10004,9 +10012,13 @@ export const deleteDefaultPlatformFeePercentages = /* GraphQL */ `
     deleteDefaultPlatformFeePercentages(input: $input, condition: $condition) {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }

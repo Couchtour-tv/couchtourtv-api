@@ -553,9 +553,13 @@ type DecomissionedMerchandise
 type DefaultPlatformFeePercentages @model {
   id: ID!
   ticket_stream_event: String
+  ticket_stream_event_FeeName: String
   vod: String
+  vodFeeName: String
   package: String
+  packageFeeName: String
   subscription: String
+  subscriptionFeeName: String
 }
 
 type Contact

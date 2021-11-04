@@ -9859,9 +9859,13 @@ export const onCreateDefaultPlatformFeePercentages = /* GraphQL */ `
     onCreateDefaultPlatformFeePercentages {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }
@@ -9872,9 +9876,13 @@ export const onUpdateDefaultPlatformFeePercentages = /* GraphQL */ `
     onUpdateDefaultPlatformFeePercentages {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }
@@ -9885,9 +9893,13 @@ export const onDeleteDefaultPlatformFeePercentages = /* GraphQL */ `
     onDeleteDefaultPlatformFeePercentages {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }

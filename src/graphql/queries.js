@@ -3295,9 +3295,13 @@ export const getDefaultPlatformFeePercentages = /* GraphQL */ `
     getDefaultPlatformFeePercentages(id: $id) {
       id
       ticket_stream_event
+      ticket_stream_event_FeeName
       vod
+      vodFeeName
       package
+      packageFeeName
       subscription
+      subscriptionFeeName
       createdAt
       updatedAt
     }
@@ -3317,9 +3321,13 @@ export const listDefaultPlatformFeePercentages = /* GraphQL */ `
       items {
         id
         ticket_stream_event
+        ticket_stream_event_FeeName
         vod
+        vodFeeName
         package
+        packageFeeName
         subscription
+        subscriptionFeeName
         createdAt
         updatedAt
       }
