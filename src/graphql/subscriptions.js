@@ -7940,6 +7940,378 @@ export const onDeleteMessage = /* GraphQL */ `
     }
   }
 `;
+export const onCreateOnDemandFeaturedShow = /* GraphQL */ `
+  subscription OnCreateOnDemandFeaturedShow {
+    onCreateOnDemandFeaturedShow {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateOnDemandFeaturedShow = /* GraphQL */ `
+  subscription OnUpdateOnDemandFeaturedShow {
+    onUpdateOnDemandFeaturedShow {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteOnDemandFeaturedShow = /* GraphQL */ `
+  subscription OnDeleteOnDemandFeaturedShow {
+    onDeleteOnDemandFeaturedShow {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateMerchandise = /* GraphQL */ `
   subscription OnCreateMerchandise {
     onCreateMerchandise {

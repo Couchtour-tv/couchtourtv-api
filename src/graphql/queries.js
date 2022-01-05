@@ -2402,6 +2402,177 @@ export const listMessages = /* GraphQL */ `
     }
   }
 `;
+export const getOnDemandFeaturedShow = /* GraphQL */ `
+  query GetOnDemandFeaturedShow($id: ID!) {
+    getOnDemandFeaturedShow(id: $id) {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        band {
+          id
+          bandName
+          createdBy
+          updatedBy
+          website
+          pictureId
+          email
+          createdAt
+          updatedAt
+        }
+        bandId
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listOnDemandFeaturedShows = /* GraphQL */ `
+  query ListOnDemandFeaturedShows(
+    $filter: ModelOnDemandFeaturedShowFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOnDemandFeaturedShows(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        merchId
+        merch {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandId
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getMerchandise = /* GraphQL */ `
   query GetMerchandise($id: ID!) {
     getMerchandise(id: $id) {

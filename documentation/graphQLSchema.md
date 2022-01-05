@@ -463,7 +463,7 @@ ________________________________________________________________________________
 Many-to-many connections
 You can implement many to many using two 1-M @connections, an @key, and a joining @model. For example:
 ```
-type Post @model { //user
+type Post @model { //merchandise
   id: ID!
   title: String!
   editors: [PostEditor] @connection(keyName: "byPost", fields: ["id"])
@@ -471,7 +471,7 @@ type Post @model { //user
 
 # Create a join model and disable queries as you don't need them
 # and can query through Post.editors and User.posts
-type PostEditor
+type PostEditor // merchandisePackage
   @model(queries: null)
   @key(name: "byPost", fields: ["postID", "editorID"])
   @key(name: "byEditor", fields: ["editorID", "postID"]) {

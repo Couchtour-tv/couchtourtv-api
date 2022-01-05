@@ -469,6 +469,12 @@ type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
 }
 
+type OnDemandFeaturedShow @model {
+  id: ID!
+  merchId: ID!
+  merch: Merchandise @connection(fields: ["merchId"])
+}
+
 type Merchandise
   @model
   @key(name: "byBand", fields: ["bandId"])
