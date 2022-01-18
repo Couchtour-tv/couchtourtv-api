@@ -45,20 +45,21 @@ export const OptionsCognito = {
 	region: process.env.COGNITO_REGION
 };
 
-// ----- Credit card processing:
-
+// ----- Credit card processing [via ENV VARB]
 // export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 // export const StripeCurrency = process.env.STRIPE_CURRENCY;
 // export const StripeCustomerDescirption = process.env.STRIPE_CUSTOMER_DESCRIPTION;
 // export const StripeIntentDescirption = process.env.STRIPE_INTENT_DESCRIPTION;
 // export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
 
+// ----- Credit card processing [Explicit]
 export const StripeSecretKey = 'sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS';
 export const StripeCurrency = "USD";
 export const StripeCustomerDescirption = "qa.couchtour.tv-customer";
 export const StripeIntentDescirption = "qa.couchtour.tv-intent";
 export const StripeReoccuringPaymentInterval = "month";
 
+// ----- API map: Stripe
 export const StripeApiMap = {
 	apiMap: 'api/v1/stripe-api-map',
 	createPaymentIntent: 'api/v1/stripe-create-payment-intent',
@@ -76,3 +77,13 @@ export const StripeApiMap = {
 	updateSubscription: 'api/v1/stripe-update-subscription',
 	cancelSubscription: 'api/v1/stripe-cancel-subscription'
 };
+
+// ----- AppSync + GraphQL
+//
+// -- couchtourtvamplify-ctqa
+export const AppSyncUrlOriginal = "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql";
+export const GraphqlKeyOuputOirginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m";
+//
+// -- couchtourapisandbox-dev
+export const AppSyncUrlEdit = "https://ojvjqrhj2jbj3cayqa4iqrj4yy.appsync-api.us-east-1.amazonaws.couchtourtvamplify-ctqa/graphql";
+export const GraphqlKeyOuputEdit = "da2-bo4hop4hdvbdfel5fzreoa77ye";
