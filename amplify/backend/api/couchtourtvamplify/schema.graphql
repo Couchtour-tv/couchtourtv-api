@@ -210,31 +210,9 @@ type MerchandiseTransaction
   merchandise: Merchandise! @connection(fields: ["merchandiseId"])
 }
 
-type Entitlement
-  @model
-  @key(name: "byUserEntitlement", fields: ["userID", "merchandiseId"]) {
-  id: ID!
-  merchandiseId: ID!
-  merchandise: Merchandise @connection(fields: ["merchandiseId"])
-  userID: ID!
-}
-
 type Cart @model {
   id: ID!
   merchandise: [CartMerchandise] @connection(keyName: "byCart", fields: ["id"])
-}
-
-type Band @model {
-  id: ID!
-  bandName: String
-  createdBy: String
-  updatedBy: String
-  website: String
-  logo: Picture @connection(fields: ["pictureId"])
-  pictureId: ID
-  email: String
-  merchandise: [Merchandise] @connection(keyName: "byBand", fields: ["id"])
-  socialMediaLinks: SocialMediaLinks
 }
 
 type SocialMediaLinks {
@@ -368,6 +346,34 @@ type User
   cartId: ID
   entitlements: [Entitlement]
     @connection(keyName: "byUserEntitlement", fields: ["id"])
+  accessCodes: [AccessCode]
+    @connection(keyName: "byUserAccessCode", fields: ["id"])
+}
+
+type Entitlement
+  @model
+  @key(name: "byUserEntitlement", fields: ["userID", "merchandiseId"]) {
+  id: ID!
+  merchandiseId: ID!
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  userID: ID!
+  fromSubscription: Boolean
+}
+
+type AccessCode
+  @model
+  @key(name: "byMerchandiseAccessCode", fields: ["merchandiseId"])
+  @key(name: "byUserAccessCode", fields: ["userId"])
+  @key(
+    name: "byCode"
+    fields: ["code", "merchandiseId"]
+    queryField: "acccessCodesbyCode"
+  ) {
+  id: ID!
+  merchandiseId: ID!
+  code: String!
+  userId: ID
+  user: User @connection(fields: ["userId"])
 }
 
 type UserPackage
@@ -477,7 +483,6 @@ type OnDemandFeaturedShow @model {
 
 type Merchandise
   @model
-  @key(name: "byBand", fields: ["bandId"])
   @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
   @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
   @key(
@@ -501,6 +506,8 @@ type Merchandise
   updatedBy: String
   isEvent: Boolean
   streamMetaData: StreamMetaData
+  accessCodes: [AccessCode]
+    @connection(keyName: "byMerchandiseAccessCode", fields: ["id"])
   name: String
   description: String
   image: Picture @connection(fields: ["pictureId"])
@@ -513,8 +520,6 @@ type Merchandise
   platformFee: String
   stripeMetaData: String
   carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
-  band: Band @connection(fields: ["bandId"])
-  bandId: ID
   VODMetaData: VODMetaData
   bandMerchType: BandMerchType
   subscriptionMerchandise: [SubscriptionMerchandise]
@@ -531,6 +536,33 @@ type Merchandise
   associatedMerchandise: [AssociatedMerchandise]
     @connection(keyName: "byMerchandiseAssociation", fields: ["id"])
   associatedMerchandiseEnabled: Boolean
+  bandMerchandise: [BandMerchandise]
+    @connection(keyName: "byMerchandiseBand", fields: ["id"])
+}
+
+type BandMerchandise
+  @model(queries: null)
+  @key(name: "byMerchandiseBand", fields: ["merchandiseId", "bandId"])
+  @key(name: "byBandMerchandise", fields: ["bandId", "merchandiseId"]) {
+  id: ID!
+  bandId: ID!
+  merchandiseId: ID!
+  band: Band @connection(fields: ["bandId"])
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+}
+
+type Band @model {
+  id: ID!
+  bandName: String
+  createdBy: String
+  updatedBy: String
+  website: String
+  logo: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  email: String
+  bandMerchandise: [BandMerchandise]
+    @connection(keyName: "byBandMerchandise", fields: ["id"])
+  socialMediaLinks: SocialMediaLinks
 }
 
 type AssociatedMerchandise
