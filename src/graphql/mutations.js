@@ -138,6 +138,9 @@ export const createCartMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -153,22 +156,11 @@ export const createCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -205,6 +197,7 @@ export const createCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -213,6 +206,17 @@ export const createCartMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -264,6 +268,9 @@ export const updateCartMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -279,22 +286,11 @@ export const updateCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -331,6 +327,7 @@ export const updateCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -339,6 +336,17 @@ export const updateCartMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -390,6 +398,9 @@ export const deleteCartMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -405,22 +416,11 @@ export const deleteCartMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -457,6 +457,7 @@ export const deleteCartMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -465,6 +466,17 @@ export const deleteCartMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -904,6 +916,384 @@ export const deleteTransaction = /* GraphQL */ `
     }
   }
 `;
+export const createCreditCard = /* GraphQL */ `
+  mutation CreateCreditCard(
+    $input: CreateCreditCardInput!
+    $condition: ModelCreditCardConditionInput
+  ) {
+    createCreditCard(input: $input, condition: $condition) {
+      id
+      userID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      transactions {
+        items {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      status
+      active
+      deleted
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
+      previousCardId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCreditCard = /* GraphQL */ `
+  mutation UpdateCreditCard(
+    $input: UpdateCreditCardInput!
+    $condition: ModelCreditCardConditionInput
+  ) {
+    updateCreditCard(input: $input, condition: $condition) {
+      id
+      userID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      transactions {
+        items {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      status
+      active
+      deleted
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
+      previousCardId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCreditCard = /* GraphQL */ `
+  mutation DeleteCreditCard(
+    $input: DeleteCreditCardInput!
+    $condition: ModelCreditCardConditionInput
+  ) {
+    deleteCreditCard(input: $input, condition: $condition) {
+      id
+      userID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      transactions {
+        items {
+          id
+          userID
+          merchID
+          attemptSuccess
+          errorObject
+          paymentIntent
+          creditCardId
+          purchaseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      purchases {
+        items {
+          id
+          userID
+          paymentIntent
+          creditCardId
+          transactionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      status
+      active
+      deleted
+      brand
+      email
+      expMonth
+      expYear
+      lastFour
+      paymentMethodObj
+      created
+      postalCode
+      name
+      previousCardId
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createMerchandiseTransaction = /* GraphQL */ `
   mutation CreateMerchandiseTransaction(
     $input: CreateMerchandiseTransactionInput!
@@ -982,6 +1372,9 @@ export const createMerchandiseTransaction = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -997,22 +1390,11 @@ export const createMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -1049,6 +1431,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1057,6 +1440,17 @@ export const createMerchandiseTransaction = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -1143,6 +1537,9 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -1158,22 +1555,11 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -1210,6 +1596,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1218,6 +1605,17 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -1304,6 +1702,9 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -1319,22 +1720,11 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -1371,6 +1761,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -1379,363 +1770,20 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createEntitlement = /* GraphQL */ `
-  mutation CreateEntitlement(
-    $input: CreateEntitlementInput!
-    $condition: ModelEntitlementConditionInput
-  ) {
-    createEntitlement(input: $input, condition: $condition) {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      userID
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateEntitlement = /* GraphQL */ `
-  mutation UpdateEntitlement(
-    $input: UpdateEntitlementInput!
-    $condition: ModelEntitlementConditionInput
-  ) {
-    updateEntitlement(input: $input, condition: $condition) {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      userID
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteEntitlement = /* GraphQL */ `
-  mutation DeleteEntitlement(
-    $input: DeleteEntitlementInput!
-    $condition: ModelEntitlementConditionInput
-  ) {
-    deleteEntitlement(input: $input, condition: $condition) {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        createdAt
-        updatedAt
-      }
-      userID
       createdAt
       updatedAt
     }
@@ -1807,198 +1855,6 @@ export const deleteCart = /* GraphQL */ `
     }
   }
 `;
-export const createBand = /* GraphQL */ `
-  mutation CreateBand(
-    $input: CreateBandInput!
-    $condition: ModelBandConditionInput
-  ) {
-    createBand(input: $input, condition: $condition) {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      merchandise {
-        items {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateBand = /* GraphQL */ `
-  mutation UpdateBand(
-    $input: UpdateBandInput!
-    $condition: ModelBandConditionInput
-  ) {
-    updateBand(input: $input, condition: $condition) {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      merchandise {
-        items {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteBand = /* GraphQL */ `
-  mutation DeleteBand(
-    $input: DeleteBandInput!
-    $condition: ModelBandConditionInput
-  ) {
-    deleteBand(input: $input, condition: $condition) {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      merchandise {
-        items {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createPicture = /* GraphQL */ `
   mutation CreatePicture(
     $input: CreatePictureInput!
@@ -2056,726 +1912,6 @@ export const deletePicture = /* GraphQL */ `
     }
   }
 `;
-export const createMerchandise = /* GraphQL */ `
-  mutation CreateMerchandise(
-    $input: CreateMerchandiseInput!
-    $condition: ModelMerchandiseConditionInput
-  ) {
-    createMerchandise(input: $input, condition: $condition) {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        merchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      bandId
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateMerchandise = /* GraphQL */ `
-  mutation UpdateMerchandise(
-    $input: UpdateMerchandiseInput!
-    $condition: ModelMerchandiseConditionInput
-  ) {
-    updateMerchandise(input: $input, condition: $condition) {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        merchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      bandId
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteMerchandise = /* GraphQL */ `
-  mutation DeleteMerchandise(
-    $input: DeleteMerchandiseInput!
-    $condition: ModelMerchandiseConditionInput
-  ) {
-    deleteMerchandise(input: $input, condition: $condition) {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        merchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      bandId
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          stripeMetaData
-          bandId
-          bandMerchType
-          subscriptionId
-          packageId
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createSubscriptionMerchandise = /* GraphQL */ `
   mutation CreateSubscriptionMerchandise(
     $input: CreateSubscriptionMerchandiseInput!
@@ -2811,6 +1947,9 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -2826,22 +1965,11 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -2878,6 +2006,7 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -2886,6 +2015,17 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -2913,11 +2053,13 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -2967,6 +2109,9 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -2982,22 +2127,11 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3034,6 +2168,7 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3042,6 +2177,17 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3069,11 +2215,13 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -3123,6 +2271,9 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3138,22 +2289,11 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3190,6 +2330,7 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3198,6 +2339,17 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3225,11 +2377,13 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -3284,6 +2438,9 @@ export const createSubscriptionModel = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3299,22 +2456,11 @@ export const createSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3351,6 +2497,7 @@ export const createSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3359,6 +2506,17 @@ export const createSubscriptionModel = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3417,6 +2575,9 @@ export const updateSubscriptionModel = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3432,22 +2593,11 @@ export const updateSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3484,6 +2634,7 @@ export const updateSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3492,6 +2643,17 @@ export const updateSubscriptionModel = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3550,6 +2712,9 @@ export const deleteSubscriptionModel = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3565,22 +2730,11 @@ export const deleteSubscriptionModel = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3617,6 +2771,7 @@ export const deleteSubscriptionModel = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3625,6 +2780,17 @@ export const deleteSubscriptionModel = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3678,6 +2844,9 @@ export const createPackageMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3693,22 +2862,11 @@ export const createPackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3745,6 +2903,7 @@ export const createPackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3753,6 +2912,17 @@ export const createPackageMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3762,6 +2932,7 @@ export const createPackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -3784,11 +2955,13 @@ export const createPackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -3838,6 +3011,9 @@ export const updatePackageMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -3853,22 +3029,11 @@ export const updatePackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -3905,6 +3070,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -3913,6 +3079,17 @@ export const updatePackageMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -3922,6 +3099,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -3944,11 +3122,13 @@ export const updatePackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -3998,6 +3178,9 @@ export const deletePackageMerchandise = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -4013,22 +3196,11 @@ export const deletePackageMerchandise = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -4065,6 +3237,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4073,6 +3246,17 @@ export const deletePackageMerchandise = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -4082,6 +3266,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -4104,11 +3289,13 @@ export const deletePackageMerchandise = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -4224,6 +3411,9 @@ export const createMerchandisePurchase = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -4239,22 +3429,11 @@ export const createMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -4291,6 +3470,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4299,9 +3479,21 @@ export const createMerchandisePurchase = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -4408,6 +3600,9 @@ export const updateMerchandisePurchase = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -4423,22 +3618,11 @@ export const updateMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -4475,6 +3659,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4483,9 +3668,21 @@ export const updateMerchandisePurchase = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -4592,6 +3789,9 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -4607,22 +3807,11 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -4659,6 +3848,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -4667,9 +3857,21 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
+      merchandiseVersion
       createdAt
       updatedAt
     }
@@ -4750,6 +3952,9 @@ export const createPurchase = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -4759,6 +3964,7 @@ export const createPurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -4937,6 +4143,9 @@ export const updatePurchase = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -4946,6 +4155,7 @@ export const updatePurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -5124,6 +4334,9 @@ export const deletePurchase = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -5133,6 +4346,7 @@ export const deletePurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
+          merchandiseVersion
           createdAt
           updatedAt
         }
@@ -5338,6 +4552,7 @@ export const createUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5389,11 +4604,13 @@ export const createUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -5420,6 +4637,18 @@ export const createUser = /* GraphQL */ `
           id
           merchandiseId
           userID
+          fromSubscription
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
           createdAt
           updatedAt
         }
@@ -5532,6 +4761,7 @@ export const updateUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5583,11 +4813,13 @@ export const updateUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -5614,6 +4846,18 @@ export const updateUser = /* GraphQL */ `
           id
           merchandiseId
           userID
+          fromSubscription
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
           createdAt
           updatedAt
         }
@@ -5726,6 +4970,7 @@ export const deleteUser = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -5777,11 +5022,13 @@ export const deleteUser = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -5808,10 +5055,655 @@ export const deleteUser = /* GraphQL */ `
           id
           merchandiseId
           userID
+          fromSubscription
           createdAt
           updatedAt
         }
         nextToken
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createEntitlement = /* GraphQL */ `
+  mutation CreateEntitlement(
+    $input: CreateEntitlementInput!
+    $condition: ModelEntitlementConditionInput
+  ) {
+    createEntitlement(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userID
+      fromSubscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateEntitlement = /* GraphQL */ `
+  mutation UpdateEntitlement(
+    $input: UpdateEntitlementInput!
+    $condition: ModelEntitlementConditionInput
+  ) {
+    updateEntitlement(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userID
+      fromSubscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteEntitlement = /* GraphQL */ `
+  mutation DeleteEntitlement(
+    $input: DeleteEntitlementInput!
+    $condition: ModelEntitlementConditionInput
+  ) {
+    deleteEntitlement(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userID
+      fromSubscription
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createAccessCode = /* GraphQL */ `
+  mutation CreateAccessCode(
+    $input: CreateAccessCodeInput!
+    $condition: ModelAccessCodeConditionInput
+  ) {
+    createAccessCode(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      code
+      userId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAccessCode = /* GraphQL */ `
+  mutation UpdateAccessCode(
+    $input: UpdateAccessCodeInput!
+    $condition: ModelAccessCodeConditionInput
+  ) {
+    updateAccessCode(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      code
+      userId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAccessCode = /* GraphQL */ `
+  mutation DeleteAccessCode(
+    $input: DeleteAccessCodeInput!
+    $condition: ModelAccessCodeConditionInput
+  ) {
+    deleteAccessCode(input: $input, condition: $condition) {
+      id
+      merchandiseId
+      code
+      userId
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          nextToken
+        }
+        invitation {
+          nextToken
+        }
+        creditCards {
+          nextToken
+        }
+        transactions {
+          nextToken
+        }
+        purchases {
+          nextToken
+        }
+        packages {
+          nextToken
+        }
+        userPackages {
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          nextToken
+        }
+        accessCodes {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -5894,6 +5786,9 @@ export const createUserPackage = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -5903,6 +5798,7 @@ export const createUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -5925,11 +5821,13 @@ export const createUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -6020,6 +5918,9 @@ export const updateUserPackage = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -6029,6 +5930,7 @@ export const updateUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -6051,11 +5953,13 @@ export const updateUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -6146,6 +6050,9 @@ export const deleteUserPackage = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -6155,6 +6062,7 @@ export const deleteUserPackage = /* GraphQL */ `
         description
         price
         priceId
+        platformFee
         productId
         active
         userID
@@ -6177,11 +6085,13 @@ export const deleteUserPackage = /* GraphQL */ `
           productId
           priceId
           price
+          platformFee
           stripeMetaData
-          bandId
           bandMerchType
           subscriptionId
           packageId
+          version
+          associatedMerchandiseEnabled
           createdAt
           updatedAt
         }
@@ -6207,6 +6117,7 @@ export const createPackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -6247,6 +6158,9 @@ export const createPackage = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -6262,22 +6176,11 @@ export const createPackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -6314,6 +6217,7 @@ export const createPackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -6322,6 +6226,17 @@ export const createPackage = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -6351,6 +6266,7 @@ export const updatePackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -6391,6 +6307,9 @@ export const updatePackage = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -6406,22 +6325,11 @@ export const updatePackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -6458,6 +6366,7 @@ export const updatePackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -6466,6 +6375,17 @@ export const updatePackage = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -6495,6 +6415,7 @@ export const deletePackage = /* GraphQL */ `
       description
       price
       priceId
+      platformFee
       productId
       active
       userID
@@ -6535,6 +6456,9 @@ export const deletePackage = /* GraphQL */ `
           isLive
           landingImageUrl
         }
+        accessCodes {
+          nextToken
+        }
         name
         description
         image {
@@ -6550,22 +6474,11 @@ export const deletePackage = /* GraphQL */ `
         productId
         priceId
         price
+        platformFee
         stripeMetaData
         carts {
           nextToken
         }
-        band {
-          id
-          bandName
-          createdBy
-          updatedBy
-          website
-          pictureId
-          email
-          createdAt
-          updatedAt
-        }
-        bandId
         VODMetaData {
           band
           date
@@ -6602,6 +6515,7 @@ export const deletePackage = /* GraphQL */ `
           description
           price
           priceId
+          platformFee
           productId
           active
           userID
@@ -6610,6 +6524,17 @@ export const deletePackage = /* GraphQL */ `
           updatedAt
         }
         packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -6623,375 +6548,6 @@ export const deletePackage = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createCreditCard = /* GraphQL */ `
-  mutation CreateCreditCard(
-    $input: CreateCreditCardInput!
-    $condition: ModelCreditCardConditionInput
-  ) {
-    createCreditCard(input: $input, condition: $condition) {
-      id
-      userID
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      transactions {
-        items {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      purchases {
-        items {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateCreditCard = /* GraphQL */ `
-  mutation UpdateCreditCard(
-    $input: UpdateCreditCardInput!
-    $condition: ModelCreditCardConditionInput
-  ) {
-    updateCreditCard(input: $input, condition: $condition) {
-      id
-      userID
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      transactions {
-        items {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      purchases {
-        items {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteCreditCard = /* GraphQL */ `
-  mutation DeleteCreditCard(
-    $input: DeleteCreditCardInput!
-    $condition: ModelCreditCardConditionInput
-  ) {
-    deleteCreditCard(input: $input, condition: $condition) {
-      id
-      userID
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      transactions {
-        items {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      purchases {
-        items {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
       createdAt
       updatedAt
     }
@@ -7071,6 +6627,9 @@ export const createChatRoomUser = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -7181,6 +6740,9 @@ export const updateChatRoomUser = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -7287,6 +6849,9 @@ export const deleteChatRoomUser = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -7647,6 +7212,9 @@ export const createInvitation = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -7715,6 +7283,9 @@ export const createInvitation = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -7827,6 +7398,9 @@ export const updateInvitation = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -7895,6 +7469,9 @@ export const updateInvitation = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -8007,6 +7584,9 @@ export const deleteInvitation = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -8075,6 +7655,9 @@ export const deleteInvitation = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -8191,6 +7774,9 @@ export const createMessage = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -8298,6 +7884,9 @@ export const updateMessage = /* GraphQL */ `
         }
         cartId
         entitlements {
+          nextToken
+        }
+        accessCodes {
           nextToken
         }
         createdAt
@@ -8409,6 +7998,9 @@ export const deleteMessage = /* GraphQL */ `
         entitlements {
           nextToken
         }
+        accessCodes {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -8436,6 +8028,2928 @@ export const deleteMessage = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      updatedAt
+    }
+  }
+`;
+export const createOnDemandFeaturedShow = /* GraphQL */ `
+  mutation CreateOnDemandFeaturedShow(
+    $input: CreateOnDemandFeaturedShowInput!
+    $condition: ModelOnDemandFeaturedShowConditionInput
+  ) {
+    createOnDemandFeaturedShow(input: $input, condition: $condition) {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateOnDemandFeaturedShow = /* GraphQL */ `
+  mutation UpdateOnDemandFeaturedShow(
+    $input: UpdateOnDemandFeaturedShowInput!
+    $condition: ModelOnDemandFeaturedShowConditionInput
+  ) {
+    updateOnDemandFeaturedShow(input: $input, condition: $condition) {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteOnDemandFeaturedShow = /* GraphQL */ `
+  mutation DeleteOnDemandFeaturedShow(
+    $input: DeleteOnDemandFeaturedShowInput!
+    $condition: ModelOnDemandFeaturedShowConditionInput
+  ) {
+    deleteOnDemandFeaturedShow(input: $input, condition: $condition) {
+      id
+      merchId
+      merch {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createMerchandise = /* GraphQL */ `
+  mutation CreateMerchandise(
+    $input: CreateMerchandiseInput!
+    $condition: ModelMerchandiseConditionInput
+  ) {
+    createMerchandise(input: $input, condition: $condition) {
+      id
+      type
+      transactions {
+        items {
+          id
+          transactionId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandisePurchases {
+        items {
+          id
+          purchaseId
+          merchandiseId
+          active
+          merchandiseVersion
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      active
+      createdBy
+      updatedBy
+      isEvent
+      streamMetaData {
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      name
+      description
+      image {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      date
+      eventId
+      productId
+      priceId
+      price
+      platformFee
+      stripeMetaData
+      carts {
+        items {
+          id
+          merchandiseId
+          cartId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      VODMetaData {
+        band
+        date
+        venue
+        location
+        maestro_channel
+        description
+        price
+        videoURL
+      }
+      bandMerchType
+      subscriptionMerchandise {
+        items {
+          id
+          merchandiseId
+          subscriptionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      subscriptionId
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        platformFee
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      packageId
+      decomissionedMerchandises {
+        items {
+          id
+          updatedByUserId
+          updatedByUserEmail
+          previousMerchId
+          decomissionedMerchandiseJSON
+          version
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      version
+      associatedMerchandise {
+        items {
+          id
+          associatedMerchandiseId
+          associatedToId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      associatedMerchandiseEnabled
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateMerchandise = /* GraphQL */ `
+  mutation UpdateMerchandise(
+    $input: UpdateMerchandiseInput!
+    $condition: ModelMerchandiseConditionInput
+  ) {
+    updateMerchandise(input: $input, condition: $condition) {
+      id
+      type
+      transactions {
+        items {
+          id
+          transactionId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandisePurchases {
+        items {
+          id
+          purchaseId
+          merchandiseId
+          active
+          merchandiseVersion
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      active
+      createdBy
+      updatedBy
+      isEvent
+      streamMetaData {
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      name
+      description
+      image {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      date
+      eventId
+      productId
+      priceId
+      price
+      platformFee
+      stripeMetaData
+      carts {
+        items {
+          id
+          merchandiseId
+          cartId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      VODMetaData {
+        band
+        date
+        venue
+        location
+        maestro_channel
+        description
+        price
+        videoURL
+      }
+      bandMerchType
+      subscriptionMerchandise {
+        items {
+          id
+          merchandiseId
+          subscriptionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      subscriptionId
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        platformFee
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      packageId
+      decomissionedMerchandises {
+        items {
+          id
+          updatedByUserId
+          updatedByUserEmail
+          previousMerchId
+          decomissionedMerchandiseJSON
+          version
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      version
+      associatedMerchandise {
+        items {
+          id
+          associatedMerchandiseId
+          associatedToId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      associatedMerchandiseEnabled
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteMerchandise = /* GraphQL */ `
+  mutation DeleteMerchandise(
+    $input: DeleteMerchandiseInput!
+    $condition: ModelMerchandiseConditionInput
+  ) {
+    deleteMerchandise(input: $input, condition: $condition) {
+      id
+      type
+      transactions {
+        items {
+          id
+          transactionId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      merchandisePurchases {
+        items {
+          id
+          purchaseId
+          merchandiseId
+          active
+          merchandiseVersion
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      active
+      createdBy
+      updatedBy
+      isEvent
+      streamMetaData {
+        streamId
+        eventId
+        bandName
+        promoter
+        videoURL
+        nameOfEvent
+        location
+        promoterLogo
+        timeOfEvent
+        isLive
+        landingImageUrl
+        eventFeature {
+          id
+          description
+          type
+        }
+        priceDescription {
+          id
+          description
+          type
+        }
+        eventDetail {
+          id
+          description
+          type
+        }
+      }
+      accessCodes {
+        items {
+          id
+          merchandiseId
+          code
+          userId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      name
+      description
+      image {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      date
+      eventId
+      productId
+      priceId
+      price
+      platformFee
+      stripeMetaData
+      carts {
+        items {
+          id
+          merchandiseId
+          cartId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      VODMetaData {
+        band
+        date
+        venue
+        location
+        maestro_channel
+        description
+        price
+        videoURL
+      }
+      bandMerchType
+      subscriptionMerchandise {
+        items {
+          id
+          merchandiseId
+          subscriptionId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      packageMerchandise {
+        items {
+          id
+          merchandiseId
+          packageId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      subscriptionId
+      package {
+        id
+        name
+        description
+        price
+        priceId
+        platformFee
+        productId
+        active
+        userID
+        userPackages {
+          nextToken
+        }
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        packageMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      packageId
+      decomissionedMerchandises {
+        items {
+          id
+          updatedByUserId
+          updatedByUserEmail
+          previousMerchId
+          decomissionedMerchandiseJSON
+          version
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      version
+      associatedMerchandise {
+        items {
+          id
+          associatedMerchandiseId
+          associatedToId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      associatedMerchandiseEnabled
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createBandMerchandise = /* GraphQL */ `
+  mutation CreateBandMerchandise(
+    $input: CreateBandMerchandiseInput!
+    $condition: ModelBandMerchandiseConditionInput
+  ) {
+    createBandMerchandise(input: $input, condition: $condition) {
+      id
+      bandId
+      merchandiseId
+      band {
+        id
+        bandName
+        createdBy
+        updatedBy
+        website
+        logo {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        email
+        bandMerchandise {
+          nextToken
+        }
+        socialMediaLinks {
+          twitterLink
+          facebookLink
+          instagramLink
+          twitchLink
+          youtubeLink
+          tiktokLink
+        }
+        createdAt
+        updatedAt
+      }
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateBandMerchandise = /* GraphQL */ `
+  mutation UpdateBandMerchandise(
+    $input: UpdateBandMerchandiseInput!
+    $condition: ModelBandMerchandiseConditionInput
+  ) {
+    updateBandMerchandise(input: $input, condition: $condition) {
+      id
+      bandId
+      merchandiseId
+      band {
+        id
+        bandName
+        createdBy
+        updatedBy
+        website
+        logo {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        email
+        bandMerchandise {
+          nextToken
+        }
+        socialMediaLinks {
+          twitterLink
+          facebookLink
+          instagramLink
+          twitchLink
+          youtubeLink
+          tiktokLink
+        }
+        createdAt
+        updatedAt
+      }
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteBandMerchandise = /* GraphQL */ `
+  mutation DeleteBandMerchandise(
+    $input: DeleteBandMerchandiseInput!
+    $condition: ModelBandMerchandiseConditionInput
+  ) {
+    deleteBandMerchandise(input: $input, condition: $condition) {
+      id
+      bandId
+      merchandiseId
+      band {
+        id
+        bandName
+        createdBy
+        updatedBy
+        website
+        logo {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        email
+        bandMerchandise {
+          nextToken
+        }
+        socialMediaLinks {
+          twitterLink
+          facebookLink
+          instagramLink
+          twitchLink
+          youtubeLink
+          tiktokLink
+        }
+        createdAt
+        updatedAt
+      }
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createBand = /* GraphQL */ `
+  mutation CreateBand(
+    $input: CreateBandInput!
+    $condition: ModelBandConditionInput
+  ) {
+    createBand(input: $input, condition: $condition) {
+      id
+      bandName
+      createdBy
+      updatedBy
+      website
+      logo {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      email
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socialMediaLinks {
+        twitterLink
+        facebookLink
+        instagramLink
+        twitchLink
+        youtubeLink
+        tiktokLink
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateBand = /* GraphQL */ `
+  mutation UpdateBand(
+    $input: UpdateBandInput!
+    $condition: ModelBandConditionInput
+  ) {
+    updateBand(input: $input, condition: $condition) {
+      id
+      bandName
+      createdBy
+      updatedBy
+      website
+      logo {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      email
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socialMediaLinks {
+        twitterLink
+        facebookLink
+        instagramLink
+        twitchLink
+        youtubeLink
+        tiktokLink
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteBand = /* GraphQL */ `
+  mutation DeleteBand(
+    $input: DeleteBandInput!
+    $condition: ModelBandConditionInput
+  ) {
+    deleteBand(input: $input, condition: $condition) {
+      id
+      bandName
+      createdBy
+      updatedBy
+      website
+      logo {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
+      email
+      bandMerchandise {
+        items {
+          id
+          bandId
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socialMediaLinks {
+        twitterLink
+        facebookLink
+        instagramLink
+        twitchLink
+        youtubeLink
+        tiktokLink
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createAssociatedMerchandise = /* GraphQL */ `
+  mutation CreateAssociatedMerchandise(
+    $input: CreateAssociatedMerchandiseInput!
+    $condition: ModelAssociatedMerchandiseConditionInput
+  ) {
+    createAssociatedMerchandise(input: $input, condition: $condition) {
+      id
+      associatedMerchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedMerchandiseId
+      associatedTo {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedToId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAssociatedMerchandise = /* GraphQL */ `
+  mutation UpdateAssociatedMerchandise(
+    $input: UpdateAssociatedMerchandiseInput!
+    $condition: ModelAssociatedMerchandiseConditionInput
+  ) {
+    updateAssociatedMerchandise(input: $input, condition: $condition) {
+      id
+      associatedMerchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedMerchandiseId
+      associatedTo {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedToId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAssociatedMerchandise = /* GraphQL */ `
+  mutation DeleteAssociatedMerchandise(
+    $input: DeleteAssociatedMerchandiseInput!
+    $condition: ModelAssociatedMerchandiseConditionInput
+  ) {
+    deleteAssociatedMerchandise(input: $input, condition: $condition) {
+      id
+      associatedMerchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedMerchandiseId
+      associatedTo {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      associatedToId
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createDecomissionedMerchandise = /* GraphQL */ `
+  mutation CreateDecomissionedMerchandise(
+    $input: CreateDecomissionedMerchandiseInput!
+    $condition: ModelDecomissionedMerchandiseConditionInput
+  ) {
+    createDecomissionedMerchandise(input: $input, condition: $condition) {
+      id
+      updatedByUserId
+      updatedByUserEmail
+      previousMerchId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      decomissionedMerchandiseJSON
+      version
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDecomissionedMerchandise = /* GraphQL */ `
+  mutation UpdateDecomissionedMerchandise(
+    $input: UpdateDecomissionedMerchandiseInput!
+    $condition: ModelDecomissionedMerchandiseConditionInput
+  ) {
+    updateDecomissionedMerchandise(input: $input, condition: $condition) {
+      id
+      updatedByUserId
+      updatedByUserEmail
+      previousMerchId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      decomissionedMerchandiseJSON
+      version
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDecomissionedMerchandise = /* GraphQL */ `
+  mutation DeleteDecomissionedMerchandise(
+    $input: DeleteDecomissionedMerchandiseInput!
+    $condition: ModelDecomissionedMerchandiseConditionInput
+  ) {
+    deleteDecomissionedMerchandise(input: $input, condition: $condition) {
+      id
+      updatedByUserId
+      updatedByUserEmail
+      previousMerchId
+      merchandise {
+        id
+        type
+        transactions {
+          nextToken
+        }
+        merchandisePurchases {
+          nextToken
+        }
+        active
+        createdBy
+        updatedBy
+        isEvent
+        streamMetaData {
+          streamId
+          eventId
+          bandName
+          promoter
+          videoURL
+          nameOfEvent
+          location
+          promoterLogo
+          timeOfEvent
+          isLive
+          landingImageUrl
+        }
+        accessCodes {
+          nextToken
+        }
+        name
+        description
+        image {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+        }
+        pictureId
+        date
+        eventId
+        productId
+        priceId
+        price
+        platformFee
+        stripeMetaData
+        carts {
+          nextToken
+        }
+        VODMetaData {
+          band
+          date
+          venue
+          location
+          maestro_channel
+          description
+          price
+          videoURL
+        }
+        bandMerchType
+        subscriptionMerchandise {
+          nextToken
+        }
+        packageMerchandise {
+          nextToken
+        }
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        subscriptionId
+        package {
+          id
+          name
+          description
+          price
+          priceId
+          platformFee
+          productId
+          active
+          userID
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        packageId
+        decomissionedMerchandises {
+          nextToken
+        }
+        version
+        associatedMerchandise {
+          nextToken
+        }
+        associatedMerchandiseEnabled
+        bandMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      decomissionedMerchandiseJSON
+      version
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation CreateDefaultPlatformFeePercentages(
+    $input: CreateDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    createDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      ticket_stream_event_FeeName
+      vod
+      vodFeeName
+      package
+      packageFeeName
+      subscription
+      subscriptionFeeName
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation UpdateDefaultPlatformFeePercentages(
+    $input: UpdateDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    updateDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      ticket_stream_event_FeeName
+      vod
+      vodFeeName
+      package
+      packageFeeName
+      subscription
+      subscriptionFeeName
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDefaultPlatformFeePercentages = /* GraphQL */ `
+  mutation DeleteDefaultPlatformFeePercentages(
+    $input: DeleteDefaultPlatformFeePercentagesInput!
+    $condition: ModelDefaultPlatformFeePercentagesConditionInput
+  ) {
+    deleteDefaultPlatformFeePercentages(input: $input, condition: $condition) {
+      id
+      ticket_stream_event
+      ticket_stream_event_FeeName
+      vod
+      vodFeeName
+      package
+      packageFeeName
+      subscription
+      subscriptionFeeName
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createContact = /* GraphQL */ `
+  mutation CreateContact(
+    $input: CreateContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    createContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateContact = /* GraphQL */ `
+  mutation UpdateContact(
+    $input: UpdateContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    updateContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteContact = /* GraphQL */ `
+  mutation DeleteContact(
+    $input: DeleteContactInput!
+    $condition: ModelContactConditionInput
+  ) {
+    deleteContact(input: $input, condition: $condition) {
+      lastName
+      firstName
+      age
+      favoriteColor
+      favoriteFood
+      createdAt
       updatedAt
     }
   }
