@@ -2601,6 +2601,89 @@ export const listOnDemandFeaturedShows = /* GraphQL */ `
     }
   }
 `;
+export const getFeaturedSubscription = /* GraphQL */ `
+  query GetFeaturedSubscription($id: ID!) {
+    getFeaturedSubscription(id: $id) {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listFeaturedSubscriptions = /* GraphQL */ `
+  query ListFeaturedSubscriptions(
+    $filter: ModelFeaturedSubscriptionFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFeaturedSubscriptions(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getMerchandise = /* GraphQL */ `
   query GetMerchandise($id: ID!) {
     getMerchandise(id: $id) {

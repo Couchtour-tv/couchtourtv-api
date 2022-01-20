@@ -8306,6 +8306,156 @@ export const onDeleteOnDemandFeaturedShow = /* GraphQL */ `
     }
   }
 `;
+export const onCreateFeaturedSubscription = /* GraphQL */ `
+  subscription OnCreateFeaturedSubscription {
+    onCreateFeaturedSubscription {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateFeaturedSubscription = /* GraphQL */ `
+  subscription OnUpdateFeaturedSubscription {
+    onUpdateFeaturedSubscription {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteFeaturedSubscription = /* GraphQL */ `
+  subscription OnDeleteFeaturedSubscription {
+    onDeleteFeaturedSubscription {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateMerchandise = /* GraphQL */ `
   subscription OnCreateMerchandise {
     onCreateMerchandise {

@@ -481,6 +481,12 @@ type OnDemandFeaturedShow @model {
   merch: Merchandise @connection(fields: ["merchId"])
 }
 
+type FeaturedSubscription @model {
+  id: ID!
+  subscriptionId: ID!
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+}
+
 type Merchandise
   @model
   @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])

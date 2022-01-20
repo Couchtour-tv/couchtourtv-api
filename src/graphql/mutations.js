@@ -8395,6 +8395,165 @@ export const deleteOnDemandFeaturedShow = /* GraphQL */ `
     }
   }
 `;
+export const createFeaturedSubscription = /* GraphQL */ `
+  mutation CreateFeaturedSubscription(
+    $input: CreateFeaturedSubscriptionInput!
+    $condition: ModelFeaturedSubscriptionConditionInput
+  ) {
+    createFeaturedSubscription(input: $input, condition: $condition) {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateFeaturedSubscription = /* GraphQL */ `
+  mutation UpdateFeaturedSubscription(
+    $input: UpdateFeaturedSubscriptionInput!
+    $condition: ModelFeaturedSubscriptionConditionInput
+  ) {
+    updateFeaturedSubscription(input: $input, condition: $condition) {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteFeaturedSubscription = /* GraphQL */ `
+  mutation DeleteFeaturedSubscription(
+    $input: DeleteFeaturedSubscriptionInput!
+    $condition: ModelFeaturedSubscriptionConditionInput
+  ) {
+    deleteFeaturedSubscription(input: $input, condition: $condition) {
+      id
+      subscriptionId
+      subscriptionModel {
+        id
+        name
+        description
+        price
+        priceId
+        productId
+        active
+        merchandiseId
+        merchandise {
+          id
+          type
+          active
+          createdBy
+          updatedBy
+          isEvent
+          name
+          description
+          pictureId
+          date
+          eventId
+          productId
+          priceId
+          price
+          platformFee
+          stripeMetaData
+          bandMerchType
+          subscriptionId
+          packageId
+          version
+          associatedMerchandiseEnabled
+          createdAt
+          updatedAt
+        }
+        subscriptionMerchandise {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createMerchandise = /* GraphQL */ `
   mutation CreateMerchandise(
     $input: CreateMerchandiseInput!
