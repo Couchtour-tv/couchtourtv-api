@@ -713,6 +713,7 @@ export const onCreateTransaction = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -851,6 +852,7 @@ export const onUpdateTransaction = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -989,6 +991,7 @@ export const onDeleteTransaction = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -1098,6 +1101,7 @@ export const onCreateCreditCard = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -1221,6 +1225,7 @@ export const onUpdateCreditCard = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -1344,6 +1349,7 @@ export const onDeleteCreditCard = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -1409,6 +1415,7 @@ export const onCreateMerchandiseTransaction = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -1571,6 +1578,7 @@ export const onUpdateMerchandiseTransaction = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -1733,6 +1741,7 @@ export const onDeleteMerchandiseTransaction = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -3398,6 +3407,7 @@ export const onCreateMerchandisePurchase = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -3584,6 +3594,7 @@ export const onUpdateMerchandisePurchase = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -3770,6 +3781,7 @@ export const onDeleteMerchandisePurchase = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -4061,6 +4073,7 @@ export const onCreatePurchase = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -4070,6 +4083,7 @@ export const onCreatePurchase = /* GraphQL */ `
       }
       creditCardId
       transactionId
+      lastFour
       createdAt
       updatedAt
     }
@@ -4249,6 +4263,7 @@ export const onUpdatePurchase = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -4258,6 +4273,7 @@ export const onUpdatePurchase = /* GraphQL */ `
       }
       creditCardId
       transactionId
+      lastFour
       createdAt
       updatedAt
     }
@@ -4437,6 +4453,7 @@ export const onDeletePurchase = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -4446,6 +4463,7 @@ export const onDeletePurchase = /* GraphQL */ `
       }
       creditCardId
       transactionId
+      lastFour
       createdAt
       updatedAt
     }
@@ -4538,6 +4556,7 @@ export const onCreateUser = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -4744,6 +4763,7 @@ export const onUpdateUser = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -4950,6 +4970,7 @@ export const onDeleteUser = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
