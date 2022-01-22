@@ -303,6 +303,7 @@ type Purchase
   transactions: Transaction @connection(fields: ["paymentIntent"])
   creditCardId: ID
   transactionId: ID
+  lastFour: String
 }
 
 type User

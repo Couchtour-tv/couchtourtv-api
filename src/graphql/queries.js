@@ -199,6 +199,7 @@ export const getTransaction = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -251,6 +252,7 @@ export const listTransactions = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -362,6 +364,7 @@ export const getCreditCard = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -883,6 +886,7 @@ export const getPurchase = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
@@ -892,6 +896,7 @@ export const getPurchase = /* GraphQL */ `
       }
       creditCardId
       transactionId
+      lastFour
       createdAt
       updatedAt
     }
@@ -966,6 +971,7 @@ export const listPurchases = /* GraphQL */ `
         }
         creditCardId
         transactionId
+        lastFour
         createdAt
         updatedAt
       }
@@ -1060,6 +1066,7 @@ export const getUser = /* GraphQL */ `
           paymentIntent
           creditCardId
           transactionId
+          lastFour
           createdAt
           updatedAt
         }
