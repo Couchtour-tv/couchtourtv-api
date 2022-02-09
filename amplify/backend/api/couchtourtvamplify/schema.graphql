@@ -322,6 +322,7 @@ type User
   awayMessageStatus: String
   chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
   invitation: [Invitation] @connection(fields: ["id"])
+  lastUsedCardID: ID
   creditCards: [CreditCard]
     @connection(keyName: "userIDCreditCardIndex", fields: ["id"])
   transactions: [Transaction]
@@ -474,6 +475,8 @@ type Message
 
 type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
+  newOnCreateInvitation: Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
 }
 
 type OnDemandFeaturedShow @model {

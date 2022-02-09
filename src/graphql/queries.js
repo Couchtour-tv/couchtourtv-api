@@ -99,6 +99,7 @@ export const getTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -147,6 +148,7 @@ export const getTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -289,6 +291,7 @@ export const getCreditCard = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -405,6 +408,7 @@ export const listCreditCards = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -737,6 +741,7 @@ export const getPurchase = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -812,6 +817,7 @@ export const getPurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -919,6 +925,7 @@ export const listPurchases = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -1022,6 +1029,7 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
@@ -1213,6 +1221,7 @@ export const listUsers = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -1461,6 +1470,7 @@ export const getAccessCode = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -1538,6 +1548,7 @@ export const listAccessCodes = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -1788,6 +1799,7 @@ export const getChatRoomUser = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -1888,6 +1900,7 @@ export const listChatRoomUsers = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -1956,6 +1969,7 @@ export const getChatRoom = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -2057,6 +2071,7 @@ export const getInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -2130,6 +2145,7 @@ export const getInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -2232,6 +2248,7 @@ export const listInvitations = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -2254,6 +2271,7 @@ export const listInvitations = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -2315,6 +2333,7 @@ export const getMessage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -2416,6 +2435,7 @@ export const listMessages = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3739,6 +3759,7 @@ export const getCreditCardByUserID = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3815,6 +3836,7 @@ export const getUserByUsername = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -3901,6 +3923,7 @@ export const acccessCodesbyCode = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3951,6 +3974,7 @@ export const getChatRoomUserByUserID = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -4008,6 +4032,7 @@ export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -4067,6 +4092,7 @@ export const messagesByChatRoom = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn

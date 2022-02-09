@@ -525,6 +525,7 @@ export const createTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -573,6 +574,7 @@ export const createTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -667,6 +669,7 @@ export const updateTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -715,6 +718,7 @@ export const updateTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -809,6 +813,7 @@ export const deleteTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -857,6 +862,7 @@ export const deleteTransaction = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -947,6 +953,7 @@ export const createCreditCard = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -1074,6 +1081,7 @@ export const updateCreditCard = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -1201,6 +1209,7 @@ export const deleteCreditCard = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -3339,6 +3348,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3529,6 +3539,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3719,6 +3730,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -3917,6 +3929,7 @@ export const createPurchase = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -3992,6 +4005,7 @@ export const createPurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -4110,6 +4124,7 @@ export const updatePurchase = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -4185,6 +4200,7 @@ export const updatePurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -4303,6 +4319,7 @@ export const deletePurchase = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -4378,6 +4395,7 @@ export const deletePurchase = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -4514,6 +4532,7 @@ export const createUser = /* GraphQL */ `
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
@@ -4724,6 +4743,7 @@ export const updateUser = /* GraphQL */ `
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
@@ -4934,6 +4954,7 @@ export const deleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
@@ -5497,6 +5518,7 @@ export const createAccessCode = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -5585,6 +5607,7 @@ export const updateAccessCode = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -5673,6 +5696,7 @@ export const deleteAccessCode = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -5760,6 +5784,7 @@ export const createUserPackage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -5892,6 +5917,7 @@ export const updateUserPackage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -6024,6 +6050,7 @@ export const deleteUserPackage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -6603,6 +6630,7 @@ export const createChatRoomUser = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -6714,6 +6742,7 @@ export const updateChatRoomUser = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -6825,6 +6854,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -6949,6 +6979,7 @@ export const createChatRoom = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -7033,6 +7064,7 @@ export const updateChatRoom = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -7117,6 +7149,7 @@ export const deleteChatRoom = /* GraphQL */ `
           avatar
           pictureId
           awayMessageStatus
+          lastUsedCardID
           cogId
           emailVerified
           loggedIn
@@ -7186,6 +7219,7 @@ export const createInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7259,6 +7293,7 @@ export const createInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7372,6 +7407,7 @@ export const updateInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7445,6 +7481,7 @@ export const updateInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7558,6 +7595,7 @@ export const deleteInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7631,6 +7669,7 @@ export const deleteInvitation = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7748,6 +7787,7 @@ export const createMessage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7860,6 +7900,7 @@ export const updateMessage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
@@ -7972,6 +8013,7 @@ export const deleteMessage = /* GraphQL */ `
         invitation {
           nextToken
         }
+        lastUsedCardID
         creditCards {
           nextToken
         }
