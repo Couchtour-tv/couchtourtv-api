@@ -475,8 +475,20 @@ type Message
 
 type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
-  newOnCreateInvitation: Invitation
+
+  onCreateInviteByInvitedUserID(invitedUserID: ID!): Invitation
     @aws_subscribe(mutations: ["createInvitation"])
+  onCreateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
+  onCreateInviteByChatRoomID(chatRoomID: ID!): Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
+
+  onUpdateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
+  onUpdateInviteByInvitedUserID(invitedUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
+  onUpdateInviteByChatRoomID(chatRoomID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
 }
 
 type OnDemandFeaturedShow @model {
