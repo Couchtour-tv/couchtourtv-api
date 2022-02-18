@@ -478,17 +478,34 @@ type Subscription {
 
   onCreateInviteByInvitedUserID(invitedUserID: ID!): Invitation
     @aws_subscribe(mutations: ["createInvitation"])
+
   onCreateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
     @aws_subscribe(mutations: ["createInvitation"])
+
   onCreateInviteByChatRoomID(chatRoomID: ID!): Invitation
     @aws_subscribe(mutations: ["createInvitation"])
 
   onUpdateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
     @aws_subscribe(mutations: ["updateInvitation"])
+
   onUpdateInviteByInvitedUserID(invitedUserID: ID!): Invitation
     @aws_subscribe(mutations: ["updateInvitation"])
+
   onUpdateInviteByChatRoomID(chatRoomID: ID!): Invitation
     @aws_subscribe(mutations: ["updateInvitation"])
+
+  onCreateChatRoomUserByUserID(userID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["createChatRoomUser"])
+  onDeleteChatRoomUserByUserID(userID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["deleteChatRoomUser"])
+
+  onCreateChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["createChatRoomUser"])
+  onDeleteChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["deleteChatRoomUser"])
+
+  onCreateMessageByChatRoomID(chatRoomID: ID!): Message
+    @aws_subscribe(mutations: ["createMessage"])
 }
 
 type OnDemandFeaturedShow @model {
