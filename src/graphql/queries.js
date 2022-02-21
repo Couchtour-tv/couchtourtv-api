@@ -1542,6 +1542,7 @@ export const getCreditCard = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -1606,6 +1607,7 @@ export const getCreditCard = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -4354,6 +4356,7 @@ export const getPurchase = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -4418,6 +4421,7 @@ export const getPurchase = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -6476,6 +6480,14 @@ export const getUser = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -6659,6 +6671,14 @@ export const getUser = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -8037,6 +8057,7 @@ export const listUsers = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -8101,6 +8122,7 @@ export const listUsers = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -9708,6 +9730,7 @@ export const getAccessCode = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -9772,6 +9795,7 @@ export const getAccessCode = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12002,6 +12026,7 @@ export const getChatRoomUser = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12066,6 +12091,7 @@ export const getChatRoomUser = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12603,6 +12629,7 @@ export const getChatRoomUser = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12645,6 +12672,7 @@ export const getChatRoomUser = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12754,6 +12782,14 @@ export const getChatRoomUser = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -12815,6 +12851,7 @@ export const getChatRoomUser = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -12825,6 +12862,19 @@ export const getChatRoomUser = /* GraphQL */ `
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -13105,6 +13155,7 @@ export const listChatRoomUsers = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -13123,6 +13174,19 @@ export const listChatRoomUsers = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -13237,6 +13301,14 @@ export const getChatRoom = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -13347,6 +13419,14 @@ export const getChatRoom = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -13622,6 +13702,7 @@ export const getChatRoom = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -13640,6 +13721,19 @@ export const getChatRoom = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -13820,6 +13914,14 @@ export const getChatRoom = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -13830,6 +13932,19 @@ export const getChatRoom = /* GraphQL */ `
         nextToken
       }
       chatRoomName
+      picture {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
       createdAt
       updatedAt
     }
@@ -13876,6 +13991,7 @@ export const listChatRooms = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -13918,6 +14034,7 @@ export const listChatRooms = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -14027,6 +14144,14 @@ export const listChatRooms = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -14088,6 +14213,7 @@ export const listChatRooms = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -14098,6 +14224,19 @@ export const listChatRooms = /* GraphQL */ `
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -14160,6 +14299,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -14224,6 +14364,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -14778,6 +14919,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -14842,6 +14984,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -15382,6 +15525,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -15424,6 +15568,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -15533,6 +15678,14 @@ export const getInvitation = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -15594,6 +15747,7 @@ export const getInvitation = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -15604,6 +15758,19 @@ export const getInvitation = /* GraphQL */ `
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -16090,6 +16257,7 @@ export const listInvitations = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -16108,6 +16276,19 @@ export const listInvitations = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -16178,6 +16359,7 @@ export const getMessage = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -16242,6 +16424,7 @@ export const getMessage = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -16779,6 +16962,7 @@ export const getMessage = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -16821,6 +17005,7 @@ export const getMessage = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -16930,6 +17115,14 @@ export const getMessage = /* GraphQL */ `
               nextToken
             }
             chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
             createdAt
             updatedAt
           }
@@ -16991,6 +17184,7 @@ export const getMessage = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -17001,6 +17195,19 @@ export const getMessage = /* GraphQL */ `
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -17282,6 +17489,7 @@ export const listMessages = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -17300,6 +17508,19 @@ export const listMessages = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -25616,6 +25837,7 @@ export const getUserByUsername = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -25680,6 +25902,7 @@ export const getUserByUsername = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -26702,6 +26925,7 @@ export const getChatRoomUserByUserID = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -26720,6 +26944,19 @@ export const getChatRoomUserByUserID = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -27012,6 +27249,7 @@ export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -27030,6 +27268,19 @@ export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -27324,6 +27575,7 @@ export const messagesByChatRoom = /* GraphQL */ `
               id
               lastMessageID
               chatRoomName
+              pictureId
               createdAt
               updatedAt
             }
@@ -27342,6 +27594,19 @@ export const messagesByChatRoom = /* GraphQL */ `
             nextToken
           }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }

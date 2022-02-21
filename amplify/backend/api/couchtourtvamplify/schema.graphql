@@ -434,6 +434,8 @@ type ChatRoom @model {
   lastMessage: Message @connection(fields: ["lastMessageID"])
   invitation: [Invitation] @connection(keyName: "byChatRoomInv", fields: ["id"])
   chatRoomName: String
+  picture: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
 }
 
 type Invitation
