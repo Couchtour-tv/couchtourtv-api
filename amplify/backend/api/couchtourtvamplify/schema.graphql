@@ -127,7 +127,7 @@ type TicketAttribute {
   description: String!
 }
 
-type Event @model {
+type Event @model(subscriptions: null) {
   id: ID!
   eventId: String
   bandName: String
@@ -142,7 +142,7 @@ type Event @model {
 }
 
 type CartMerchandise
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byCart", fields: ["cartId", "merchandiseId"])
   @key(name: "byMerchandise", fields: ["merchandiseId", "cartId"]) {
   id: ID!
@@ -153,7 +153,7 @@ type CartMerchandise
 }
 
 type Transaction
-  @model
+  @model(subscriptions: null)
   @key(name: "userIDTransactionIndex", fields: ["userID"])
   @key(name: "creditCardIdTransactionIndex", fields: ["creditCardId"]) {
   id: ID!
@@ -171,7 +171,7 @@ type Transaction
 }
 
 type CreditCard
-  @model
+  @model(subscriptions: null)
   @key(
     name: "userIDCreditCardIndex"
     fields: ["userID"]
@@ -200,7 +200,7 @@ type CreditCard
 }
 
 type MerchandiseTransaction
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byTransaction", fields: ["transactionId"])
   @key(name: "byMerchandiseTransaction", fields: ["merchandiseId"]) {
   id: ID!
@@ -210,7 +210,7 @@ type MerchandiseTransaction
   merchandise: Merchandise! @connection(fields: ["merchandiseId"])
 }
 
-type Cart @model {
+type Cart @model(subscriptions: null) {
   id: ID!
   merchandise: [CartMerchandise] @connection(keyName: "byCart", fields: ["id"])
 }
@@ -230,7 +230,7 @@ type S3Object {
   key: String!
 }
 
-type Picture @model {
+type Picture @model(subscriptions: null) {
   id: ID!
   name: String
   owner: String
@@ -238,7 +238,7 @@ type Picture @model {
 }
 
 type SubscriptionMerchandise
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(
     name: "byMerchandiseSubscription"
     fields: ["merchandiseId", "subscriptionId"]
@@ -251,7 +251,7 @@ type SubscriptionMerchandise
   subscription: SubscriptionModel @connection(fields: ["subscriptionId"])
 }
 
-type SubscriptionModel @model {
+type SubscriptionModel @model(subscriptions: null) {
   id: ID!
   name: String
   description: String
@@ -266,7 +266,7 @@ type SubscriptionModel @model {
 }
 
 type PackageMerchandise
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byMerchandisePackage", fields: ["merchandiseId", "packageId"])
   @key(name: "byPackage", fields: ["packageId", "merchandiseId"]) {
   id: ID!
@@ -277,7 +277,7 @@ type PackageMerchandise
 }
 
 type MerchandisePurchase
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byPurchase", fields: ["purchaseId", "merchandiseId"])
   @key(name: "byMerchandise", fields: ["merchandiseId", "purchaseId"]) {
   id: ID!
@@ -290,7 +290,7 @@ type MerchandisePurchase
 }
 
 type Purchase
-  @model
+  @model(subscriptions: null)
   @key(name: "userIDPurchasesIndex", fields: ["userID"])
   @key(name: "creditCardIdPurchaseIndex", fields: ["creditCardId"]) {
   id: ID!
@@ -353,7 +353,7 @@ type User
 }
 
 type Entitlement
-  @model
+  @model(subscriptions: null)
   @key(name: "byUserEntitlement", fields: ["userID", "merchandiseId"]) {
   id: ID!
   merchandiseId: ID!
@@ -363,7 +363,7 @@ type Entitlement
 }
 
 type AccessCode
-  @model
+  @model(subscriptions: null)
   @key(name: "byMerchandiseAccessCode", fields: ["merchandiseId"])
   @key(name: "byUserAccessCode", fields: ["userId"])
   @key(
@@ -379,7 +379,7 @@ type AccessCode
 }
 
 type UserPackage
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byUserP", fields: ["userID", "packageId"])
   @key(name: "byUPackage", fields: ["packageId", "userID"]) {
   id: ID!
@@ -389,7 +389,9 @@ type UserPackage
   package: Package! @connection(fields: ["packageId"])
 }
 
-type Package @model @key(name: "userIDPackagesIndex", fields: ["userID"]) {
+type Package
+  @model(subscriptions: null)
+  @key(name: "userIDPackagesIndex", fields: ["userID"]) {
   id: ID!
   name: String
   description: String
@@ -498,11 +500,13 @@ type Subscription {
 
   onCreateChatRoomUserByUserID(userID: ID!): ChatRoomUser
     @aws_subscribe(mutations: ["createChatRoomUser"])
+
   onDeleteChatRoomUserByUserID(userID: ID!): ChatRoomUser
     @aws_subscribe(mutations: ["deleteChatRoomUser"])
 
   onCreateChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
     @aws_subscribe(mutations: ["createChatRoomUser"])
+
   onDeleteChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
     @aws_subscribe(mutations: ["deleteChatRoomUser"])
 
@@ -510,20 +514,20 @@ type Subscription {
     @aws_subscribe(mutations: ["createMessage"])
 }
 
-type OnDemandFeaturedShow @model {
+type OnDemandFeaturedShow @model(subscriptions: null) {
   id: ID!
   merchId: ID!
   merch: Merchandise @connection(fields: ["merchId"])
 }
 
-type FeaturedSubscription @model {
+type FeaturedSubscription @model(subscriptions: null) {
   id: ID!
   subscriptionId: ID!
   subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
 }
 
 type Merchandise
-  @model
+  @model(subscriptions: null)
   @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
   @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
   @key(
@@ -582,7 +586,7 @@ type Merchandise
 }
 
 type BandMerchandise
-  @model(queries: null)
+  @model(queries: null, subscriptions: null)
   @key(name: "byMerchandiseBand", fields: ["merchandiseId", "bandId"])
   @key(name: "byBandMerchandise", fields: ["bandId", "merchandiseId"]) {
   id: ID!
@@ -592,7 +596,7 @@ type BandMerchandise
   merchandise: Merchandise @connection(fields: ["merchandiseId"])
 }
 
-type Band @model {
+type Band @model(subscriptions: null) {
   id: ID!
   bandName: String
   createdBy: String
@@ -607,7 +611,7 @@ type Band @model {
 }
 
 type AssociatedMerchandise
-  @model
+  @model(subscriptions: null)
   @key(name: "byMerchandiseAssociation", fields: ["associatedToId"]) {
   id: ID!
   associatedMerchandise: Merchandise
@@ -618,7 +622,7 @@ type AssociatedMerchandise
 }
 
 type DecomissionedMerchandise
-  @model
+  @model(subscriptions: null)
   @key(name: "byMerchandiseForDM", fields: ["previousMerchId"]) {
   id: ID!
   updatedByUserId: ID
@@ -629,7 +633,7 @@ type DecomissionedMerchandise
   version: Int
 }
 
-type DefaultPlatformFeePercentages @model {
+type DefaultPlatformFeePercentages @model(subscriptions: null) {
   id: ID!
   ticket_stream_event: String
   ticket_stream_event_FeeName: String
@@ -642,7 +646,7 @@ type DefaultPlatformFeePercentages @model {
 }
 
 type Contact
-  @model
+  @model(subscriptions: null)
   @key(fields: ["lastName", "firstName", "age"])
   @key(
     name: "contactsByFavoriteColor"
