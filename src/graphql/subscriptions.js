@@ -18,30 +18,385 @@ export const newOnCreateMessage = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -61,6 +416,124 @@ export const newOnCreateMessage = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -69,14 +542,88 @@ export const newOnCreateMessage = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -85,9 +632,86 @@ export const newOnCreateMessage = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -97,916 +721,206 @@ export const newOnCreateMessage = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
-        createdAt
-        updatedAt
-      }
-      updatedAt
-    }
-  }
-`;
-export const onCreateEvent = /* GraphQL */ `
-  subscription OnCreateEvent {
-    onCreateEvent {
-      id
-      eventId
-      bandName
-      promoter
-      promoterLogo
-      timeOfEvent
-      isLive
-      landingImageUrl
-      eventFeature {
-        id
-        description
-        type
-      }
-      priceDescription {
-        id
-        description
-        type
-      }
-      eventDetail {
-        id
-        description
-        type
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateEvent = /* GraphQL */ `
-  subscription OnUpdateEvent {
-    onUpdateEvent {
-      id
-      eventId
-      bandName
-      promoter
-      promoterLogo
-      timeOfEvent
-      isLive
-      landingImageUrl
-      eventFeature {
-        id
-        description
-        type
-      }
-      priceDescription {
-        id
-        description
-        type
-      }
-      eventDetail {
-        id
-        description
-        type
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteEvent = /* GraphQL */ `
-  subscription OnDeleteEvent {
-    onDeleteEvent {
-      id
-      eventId
-      bandName
-      promoter
-      promoterLogo
-      timeOfEvent
-      isLive
-      landingImageUrl
-      eventFeature {
-        id
-        description
-        type
-      }
-      priceDescription {
-        id
-        description
-        type
-      }
-      eventDetail {
-        id
-        description
-        type
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateCartMerchandise = /* GraphQL */ `
-  subscription OnCreateCartMerchandise {
-    onCreateCartMerchandise {
-      id
-      merchandiseId
-      cartId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
+        picture {
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
         createdAt
         updatedAt
       }
-      cart {
-        id
-        merchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateCartMerchandise = /* GraphQL */ `
-  subscription OnUpdateCartMerchandise {
-    onUpdateCartMerchandise {
+export const onCreateInviteByInvitedUserID = /* GraphQL */ `
+  subscription OnCreateInviteByInvitedUserID($invitedUserID: ID!) {
+    onCreateInviteByInvitedUserID(invitedUserID: $invitedUserID) {
       id
-      merchandiseId
-      cartId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      cart {
-        id
-        merchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteCartMerchandise = /* GraphQL */ `
-  subscription OnDeleteCartMerchandise {
-    onDeleteCartMerchandise {
-      id
-      merchandiseId
-      cartId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      cart {
-        id
-        merchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateTransaction = /* GraphQL */ `
-  subscription OnCreateTransaction {
-    onCreateTransaction {
-      id
-      userID
-      merchID
-      merchandise {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      attemptSuccess
-      errorObject
-      paymentIntent
-      creditCard {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        status
-        active
-        deleted
-        brand
-        email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      creditCardId
-      Purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      purchaseId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateTransaction = /* GraphQL */ `
-  subscription OnUpdateTransaction {
-    onUpdateTransaction {
-      id
-      userID
-      merchID
-      merchandise {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      attemptSuccess
-      errorObject
-      paymentIntent
-      creditCard {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        status
-        active
-        deleted
-        brand
-        email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      creditCardId
-      Purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      purchaseId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteTransaction = /* GraphQL */ `
-  subscription OnDeleteTransaction {
-    onDeleteTransaction {
-      id
-      userID
-      merchID
-      merchandise {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      attemptSuccess
-      errorObject
-      paymentIntent
-      creditCard {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        status
-        active
-        deleted
-        brand
-        email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      creditCardId
-      Purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      purchaseId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateCreditCard = /* GraphQL */ `
-  subscription OnCreateCreditCard {
-    onCreateCreditCard {
-      id
-      userID
-      user {
+      invitedUser {
         id
         completedSignUp
         username
@@ -1015,30 +929,385 @@ export const onCreateCreditCard = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -1058,6 +1327,124 @@ export const onCreateCreditCard = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -1066,71 +1453,1010 @@ export const onCreateCreditCard = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      transactions {
-        items {
+      createdByUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
           id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
-      purchases {
-        items {
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
           id
+          createdAt
+          content
           userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        createdAt
+        updatedAt
       }
       status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateCreditCard = /* GraphQL */ `
-  subscription OnUpdateCreditCard {
-    onUpdateCreditCard {
+export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
+  subscription OnCreateInviteByCreatedByUserID($createdByUserID: ID!) {
+    onCreateInviteByCreatedByUserID(createdByUserID: $createdByUserID) {
       id
-      userID
-      user {
+      invitedUser {
         id
         completedSignUp
         username
@@ -1139,30 +2465,385 @@ export const onUpdateCreditCard = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -1182,6 +2863,124 @@ export const onUpdateCreditCard = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -1190,71 +2989,1010 @@ export const onUpdateCreditCard = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      transactions {
-        items {
+      createdByUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
           id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
-      purchases {
-        items {
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
           id
+          createdAt
+          content
           userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        createdAt
+        updatedAt
       }
       status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteCreditCard = /* GraphQL */ `
-  subscription OnDeleteCreditCard {
-    onDeleteCreditCard {
+export const onCreateInviteByChatRoomID = /* GraphQL */ `
+  subscription OnCreateInviteByChatRoomID($chatRoomID: ID!) {
+    onCreateInviteByChatRoomID(chatRoomID: $chatRoomID) {
       id
-      userID
-      user {
+      invitedUser {
         id
         completedSignUp
         username
@@ -1263,30 +4001,385 @@ export const onDeleteCreditCard = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -1306,6 +4399,124 @@ export const onDeleteCreditCard = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -1314,2597 +4525,1010 @@ export const onDeleteCreditCard = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      transactions {
-        items {
+      createdByUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
           id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
-      purchases {
-        items {
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
           id
+          createdAt
+          content
           userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
+        pictureId
+        createdAt
+        updatedAt
       }
       status
-      active
-      deleted
-      brand
-      email
-      expMonth
-      expYear
-      lastFour
-      paymentMethodObj
-      created
-      postalCode
-      name
-      previousCardId
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateMerchandiseTransaction = /* GraphQL */ `
-  subscription OnCreateMerchandiseTransaction {
-    onCreateMerchandiseTransaction {
+export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
+  subscription OnUpdateInviteByCreatedByUserID($createdByUserID: ID!) {
+    onUpdateInviteByCreatedByUserID(createdByUserID: $createdByUserID) {
       id
-      transactionId
-      merchandiseId
-      transaction {
-        id
-        userID
-        merchID
-        merchandise {
-          nextToken
-        }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateMerchandiseTransaction = /* GraphQL */ `
-  subscription OnUpdateMerchandiseTransaction {
-    onUpdateMerchandiseTransaction {
-      id
-      transactionId
-      merchandiseId
-      transaction {
-        id
-        userID
-        merchID
-        merchandise {
-          nextToken
-        }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteMerchandiseTransaction = /* GraphQL */ `
-  subscription OnDeleteMerchandiseTransaction {
-    onDeleteMerchandiseTransaction {
-      id
-      transactionId
-      merchandiseId
-      transaction {
-        id
-        userID
-        merchID
-        merchandise {
-          nextToken
-        }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateCart = /* GraphQL */ `
-  subscription OnCreateCart {
-    onCreateCart {
-      id
-      merchandise {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateCart = /* GraphQL */ `
-  subscription OnUpdateCart {
-    onUpdateCart {
-      id
-      merchandise {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteCart = /* GraphQL */ `
-  subscription OnDeleteCart {
-    onDeleteCart {
-      id
-      merchandise {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePicture = /* GraphQL */ `
-  subscription OnCreatePicture {
-    onCreatePicture {
-      id
-      name
-      owner
-      file {
-        bucket
-        region
-        key
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePicture = /* GraphQL */ `
-  subscription OnUpdatePicture {
-    onUpdatePicture {
-      id
-      name
-      owner
-      file {
-        bucket
-        region
-        key
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePicture = /* GraphQL */ `
-  subscription OnDeletePicture {
-    onDeletePicture {
-      id
-      name
-      owner
-      file {
-        bucket
-        region
-        key
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateSubscriptionMerchandise = /* GraphQL */ `
-  subscription OnCreateSubscriptionMerchandise {
-    onCreateSubscriptionMerchandise {
-      id
-      merchandiseId
-      subscriptionId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscription {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateSubscriptionMerchandise = /* GraphQL */ `
-  subscription OnUpdateSubscriptionMerchandise {
-    onUpdateSubscriptionMerchandise {
-      id
-      merchandiseId
-      subscriptionId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscription {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteSubscriptionMerchandise = /* GraphQL */ `
-  subscription OnDeleteSubscriptionMerchandise {
-    onDeleteSubscriptionMerchandise {
-      id
-      merchandiseId
-      subscriptionId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscription {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateSubscriptionModel = /* GraphQL */ `
-  subscription OnCreateSubscriptionModel {
-    onCreateSubscriptionModel {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateSubscriptionModel = /* GraphQL */ `
-  subscription OnUpdateSubscriptionModel {
-    onUpdateSubscriptionModel {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteSubscriptionModel = /* GraphQL */ `
-  subscription OnDeleteSubscriptionModel {
-    onDeleteSubscriptionModel {
-      id
-      name
-      description
-      price
-      priceId
-      productId
-      active
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePackageMerchandise = /* GraphQL */ `
-  subscription OnCreatePackageMerchandise {
-    onCreatePackageMerchandise {
-      id
-      merchandiseId
-      packageId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePackageMerchandise = /* GraphQL */ `
-  subscription OnUpdatePackageMerchandise {
-    onUpdatePackageMerchandise {
-      id
-      merchandiseId
-      packageId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePackageMerchandise = /* GraphQL */ `
-  subscription OnDeletePackageMerchandise {
-    onDeletePackageMerchandise {
-      id
-      merchandiseId
-      packageId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateMerchandisePurchase = /* GraphQL */ `
-  subscription OnCreateMerchandisePurchase {
-    onCreateMerchandisePurchase {
-      id
-      purchaseId
-      merchandiseId
-      active
-      purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      merchandiseVersion
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateMerchandisePurchase = /* GraphQL */ `
-  subscription OnUpdateMerchandisePurchase {
-    onUpdateMerchandisePurchase {
-      id
-      purchaseId
-      merchandiseId
-      active
-      purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      merchandiseVersion
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteMerchandisePurchase = /* GraphQL */ `
-  subscription OnDeleteMerchandisePurchase {
-    onDeleteMerchandisePurchase {
-      id
-      purchaseId
-      merchandiseId
-      active
-      purchase {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        paymentIntent
-        transactions {
-          id
-          userID
-          merchID
-          attemptSuccess
-          errorObject
-          paymentIntent
-          creditCardId
-          purchaseId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        transactionId
-        lastFour
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      merchandiseVersion
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePurchase = /* GraphQL */ `
-  subscription OnCreatePurchase {
-    onCreatePurchase {
-      id
-      userID
-      user {
+      invitedUser {
         id
         completedSignUp
         username
@@ -3913,30 +5537,385 @@ export const onCreatePurchase = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -3956,6 +5935,124 @@ export const onCreatePurchase = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -3964,137 +6061,94 @@ export const onCreatePurchase = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      creditCard {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        status
-        active
-        deleted
-        brand
-        email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      paymentIntent
-      transactions {
-        id
-        userID
-        merchID
-        merchandise {
-          nextToken
-        }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
-        }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
-        createdAt
-        updatedAt
-      }
-      creditCardId
-      transactionId
-      lastFour
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePurchase = /* GraphQL */ `
-  subscription OnUpdatePurchase {
-    onUpdatePurchase {
-      id
-      userID
-      user {
+      createdByUser {
         id
         completedSignUp
         username
@@ -4103,30 +6157,385 @@ export const onUpdatePurchase = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -4146,6 +6555,124 @@ export const onUpdatePurchase = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -4154,137 +6681,390 @@ export const onUpdatePurchase = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      creditCard {
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
         id
-        userID
-        user {
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
           id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
           createdAt
-          updatedAt
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        status
-        active
-        deleted
-        brand
-        email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      paymentIntent
-      transactions {
-        id
-        userID
-        merchID
-        merchandise {
-          nextToken
-        }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
+          content
           userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
           name
-          previousCardId
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
+        pictureId
         createdAt
         updatedAt
       }
-      creditCardId
-      transactionId
-      lastFour
+      status
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeletePurchase = /* GraphQL */ `
-  subscription OnDeletePurchase {
-    onDeletePurchase {
+export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
+  subscription OnUpdateInviteByInvitedUserID($invitedUserID: ID!) {
+    onUpdateInviteByInvitedUserID(invitedUserID: $invitedUserID) {
       id
-      userID
-      user {
+      invitedUser {
         id
         completedSignUp
         username
@@ -4293,30 +7073,385 @@ export const onDeletePurchase = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -4336,6 +7471,124 @@ export const onDeletePurchase = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -4344,127 +7597,7108 @@ export const onDeletePurchase = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
         updatedAt
       }
-      merchandisePurchases {
-        items {
+      createdByUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
           id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
-        nextToken
-      }
-      creditCard {
-        id
-        userID
-        user {
-          id
-          completedSignUp
-          username
-          avatar
-          pictureId
-          awayMessageStatus
-          cogId
-          emailVerified
-          loggedIn
-          email
-          stripeCustomerId
-          stripeCustomer
-          stripeSubscriptionId
-          subscriptionId
-          accessToken
-          idToken
-          refreshToken
-          cartId
-          createdAt
-          updatedAt
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
-        status
-        active
-        deleted
-        brand
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
         email
-        expMonth
-        expYear
-        lastFour
-        paymentMethodObj
-        created
-        postalCode
-        name
-        previousCardId
-        createdAt
-        updatedAt
-      }
-      paymentIntent
-      transactions {
-        id
-        userID
-        merchID
-        merchandise {
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
-        attemptSuccess
-        errorObject
-        paymentIntent
-        creditCard {
-          id
-          userID
-          status
-          active
-          deleted
-          brand
-          email
-          expMonth
-          expYear
-          lastFour
-          paymentMethodObj
-          created
-          postalCode
-          name
-          previousCardId
-          createdAt
-          updatedAt
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
         }
-        creditCardId
-        Purchase {
-          id
-          userID
-          paymentIntent
-          creditCardId
-          transactionId
-          lastFour
-          createdAt
-          updatedAt
-        }
-        purchaseId
         createdAt
         updatedAt
       }
-      creditCardId
-      transactionId
-      lastFour
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      status
       createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateInviteByChatRoomID = /* GraphQL */ `
+  subscription OnUpdateInviteByChatRoomID($chatRoomID: ID!) {
+    onUpdateInviteByChatRoomID(chatRoomID: $chatRoomID) {
+      id
+      invitedUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdByUser {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      invitedUserID
+      createdByUserID
+      chatRoomID
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      status
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateChatRoomUserByUserID = /* GraphQL */ `
+  subscription OnCreateChatRoomUserByUserID($userID: ID!) {
+    onCreateChatRoomUserByUserID(userID: $userID) {
+      id
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
+  subscription OnDeleteChatRoomUserByUserID($userID: ID!) {
+    onDeleteChatRoomUserByUserID(userID: $userID) {
+      id
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
+  subscription OnCreateChatRoomUserByChatRoomID($chatRoomID: ID!) {
+    onCreateChatRoomUserByChatRoomID(chatRoomID: $chatRoomID) {
+      id
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
+  subscription OnDeleteChatRoomUserByChatRoomID($chatRoomID: ID!) {
+    onDeleteChatRoomUserByChatRoomID(chatRoomID: $chatRoomID) {
+      id
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateMessageByChatRoomID = /* GraphQL */ `
+  subscription OnCreateMessageByChatRoomID($chatRoomID: ID!) {
+    onCreateMessageByChatRoomID(chatRoomID: $chatRoomID) {
+      id
+      createdAt
+      content
+      userID
+      chatRoomID
+      user {
+        id
+        completedSignUp
+        username
+        avatar
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        awayMessageStatus
+        chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        lastUsedCardID
+        creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        cogId
+        emailVerified
+        loggedIn
+        email
+        stripeCustomerId
+        stripeCustomer
+        stripeSubscriptionId
+        subscriptionId
+        subscriptionModel {
+          id
+          name
+          description
+          price
+          priceId
+          productId
+          active
+          merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        accessToken
+        idToken
+        refreshToken
+        cart {
+          id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        cartId
+        entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      chatRoom {
+        id
+        chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
+        createdAt
+        updatedAt
+      }
       updatedAt
     }
   }
@@ -4495,6 +14729,112 @@ export const onCreateUser = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4503,19 +14843,302 @@ export const onCreateUser = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           status
           active
           deleted
@@ -4539,10 +15162,135 @@ export const onCreateUser = /* GraphQL */ `
           id
           userID
           merchID
+          merchandise {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           attemptSuccess
           errorObject
           paymentIntent
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           creditCardId
+          Purchase {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           purchaseId
           createdAt
           updatedAt
@@ -4553,7 +15301,185 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           paymentIntent
+          transactions {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           creditCardId
           transactionId
           lastFour
@@ -4573,7 +15499,135 @@ export const onCreateUser = /* GraphQL */ `
           productId
           active
           userID
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -4584,6 +15638,125 @@ export const onCreateUser = /* GraphQL */ `
           id
           userID
           packageId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4609,12 +15782,85 @@ export const onCreateUser = /* GraphQL */ `
         merchandise {
           id
           type
+          transactions {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           active
           createdBy
           updatedBy
           isEvent
+          streamMetaData {
+            streamId
+            eventId
+            bandName
+            promoter
+            videoURL
+            nameOfEvent
+            location
+            promoterLogo
+            timeOfEvent
+            isLive
+            landingImageUrl
+            eventFeature {
+              id
+              description
+              type
+            }
+            priceDescription {
+              id
+              description
+              type
+            }
+            eventDetail {
+              id
+              description
+              type
+            }
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           name
           description
+          image {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           date
           eventId
@@ -4623,15 +15869,217 @@ export const onCreateUser = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
+          carts {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          VODMetaData {
+            band
+            date
+            venue
+            location
+            maestro_channel
+            description
+            price
+            videoURL
+          }
           bandMerchType
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           subscriptionId
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           packageId
+          decomissionedMerchandises {
+            items {
+              id
+              updatedByUserId
+              updatedByUserEmail
+              previousMerchId
+              decomissionedMerchandiseJSON
+              version
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           version
+          associatedMerchandise {
+            items {
+              id
+              associatedMerchandiseId
+              associatedToId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           associatedMerchandiseEnabled
+          bandMerchandise {
+            items {
+              id
+              bandId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         subscriptionMerchandise {
+          items {
+            id
+            merchandiseId
+            subscriptionId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscription {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -4643,6 +16091,43 @@ export const onCreateUser = /* GraphQL */ `
       cart {
         id
         merchandise {
+          items {
+            id
+            merchandiseId
+            cartId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -4653,6 +16138,114 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           userID
           fromSubscription
           createdAt
@@ -4666,6 +16259,80 @@ export const onCreateUser = /* GraphQL */ `
           merchandiseId
           code
           userId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4702,6 +16369,112 @@ export const onUpdateUser = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4710,19 +16483,302 @@ export const onUpdateUser = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           status
           active
           deleted
@@ -4746,10 +16802,135 @@ export const onUpdateUser = /* GraphQL */ `
           id
           userID
           merchID
+          merchandise {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           attemptSuccess
           errorObject
           paymentIntent
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           creditCardId
+          Purchase {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           purchaseId
           createdAt
           updatedAt
@@ -4760,7 +16941,185 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           paymentIntent
+          transactions {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           creditCardId
           transactionId
           lastFour
@@ -4780,7 +17139,135 @@ export const onUpdateUser = /* GraphQL */ `
           productId
           active
           userID
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -4791,6 +17278,125 @@ export const onUpdateUser = /* GraphQL */ `
           id
           userID
           packageId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4816,12 +17422,85 @@ export const onUpdateUser = /* GraphQL */ `
         merchandise {
           id
           type
+          transactions {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           active
           createdBy
           updatedBy
           isEvent
+          streamMetaData {
+            streamId
+            eventId
+            bandName
+            promoter
+            videoURL
+            nameOfEvent
+            location
+            promoterLogo
+            timeOfEvent
+            isLive
+            landingImageUrl
+            eventFeature {
+              id
+              description
+              type
+            }
+            priceDescription {
+              id
+              description
+              type
+            }
+            eventDetail {
+              id
+              description
+              type
+            }
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           name
           description
+          image {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           date
           eventId
@@ -4830,15 +17509,217 @@ export const onUpdateUser = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
+          carts {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          VODMetaData {
+            band
+            date
+            venue
+            location
+            maestro_channel
+            description
+            price
+            videoURL
+          }
           bandMerchType
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           subscriptionId
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           packageId
+          decomissionedMerchandises {
+            items {
+              id
+              updatedByUserId
+              updatedByUserEmail
+              previousMerchId
+              decomissionedMerchandiseJSON
+              version
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           version
+          associatedMerchandise {
+            items {
+              id
+              associatedMerchandiseId
+              associatedToId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           associatedMerchandiseEnabled
+          bandMerchandise {
+            items {
+              id
+              bandId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         subscriptionMerchandise {
+          items {
+            id
+            merchandiseId
+            subscriptionId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscription {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -4850,6 +17731,43 @@ export const onUpdateUser = /* GraphQL */ `
       cart {
         id
         merchandise {
+          items {
+            id
+            merchandiseId
+            cartId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -4860,6 +17778,114 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           userID
           fromSubscription
           createdAt
@@ -4873,6 +17899,80 @@ export const onUpdateUser = /* GraphQL */ `
           merchandiseId
           code
           userId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4909,6 +18009,112 @@ export const onDeleteUser = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -4917,19 +18123,302 @@ export const onDeleteUser = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
         }
         nextToken
       }
+      lastUsedCardID
       creditCards {
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           status
           active
           deleted
@@ -4953,10 +18442,135 @@ export const onDeleteUser = /* GraphQL */ `
           id
           userID
           merchID
+          merchandise {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           attemptSuccess
           errorObject
           paymentIntent
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           creditCardId
+          Purchase {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           purchaseId
           createdAt
           updatedAt
@@ -4967,7 +18581,185 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           userID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          creditCard {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           paymentIntent
+          transactions {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           creditCardId
           transactionId
           lastFour
@@ -4987,7 +18779,135 @@ export const onDeleteUser = /* GraphQL */ `
           productId
           active
           userID
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -4998,6 +18918,125 @@ export const onDeleteUser = /* GraphQL */ `
           id
           userID
           packageId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -5023,12 +19062,85 @@ export const onDeleteUser = /* GraphQL */ `
         merchandise {
           id
           type
+          transactions {
+            items {
+              id
+              transactionId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          merchandisePurchases {
+            items {
+              id
+              purchaseId
+              merchandiseId
+              active
+              merchandiseVersion
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           active
           createdBy
           updatedBy
           isEvent
+          streamMetaData {
+            streamId
+            eventId
+            bandName
+            promoter
+            videoURL
+            nameOfEvent
+            location
+            promoterLogo
+            timeOfEvent
+            isLive
+            landingImageUrl
+            eventFeature {
+              id
+              description
+              type
+            }
+            priceDescription {
+              id
+              description
+              type
+            }
+            eventDetail {
+              id
+              description
+              type
+            }
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           name
           description
+          image {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           date
           eventId
@@ -5037,15 +19149,217 @@ export const onDeleteUser = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
+          carts {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          VODMetaData {
+            band
+            date
+            venue
+            location
+            maestro_channel
+            description
+            price
+            videoURL
+          }
           bandMerchType
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packageMerchandise {
+            items {
+              id
+              merchandiseId
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           subscriptionId
+          package {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           packageId
+          decomissionedMerchandises {
+            items {
+              id
+              updatedByUserId
+              updatedByUserEmail
+              previousMerchId
+              decomissionedMerchandiseJSON
+              version
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           version
+          associatedMerchandise {
+            items {
+              id
+              associatedMerchandiseId
+              associatedToId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           associatedMerchandiseEnabled
+          bandMerchandise {
+            items {
+              id
+              bandId
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         subscriptionMerchandise {
+          items {
+            id
+            merchandiseId
+            subscriptionId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscription {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -5057,6 +19371,43 @@ export const onDeleteUser = /* GraphQL */ `
       cart {
         id
         merchandise {
+          items {
+            id
+            merchandiseId
+            cartId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -5067,6 +19418,114 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           userID
           fromSubscription
           createdAt
@@ -5080,1446 +19539,80 @@ export const onDeleteUser = /* GraphQL */ `
           merchandiseId
           code
           userId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateEntitlement = /* GraphQL */ `
-  subscription OnCreateEntitlement {
-    onCreateEntitlement {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userID
-      fromSubscription
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateEntitlement = /* GraphQL */ `
-  subscription OnUpdateEntitlement {
-    onUpdateEntitlement {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userID
-      fromSubscription
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteEntitlement = /* GraphQL */ `
-  subscription OnDeleteEntitlement {
-    onDeleteEntitlement {
-      id
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userID
-      fromSubscription
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateAccessCode = /* GraphQL */ `
-  subscription OnCreateAccessCode {
-    onCreateAccessCode {
-      id
-      merchandiseId
-      code
-      userId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateAccessCode = /* GraphQL */ `
-  subscription OnUpdateAccessCode {
-    onUpdateAccessCode {
-      id
-      merchandiseId
-      code
-      userId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteAccessCode = /* GraphQL */ `
-  subscription OnDeleteAccessCode {
-    onDeleteAccessCode {
-      id
-      merchandiseId
-      code
-      userId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateUserPackage = /* GraphQL */ `
-  subscription OnCreateUserPackage {
-    onCreateUserPackage {
-      id
-      userID
-      packageId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateUserPackage = /* GraphQL */ `
-  subscription OnUpdateUserPackage {
-    onUpdateUserPackage {
-      id
-      userID
-      packageId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteUserPackage = /* GraphQL */ `
-  subscription OnDeleteUserPackage {
-    onDeleteUserPackage {
-      id
-      userID
-      packageId
-      user {
-        id
-        completedSignUp
-        username
-        avatar
-        picture {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        awayMessageStatus
-        chatRoomUser {
-          nextToken
-        }
-        invitation {
-          nextToken
-        }
-        creditCards {
-          nextToken
-        }
-        transactions {
-          nextToken
-        }
-        purchases {
-          nextToken
-        }
-        packages {
-          nextToken
-        }
-        userPackages {
-          nextToken
-        }
-        cogId
-        emailVerified
-        loggedIn
-        email
-        stripeCustomerId
-        stripeCustomer
-        stripeSubscriptionId
-        subscriptionId
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        accessToken
-        idToken
-        refreshToken
-        cart {
-          id
-          createdAt
-          updatedAt
-        }
-        cartId
-        entitlements {
-          nextToken
-        }
-        accessCodes {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePackage = /* GraphQL */ `
-  subscription OnCreatePackage {
-    onCreatePackage {
-      id
-      name
-      description
-      price
-      priceId
-      platformFee
-      productId
-      active
-      userID
-      userPackages {
-        items {
-          id
-          userID
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdatePackage = /* GraphQL */ `
-  subscription OnUpdatePackage {
-    onUpdatePackage {
-      id
-      name
-      description
-      price
-      priceId
-      platformFee
-      productId
-      active
-      userID
-      userPackages {
-        items {
-          id
-          userID
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeletePackage = /* GraphQL */ `
-  subscription OnDeletePackage {
-    onDeletePackage {
-      id
-      name
-      description
-      price
-      priceId
-      platformFee
-      productId
-      active
-      userID
-      userPackages {
-        items {
-          id
-          userID
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandiseId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -6545,30 +19638,385 @@ export const onCreateChatRoomUser = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -6588,6 +20036,124 @@ export const onCreateChatRoomUser = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -6596,14 +20162,88 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -6612,9 +20252,86 @@ export const onCreateChatRoomUser = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -6624,12 +20341,194 @@ export const onCreateChatRoomUser = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -6653,30 +20552,385 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -6696,6 +20950,124 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -6704,14 +21076,88 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -6720,9 +21166,86 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -6732,12 +21255,194 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -6761,30 +21466,385 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -6804,6 +21864,124 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -6812,14 +21990,88 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -6828,9 +22080,86 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -6840,12 +22169,194 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -6863,6 +22374,112 @@ export const onCreateChatRoom = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -6875,6 +22492,112 @@ export const onCreateChatRoom = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         nextToken
@@ -6891,8 +22614,120 @@ export const onCreateChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           awayMessageStatus
+          chatRoomUser {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          lastUsedCardID
+          creditCards {
+            items {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packages {
+            items {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           cogId
           emailVerified
           loggedIn
@@ -6901,17 +22736,172 @@ export const onCreateChatRoom = /* GraphQL */ `
           stripeCustomer
           stripeSubscriptionId
           subscriptionId
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           accessToken
           idToken
           refreshToken
+          cart {
+            id
+            merchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           cartId
+          entitlements {
+            items {
+              id
+              merchandiseId
+              userID
+              fromSubscription
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         chatRoom {
           id
+          chatRoomUsers {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          messages {
+            items {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            nextToken
+          }
           lastMessageID
+          lastMessage {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -6920,9 +22910,189 @@ export const onCreateChatRoom = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
@@ -6930,6 +23100,19 @@ export const onCreateChatRoom = /* GraphQL */ `
         nextToken
       }
       chatRoomName
+      picture {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
       createdAt
       updatedAt
     }
@@ -6944,6 +23127,112 @@ export const onUpdateChatRoom = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -6956,6 +23245,112 @@ export const onUpdateChatRoom = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         nextToken
@@ -6972,8 +23367,120 @@ export const onUpdateChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           awayMessageStatus
+          chatRoomUser {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          lastUsedCardID
+          creditCards {
+            items {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packages {
+            items {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           cogId
           emailVerified
           loggedIn
@@ -6982,17 +23489,172 @@ export const onUpdateChatRoom = /* GraphQL */ `
           stripeCustomer
           stripeSubscriptionId
           subscriptionId
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           accessToken
           idToken
           refreshToken
+          cart {
+            id
+            merchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           cartId
+          entitlements {
+            items {
+              id
+              merchandiseId
+              userID
+              fromSubscription
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         chatRoom {
           id
+          chatRoomUsers {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          messages {
+            items {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            nextToken
+          }
           lastMessageID
+          lastMessage {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -7001,9 +23663,189 @@ export const onUpdateChatRoom = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
@@ -7011,6 +23853,19 @@ export const onUpdateChatRoom = /* GraphQL */ `
         nextToken
       }
       chatRoomName
+      picture {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
       createdAt
       updatedAt
     }
@@ -7025,6 +23880,112 @@ export const onDeleteChatRoom = /* GraphQL */ `
           id
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -7037,6 +23998,112 @@ export const onDeleteChatRoom = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         nextToken
@@ -7053,8 +24120,120 @@ export const onDeleteChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
           pictureId
           awayMessageStatus
+          chatRoomUser {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          lastUsedCardID
+          creditCards {
+            items {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          transactions {
+            items {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          purchases {
+            items {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          packages {
+            items {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          userPackages {
+            items {
+              id
+              userID
+              packageId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           cogId
           emailVerified
           loggedIn
@@ -7063,17 +24242,172 @@ export const onDeleteChatRoom = /* GraphQL */ `
           stripeCustomer
           stripeSubscriptionId
           subscriptionId
+          subscriptionModel {
+            id
+            name
+            description
+            price
+            priceId
+            productId
+            active
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            subscriptionMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           accessToken
           idToken
           refreshToken
+          cart {
+            id
+            merchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           cartId
+          entitlements {
+            items {
+              id
+              merchandiseId
+              userID
+              fromSubscription
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          accessCodes {
+            items {
+              id
+              merchandiseId
+              code
+              userId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         chatRoom {
           id
+          chatRoomUsers {
+            items {
+              id
+              userID
+              chatRoomID
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          messages {
+            items {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            nextToken
+          }
           lastMessageID
+          lastMessage {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          invitation {
+            items {
+              id
+              invitedUserID
+              createdByUserID
+              chatRoomID
+              status
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           chatRoomName
+          picture {
+            id
+            name
+            owner
+            file {
+              bucket
+              region
+              key
+            }
+            createdAt
+            updatedAt
+          }
+          pictureId
           createdAt
           updatedAt
         }
@@ -7082,9 +24416,189 @@ export const onDeleteChatRoom = /* GraphQL */ `
       invitation {
         items {
           id
+          invitedUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          createdByUser {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           invitedUserID
           createdByUserID
           chatRoomID
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           status
           createdAt
           updatedAt
@@ -7092,6 +24606,19 @@ export const onDeleteChatRoom = /* GraphQL */ `
         nextToken
       }
       chatRoomName
+      picture {
+        id
+        name
+        owner
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      pictureId
       createdAt
       updatedAt
     }
@@ -7110,30 +24637,385 @@ export const onCreateInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7153,6 +25035,124 @@ export const onCreateInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7161,14 +25161,88 @@ export const onCreateInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7183,30 +25257,385 @@ export const onCreateInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7226,6 +25655,124 @@ export const onCreateInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7234,14 +25781,88 @@ export const onCreateInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7253,9 +25874,86 @@ export const onCreateInvitation = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7265,12 +25963,194 @@ export const onCreateInvitation = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -7293,30 +26173,385 @@ export const onUpdateInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7336,6 +26571,124 @@ export const onUpdateInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7344,14 +26697,88 @@ export const onUpdateInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7366,30 +26793,385 @@ export const onUpdateInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7409,6 +27191,124 @@ export const onUpdateInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7417,14 +27317,88 @@ export const onUpdateInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7436,9 +27410,86 @@ export const onUpdateInvitation = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7448,12 +27499,194 @@ export const onUpdateInvitation = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -7476,30 +27709,385 @@ export const onDeleteInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7519,6 +28107,124 @@ export const onDeleteInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7527,14 +28233,88 @@ export const onDeleteInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7549,30 +28329,385 @@ export const onDeleteInvitation = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7592,6 +28727,124 @@ export const onDeleteInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7600,14 +28853,88 @@ export const onDeleteInvitation = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7619,9 +28946,86 @@ export const onDeleteInvitation = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7631,12 +29035,194 @@ export const onDeleteInvitation = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -7663,30 +29249,385 @@ export const onCreateMessage = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7706,6 +29647,124 @@ export const onCreateMessage = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7714,14 +29773,88 @@ export const onCreateMessage = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7730,9 +29863,86 @@ export const onCreateMessage = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7742,12 +29952,194 @@ export const onCreateMessage = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -7772,30 +30164,385 @@ export const onUpdateMessage = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7815,6 +30562,124 @@ export const onUpdateMessage = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7823,14 +30688,88 @@ export const onUpdateMessage = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7839,9 +30778,86 @@ export const onUpdateMessage = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7851,12 +30867,194 @@ export const onUpdateMessage = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
+        picture {
+          id
+          name
+          owner
+          file {
+            bucket
+            region
+            key
+          }
+          createdAt
+          updatedAt
+        }
+        pictureId
         createdAt
         updatedAt
       }
@@ -7881,30 +31079,385 @@ export const onDeleteMessage = /* GraphQL */ `
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
+        lastUsedCardID
         creditCards {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            status
+            active
+            deleted
+            brand
+            email
+            expMonth
+            expYear
+            lastFour
+            paymentMethodObj
+            created
+            postalCode
+            name
+            previousCardId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         transactions {
+          items {
+            id
+            userID
+            merchID
+            merchandise {
+              nextToken
+            }
+            attemptSuccess
+            errorObject
+            paymentIntent
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            Purchase {
+              id
+              userID
+              paymentIntent
+              creditCardId
+              transactionId
+              lastFour
+              createdAt
+              updatedAt
+            }
+            purchaseId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         purchases {
+          items {
+            id
+            userID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            creditCard {
+              id
+              userID
+              status
+              active
+              deleted
+              brand
+              email
+              expMonth
+              expYear
+              lastFour
+              paymentMethodObj
+              created
+              postalCode
+              name
+              previousCardId
+              createdAt
+              updatedAt
+            }
+            paymentIntent
+            transactions {
+              id
+              userID
+              merchID
+              attemptSuccess
+              errorObject
+              paymentIntent
+              creditCardId
+              purchaseId
+              createdAt
+              updatedAt
+            }
+            creditCardId
+            transactionId
+            lastFour
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         packages {
+          items {
+            id
+            name
+            description
+            price
+            priceId
+            platformFee
+            productId
+            active
+            userID
+            userPackages {
+              nextToken
+            }
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            packageMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         userPackages {
+          items {
+            id
+            userID
+            packageId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         cogId
@@ -7924,6 +31477,124 @@ export const onDeleteMessage = /* GraphQL */ `
           productId
           active
           merchandiseId
+          merchandise {
+            id
+            type
+            transactions {
+              nextToken
+            }
+            merchandisePurchases {
+              nextToken
+            }
+            active
+            createdBy
+            updatedBy
+            isEvent
+            streamMetaData {
+              streamId
+              eventId
+              bandName
+              promoter
+              videoURL
+              nameOfEvent
+              location
+              promoterLogo
+              timeOfEvent
+              isLive
+              landingImageUrl
+            }
+            accessCodes {
+              nextToken
+            }
+            name
+            description
+            image {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            date
+            eventId
+            productId
+            priceId
+            price
+            platformFee
+            stripeMetaData
+            carts {
+              nextToken
+            }
+            VODMetaData {
+              band
+              date
+              venue
+              location
+              maestro_channel
+              description
+              price
+              videoURL
+            }
+            bandMerchType
+            subscriptionMerchandise {
+              nextToken
+            }
+            packageMerchandise {
+              nextToken
+            }
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            subscriptionId
+            package {
+              id
+              name
+              description
+              price
+              priceId
+              platformFee
+              productId
+              active
+              userID
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            packageId
+            decomissionedMerchandises {
+              nextToken
+            }
+            version
+            associatedMerchandise {
+              nextToken
+            }
+            associatedMerchandiseEnabled
+            bandMerchandise {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          subscriptionMerchandise {
+            items {
+              id
+              merchandiseId
+              subscriptionId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -7932,14 +31603,88 @@ export const onDeleteMessage = /* GraphQL */ `
         refreshToken
         cart {
           id
+          merchandise {
+            items {
+              id
+              merchandiseId
+              cartId
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
           createdAt
           updatedAt
         }
         cartId
         entitlements {
+          items {
+            id
+            merchandiseId
+            merchandise {
+              id
+              type
+              active
+              createdBy
+              updatedBy
+              isEvent
+              name
+              description
+              pictureId
+              date
+              eventId
+              productId
+              priceId
+              price
+              platformFee
+              stripeMetaData
+              bandMerchType
+              subscriptionId
+              packageId
+              version
+              associatedMerchandiseEnabled
+              createdAt
+              updatedAt
+            }
+            userID
+            fromSubscription
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         accessCodes {
+          items {
+            id
+            merchandiseId
+            code
+            userId
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -7948,9 +31693,86 @@ export const onDeleteMessage = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
+          items {
+            id
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         messages {
+          items {
+            id
+            createdAt
+            content
+            userID
+            chatRoomID
+            user {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
           nextToken
         }
         lastMessageID
@@ -7960,3015 +31782,197 @@ export const onDeleteMessage = /* GraphQL */ `
           content
           userID
           chatRoomID
+          user {
+            id
+            completedSignUp
+            username
+            avatar
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            awayMessageStatus
+            chatRoomUser {
+              nextToken
+            }
+            invitation {
+              nextToken
+            }
+            lastUsedCardID
+            creditCards {
+              nextToken
+            }
+            transactions {
+              nextToken
+            }
+            purchases {
+              nextToken
+            }
+            packages {
+              nextToken
+            }
+            userPackages {
+              nextToken
+            }
+            cogId
+            emailVerified
+            loggedIn
+            email
+            stripeCustomerId
+            stripeCustomer
+            stripeSubscriptionId
+            subscriptionId
+            subscriptionModel {
+              id
+              name
+              description
+              price
+              priceId
+              productId
+              active
+              merchandiseId
+              createdAt
+              updatedAt
+            }
+            accessToken
+            idToken
+            refreshToken
+            cart {
+              id
+              createdAt
+              updatedAt
+            }
+            cartId
+            entitlements {
+              nextToken
+            }
+            accessCodes {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          chatRoom {
+            id
+            chatRoomUsers {
+              nextToken
+            }
+            messages {
+              nextToken
+            }
+            lastMessageID
+            lastMessage {
+              id
+              createdAt
+              content
+              userID
+              chatRoomID
+              updatedAt
+            }
+            invitation {
+              nextToken
+            }
+            chatRoomName
+            picture {
+              id
+              name
+              owner
+              createdAt
+              updatedAt
+            }
+            pictureId
+            createdAt
+            updatedAt
+          }
           updatedAt
         }
         invitation {
+          items {
+            id
+            invitedUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            createdByUser {
+              id
+              completedSignUp
+              username
+              avatar
+              pictureId
+              awayMessageStatus
+              lastUsedCardID
+              cogId
+              emailVerified
+              loggedIn
+              email
+              stripeCustomerId
+              stripeCustomer
+              stripeSubscriptionId
+              subscriptionId
+              accessToken
+              idToken
+              refreshToken
+              cartId
+              createdAt
+              updatedAt
+            }
+            invitedUserID
+            createdByUserID
+            chatRoomID
+            chatRoom {
+              id
+              lastMessageID
+              chatRoomName
+              pictureId
+              createdAt
+              updatedAt
+            }
+            status
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         chatRoomName
-        createdAt
-        updatedAt
-      }
-      updatedAt
-    }
-  }
-`;
-export const onCreateOnDemandFeaturedShow = /* GraphQL */ `
-  subscription OnCreateOnDemandFeaturedShow {
-    onCreateOnDemandFeaturedShow {
-      id
-      merchId
-      merch {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
+        picture {
           id
           name
           owner
+          file {
+            bucket
+            region
+            key
+          }
           createdAt
           updatedAt
         }
         pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateOnDemandFeaturedShow = /* GraphQL */ `
-  subscription OnUpdateOnDemandFeaturedShow {
-    onUpdateOnDemandFeaturedShow {
-      id
-      merchId
-      merch {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteOnDemandFeaturedShow = /* GraphQL */ `
-  subscription OnDeleteOnDemandFeaturedShow {
-    onDeleteOnDemandFeaturedShow {
-      id
-      merchId
-      merch {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateFeaturedSubscription = /* GraphQL */ `
-  subscription OnCreateFeaturedSubscription {
-    onCreateFeaturedSubscription {
-      id
-      subscriptionId
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateFeaturedSubscription = /* GraphQL */ `
-  subscription OnUpdateFeaturedSubscription {
-    onUpdateFeaturedSubscription {
-      id
-      subscriptionId
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteFeaturedSubscription = /* GraphQL */ `
-  subscription OnDeleteFeaturedSubscription {
-    onDeleteFeaturedSubscription {
-      id
-      subscriptionId
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateMerchandise = /* GraphQL */ `
-  subscription OnCreateMerchandise {
-    onCreateMerchandise {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      accessCodes {
-        items {
-          id
-          merchandiseId
-          code
-          userId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      platformFee
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      decomissionedMerchandises {
-        items {
-          id
-          updatedByUserId
-          updatedByUserEmail
-          previousMerchId
-          decomissionedMerchandiseJSON
-          version
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      version
-      associatedMerchandise {
-        items {
-          id
-          associatedMerchandiseId
-          associatedToId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associatedMerchandiseEnabled
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateMerchandise = /* GraphQL */ `
-  subscription OnUpdateMerchandise {
-    onUpdateMerchandise {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      accessCodes {
-        items {
-          id
-          merchandiseId
-          code
-          userId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      platformFee
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      decomissionedMerchandises {
-        items {
-          id
-          updatedByUserId
-          updatedByUserEmail
-          previousMerchId
-          decomissionedMerchandiseJSON
-          version
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      version
-      associatedMerchandise {
-        items {
-          id
-          associatedMerchandiseId
-          associatedToId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associatedMerchandiseEnabled
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteMerchandise = /* GraphQL */ `
-  subscription OnDeleteMerchandise {
-    onDeleteMerchandise {
-      id
-      type
-      transactions {
-        items {
-          id
-          transactionId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      merchandisePurchases {
-        items {
-          id
-          purchaseId
-          merchandiseId
-          active
-          merchandiseVersion
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      active
-      createdBy
-      updatedBy
-      isEvent
-      streamMetaData {
-        streamId
-        eventId
-        bandName
-        promoter
-        videoURL
-        nameOfEvent
-        location
-        promoterLogo
-        timeOfEvent
-        isLive
-        landingImageUrl
-        eventFeature {
-          id
-          description
-          type
-        }
-        priceDescription {
-          id
-          description
-          type
-        }
-        eventDetail {
-          id
-          description
-          type
-        }
-      }
-      accessCodes {
-        items {
-          id
-          merchandiseId
-          code
-          userId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      description
-      image {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      date
-      eventId
-      productId
-      priceId
-      price
-      platformFee
-      stripeMetaData
-      carts {
-        items {
-          id
-          merchandiseId
-          cartId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      VODMetaData {
-        band
-        date
-        venue
-        location
-        maestro_channel
-        description
-        price
-        videoURL
-      }
-      bandMerchType
-      subscriptionMerchandise {
-        items {
-          id
-          merchandiseId
-          subscriptionId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      packageMerchandise {
-        items {
-          id
-          merchandiseId
-          packageId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      subscriptionModel {
-        id
-        name
-        description
-        price
-        priceId
-        productId
-        active
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        subscriptionMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      subscriptionId
-      package {
-        id
-        name
-        description
-        price
-        priceId
-        platformFee
-        productId
-        active
-        userID
-        userPackages {
-          nextToken
-        }
-        merchandiseId
-        merchandise {
-          id
-          type
-          active
-          createdBy
-          updatedBy
-          isEvent
-          name
-          description
-          pictureId
-          date
-          eventId
-          productId
-          priceId
-          price
-          platformFee
-          stripeMetaData
-          bandMerchType
-          subscriptionId
-          packageId
-          version
-          associatedMerchandiseEnabled
-          createdAt
-          updatedAt
-        }
-        packageMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      packageId
-      decomissionedMerchandises {
-        items {
-          id
-          updatedByUserId
-          updatedByUserEmail
-          previousMerchId
-          decomissionedMerchandiseJSON
-          version
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      version
-      associatedMerchandise {
-        items {
-          id
-          associatedMerchandiseId
-          associatedToId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associatedMerchandiseEnabled
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateBandMerchandise = /* GraphQL */ `
-  subscription OnCreateBandMerchandise {
-    onCreateBandMerchandise {
-      id
-      bandId
-      merchandiseId
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        bandMerchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateBandMerchandise = /* GraphQL */ `
-  subscription OnUpdateBandMerchandise {
-    onUpdateBandMerchandise {
-      id
-      bandId
-      merchandiseId
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        bandMerchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteBandMerchandise = /* GraphQL */ `
-  subscription OnDeleteBandMerchandise {
-    onDeleteBandMerchandise {
-      id
-      bandId
-      merchandiseId
-      band {
-        id
-        bandName
-        createdBy
-        updatedBy
-        website
-        logo {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        email
-        bandMerchandise {
-          nextToken
-        }
-        socialMediaLinks {
-          twitterLink
-          facebookLink
-          instagramLink
-          twitchLink
-          youtubeLink
-          tiktokLink
-        }
-        createdAt
-        updatedAt
-      }
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateBand = /* GraphQL */ `
-  subscription OnCreateBand {
-    onCreateBand {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateBand = /* GraphQL */ `
-  subscription OnUpdateBand {
-    onUpdateBand {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteBand = /* GraphQL */ `
-  subscription OnDeleteBand {
-    onDeleteBand {
-      id
-      bandName
-      createdBy
-      updatedBy
-      website
-      logo {
-        id
-        name
-        owner
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-      }
-      pictureId
-      email
-      bandMerchandise {
-        items {
-          id
-          bandId
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socialMediaLinks {
-        twitterLink
-        facebookLink
-        instagramLink
-        twitchLink
-        youtubeLink
-        tiktokLink
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateAssociatedMerchandise = /* GraphQL */ `
-  subscription OnCreateAssociatedMerchandise {
-    onCreateAssociatedMerchandise {
-      id
-      associatedMerchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedMerchandiseId
-      associatedTo {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedToId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateAssociatedMerchandise = /* GraphQL */ `
-  subscription OnUpdateAssociatedMerchandise {
-    onUpdateAssociatedMerchandise {
-      id
-      associatedMerchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedMerchandiseId
-      associatedTo {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedToId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteAssociatedMerchandise = /* GraphQL */ `
-  subscription OnDeleteAssociatedMerchandise {
-    onDeleteAssociatedMerchandise {
-      id
-      associatedMerchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedMerchandiseId
-      associatedTo {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      associatedToId
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateDecomissionedMerchandise = /* GraphQL */ `
-  subscription OnCreateDecomissionedMerchandise {
-    onCreateDecomissionedMerchandise {
-      id
-      updatedByUserId
-      updatedByUserEmail
-      previousMerchId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      decomissionedMerchandiseJSON
-      version
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateDecomissionedMerchandise = /* GraphQL */ `
-  subscription OnUpdateDecomissionedMerchandise {
-    onUpdateDecomissionedMerchandise {
-      id
-      updatedByUserId
-      updatedByUserEmail
-      previousMerchId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      decomissionedMerchandiseJSON
-      version
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteDecomissionedMerchandise = /* GraphQL */ `
-  subscription OnDeleteDecomissionedMerchandise {
-    onDeleteDecomissionedMerchandise {
-      id
-      updatedByUserId
-      updatedByUserEmail
-      previousMerchId
-      merchandise {
-        id
-        type
-        transactions {
-          nextToken
-        }
-        merchandisePurchases {
-          nextToken
-        }
-        active
-        createdBy
-        updatedBy
-        isEvent
-        streamMetaData {
-          streamId
-          eventId
-          bandName
-          promoter
-          videoURL
-          nameOfEvent
-          location
-          promoterLogo
-          timeOfEvent
-          isLive
-          landingImageUrl
-        }
-        accessCodes {
-          nextToken
-        }
-        name
-        description
-        image {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-        }
-        pictureId
-        date
-        eventId
-        productId
-        priceId
-        price
-        platformFee
-        stripeMetaData
-        carts {
-          nextToken
-        }
-        VODMetaData {
-          band
-          date
-          venue
-          location
-          maestro_channel
-          description
-          price
-          videoURL
-        }
-        bandMerchType
-        subscriptionMerchandise {
-          nextToken
-        }
-        packageMerchandise {
-          nextToken
-        }
-        subscriptionModel {
-          id
-          name
-          description
-          price
-          priceId
-          productId
-          active
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        subscriptionId
-        package {
-          id
-          name
-          description
-          price
-          priceId
-          platformFee
-          productId
-          active
-          userID
-          merchandiseId
-          createdAt
-          updatedAt
-        }
-        packageId
-        decomissionedMerchandises {
-          nextToken
-        }
-        version
-        associatedMerchandise {
-          nextToken
-        }
-        associatedMerchandiseEnabled
-        bandMerchandise {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      decomissionedMerchandiseJSON
-      version
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateDefaultPlatformFeePercentages = /* GraphQL */ `
-  subscription OnCreateDefaultPlatformFeePercentages {
-    onCreateDefaultPlatformFeePercentages {
-      id
-      ticket_stream_event
-      ticket_stream_event_FeeName
-      vod
-      vodFeeName
-      package
-      packageFeeName
-      subscription
-      subscriptionFeeName
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateDefaultPlatformFeePercentages = /* GraphQL */ `
-  subscription OnUpdateDefaultPlatformFeePercentages {
-    onUpdateDefaultPlatformFeePercentages {
-      id
-      ticket_stream_event
-      ticket_stream_event_FeeName
-      vod
-      vodFeeName
-      package
-      packageFeeName
-      subscription
-      subscriptionFeeName
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteDefaultPlatformFeePercentages = /* GraphQL */ `
-  subscription OnDeleteDefaultPlatformFeePercentages {
-    onDeleteDefaultPlatformFeePercentages {
-      id
-      ticket_stream_event
-      ticket_stream_event_FeeName
-      vod
-      vodFeeName
-      package
-      packageFeeName
-      subscription
-      subscriptionFeeName
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateContact = /* GraphQL */ `
-  subscription OnCreateContact {
-    onCreateContact {
-      lastName
-      firstName
-      age
-      favoriteColor
-      favoriteFood
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateContact = /* GraphQL */ `
-  subscription OnUpdateContact {
-    onUpdateContact {
-      lastName
-      firstName
-      age
-      favoriteColor
-      favoriteFood
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteContact = /* GraphQL */ `
-  subscription OnDeleteContact {
-    onDeleteContact {
-      lastName
-      firstName
-      age
-      favoriteColor
-      favoriteFood
-      createdAt
       updatedAt
     }
   }

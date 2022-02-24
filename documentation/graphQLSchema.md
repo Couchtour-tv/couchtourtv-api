@@ -895,3 +895,23 @@ const styles = StyleSheet.create({
 
 export default createAppContainer(createStackNavigator({ ContactsScreen: App }))
 ```
+
+# subscription with arguments
+
+type Post @model {
+id: ID!
+title: String!
+content: String
+comments: [Comment] @hasMany
+}
+
+type Comment @model {
+id: ID!
+content: String
+postCommentsId: ID!
+}
+
+type Subscription {
+onCommentByPostId(postCommentsId: ID!): Comment
+@aws_subscribe(mutations: ["createComment"])
+}
