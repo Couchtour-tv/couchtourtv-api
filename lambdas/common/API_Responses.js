@@ -11,19 +11,6 @@ const Responses = {
       body: JSON.stringify({ ...data, ConnectionId: "asdf" }),
     }
   },
-  _301(data = {}) {
-    console.log("API_RESPONSES._400:", data)
-    return {
-      headers: {
-        Location: data.url,
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Origin": "*",
-      },
-      statusCode: 301,
-      body: JSON.stringify(data),
-    }
-  },
   _400(data = {}) {
     console.log("API_RESPONSES._400:", data)
     return {
