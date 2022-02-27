@@ -9,11 +9,10 @@ exports.handler = async (event) => {
     const { customer } = body
     const session = await stripe.billingPortal.sessions.create({
       customer,
-      // return_url: 'https://example.com/account',
     })
 
     console.log("Create Customer Portal Session | Succeeded |:", session)
-    return Responses._301(session)
+    return Responses._200(session)
   } catch (error) {
     console.log("Create Customer Portal Session | Error |", error)
     return Responses._500({
