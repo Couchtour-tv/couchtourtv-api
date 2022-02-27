@@ -13,7 +13,6 @@ plugins:
   - serverless-vpc-plugin
   # - serverless-offline-redis-server
 
-
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
@@ -46,7 +45,7 @@ custom:
         - [./resources/seeds/movieMetaSeed.json]
 
   vpcConfig:
-    cidrBlock: '10.0.0.0/16'
+    cidrBlock: "10.0.0.0/16"
     createNatGateway: 2
     createDbSubnet: true
     zones:
@@ -127,7 +126,7 @@ provider:
           Action:
             - sns:SetSMSAttributes
             - sns:Publish
-          Resource: '*'
+          Resource: "*"
         - Effect: Allow
           Action:
             - cognito-idp:AdminGetUser
@@ -135,7 +134,6 @@ provider:
           Resource: "*"
 
 functions:
-
   ## ----------------------------------------------------------------------------------
   ## ----------------------------------------------------------------------------------
   ## ---- API ENDPOINTS ::
@@ -238,7 +236,7 @@ functions:
     handler: lambdas/endpoints/purchaseables/getAllPurchaseables.handler
     events:
       - http:
-          path: all-purchaseables 
+          path: all-purchaseables
           method: GET
   ## ----------------------------------------------------------------------------------
   ## ---- Stripe Integreation ::
@@ -250,7 +248,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -268,7 +266,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -286,7 +284,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -304,7 +302,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -322,7 +320,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -340,7 +338,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -358,7 +356,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -376,7 +374,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -394,7 +392,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -403,7 +401,7 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-            allowCredentials: true            
+            allowCredentials: true
   stripe-retrieve-product:
     handler: lambdas/endpoints/stripe/retrieveProduct.handler
     events:
@@ -412,7 +410,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -430,7 +428,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -448,7 +446,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -466,7 +464,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -484,7 +482,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -502,7 +500,25 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-customer-portal-session:
+    handler: lambdas/endpoints/stripe/createCustomerPortalSession.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-customer-portal-session
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -513,7 +529,7 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   ## ----------------------------------------------------------------------------------
-  ## ---- data ingestion 
+  ## ---- data ingestion
   ingest-vod-merchandise:
     handler: lambdas/endpoints/graphql/ingestVODmerchandise.handler
     events:
@@ -522,7 +538,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -540,7 +556,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
@@ -558,7 +574,7 @@ functions:
           method: any
           # authorizer: aws_iam
           cors:
-            origin: '*'
+            origin: "*"
             headers:
               - Content-Type
               - Accept
