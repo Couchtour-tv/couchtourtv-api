@@ -2,8 +2,8 @@ import Responses from "../../common/API_Responses"
 import { StripeSecretKey } from "../../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
-exports.handler = async (event) => {
-  console.log("updateSubscription-event:: PAUSE ::", event)
+exports.handler = async (event, res) => {
+  console.log("Create Customer Portal Session ::", event)
   try {
     const body = await JSON.parse(event.body)
     const { customer } = body
@@ -11,6 +11,8 @@ exports.handler = async (event) => {
       customer,
       // return_url: 'https://example.com/account',
     })
+
+    res.redirect(session.url)
 
     console.log("Create Customer Portal Session | Succeeded |:", session)
     return Responses._200(session)
