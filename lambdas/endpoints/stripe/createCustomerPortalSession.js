@@ -12,11 +12,15 @@ exports.handler = async (event) => {
       // return_url: 'https://example.com/account',
     })
 
-    // redirect(session.url)
+    const response = {
+      statusCode: 301,
+      headers: {
+        Location: session.url,
+      },
+    }
 
     console.log("Create Customer Portal Session | Succeeded |:", session)
-    return Responses._301(session)
-    // return Responses._200(session)
+    return response
   } catch (error) {
     console.log("Create Customer Portal Session | Error |", error)
     return Responses._500({
