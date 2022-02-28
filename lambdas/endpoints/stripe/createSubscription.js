@@ -16,7 +16,7 @@ exports.handler = async (event) => {
       ],
       payment_behavior: "default_incomplete",
       expand: ["latest_invoice.payment_intent"],
-      trial_period_days: 14,
+      // trial_period_days: 14,
     })
     console.log("Create Subscription | Succeeded |:", subscription)
     return Responses._200(subscription)
