@@ -60,6 +60,7 @@ export const StripeCurrency = "USD"
 export const StripeCustomerDescirption = "qa.couchtour.tv-customer"
 export const StripeIntentDescirption = "qa.couchtour.tv-intent"
 export const StripeReoccuringPaymentInterval = "month"
+export const StripeCouponID = "SgwYredk"
 
 // ----- API map: Stripe
 export const StripeApiMap = {

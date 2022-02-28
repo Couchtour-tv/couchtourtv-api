@@ -1,20 +1,15 @@
 import Responses from "../../common/API_Responses"
-import { StripeSecretKey } from "../../common/constants"
+import { StripeSecretKey, StripeCouponID } from "../../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
 exports.handler = async (event) => {
-  console.log("updateSubscription-event:: PAUSE ::", event)
+  console.log("updateSubscription-event:: ADD COUPON ::", event)
   try {
     const body = await JSON.parse(event.body)
     const { subscriptionId } = body
     const updatedSubscription = await stripe.subscriptions.update(
       subscriptionId,
-      {
-        cancel_at_period_end: false,
-        pause_collection: {
-          behavior: "keep_as_draft",
-        },
-      }
+      { coupon: StripeCouponID }
     )
     console.log("Update Subscription | Succeeded |:", updatedSubscription)
     return Responses._200(updatedSubscription)
