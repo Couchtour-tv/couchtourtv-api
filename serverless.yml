@@ -546,6 +546,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  stripe-retrieve-subscription:
+    handler: lambdas/endpoints/stripe/retrieveSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-retrieve-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-create-customer-portal-session:
     handler: lambdas/endpoints/stripe/createCustomerPortalSession.handler
     events:
