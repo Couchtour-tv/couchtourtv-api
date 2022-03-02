@@ -79,6 +79,7 @@ export const StripeApiMap = {
   createSubsription: "api/v1/stripe-create-subscription",
   updateSubscription: "api/v1/stripe-update-subscription",
   cancelSubscription: "api/v1/stripe-cancel-subscription",
+  cancelSubscriptionEOP: "api/v1/stripe-cancel-subscription-eop",
   retrieveSubscription: "api/v1/stripe-retrieve-subscription",
   createCustomerPortalSession: "api/v1/stripe-create-customer-portal-session",
 }

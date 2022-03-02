@@ -510,6 +510,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  stripe-cancel-subscription-eop:
+    handler: lambdas/endpoints/stripe/cancelSubscriptionEOP.handler
+    events:
+      - http:
+          path: api/v1/stripe-cancel-subscription-eop
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   stripe-pause-subscription:
     handler: lambdas/endpoints/stripe/pauseSubscription.handler
     events:
