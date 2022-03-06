@@ -67,6 +67,8 @@ export const StripeApiMap = {
   apiMap: "api/v1/stripe-api-map",
   createPaymentIntent: "api/v1/stripe-create-payment-intent",
   createCustomer: "api/v1/stripe-create-customer",
+  updateCustomerDefaultPaymentMethod:
+    "api/v1/stripe-update-customer-default-payment-method",
   attachPaymentMethod: "api/v1/stripe-attach-payment-method",
   detachPaymentMethod: "api/v1/stripe-detach-payment-method",
   updatePaymentMethod: "api/v1/stripe-update-payment-method",
