@@ -9,7 +9,43 @@ exports.handler = async (event) => {
     console.log("stripeHandleSubscriptions", payload)
     // console.log("stripePaymentIntentSuccess :: event", event)
 
-    // const dataObject = payload.data.object;
+    const dataObject = payload.data.object
+
+    switch (payload.type) {
+      case "customer.subscription.created":
+        //   const subscription = payload.data.object;
+        console.log("data object subscription.created", dataObject)
+        // Then define and call a function to handle the event customer.subscription.created
+        break
+      case "customer.subscription.deleted":
+        //   const subscription = payload.data.object;
+        console.log("data object subscription.deleted", dataObject)
+        // Then define and call a function to handle the event customer.subscription.deleted
+        break
+      case "customer.subscription.trial_will_end":
+        //   const subscription = payload.data.object;
+        console.log("data object subscription.trial_will_end", dataObject)
+        // Then define and call a function to handle the event customer.subscription.trial_will_end
+        break
+      case "customer.subscription.updated":
+        //   const subscription = payload.data.object;
+        console.log("data object subscription.updated", dataObject)
+        // Then define and call a function to handle the event customer.subscription.updated
+        break
+      case "invoice.payment_failed":
+        //   const invoice = payload.data.object;
+        console.log("data object invoice.payment_failed", dataObject)
+        // Then define and call a function to handle the event invoice.payment_failed
+        break
+      case "invoice.payment_succeeded":
+        //   const invoice = payload.data.object;
+        console.log("data object invoice.payment_succeeded", dataObject)
+        // Then define and call a function to handle the event invoice.payment_succeeded
+        break
+      // ... handle other event types
+      default:
+        console.log(`Unhandled event type ${payload.type}`)
+    }
 
     // switch (payload.type) {
     //     case 'invoice.payment_succeeded':
