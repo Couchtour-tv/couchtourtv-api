@@ -208,6 +208,12 @@ functions:
       - http:
           path: confirm-stripe-checkout
           method: POST
+  stripeHandleSubscriptionsWebhook:
+    handler: lambdas/webhooks/stripeHandleSubscriptions.handler
+    events:
+      - http:
+          path: handle-stripe-subscriptions
+          method: POST
   stripeEverythingWebhook:
     handler: lambdas/webhooks/stripeEverything.handler
     events:
