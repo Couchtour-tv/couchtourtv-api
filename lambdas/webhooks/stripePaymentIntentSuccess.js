@@ -6,10 +6,8 @@ import Responses from "../common/API_Responses"
 exports.handler = async (event) => {
   try {
     const payload = JSON.parse(event.body)
-    const parsedEvent = JSON.parse(event)
     console.log("stripePaymentIntentSuccess :: payload", payload)
-    console.log("stripePaymentIntentSuccess :: raw event", event)
-    console.log("stripePaymentIntentSuccess :: parsed event", parsedEvent)
+    console.log("stripePaymentIntentSuccess :: event", event)
 
     // switch (event.type) {
     //   case "payment_intent.succeeded":
