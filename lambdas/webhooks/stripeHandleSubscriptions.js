@@ -5,7 +5,7 @@ import Responses from "../common/API_Responses"
 import {
   AppSyncUrlOriginal,
   GraphqlKeyOutputOriginal,
-} from "../../common/constants"
+} from "../common/constants"
 const axios = require("axios")
 import gql from "graphql-tag"
 const graphql = require("graphql")
@@ -29,25 +29,25 @@ const queryUserByCustomerId = gql`
 //   }
 // `
 
-const updateUserSubIdandSubStatus = gql`
-  mutation MyMutation(
-    $id: ID!
-    $stripeSubscriptionId: String!
-    $stripeSubscriptionStatus: String!
-  ) {
-    updateUser(
-      input: {
-        id: $id
-        stripeSubscriptionId: $stripeSubscriptionId
-        stripeSubscriptionStatus: $stripeSubscriptionStatus
-      }
-    ) {
-      id
-      stripeSubscriptionId
-      stripeSubscriptionStatus
-    }
-  }
-`
+// const updateUserSubIdandSubStatus = gql`
+//   mutation MyMutation(
+//     $id: ID!
+//     $stripeSubscriptionId: String!
+//     $stripeSubscriptionStatus: String!
+//   ) {
+//     updateUser(
+//       input: {
+//         id: $id
+//         stripeSubscriptionId: $stripeSubscriptionId
+//         stripeSubscriptionStatus: $stripeSubscriptionStatus
+//       }
+//     ) {
+//       id
+//       stripeSubscriptionId
+//       stripeSubscriptionStatus
+//     }
+//   }
+// `
 
 const updateUserSubscriptionSubAndStatus = async (
   stripeCustomerId,
