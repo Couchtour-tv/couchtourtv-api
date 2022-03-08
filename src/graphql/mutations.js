@@ -262,6 +262,7 @@ export const createCartMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -1076,6 +1077,7 @@ export const updateCartMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -1890,6 +1892,7 @@ export const deleteCartMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -2848,6 +2851,7 @@ export const createTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -2992,6 +2996,7 @@ export const createTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -3189,6 +3194,7 @@ export const createTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -3360,6 +3366,7 @@ export const createTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -3471,6 +3478,7 @@ export const createTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -3520,6 +3528,7 @@ export const createTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -3888,6 +3897,7 @@ export const updateTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -4032,6 +4042,7 @@ export const updateTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -4229,6 +4240,7 @@ export const updateTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -4400,6 +4412,7 @@ export const updateTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -4511,6 +4524,7 @@ export const updateTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -4560,6 +4574,7 @@ export const updateTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -4928,6 +4943,7 @@ export const deleteTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -5072,6 +5088,7 @@ export const deleteTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5269,6 +5286,7 @@ export const deleteTransaction = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -5440,6 +5458,7 @@ export const deleteTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -5551,6 +5570,7 @@ export const deleteTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5600,6 +5620,7 @@ export const deleteTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5712,6 +5733,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5751,6 +5773,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5774,6 +5797,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5819,6 +5843,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -5917,6 +5942,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6036,6 +6062,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6070,6 +6097,7 @@ export const createCreditCard = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -6277,6 +6305,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6329,6 +6358,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6378,6 +6408,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6480,6 +6511,7 @@ export const createCreditCard = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -6541,6 +6573,7 @@ export const createCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6689,6 +6722,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6728,6 +6762,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6751,6 +6786,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6796,6 +6832,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -6894,6 +6931,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7013,6 +7051,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7047,6 +7086,7 @@ export const updateCreditCard = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -7254,6 +7294,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7306,6 +7347,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7355,6 +7397,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7457,6 +7500,7 @@ export const updateCreditCard = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -7518,6 +7562,7 @@ export const updateCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7666,6 +7711,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7705,6 +7751,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7728,6 +7775,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7773,6 +7821,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7871,6 +7920,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -7990,6 +8040,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -8024,6 +8075,7 @@ export const deleteCreditCard = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -8231,6 +8283,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -8283,6 +8336,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -8332,6 +8386,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -8434,6 +8489,7 @@ export const deleteCreditCard = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -8495,6 +8551,7 @@ export const deleteCreditCard = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -8705,6 +8762,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -8827,6 +8885,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -8888,6 +8947,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -9123,6 +9183,7 @@ export const createMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -9842,6 +9903,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -9964,6 +10026,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -10025,6 +10088,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -10260,6 +10324,7 @@ export const updateMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -10979,6 +11044,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -11101,6 +11167,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -11162,6 +11229,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -11397,6 +11465,7 @@ export const deleteMerchandiseTransaction = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -12637,6 +12706,7 @@ export const createSubscriptionMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -13721,6 +13791,7 @@ export const updateSubscriptionMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -14805,6 +14876,7 @@ export const deleteSubscriptionMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -15894,6 +15966,7 @@ export const createSubscriptionModel = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -16826,6 +16899,7 @@ export const updateSubscriptionModel = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -17758,6 +17832,7 @@ export const deleteSubscriptionModel = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -18685,6 +18760,7 @@ export const createPackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -19320,6 +19396,7 @@ export const createPackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -19820,6 +19897,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -20455,6 +20533,7 @@ export const updatePackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -20955,6 +21034,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -21590,6 +21670,7 @@ export const deletePackageMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -22070,6 +22151,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -22241,6 +22323,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -22352,6 +22435,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -22401,6 +22485,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -22610,6 +22695,7 @@ export const createMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -23360,6 +23446,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -23531,6 +23618,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -23642,6 +23730,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -23691,6 +23780,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -23900,6 +23990,7 @@ export const updateMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -24650,6 +24741,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -24821,6 +24913,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -24932,6 +25025,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -24981,6 +25075,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -25190,6 +25285,7 @@ export const deleteMerchandisePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -25848,6 +25944,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -25887,6 +25984,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -25910,6 +26008,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -25955,6 +26054,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -26053,6 +26153,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -26172,6 +26273,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -26206,6 +26308,7 @@ export const createPurchase = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -26413,6 +26516,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -26453,6 +26557,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -26745,6 +26850,7 @@ export const createPurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -26889,6 +26995,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27057,6 +27164,7 @@ export const createPurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -27179,6 +27287,7 @@ export const createPurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -27240,6 +27349,7 @@ export const createPurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27380,6 +27490,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27419,6 +27530,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27442,6 +27554,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27487,6 +27600,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27585,6 +27699,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27704,6 +27819,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27738,6 +27854,7 @@ export const updatePurchase = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -27945,6 +28062,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -27985,6 +28103,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -28277,6 +28396,7 @@ export const updatePurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -28421,6 +28541,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -28589,6 +28710,7 @@ export const updatePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -28711,6 +28833,7 @@ export const updatePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -28772,6 +28895,7 @@ export const updatePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -28912,6 +29036,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -28951,6 +29076,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -28974,6 +29100,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29019,6 +29146,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29117,6 +29245,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29236,6 +29365,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29270,6 +29400,7 @@ export const deletePurchase = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -29477,6 +29608,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29517,6 +29649,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -29809,6 +29942,7 @@ export const deletePurchase = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -29953,6 +30087,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -30121,6 +30256,7 @@ export const deletePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30243,6 +30379,7 @@ export const deletePurchase = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30304,6 +30441,7 @@ export const deletePurchase = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -30469,6 +30607,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30583,6 +30722,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30657,6 +30797,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30777,6 +30918,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -30890,6 +31032,7 @@ export const createUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -30939,6 +31082,7 @@ export const createUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -31041,6 +31185,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -31102,6 +31247,7 @@ export const createUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -31378,6 +31524,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -31466,6 +31613,7 @@ export const createUser = /* GraphQL */ `
       stripeCustomerId
       stripeCustomer
       stripeSubscriptionId
+      stripeSubscriptionStatus
       subscriptionId
       subscriptionModel {
         id
@@ -31999,6 +32147,7 @@ export const createUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32112,6 +32261,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32226,6 +32376,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32300,6 +32451,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32420,6 +32572,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32533,6 +32686,7 @@ export const updateUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -32582,6 +32736,7 @@ export const updateUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -32684,6 +32839,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -32745,6 +32901,7 @@ export const updateUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -33021,6 +33178,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -33109,6 +33267,7 @@ export const updateUser = /* GraphQL */ `
       stripeCustomerId
       stripeCustomer
       stripeSubscriptionId
+      stripeSubscriptionStatus
       subscriptionId
       subscriptionModel {
         id
@@ -33642,6 +33801,7 @@ export const updateUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -33755,6 +33915,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -33869,6 +34030,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -33943,6 +34105,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -34063,6 +34226,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -34176,6 +34340,7 @@ export const deleteUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -34225,6 +34390,7 @@ export const deleteUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -34327,6 +34493,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -34388,6 +34555,7 @@ export const deleteUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -34664,6 +34832,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -34752,6 +34921,7 @@ export const deleteUser = /* GraphQL */ `
       stripeCustomerId
       stripeCustomer
       stripeSubscriptionId
+      stripeSubscriptionStatus
       subscriptionId
       subscriptionModel {
         id
@@ -35285,6 +35455,7 @@ export const deleteUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -35484,6 +35655,7 @@ export const createEntitlement = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -36254,6 +36426,7 @@ export const updateEntitlement = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37024,6 +37197,7 @@ export const deleteEntitlement = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37685,6 +37859,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37724,6 +37899,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37747,6 +37923,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37792,6 +37969,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -37890,6 +38068,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38009,6 +38188,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38043,6 +38223,7 @@ export const createAccessCode = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -38250,6 +38431,7 @@ export const createAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38320,6 +38502,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38359,6 +38542,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38382,6 +38566,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38427,6 +38612,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38525,6 +38711,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38644,6 +38831,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38678,6 +38866,7 @@ export const updateAccessCode = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -38885,6 +39074,7 @@ export const updateAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38955,6 +39145,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -38994,6 +39185,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39017,6 +39209,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39062,6 +39255,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39160,6 +39354,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39279,6 +39474,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39313,6 +39509,7 @@ export const deleteAccessCode = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -39520,6 +39717,7 @@ export const deleteAccessCode = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39589,6 +39787,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39628,6 +39827,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39651,6 +39851,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39696,6 +39897,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39794,6 +39996,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39913,6 +40116,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -39947,6 +40151,7 @@ export const createUserPackage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -40154,6 +40359,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40200,6 +40406,7 @@ export const createUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40589,6 +40796,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40628,6 +40836,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40651,6 +40860,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40696,6 +40906,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40794,6 +41005,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40913,6 +41125,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -40947,6 +41160,7 @@ export const updateUserPackage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -41154,6 +41368,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41200,6 +41415,7 @@ export const updateUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41589,6 +41805,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41628,6 +41845,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41651,6 +41869,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41696,6 +41915,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41794,6 +42014,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41913,6 +42134,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -41947,6 +42169,7 @@ export const deleteUserPackage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -42154,6 +42377,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -42200,6 +42424,7 @@ export const deleteUserPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -42604,6 +42829,7 @@ export const createPackage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -42836,6 +43062,7 @@ export const createPackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -43672,6 +43899,7 @@ export const updatePackage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -43904,6 +44132,7 @@ export const updatePackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -44740,6 +44969,7 @@ export const deletePackage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -44972,6 +45202,7 @@ export const deletePackage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -45793,6 +46024,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -45832,6 +46064,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -45855,6 +46088,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -45900,6 +46134,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -45998,6 +46233,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46117,6 +46353,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46151,6 +46388,7 @@ export const createChatRoomUser = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -46358,6 +46596,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46396,6 +46635,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46439,6 +46679,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46509,6 +46750,7 @@ export const createChatRoomUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -46592,6 +46834,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46615,6 +46858,7 @@ export const createChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46710,6 +46954,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46749,6 +46994,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46772,6 +47018,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46817,6 +47064,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -46915,6 +47163,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47034,6 +47283,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47068,6 +47318,7 @@ export const updateChatRoomUser = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -47275,6 +47526,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47313,6 +47565,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47356,6 +47609,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47426,6 +47680,7 @@ export const updateChatRoomUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -47509,6 +47764,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47532,6 +47788,7 @@ export const updateChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47627,6 +47884,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47666,6 +47924,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47689,6 +47948,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47734,6 +47994,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47832,6 +48093,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47951,6 +48213,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -47985,6 +48248,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -48192,6 +48456,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -48230,6 +48495,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -48273,6 +48539,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -48343,6 +48610,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -48426,6 +48694,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -48449,6 +48718,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -48551,6 +48821,7 @@ export const createChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -48669,6 +48940,7 @@ export const createChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -48869,6 +49141,7 @@ export const createChatRoom = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -48992,6 +49265,7 @@ export const createChatRoom = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -49087,6 +49361,7 @@ export const createChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -49161,6 +49436,7 @@ export const createChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -49307,6 +49583,7 @@ export const updateChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -49425,6 +49702,7 @@ export const updateChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -49625,6 +49903,7 @@ export const updateChatRoom = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -49748,6 +50027,7 @@ export const updateChatRoom = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -49843,6 +50123,7 @@ export const updateChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -49917,6 +50198,7 @@ export const updateChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -50063,6 +50345,7 @@ export const deleteChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -50181,6 +50464,7 @@ export const deleteChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -50381,6 +50665,7 @@ export const deleteChatRoom = /* GraphQL */ `
           stripeCustomerId
           stripeCustomer
           stripeSubscriptionId
+          stripeSubscriptionStatus
           subscriptionId
           subscriptionModel {
             id
@@ -50504,6 +50789,7 @@ export const deleteChatRoom = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -50599,6 +50885,7 @@ export const deleteChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -50673,6 +50960,7 @@ export const deleteChatRoom = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -50810,6 +51098,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -50849,6 +51138,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -50872,6 +51162,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -50917,6 +51208,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51015,6 +51307,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51134,6 +51427,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51168,6 +51462,7 @@ export const createInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -51375,6 +51670,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51430,6 +51726,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51469,6 +51766,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51492,6 +51790,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51537,6 +51836,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51635,6 +51935,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51754,6 +52055,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -51788,6 +52090,7 @@ export const createInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -51995,6 +52298,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52036,6 +52340,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52079,6 +52384,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52149,6 +52455,7 @@ export const createInvitation = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -52232,6 +52539,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52255,6 +52563,7 @@ export const createInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52349,6 +52658,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52388,6 +52698,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52411,6 +52722,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52456,6 +52768,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52554,6 +52867,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52673,6 +52987,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52707,6 +53022,7 @@ export const updateInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -52914,6 +53230,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -52969,6 +53286,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53008,6 +53326,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53031,6 +53350,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53076,6 +53396,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53174,6 +53495,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53293,6 +53615,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53327,6 +53650,7 @@ export const updateInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -53534,6 +53858,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53575,6 +53900,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53618,6 +53944,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53688,6 +54015,7 @@ export const updateInvitation = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -53771,6 +54099,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53794,6 +54123,7 @@ export const updateInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53888,6 +54218,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53927,6 +54258,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53950,6 +54282,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -53995,6 +54328,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54093,6 +54427,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54212,6 +54547,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54246,6 +54582,7 @@ export const deleteInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -54453,6 +54790,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54508,6 +54846,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54547,6 +54886,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54570,6 +54910,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54615,6 +54956,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54713,6 +55055,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54832,6 +55175,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -54866,6 +55210,7 @@ export const deleteInvitation = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -55073,6 +55418,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55114,6 +55460,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55157,6 +55504,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55227,6 +55575,7 @@ export const deleteInvitation = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -55310,6 +55659,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55333,6 +55683,7 @@ export const deleteInvitation = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55431,6 +55782,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55470,6 +55822,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55493,6 +55846,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55538,6 +55892,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55636,6 +55991,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55755,6 +56111,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -55789,6 +56146,7 @@ export const createMessage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -55996,6 +56354,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56034,6 +56393,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56077,6 +56437,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56147,6 +56508,7 @@ export const createMessage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -56230,6 +56592,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56253,6 +56616,7 @@ export const createMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56349,6 +56713,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56388,6 +56753,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56411,6 +56777,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56456,6 +56823,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56554,6 +56922,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56673,6 +57042,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56707,6 +57077,7 @@ export const updateMessage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -56914,6 +57285,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56952,6 +57324,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -56995,6 +57368,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57065,6 +57439,7 @@ export const updateMessage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -57148,6 +57523,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57171,6 +57547,7 @@ export const updateMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57267,6 +57644,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57306,6 +57684,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57329,6 +57708,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57374,6 +57754,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57472,6 +57853,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57591,6 +57973,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57625,6 +58008,7 @@ export const deleteMessage = /* GraphQL */ `
         stripeCustomerId
         stripeCustomer
         stripeSubscriptionId
+        stripeSubscriptionStatus
         subscriptionId
         subscriptionModel {
           id
@@ -57832,6 +58216,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57870,6 +58255,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57913,6 +58299,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -57983,6 +58370,7 @@ export const deleteMessage = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -58066,6 +58454,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -58089,6 +58478,7 @@ export const deleteMessage = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -58293,6 +58683,7 @@ export const createOnDemandFeaturedShow = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -59061,6 +59452,7 @@ export const updateOnDemandFeaturedShow = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -59829,6 +60221,7 @@ export const deleteOnDemandFeaturedShow = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -61617,6 +62010,7 @@ export const createMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -61861,6 +62255,7 @@ export const createMerchandise = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -62723,6 +63118,7 @@ export const createMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -63755,6 +64151,7 @@ export const updateMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -63999,6 +64396,7 @@ export const updateMerchandise = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -64861,6 +65259,7 @@ export const updateMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -65893,6 +66292,7 @@ export const deleteMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -66137,6 +66537,7 @@ export const deleteMerchandise = /* GraphQL */ `
             stripeCustomerId
             stripeCustomer
             stripeSubscriptionId
+            stripeSubscriptionStatus
             subscriptionId
             subscriptionModel {
               id
@@ -66999,6 +67400,7 @@ export const deleteMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -68073,6 +68475,7 @@ export const createBandMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -68919,6 +69322,7 @@ export const updateBandMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -69765,6 +70169,7 @@ export const deleteBandMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -71087,6 +71492,7 @@ export const createAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -71843,6 +72249,7 @@ export const createAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -72611,6 +73018,7 @@ export const updateAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -73367,6 +73775,7 @@ export const updateAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -74135,6 +74544,7 @@ export const deleteAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -74891,6 +75301,7 @@ export const deleteAssociatedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -75662,6 +76073,7 @@ export const createDecomissionedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -76434,6 +76846,7 @@ export const updateDecomissionedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken
@@ -77206,6 +77619,7 @@ export const deleteDecomissionedMerchandise = /* GraphQL */ `
               stripeCustomerId
               stripeCustomer
               stripeSubscriptionId
+              stripeSubscriptionStatus
               subscriptionId
               accessToken
               idToken

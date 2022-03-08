@@ -309,6 +309,11 @@ type Purchase
 type User
   @model
   @key(
+    name: "getUserByStripeCustomerId"
+    fields: ["stripeCustomerId"]
+    queryField: "getUserByStripeCustomerId"
+  )
+  @key(
     name: "getUserByUsername"
     fields: ["username"]
     queryField: "getUserByUsername"
@@ -339,6 +344,7 @@ type User
   stripeCustomerId: String
   stripeCustomer: String
   stripeSubscriptionId: String
+  stripeSubscriptionStatus: String
   subscriptionId: ID
   subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
   accessToken: String
