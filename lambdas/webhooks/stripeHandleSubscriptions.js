@@ -70,6 +70,14 @@ const updateUserSubscriptionSubAndStatus = async (
     })
 
     console.log("\n\n--UserObject: ", userObject)
+    console.log(
+      "\n\n--UserObject: data ",
+      userObject.data.data.getUserByStripeCustomerId
+    )
+    console.log(
+      "\n\n--UserObject: userID ",
+      userObject.data.data.getUserByStripeCustomerId.items[0].id
+    )
     console.log("\n\n--stripeCustomerId: ", stripeCustomerId)
     console.log("\n\n--stripeSubscriptionId: ", stripeSubscriptionId)
     console.log("\n\n--stripeSubscriptionStatus: ", stripeSubscriptionStatus)
