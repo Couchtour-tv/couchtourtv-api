@@ -148,10 +148,15 @@ exports.handler = async (event) => {
       case "customer.subscription.updated":
         // const subscription = payload.data.object;
         console.log("Customer Data Object :: subscription.updated", dataObject)
+        console.log(
+          "Customer Data Object Discount Length :: subscription.updated",
+          dataObject.discount.length
+        )
         stripeCustomerId = dataObject.customer
         stripeSubscriptionId = dataObject.id
-        stripeSubscriptionStatus =
-          dataObject.discount.length > 0 ? "paused" : dataObject.status
+        stripeSubscriptionStatus = dataObject.status
+        // stripeSubscriptionStatus =
+        // dataObject.discount.length > 0 ? "paused" : dataObject.status
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
