@@ -118,7 +118,7 @@ exports.handler = async (event) => {
         // const subscription = payload.data.object;
         console.log("Customer Data Object :: subscription.deleted", dataObject)
         stripeCustomerId = dataObject.customer
-        stripeSubscriptionId = dataObject.id
+        stripeSubscriptionId = ""
         stripeSubscriptionStatus = dataObject.status
 
         await updateUserSubscriptionSubAndStatus(
