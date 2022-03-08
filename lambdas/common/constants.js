@@ -91,7 +91,7 @@ export const StripeApiMap = {
 // -- couchtourtvamplify-ctqa
 export const AppSyncUrlOriginal =
   "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql"
-export const GraphqlKeyOuputOirginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
+export const GraphqlKeyOutputOriginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
 //
 // -- couchtourapisandbox-dev
 export const AppSyncUrlEdit =
