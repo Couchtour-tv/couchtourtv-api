@@ -214,7 +214,7 @@ functions:
       - http:
           path: handle-stripe-subscriptions
           method: POST
-  stripeHandleSubscriptionsWebhook:
+  stripeHandleInvoiceWebhook:
     handler: lambdas/webhooks/stripeHandleInvoice.handler
     events:
       - http:
