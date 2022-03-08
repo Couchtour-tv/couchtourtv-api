@@ -95,25 +95,37 @@ exports.handler = async (event) => {
 
     const dataObject = payload.data.object
 
-    const stripeCustomerId = dataObject.customer
-    const stripeSubscriptionId = dataObject.id
-    const stripeSubscriptionStatus = dataObject.status
-
-    await updateUserSubscriptionSubAndStatus(
-      stripeCustomerId,
-      stripeSubscriptionId,
-      stripeSubscriptionStatus
-    )
+    let stripeCustomerId
+    let stripeSubscriptionId
+    let stripeSubscriptionStatus
 
     switch (payload.type) {
       case "customer.subscription.created":
         // const subscription = payload.data.object;
         console.log("Customer Data Object :: subscription.created", dataObject)
+        stripeCustomerId = dataObject.customer
+        stripeSubscriptionId = dataObject.id
+        stripeSubscriptionStatus = dataObject.status
+
+        await updateUserSubscriptionSubAndStatus(
+          stripeCustomerId,
+          stripeSubscriptionId,
+          stripeSubscriptionStatus
+        )
         // Then define and call a function to handle the event customer.subscription.created
         break
       case "customer.subscription.deleted":
         // const subscription = payload.data.object;
         console.log("Customer Data Object :: subscription.deleted", dataObject)
+        stripeCustomerId = dataObject.customer
+        stripeSubscriptionId = dataObject.id
+        stripeSubscriptionStatus = dataObject.status
+
+        await updateUserSubscriptionSubAndStatus(
+          stripeCustomerId,
+          stripeSubscriptionId,
+          stripeSubscriptionStatus
+        )
         // Then define and call a function to handle the event customer.subscription.deleted
         break
       case "customer.subscription.trial_will_end":
@@ -122,11 +134,30 @@ exports.handler = async (event) => {
           "Customer Data Object :: subscription.trial_will_end",
           dataObject
         )
+        stripeCustomerId = dataObject.customer
+        stripeSubscriptionId = dataObject.id
+        stripeSubscriptionStatus = dataObject.status
+
+        await updateUserSubscriptionSubAndStatus(
+          stripeCustomerId,
+          stripeSubscriptionId,
+          stripeSubscriptionStatus
+        )
         // Then define and call a function to handle the event customer.subscription.trial_will_end
         break
       case "customer.subscription.updated":
         // const subscription = payload.data.object;
         console.log("Customer Data Object :: subscription.updated", dataObject)
+        stripeCustomerId = dataObject.customer
+        stripeSubscriptionId = dataObject.id
+        stripeSubscriptionStatus =
+          dataObject.discount.length > 0 ? "paused" : dataObject.status
+
+        await updateUserSubscriptionSubAndStatus(
+          stripeCustomerId,
+          stripeSubscriptionId,
+          stripeSubscriptionStatus
+        )
         // Then define and call a function to handle the event customer.subscription.updated
         break
       default:
