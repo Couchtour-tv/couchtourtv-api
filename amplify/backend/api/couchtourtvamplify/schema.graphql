@@ -345,6 +345,7 @@ type User
   stripeCustomer: String
   stripeSubscriptionId: String
   stripeSubscriptionStatus: String
+  stripeSubscriptionPaused: Boolean
   subscriptionId: ID
   subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
   accessToken: String
