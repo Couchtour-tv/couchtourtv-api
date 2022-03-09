@@ -113,7 +113,7 @@ exports.handler = async (event) => {
         stripeCustomerId = dataObject.customer
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
-        stripeSubscriptionPaused = dataObject.discount === null ? false : true
+        stripeSubscriptionPaused = dataObject.discount ? true : false
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
@@ -129,7 +129,7 @@ exports.handler = async (event) => {
         stripeCustomerId = dataObject.customer
         stripeSubscriptionId = ""
         stripeSubscriptionStatus = dataObject.status
-        stripeSubscriptionPaused = dataObject.discount === null ? false : true
+        stripeSubscriptionPaused = dataObject.discount ? true : false
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
@@ -148,7 +148,7 @@ exports.handler = async (event) => {
         stripeCustomerId = dataObject.customer
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
-        stripeSubscriptionPaused = dataObject.discount === null ? false : true
+        stripeSubscriptionPaused = dataObject.discount ? true : false
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
@@ -168,7 +168,7 @@ exports.handler = async (event) => {
         stripeCustomerId = dataObject.customer
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
-        stripeSubscriptionPaused = dataObject.discount === null ? false : true
+        stripeSubscriptionPaused = dataObject.discount ? true : false
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
