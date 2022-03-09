@@ -50,6 +50,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -91,6 +92,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -116,6 +118,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -163,6 +166,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -263,6 +267,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -384,6 +389,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -420,6 +426,7 @@ export const newOnCreateMessage = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -629,6 +636,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -669,6 +677,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -714,6 +723,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -786,6 +796,7 @@ export const newOnCreateMessage = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -871,6 +882,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -896,6 +908,7 @@ export const newOnCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -987,6 +1000,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1028,6 +1042,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1053,6 +1068,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1100,6 +1116,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1200,6 +1217,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1321,6 +1339,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1357,6 +1376,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -1566,6 +1586,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1623,6 +1644,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1664,6 +1686,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1689,6 +1712,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1736,6 +1760,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1836,6 +1861,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1957,6 +1983,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -1993,6 +2020,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -2202,6 +2230,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2245,6 +2274,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2290,6 +2320,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2362,6 +2393,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -2447,6 +2479,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2472,6 +2505,7 @@ export const onCreateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2565,6 +2599,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2606,6 +2641,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2631,6 +2667,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2678,6 +2715,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2778,6 +2816,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2899,6 +2938,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -2935,6 +2975,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -3144,6 +3185,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3201,6 +3243,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3242,6 +3285,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3267,6 +3311,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3314,6 +3359,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3414,6 +3460,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3535,6 +3582,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3571,6 +3619,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -3780,6 +3829,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3823,6 +3873,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3868,6 +3919,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -3940,6 +3992,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -4025,6 +4078,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4050,6 +4104,7 @@ export const onCreateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4143,6 +4198,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4184,6 +4240,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4209,6 +4266,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4256,6 +4314,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4356,6 +4415,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4477,6 +4537,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4513,6 +4574,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -4722,6 +4784,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4779,6 +4842,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4820,6 +4884,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4845,6 +4910,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4892,6 +4958,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -4992,6 +5059,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5113,6 +5181,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5149,6 +5218,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -5358,6 +5428,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5401,6 +5472,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5446,6 +5518,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5518,6 +5591,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -5603,6 +5677,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5628,6 +5703,7 @@ export const onCreateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5721,6 +5797,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5762,6 +5839,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5787,6 +5865,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5834,6 +5913,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -5934,6 +6014,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6055,6 +6136,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6091,6 +6173,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -6300,6 +6383,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6357,6 +6441,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6398,6 +6483,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6423,6 +6509,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6470,6 +6557,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6570,6 +6658,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6691,6 +6780,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6727,6 +6817,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -6936,6 +7027,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -6979,6 +7071,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7024,6 +7117,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7096,6 +7190,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -7181,6 +7276,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7206,6 +7302,7 @@ export const onUpdateInviteByCreatedByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7299,6 +7396,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7340,6 +7438,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7365,6 +7464,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7412,6 +7512,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7512,6 +7613,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7633,6 +7735,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7669,6 +7772,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -7878,6 +7982,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7935,6 +8040,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -7976,6 +8082,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8001,6 +8108,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8048,6 +8156,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8148,6 +8257,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8269,6 +8379,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8305,6 +8416,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -8514,6 +8626,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8557,6 +8670,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8602,6 +8716,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8674,6 +8789,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -8759,6 +8875,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8784,6 +8901,7 @@ export const onUpdateInviteByInvitedUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8877,6 +8995,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8918,6 +9037,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8943,6 +9063,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -8990,6 +9111,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9090,6 +9212,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9211,6 +9334,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9247,6 +9371,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -9456,6 +9581,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9513,6 +9639,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9554,6 +9681,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9579,6 +9707,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9626,6 +9755,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9726,6 +9856,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9847,6 +9978,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -9883,6 +10015,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -10092,6 +10225,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10135,6 +10269,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10180,6 +10315,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10252,6 +10388,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -10337,6 +10474,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10362,6 +10500,7 @@ export const onUpdateInviteByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10457,6 +10596,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10498,6 +10638,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10523,6 +10664,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10570,6 +10712,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10670,6 +10813,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10791,6 +10935,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -10827,6 +10972,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -11036,6 +11182,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11076,6 +11223,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11121,6 +11269,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11193,6 +11342,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -11278,6 +11428,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11303,6 +11454,7 @@ export const onCreateChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11397,6 +11549,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11438,6 +11591,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11463,6 +11617,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11510,6 +11665,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11610,6 +11766,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11731,6 +11888,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -11767,6 +11925,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -11976,6 +12135,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12016,6 +12176,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12061,6 +12222,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12133,6 +12295,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -12218,6 +12381,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12243,6 +12407,7 @@ export const onDeleteChatRoomUserByUserID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12337,6 +12502,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12378,6 +12544,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12403,6 +12570,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12450,6 +12618,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12550,6 +12719,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12671,6 +12841,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12707,6 +12878,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -12916,6 +13088,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -12956,6 +13129,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13001,6 +13175,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13073,6 +13248,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -13158,6 +13334,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13183,6 +13360,7 @@ export const onCreateChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13277,6 +13455,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13318,6 +13497,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13343,6 +13523,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13390,6 +13571,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13490,6 +13672,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13611,6 +13794,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13647,6 +13831,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -13856,6 +14041,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13896,6 +14082,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -13941,6 +14128,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14013,6 +14201,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -14098,6 +14287,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14123,6 +14313,7 @@ export const onDeleteChatRoomUserByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14219,6 +14410,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14260,6 +14452,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14285,6 +14478,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14332,6 +14526,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14432,6 +14627,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14553,6 +14749,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14589,6 +14786,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -14798,6 +14996,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14838,6 +15037,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14883,6 +15083,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -14955,6 +15156,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15040,6 +15242,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -15065,6 +15268,7 @@ export const onCreateMessageByChatRoomID = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -15182,6 +15386,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15298,6 +15503,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15374,6 +15580,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15496,6 +15703,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15611,6 +15819,7 @@ export const onCreateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -15662,6 +15871,7 @@ export const onCreateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -15766,6 +15976,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -15829,6 +16040,7 @@ export const onCreateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -16107,6 +16319,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -16197,6 +16410,7 @@ export const onCreateUser = /* GraphQL */ `
       stripeSubscriptionId
       stripeSubscriptionStatus
       stripeSubscriptionPaused
+      stripeSubscriptionCancelAtPeriodEnd
       subscriptionId
       subscriptionModel {
         id
@@ -16732,6 +16946,7 @@ export const onCreateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -16844,6 +17059,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -16960,6 +17176,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -17036,6 +17253,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -17158,6 +17376,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -17273,6 +17492,7 @@ export const onUpdateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -17324,6 +17544,7 @@ export const onUpdateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -17428,6 +17649,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -17491,6 +17713,7 @@ export const onUpdateUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -17769,6 +17992,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -17859,6 +18083,7 @@ export const onUpdateUser = /* GraphQL */ `
       stripeSubscriptionId
       stripeSubscriptionStatus
       stripeSubscriptionPaused
+      stripeSubscriptionCancelAtPeriodEnd
       subscriptionId
       subscriptionModel {
         id
@@ -18394,6 +18619,7 @@ export const onUpdateUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -18506,6 +18732,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -18622,6 +18849,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -18698,6 +18926,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -18820,6 +19049,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -18935,6 +19165,7 @@ export const onDeleteUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -18986,6 +19217,7 @@ export const onDeleteUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -19090,6 +19322,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -19153,6 +19386,7 @@ export const onDeleteUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -19431,6 +19665,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -19521,6 +19756,7 @@ export const onDeleteUser = /* GraphQL */ `
       stripeSubscriptionId
       stripeSubscriptionStatus
       stripeSubscriptionPaused
+      stripeSubscriptionCancelAtPeriodEnd
       subscriptionId
       subscriptionModel {
         id
@@ -20056,6 +20292,7 @@ export const onDeleteUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -20144,6 +20381,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20185,6 +20423,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20210,6 +20449,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20257,6 +20497,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20357,6 +20598,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20478,6 +20720,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20514,6 +20757,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -20723,6 +20967,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20763,6 +21008,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20808,6 +21054,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20880,6 +21127,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -20965,6 +21213,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -20990,6 +21239,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21084,6 +21334,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21125,6 +21376,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21150,6 +21402,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21197,6 +21450,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21297,6 +21551,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21418,6 +21673,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21454,6 +21710,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -21663,6 +21920,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21703,6 +21961,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21748,6 +22007,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21820,6 +22080,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -21905,6 +22166,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -21930,6 +22192,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22024,6 +22287,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22065,6 +22329,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22090,6 +22355,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22137,6 +22403,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22237,6 +22504,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22358,6 +22626,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22394,6 +22663,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -22603,6 +22873,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22643,6 +22914,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22688,6 +22960,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22760,6 +23033,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -22845,6 +23119,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22870,6 +23145,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -22971,6 +23247,7 @@ export const onCreateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -23091,6 +23368,7 @@ export const onCreateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -23293,6 +23571,7 @@ export const onCreateChatRoom = /* GraphQL */ `
           stripeSubscriptionId
           stripeSubscriptionStatus
           stripeSubscriptionPaused
+          stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
           subscriptionModel {
             id
@@ -23418,6 +23697,7 @@ export const onCreateChatRoom = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -23515,6 +23795,7 @@ export const onCreateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -23591,6 +23872,7 @@ export const onCreateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -23736,6 +24018,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -23856,6 +24139,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -24058,6 +24342,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
           stripeSubscriptionId
           stripeSubscriptionStatus
           stripeSubscriptionPaused
+          stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
           subscriptionModel {
             id
@@ -24183,6 +24468,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -24280,6 +24566,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -24356,6 +24643,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -24501,6 +24789,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -24621,6 +24910,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -24823,6 +25113,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
           stripeSubscriptionId
           stripeSubscriptionStatus
           stripeSubscriptionPaused
+          stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
           subscriptionModel {
             id
@@ -24948,6 +25239,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25045,6 +25337,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -25121,6 +25414,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -25257,6 +25551,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25298,6 +25593,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25323,6 +25619,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25370,6 +25667,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25470,6 +25768,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25591,6 +25890,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25627,6 +25927,7 @@ export const onCreateInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -25836,6 +26137,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25893,6 +26195,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25934,6 +26237,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -25959,6 +26263,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26006,6 +26311,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26106,6 +26412,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26227,6 +26534,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26263,6 +26571,7 @@ export const onCreateInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -26472,6 +26781,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26515,6 +26825,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26560,6 +26871,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26632,6 +26944,7 @@ export const onCreateInvitation = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -26717,6 +27030,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26742,6 +27056,7 @@ export const onCreateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26835,6 +27150,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26876,6 +27192,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26901,6 +27218,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -26948,6 +27266,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27048,6 +27367,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27169,6 +27489,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27205,6 +27526,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -27414,6 +27736,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27471,6 +27794,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27512,6 +27836,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27537,6 +27862,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27584,6 +27910,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27684,6 +28011,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27805,6 +28133,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -27841,6 +28170,7 @@ export const onUpdateInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -28050,6 +28380,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28093,6 +28424,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28138,6 +28470,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28210,6 +28543,7 @@ export const onUpdateInvitation = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -28295,6 +28629,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28320,6 +28655,7 @@ export const onUpdateInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28413,6 +28749,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28454,6 +28791,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28479,6 +28817,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28526,6 +28865,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28626,6 +28966,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28747,6 +29088,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -28783,6 +29125,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -28992,6 +29335,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29049,6 +29393,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29090,6 +29435,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29115,6 +29461,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29162,6 +29509,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29262,6 +29610,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29383,6 +29732,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29419,6 +29769,7 @@ export const onDeleteInvitation = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -29628,6 +29979,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29671,6 +30023,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29716,6 +30069,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29788,6 +30142,7 @@ export const onDeleteInvitation = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -29873,6 +30228,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29898,6 +30254,7 @@ export const onDeleteInvitation = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -29995,6 +30352,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30036,6 +30394,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30061,6 +30420,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30108,6 +30468,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30208,6 +30569,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30329,6 +30691,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30365,6 +30728,7 @@ export const onCreateMessage = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -30574,6 +30938,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30614,6 +30979,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30659,6 +31025,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30731,6 +31098,7 @@ export const onCreateMessage = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -30816,6 +31184,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30841,6 +31210,7 @@ export const onCreateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30936,6 +31306,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -30977,6 +31348,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31002,6 +31374,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31049,6 +31422,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31149,6 +31523,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31270,6 +31645,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31306,6 +31682,7 @@ export const onUpdateMessage = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -31515,6 +31892,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31555,6 +31933,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31600,6 +31979,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31672,6 +32052,7 @@ export const onUpdateMessage = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -31757,6 +32138,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31782,6 +32164,7 @@ export const onUpdateMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31877,6 +32260,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31918,6 +32302,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31943,6 +32328,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -31990,6 +32376,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32090,6 +32477,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32211,6 +32599,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32247,6 +32636,7 @@ export const onDeleteMessage = /* GraphQL */ `
         stripeSubscriptionId
         stripeSubscriptionStatus
         stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd
         subscriptionId
         subscriptionModel {
           id
@@ -32456,6 +32846,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32496,6 +32887,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32541,6 +32933,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32613,6 +33006,7 @@ export const onDeleteMessage = /* GraphQL */ `
             stripeSubscriptionId
             stripeSubscriptionStatus
             stripeSubscriptionPaused
+            stripeSubscriptionCancelAtPeriodEnd
             subscriptionId
             subscriptionModel {
               id
@@ -32698,6 +33092,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken
@@ -32723,6 +33118,7 @@ export const onDeleteMessage = /* GraphQL */ `
               stripeSubscriptionId
               stripeSubscriptionStatus
               stripeSubscriptionPaused
+              stripeSubscriptionCancelAtPeriodEnd
               subscriptionId
               accessToken
               idToken

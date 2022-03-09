@@ -26,6 +26,7 @@ const updateUserSubIdandSubStatus = gql`
     $stripeSubscriptionId: String!
     $stripeSubscriptionStatus: String!
     $stripeSubscriptionPaused: Boolean!
+    $stripeSubscriptionCancelAtPeriodEnd: Boolean!
   ) {
     updateUser(
       input: {
@@ -33,12 +34,14 @@ const updateUserSubIdandSubStatus = gql`
         stripeSubscriptionId: $stripeSubscriptionId
         stripeSubscriptionStatus: $stripeSubscriptionStatus
         stripeSubscriptionPaused: $stripeSubscriptionPaused
+        stripeSubscriptionCancelAtPeriodEnd: $stripeSubscriptionCancelAtPeriodEnd
       }
     ) {
       id
       stripeSubscriptionId
       stripeSubscriptionStatus
       stripeSubscriptionPaused
+      stripeSubscriptionCancelAtPeriodEnd
     }
   }
 `
@@ -47,7 +50,8 @@ const updateUserSubscriptionSubAndStatus = async (
   stripeCustomerId,
   stripeSubscriptionId,
   stripeSubscriptionStatus,
-  stripeSubscriptionPaused
+  stripeSubscriptionPaused,
+  stripeSubscriptionCancelAtPeriodEnd
 ) => {
   try {
     const userObject = await axios({
@@ -69,6 +73,10 @@ const updateUserSubscriptionSubAndStatus = async (
     console.log("\n\n--stripeSubscriptionId: ", stripeSubscriptionId)
     console.log("\n\n--stripeSubscriptionStatus: ", stripeSubscriptionStatus)
     console.log("\n\n--stripeSubscriptionPaused: ", stripeSubscriptionPaused)
+    console.log(
+      "\n\n--stripeSubscriptionCancelAtPeriodEnd: ",
+      stripeSubscriptionCancelAtPeriodEnd
+    )
 
     await axios({
       url: AppSyncUrlOriginal,
@@ -83,6 +91,7 @@ const updateUserSubscriptionSubAndStatus = async (
           stripeSubscriptionId,
           stripeSubscriptionStatus,
           stripeSubscriptionPaused,
+          stripeSubscriptionCancelAtPeriodEnd,
         },
       },
     })
@@ -105,6 +114,7 @@ exports.handler = async (event) => {
     let stripeSubscriptionId
     let stripeSubscriptionStatus
     let stripeSubscriptionPaused
+    let stripeSubscriptionCancelAtPeriodEnd
 
     switch (payload.type) {
       case "customer.subscription.created":
@@ -114,13 +124,15 @@ exports.handler = async (event) => {
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
         stripeSubscriptionPaused = !!dataObject.discount
+        stripeSubscriptionCancelAtPeriodEnd = dataObject.cancel_at_period_end
         console.log("Is Subscription Paused?", !!dataObject.discount)
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
           stripeSubscriptionId,
           stripeSubscriptionStatus,
-          stripeSubscriptionPaused
+          stripeSubscriptionPaused,
+          stripeSubscriptionCancelAtPeriodEnd
         )
         // Then define and call a function to handle the event customer.subscription.created
         break
@@ -131,13 +143,15 @@ exports.handler = async (event) => {
         stripeSubscriptionId = ""
         stripeSubscriptionStatus = dataObject.status
         stripeSubscriptionPaused = !!dataObject.discount
+        stripeSubscriptionCancelAtPeriodEnd = dataObject.cancel_at_period_end
         console.log("Is Subscription Paused?", !!dataObject.discount)
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
           stripeSubscriptionId,
           stripeSubscriptionStatus,
-          stripeSubscriptionPaused
+          stripeSubscriptionPaused,
+          stripeSubscriptionCancelAtPeriodEnd
         )
         // Then define and call a function to handle the event customer.subscription.deleted
         break
@@ -151,13 +165,15 @@ exports.handler = async (event) => {
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
         stripeSubscriptionPaused = !!dataObject.discount
+        stripeSubscriptionCancelAtPeriodEnd = dataObject.cancel_at_period_end
         console.log("Is Subscription Paused?", !!dataObject.discount)
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
           stripeSubscriptionId,
           stripeSubscriptionStatus,
-          stripeSubscriptionPaused
+          stripeSubscriptionPaused,
+          stripeSubscriptionCancelAtPeriodEnd
         )
         // Then define and call a function to handle the event customer.subscription.trial_will_end
         break
@@ -172,13 +188,15 @@ exports.handler = async (event) => {
         stripeSubscriptionId = dataObject.id
         stripeSubscriptionStatus = dataObject.status
         stripeSubscriptionPaused = !!dataObject.discount
+        stripeSubscriptionCancelAtPeriodEnd = dataObject.cancel_at_period_end
         console.log("Is Subscription Paused?", !!dataObject.discount)
 
         await updateUserSubscriptionSubAndStatus(
           stripeCustomerId,
           stripeSubscriptionId,
           stripeSubscriptionStatus,
-          stripeSubscriptionPaused
+          stripeSubscriptionPaused,
+          stripeSubscriptionCancelAtPeriodEnd
         )
         // Then define and call a function to handle the event customer.subscription.updated
         break
