@@ -632,7 +632,7 @@ functions:
             allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- Nomad Integration
-    nomad-auth:
+  nomad-auth:
     handler: lambdas/endpoints/nomad/auth.handler
     events:
       - http:
