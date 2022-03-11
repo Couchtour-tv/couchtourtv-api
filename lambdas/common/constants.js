@@ -97,3 +97,7 @@ export const GraphqlKeyOutputOriginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
 export const AppSyncUrlEdit =
   "https://ojvjqrhj2jbj3cayqa4iqrj4yy.appsync-api.us-east-1.amazonaws.couchtourtvamplify-ctqa/graphql"
 export const GraphqlKeyOuputEdit = "da2-bo4hop4hdvbdfel5fzreoa77ye"
+
+// ---- Nomad
+export const NomadLoginUrl =
+  "https://admin-app.couchtour-poc.nomad-cms.com/api/account/login"
