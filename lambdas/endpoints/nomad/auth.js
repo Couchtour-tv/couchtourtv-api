@@ -25,9 +25,6 @@ exports.handler = async (event) => {
         password,
       },
     })
-      .then((res) => {
-        return res.json()
-      })
       .then((data) => {
         console.log("Nomad Auth-data ::", data)
         return {
