@@ -54,9 +54,9 @@ exports.handler = async (event) => {
 
     return Responses._200(nomadObject)
   } catch (error) {
-    console.log("Cancelled Subscription | Error |", error)
+    console.log("Nomad Auth | Error |", error)
     return Responses._500({
-      message: "Cancelled Subscription failed",
+      message: "Nomad Auth failed",
       success: false,
     })
   }
