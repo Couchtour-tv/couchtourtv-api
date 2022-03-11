@@ -21,7 +21,7 @@ async function fetchNomadRefreshLogin(refreshToken, clientId) {
 
     console.log("fetch nomad refresh login response", response)
     // Check for success
-    if (response.ok) {
+    if (response.statusText === "OK") {
       // Get the JSON from the response
       console.log("fetch nomad refresh login response :: OK", response)
 
@@ -87,12 +87,12 @@ async function querySpecificItem(
     console.log("Nomad query-specific-item-response", response)
 
     // Check for success
-    if (response.ok) {
+    if (response.statusText === "OK") {
       // Get the response
       console.log("Nomad query-specific-item-response :: OK", response)
 
       // Return the response
-      return response
+      return response.data
     } else {
       const nomadNewToken = await fetchNomadRefreshLogin(
         nomadRefreshToken,
