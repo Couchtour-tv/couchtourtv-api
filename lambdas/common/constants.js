@@ -101,3 +101,6 @@ export const GraphqlKeyOuputEdit = "da2-bo4hop4hdvbdfel5fzreoa77ye"
 // ---- Nomad
 export const NomadLoginUrl =
   "https://admin-app.couchtour-poc.nomad-cms.com/api/account/login"
+
+export const NomadSearchUrl =
+  "https://admin-app.couchtour-poc.nomad-cms.com/api/admin/search"
