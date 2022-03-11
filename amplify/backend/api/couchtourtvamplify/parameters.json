@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "couchtourtvamplify",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authcouchtourtvamplify5a547970",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

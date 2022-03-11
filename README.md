@@ -74,5 +74,18 @@ aws dynamodb scan --table-name ct-CreditCards --endpoint-url http://localhost:80
 aws dynamodb scan --table-name ct-Users --endpoint-url http://localhost:8000 >> resources/seeds/users.json
 ```
 
+AMPLIFY 
+
+--CONFIG
+
+```bash
+npm  -v  7.18.1
+node -v  v16.4.0
+amplify version 5.3.0
+```
+
+SAMPLE MESSAGE: 
 
  { "action": "get-tickets", "message": { "email": "test@example.com", "cogId": "f923fb1308fg10382fg" }}
+
+TEST FOR STAGING PUSH

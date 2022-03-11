@@ -1,0 +1,63 @@
+import Responses from "../../common/API_Responses"
+import { NomadLoginUrl } from "../../common/constants"
+const axios = require("axios")
+
+exports.handler = async (event) => {
+  try {
+    const body = await JSON.parse(event.body)
+    console.log("Nomad Auth-event ::", body)
+
+    const { username, password } = body
+
+    const {
+      nomadToken,
+      nomadRefreshToken,
+      nomadClientId,
+      nomadExpirationSeconds,
+    } = await axios({
+      url: NomadLoginUrl,
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        username,
+        password,
+      },
+    })
+      .then((res) => {
+        console.log("Nomad Auth-data ::", res)
+        const {
+          data: {
+            token: nomadToken,
+            refreshToken: nomadRefreshToken,
+            id: nomadClientId,
+            expirationSeconds: nomadExpirationSeconds,
+          },
+        } = res
+
+        return {
+          nomadToken,
+          nomadRefreshToken,
+          nomadClientId,
+          nomadExpirationSeconds,
+        }
+      })
+      .catch((err) => console.log(err))
+
+    const nomadObject = {
+      nomadToken,
+      nomadRefreshToken,
+      nomadClientId,
+      nomadExpirationSeconds,
+    }
+
+    return Responses._200(nomadObject)
+  } catch (error) {
+    console.log("Nomad Auth | Error |", error)
+    return Responses._500({
+      message: "Nomad Auth failed",
+      success: false,
+    })
+  }
+}

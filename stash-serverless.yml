@@ -1,0 +1,636 @@
+service: branchdna-api
+useDotenv: true
+# Create an optimized package for our functions
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-dynamodb-local
+  - serverless-dynamodb-seed
+  - serverless-vpc-plugin
+  # - serverless-offline-redis-server
+
+
+custom:
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}-branchdna
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+      seed: true
+    migration:
+      dir: offline
+    seed:
+      domain:
+        sources:
+          - table: ${env:MEDIA_META_TABLE}
+            sources: [./resources/seeds/movieMetaSeed.json]
+          - table: ${env:USER_TABLE}
+            sources: [./resources/seeds/import-users.json]
+          # - table: ${env:TICKETS_TABLE}
+          #   sources: [./resources/seeds/tickets.json]
+          - table: ${env:EVENTS_TABLE}
+            sources: [./resources/seeds/events.json]
+  seed:
+    movie-meta-seed:
+      table: ${env:MEDIA_META_TABLE}
+      sources:
+        - [./resources/seeds/movieMetaSeed.json]
+
+  vpcConfig:
+    cidrBlock: '10.0.0.0/16'
+    createNatGateway: 2
+    createDbSubnet: true
+    zones:
+      - us-east-1a
+      - us-east-1b
+
+  Route53config:
+    Region: us-east-1
+    Name: branchdna.pri
+
+  ElastiCacheconfig:
+    CACHE_INSTANCE_SIZE: cache.r6g.large
+
+  SQSConfig:
+    QueueName: couchtour-queue.fifo
+    FifoQueue: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  lambdaHashingVersion: 20201221
+  httpApi:
+    cors: true
+
+  # These environment variables are made available to our functions
+  # under process.env.
+  environment:
+    tableName: ${env:DEPLOY_STAGE}
+    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
+
+  # iamRoleStatements:
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          # Restrict our IAM role permissions to
+          # the specific table for the stage
+          Resource:
+            - "*"
+        - Effect: Allow
+          Action:
+            - sns:SetSMSAttributes
+            - sns:Publish
+          Resource: '*'
+        - Effect: Allow
+          Action:
+            - cognito-idp:AdminGetUser
+            - cognito-idp:ListUsers
+          Resource: "*"
+
+functions:
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ---- API ENDPOINTS ::
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  create:
+    handler: lambdas/notes/create.main
+    events:
+      - http:
+          path: notes
+          method: post
+          authorizer: aws_iam
+  get:
+    handler: lambdas/notes/get.main
+    events:
+      - http:
+          path: notes/{id}
+          method: get
+          authorizer: aws_iam
+  list:
+    handler: lambdas/notes/list.main
+    events:
+      - http:
+          path: notes
+          method: get
+          authorizer: aws_iam
+  update:
+    handler: lambdas/notes/update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          authorizer: aws_iam
+  delete:
+    handler: lambdas/notes/delete.main
+    events:
+      - http:
+          path: notes/{id}
+          method: delete
+          authorizer: aws_iam
+  purchases:
+    handler: lambdas/purchases/list.main
+    events:
+      - http:
+          path: purchases
+          method: get
+          authorizer: aws_iam
+  billing:
+    handler: lambdas/purchases/billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          authorizer: aws_iam
+  sendSMS:
+    handler: lambdas/endpoints/sendSMS.handler
+    events:
+      - http:
+          path: send-sms
+          method: POST
+          authorizer: aws_iam
+  deviceActivate:
+    handler: lambdas/tvapps/deviceActivate.handler
+    events:
+      - http:
+          path: device-activate
+          method: POST
+          authorizer: aws_iam
+  stripeSuccessfulCheckoutWebhook:
+    handler: lambdas/webhooks/stripeSuccessfulCheckout.handler
+    events:
+      - http:
+          path: confirm-stripe-checkout
+          method: POST
+  stripeEverythingWebhook:
+    handler: lambdas/webhooks/stripeEverything.handler
+    events:
+      - http:
+          path: everything
+          method: POST
+  stripePaymentIntentSuccessWebhook:
+    handler: lambdas/webhooks/stripePaymentIntentSuccess.handler
+    events:
+      - http:
+          path: payment-intent-success
+          method: POST
+  stripeChargeSuccessWebhook:
+    handler: lambdas/webhooks/stripeChargeSuccess.handler
+    events:
+      - http:
+          path: charge-success
+          method: POST
+  fetchUserMetaByEmail:
+    handler: lambdas/endpoints/users/getUserMetaData.handler
+    events:
+      - http:
+          path: user-meta
+          method: POST
+  fetchAllPurchaseables:
+    handler: lambdas/endpoints/purchaseables/getAllPurchaseables.handler
+    events:
+      - http:
+          path: all-purchaseables 
+          method: GET
+  ## ----------------------------------------------------------------------------------
+  ## ---- Stripe Integreation ::
+  stripe-api-map:
+    handler: lambdas/endpoints/stripe/apiMap.main
+    events:
+      - http:
+          path: api/v1/stripe-api-map
+          method: get
+          authorizer: aws_iam
+  stripe-create-payment-intent:
+    handler: lambdas/endpoints/stripe/createPaymentIntent.main
+    events:
+      - http:
+          path: api/v1/stripe-create-payment-intent
+          method: post
+          authorizer: aws_iam
+  stripe-create-customer:
+    handler: lambdas/endpoints/stripe/createCustomer.main
+    events:
+      - http:
+          path: api/v1/stripe-create-customer
+          method: post
+          authorizer: aws_iam
+  stripe-attach-payment-method:
+    handler: lambdas/endpoints/stripe/attachPaymentMethod.main
+    events:
+      - http:
+          path: api/v1/stripe-attach-payment-method
+          method: post
+          authorizer: aws_iam
+  stripe-detach-payment-method:
+    handler: lambdas/endpoints/stripe/detachPaymentMethod.main
+    events:
+      - http:
+          path: api/v1/stripe-detach-payment-method
+          method: post
+          authorizer: aws_iam
+  stripe-update-payment-method:
+    handler: lambdas/endpoints/stripe/updatePaymentMethod.main
+    events:
+      - http:
+          path: api/v1/stripe-update-payment-method
+          method: post
+          authorizer: aws_iam
+  stripe-create-price:
+    handler: lambdas/endpoints/stripe/createPrice.main
+    events:
+      - http:
+          path: api/v1/stripe-create-price
+          method: post
+          authorizer: aws_iam
+  stripe-create-reoccuring-price:
+    handler: lambdas/endpoints/stripe/createReoccuringPrice.main
+    events:
+      - http:
+          path: api/v1/stripe-create-reoccuring-price
+          method: post
+          authorizer: aws_iam
+  stripe-create-product:
+    handler: lambdas/endpoints/stripe/createProduct.main
+    events:
+      - http:
+          path: api/v1/stripe-create-product
+          method: post
+          authorizer: aws_iam
+  stripe-retrieve-product:
+    handler: lambdas/endpoints/stripe/retrieveProduct.main
+    events:
+      - http:
+          path: api/v1/stripe-retrieve-product
+          method: post
+          authorizer: aws_iam
+  stripe-list-products:
+    handler: lambdas/endpoints/stripe/listProducts.main
+    events:
+      - http:
+          path: api/v1/stripe-list-products
+          method: get
+          authorizer: aws_iam
+  stripe-update-product:
+    handler: lambdas/endpoints/stripe/updateProduct.main
+    events:
+      - http:
+          path: api/v1/stripe-update-product
+          method: post
+          authorizer: aws_iam
+  stripe-create-subscription:
+    handler: lambdas/endpoints/stripe/createSubscription.main
+    events:
+      - http:
+          path: api/v1/stripe-create-subscription
+          method: post
+          authorizer: aws_iam
+  stripe-update-subscription:
+    handler: lambdas/endpoints/stripe/updateSubscription.main
+    events:
+      - http:
+          path: api/v1/stripe-update-subscription
+          method: post
+          authorizer: aws_iam
+  stripe-cancel-subscription:
+    handler: lambdas/endpoints/stripe/cancelSubscription.main
+    events:
+      - http:
+          path: api/v1/stripe-cancel-subscription
+          method: post
+          authorizer: aws_iam
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ---- WEBSOCKETS ::
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- MAESTROS
+  maestroEvents:
+    handler: lambdas/webhooks/maestroEvents.handler
+    events:
+      - http:
+          path: maestro-events
+          method: POST
+  livelySales:
+    handler: lambdas/webhooks/livelySales.handler
+    events:
+      - http:
+          path: lively-sales
+          method: GET
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- APPLICATIONS ACTIONS
+  websocket-connect:
+    handler: lambdas/websockets/connect.handler
+    events:
+      - websocket:
+          route: $connect
+
+  websocket-disconnect:
+    handler: lambdas/websockets/disconnect.handler
+    events:
+      - websocket:
+          route: $disconnect
+
+  websocket-default:
+    handler: lambdas/websockets/default.handler
+    events:
+      - websocket:
+          route: $default
+
+  websocket-message:
+    handler: lambdas/websockets/message.handler
+    events:
+      - websocket:
+          route: message
+
+  websocket-sendmessage:
+    handler: lambdas/websockets/sendmessage.handler
+    events:
+      - websocket:
+          route: sendmessage
+
+  websocket-echo:
+    handler: lambdas/websockets/echo.handler
+    events:
+      - websocket:
+          route: echo
+
+  websocket-whoami:
+    handler: lambdas/websockets/whoami.handler
+    events:
+      - websocket:
+          route: whoami
+
+  websocket-onlinenow:
+    handler: lambdas/websockets/onlinenow.handler
+    events:
+      - websocket:
+          route: onlinenow
+
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Admin
+  websocket-upload-media-meta:
+    handler: lambdas/websockets/uploadMediaMeta.handler
+    events:
+      - websocket:
+          route: upload-media-meta
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour User Auth
+  websocket-user-verify-success:
+    handler: lambdas/websockets/userVerifySuccess.handler
+    events:
+      - websocket:
+          route: user-verify-success
+
+  websocket-user-verify-error:
+    handler: lambdas/websockets/userVerifyError.handler
+    events:
+      - websocket:
+          route: user-verify-error
+
+  websocket-user-verify-resend-success:
+    handler: lambdas/websockets/userVerifyResendSuccess.handler
+    events:
+      - websocket:
+          route: user-verify-resend-success
+
+  websocket-user-verify-resend-error:
+    handler: lambdas/websockets/userVerifyResendError.handler
+    events:
+      - websocket:
+          route: user-verify-resend-error
+
+  websocket-user-login:
+    handler: lambdas/websockets/userLogin.handler
+    events:
+      - websocket:
+          route: user-login
+
+  websocket-user-logout:
+    handler: lambdas/websockets/userLogout.handler
+    events:
+      - websocket:
+          route: user-logout
+
+  websocket-user-signUp:
+    handler: lambdas/websockets/userSignUp.handler
+    events:
+      - websocket:
+          route: user-signup
+
+  websocket-user-signUp-error:
+    handler: lambdas/websockets/userSignUpError.handler
+    events:
+      - websocket:
+          route: user-signup-error
+
+  websocket-get-used-id:
+    handler: lambdas/websockets/getUserId.handler
+    events:
+      - websocket:
+          route: get-user-id
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- CouchTour Patron
+  websocket-get-videos:
+    handler: lambdas/websockets/getVideos.handler
+    events:
+      - websocket:
+          route: getvideos
+
+  websocket-add-device-id:
+    handler: lambdas/websockets/addDeviceId.handler
+    events:
+      - websocket:
+          route: add-device-id
+
+  websocket-get-user-purchases:
+    handler: lambdas/websockets/getUserPurchases.handler
+    events:
+      - websocket:
+          route: get-user-purchases
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Shows & Events
+  websocket-get-user-tickets:
+    handler: lambdas/websockets/getUserTickets.handler
+    events:
+      - websocket:
+          route: get-user-tickets
+
+  websocket-get-all-events:
+    handler: lambdas/websockets/getAllEvents.handler
+    events:
+      - websocket:
+          route: get-all-events
+
+  websocket-get-all-tickets:
+    handler: lambdas/websockets/getAllTickets.handler
+    events:
+      - websocket:
+          route: get-all-tickets
+
+  websocket-get-tickets:
+    handler: lambdas/websockets/getTickets.handler
+    events:
+      - websocket:
+          route: get-tickets
+
+  websocket-stripe-get-product-subscriptions:
+    handler: lambdas/websockets/getProductSubscriptions.handler
+    events:
+      - websocket:
+          route: get-product-subscriptions
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: purchase / subscriptions / products
+  websocket-add-user-credit-cards:
+    handler: lambdas/websockets/addUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-add-user-credit-card
+
+  websocket-get-user-credit-cards:
+    handler: lambdas/websockets/getUserCreditCards.handler
+    events:
+      - websocket:
+          route: wallet-get-user-credit-cards
+
+  websocket-delete-user-credit-cards:
+    handler: lambdas/websockets/deleteUserCreditCard.handler
+    events:
+      - websocket:
+          route: wallet-delete-user-credit-card
+
+  websocket-stripe-create-purchase-request:
+    handler: lambdas/websockets/createPurchaseRequest.handler
+    events:
+      - websocket:
+          route: create-purchase-intent
+
+  websocket-stripe-success-transaction-update:
+    handler: lambdas/websockets/stripeProcessSuccessUpdateTransaction.handler
+    events:
+      - websocket:
+          route: stripe-process-success-transaction-update
+
+  websocket-stripe-create-user-subscriptions:
+    handler: lambdas/websockets/createUserSubscriptions.handler
+    events:
+      - websocket:
+          route: create-user-subscription
+
+
+  # -----------------------------------------------------------------
+  # --- Currently Not-Used
+  #
+  # websocket-update-user-credit-cards:
+  #   handler: lambdas/websockets/deleteUserCreditCard.handler
+  #   events:
+  #     - websocket:
+  #         route: wallet-update-user-credit-card
+  #
+  # -----------------------------------------------------------------
+  # -----------------------------------------------------------------
+  # --- Stashing, Not Used
+  #
+  # websocket-stripe-create-payment-method:
+  #   handler: lambdas/websockets/createPaymentMethod.handler
+  #   events:
+  #     - websocket:
+  #         route: create-payment-method
+  #
+  # -----------------------------------------------------------------
+
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## -- Strip Integration: transaction :: ERROR :: handling
+  websocket-stripe-error-card-deactivate:
+    handler: lambdas/websockets/stripeProcessErrorCardDeactivate.handler
+    events:
+      - websocket:
+          route: stripe-process-error-card-deactivate
+
+  websocket-stripe-error-incorrect-cvc:
+    handler: lambdas/websockets/stripeProcessErrorCardIncorrectCvc.handler
+    events:
+      - websocket:
+          route: stripe-process-error-incorrect-cvc
+
+  websocket-stripe-error-insufficient-funds:
+    handler: lambdas/websockets/stripeProcessErrorCardInsufficientFunds.handler
+    events:
+      - websocket:
+          route: stripe-process-error-insufficient-funds
+
+  websocket-stripe-error-card-expired:
+    handler: lambdas/websockets/stripeProcessErrorCardExpired.handler
+    events:
+      - websocket:
+          route: stripe-process-error-card-expired
+
+  websocket-stripe-error-payment-failure:
+    handler: lambdas/websockets/stripeProcessErrorCardPaymentFailure.handler
+    events:
+      - websocket:
+          route: stripe-process-error-payment-failure
+
+  websocket-stripe-error-incorrect-zip:
+    handler: lambdas/websockets/stripeProcessErrorCardIncorrectZip.handler
+    events:
+      - websocket:
+          route: stripe-process-error-incorrect-zipcode
+
+
+## ----------------------------------------------------------------------------------
+## ----------------------------------------------------------------------------------
+# Create our resources with separate CloudFormation templates
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+  # DynamoDB
+  - ${file(resources/dynamodb-table.yml)}
+  # S3
+  - ${file(resources/s3-bucket.yml)}
+  # Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
+  #Route 53 Zone
+  - ${file(resources/route53.yml)}
+  #ElastiCache
+  - ${file(resources/elasticache.yml)}
+  #RDS
+  - ${file(resources/rds.yml)}
+  #SQS
+  - ${file(resources/sqs-fifo.yml)}
+  #Linux Bastion
+  - ${file(resources/linux-bastion.yml)}

@@ -1,0 +1,674 @@
+enum InvitationStatus {
+  accepted
+  invited
+  rejected
+  expired
+}
+
+enum BandMerchType {
+  Hat
+  TShirt
+  Hoodie
+  CD
+  Poster
+}
+
+enum CardStatus {
+  active
+  expired
+  insufficientFunds
+  delinquint
+  stolen
+  unverified
+  international
+}
+
+enum TransactionStatus {
+  initiated
+  complete
+  errored
+  canceled
+}
+
+enum MerchandiseType {
+  vod
+  bandMerch
+  tips
+  bandChat
+  ticket_stream_event
+  subscription
+  package
+}
+
+type VODMetaData {
+  band: String
+  date: String
+  venue: String
+  location: String
+  maestro_channel: String
+  description: String
+  price: String
+  videoURL: String
+}
+
+type StreamMetaData {
+  streamId: String
+  eventId: String
+  bandName: String
+  promoter: String
+  videoURL: String
+  nameOfEvent: String
+  location: String
+  promoterLogo: String
+  timeOfEvent: String
+  isLive: Boolean
+  landingImageUrl: String
+  eventFeature: EventFeature
+  priceDescription: PriceDescription
+  eventDetail: EventDetail
+}
+
+type EventDetail {
+  id: ID!
+  description: String
+  type: String
+}
+
+type PriceDescription {
+  id: ID!
+  description: String
+  type: String
+}
+
+type EventFeature {
+  id: ID!
+  description: String
+  type: String
+}
+
+type TipsMetaData {
+  id: ID!
+  tipId: String
+  name: String
+  type: String
+  description: String
+  unitLabel: String
+  url: String
+}
+
+type BandChatMetaData {
+  id: ID!
+  priceId: String
+  band: String
+}
+
+type TicketMetaData {
+  id: ID!
+  ticketId: String
+  eventId: String
+  priceId: String
+  title: String
+  price: Int
+  image: String
+  successUrl: String
+  cancelUrl: String
+  boxedItems: [TicketBoxedItem]
+  attributes: [TicketAttribute]
+  soldOut: Boolean
+}
+
+type TicketBoxedItem {
+  id: ID!
+  description: String!
+}
+
+type TicketAttribute {
+  id: ID!
+  description: String!
+}
+
+type Event @model(subscriptions: null) {
+  id: ID!
+  eventId: String
+  bandName: String
+  promoter: String
+  promoterLogo: String
+  timeOfEvent: String
+  isLive: Boolean
+  landingImageUrl: String
+  eventFeature: EventFeature
+  priceDescription: PriceDescription
+  eventDetail: EventDetail
+}
+
+type CartMerchandise
+  @model(queries: null, subscriptions: null)
+  @key(name: "byCart", fields: ["cartId", "merchandiseId"])
+  @key(name: "byMerchandise", fields: ["merchandiseId", "cartId"]) {
+  id: ID!
+  merchandiseId: ID!
+  cartId: ID!
+  merchandise: Merchandise! @connection(fields: ["merchandiseId"])
+  cart: Cart! @connection(fields: ["cartId"])
+}
+
+type Transaction
+  @model(subscriptions: null)
+  @key(name: "userIDTransactionIndex", fields: ["userID"])
+  @key(name: "creditCardIdTransactionIndex", fields: ["creditCardId"]) {
+  id: ID!
+  userID: ID!
+  merchID: ID
+  merchandise: [MerchandiseTransaction]
+    @connection(keyName: "byTransaction", fields: ["id"])
+  attemptSuccess: Boolean
+  errorObject: String
+  paymentIntent: ID
+  creditCard: CreditCard @connection(fields: ["creditCardId"])
+  creditCardId: ID
+  Purchase: Purchase @connection(fields: ["paymentIntent"])
+  purchaseId: ID
+}
+
+type CreditCard
+  @model(subscriptions: null)
+  @key(
+    name: "userIDCreditCardIndex"
+    fields: ["userID"]
+    queryField: "getCreditCardByUserID"
+  ) {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  transactions: [Transaction]
+    @connection(keyName: "creditCardIdTransactionIndex", fields: ["id"])
+  purchases: [Purchase]
+    @connection(keyName: "creditCardIdPurchaseIndex", fields: ["id"])
+  status: CardStatus
+  active: Boolean
+  deleted: Boolean
+  brand: String
+  email: String
+  expMonth: String
+  expYear: String
+  lastFour: String
+  paymentMethodObj: String
+  created: Int
+  postalCode: String
+  name: String
+  previousCardId: ID
+}
+
+type MerchandiseTransaction
+  @model(queries: null, subscriptions: null)
+  @key(name: "byTransaction", fields: ["transactionId"])
+  @key(name: "byMerchandiseTransaction", fields: ["merchandiseId"]) {
+  id: ID!
+  transactionId: ID!
+  merchandiseId: ID!
+  transaction: Transaction! @connection(fields: ["transactionId"])
+  merchandise: Merchandise! @connection(fields: ["merchandiseId"])
+}
+
+type Cart @model(subscriptions: null) {
+  id: ID!
+  merchandise: [CartMerchandise] @connection(keyName: "byCart", fields: ["id"])
+}
+
+type SocialMediaLinks {
+  twitterLink: String
+  facebookLink: String
+  instagramLink: String
+  twitchLink: String
+  youtubeLink: String
+  tiktokLink: String
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+type Picture @model(subscriptions: null) {
+  id: ID!
+  name: String
+  owner: String
+  file: S3Object
+}
+
+type SubscriptionMerchandise
+  @model(queries: null, subscriptions: null)
+  @key(
+    name: "byMerchandiseSubscription"
+    fields: ["merchandiseId", "subscriptionId"]
+  )
+  @key(name: "bySubscription", fields: ["subscriptionId", "merchandiseId"]) {
+  id: ID!
+  merchandiseId: ID!
+  subscriptionId: ID!
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  subscription: SubscriptionModel @connection(fields: ["subscriptionId"])
+}
+
+type SubscriptionModel @model(subscriptions: null) {
+  id: ID!
+  name: String
+  description: String
+  price: String
+  priceId: String
+  productId: String
+  active: Boolean
+  merchandiseId: ID
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  subscriptionMerchandise: [SubscriptionMerchandise]
+    @connection(keyName: "bySubscription", fields: ["id"])
+}
+
+type PackageMerchandise
+  @model(queries: null, subscriptions: null)
+  @key(name: "byMerchandisePackage", fields: ["merchandiseId", "packageId"])
+  @key(name: "byPackage", fields: ["packageId", "merchandiseId"]) {
+  id: ID!
+  merchandiseId: ID!
+  packageId: ID!
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  package: Package @connection(fields: ["packageId"])
+}
+
+type MerchandisePurchase
+  @model(queries: null, subscriptions: null)
+  @key(name: "byPurchase", fields: ["purchaseId", "merchandiseId"])
+  @key(name: "byMerchandise", fields: ["merchandiseId", "purchaseId"]) {
+  id: ID!
+  purchaseId: ID
+  merchandiseId: ID
+  active: Boolean
+  purchase: Purchase @connection(fields: ["purchaseId"])
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  merchandiseVersion: Int
+}
+
+type Purchase
+  @model(subscriptions: null)
+  @key(name: "userIDPurchasesIndex", fields: ["userID"])
+  @key(name: "creditCardIdPurchaseIndex", fields: ["creditCardId"]) {
+  id: ID!
+  userID: ID!
+  user: User @connection(fields: ["userID"])
+  merchandisePurchases: [MerchandisePurchase]
+    @connection(keyName: "byPurchase", fields: ["id"])
+  creditCard: CreditCard @connection(fields: ["creditCardId"])
+  paymentIntent: ID
+  transactions: Transaction @connection(fields: ["paymentIntent"])
+  creditCardId: ID
+  transactionId: ID
+  lastFour: String
+}
+
+type User
+  @model
+  @key(
+    name: "getUserByStripeCustomerId"
+    fields: ["stripeCustomerId"]
+    queryField: "getUserByStripeCustomerId"
+  )
+  @key(
+    name: "getUserByUsername"
+    fields: ["username"]
+    queryField: "getUserByUsername"
+  ) {
+  id: ID!
+  completedSignUp: Boolean
+  username: String!
+  avatar: String
+  picture: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  awayMessageStatus: String
+  chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
+  invitation: [Invitation] @connection(fields: ["id"])
+  lastUsedCardID: ID
+  creditCards: [CreditCard]
+    @connection(keyName: "userIDCreditCardIndex", fields: ["id"])
+  transactions: [Transaction]
+    @connection(keyName: "userIDTransactionIndex", fields: ["id"])
+  purchases: [Purchase]
+    @connection(keyName: "userIDPurchasesIndex", fields: ["id"])
+  packages: [Package]
+    @connection(keyName: "userIDPackagesIndex", fields: ["id"])
+  userPackages: [UserPackage] @connection(keyName: "byUserP", fields: ["id"])
+  cogId: String
+  emailVerified: Boolean
+  loggedIn: Boolean
+  email: String
+  stripeCustomerId: String
+  stripeCustomer: String
+  stripeSubscriptionId: String
+  stripeSubscriptionStatus: String
+  stripeSubscriptionPaused: Boolean
+  stripeSubscriptionCancelAtPeriodEnd: Boolean
+  subscriptionId: ID
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+  accessToken: String
+  idToken: String
+  refreshToken: String
+  cart: Cart @connection(fields: ["cartId"])
+  cartId: ID
+  entitlements: [Entitlement]
+    @connection(keyName: "byUserEntitlement", fields: ["id"])
+  accessCodes: [AccessCode]
+    @connection(keyName: "byUserAccessCode", fields: ["id"])
+}
+
+type Entitlement
+  @model(subscriptions: null)
+  @key(name: "byUserEntitlement", fields: ["userID", "merchandiseId"]) {
+  id: ID!
+  merchandiseId: ID!
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  userID: ID!
+  fromSubscription: Boolean
+}
+
+type AccessCode
+  @model(subscriptions: null)
+  @key(name: "byMerchandiseAccessCode", fields: ["merchandiseId"])
+  @key(name: "byUserAccessCode", fields: ["userId"])
+  @key(
+    name: "byCode"
+    fields: ["code", "merchandiseId"]
+    queryField: "acccessCodesbyCode"
+  ) {
+  id: ID!
+  merchandiseId: ID!
+  code: String!
+  userId: ID
+  user: User @connection(fields: ["userId"])
+}
+
+type UserPackage
+  @model(queries: null, subscriptions: null)
+  @key(name: "byUserP", fields: ["userID", "packageId"])
+  @key(name: "byUPackage", fields: ["packageId", "userID"]) {
+  id: ID!
+  userID: ID!
+  packageId: ID!
+  user: User! @connection(fields: ["userID"])
+  package: Package! @connection(fields: ["packageId"])
+}
+
+type Package
+  @model(subscriptions: null)
+  @key(name: "userIDPackagesIndex", fields: ["userID"]) {
+  id: ID!
+  name: String
+  description: String
+  price: String
+  priceId: String
+  platformFee: String
+  productId: String
+  active: Boolean
+  userID: ID
+  userPackages: [UserPackage] @connection(keyName: "byUPackage", fields: ["id"])
+  merchandiseId: ID
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+  packageMerchandise: [PackageMerchandise]
+    @connection(keyName: "byPackage", fields: ["id"])
+}
+
+type ChatRoomUser
+  @model
+  @key(
+    name: "byUser"
+    fields: ["userID", "chatRoomID"]
+    queryField: "getChatRoomUserByUserID"
+  )
+  @key(
+    name: "byChatRoom"
+    fields: ["chatRoomID", "userID"]
+    queryField: "getChatRoomUsersByChatRoomID"
+  ) {
+  id: ID!
+  userID: ID!
+  chatRoomID: ID!
+  user: User @connection(fields: ["userID"])
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+}
+
+type ChatRoom @model {
+  id: ID!
+  chatRoomUsers: [ChatRoomUser]
+    @connection(keyName: "byChatRoom", fields: ["id"])
+  messages: [Message] @connection(keyName: "byChatRoomM", fields: ["id"])
+  lastMessageID: ID
+  lastMessage: Message @connection(fields: ["lastMessageID"])
+  invitation: [Invitation] @connection(keyName: "byChatRoomInv", fields: ["id"])
+  chatRoomName: String
+  picture: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+}
+
+type Invitation
+  @model
+  @key(name: "byChatRoomInv", fields: ["chatRoomID"])
+  @key(
+    name: "invitationByInvitedUser"
+    fields: ["invitedUserID", "createdByUserID"]
+  )
+  @key(
+    name: "invitationByCreatedByUser"
+    fields: ["createdByUserID", "invitedUserID"]
+  ) {
+  id: ID!
+  invitedUser: User @connection(fields: ["invitedUserID"])
+  createdByUser: User @connection(fields: ["createdByUserID"])
+  invitedUserID: ID!
+  createdByUserID: ID!
+  chatRoomID: ID!
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+  status: InvitationStatus
+}
+
+type Message
+  @model
+  @key(
+    name: "byChatRoomM"
+    fields: ["chatRoomID", "createdAt"]
+    queryField: "messagesByChatRoom"
+  ) {
+  id: ID!
+  createdAt: String!
+  content: String!
+  userID: ID!
+  chatRoomID: ID!
+  user: User @connection(fields: ["userID"])
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+}
+
+type Subscription {
+  newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
+
+  onCreateInviteByInvitedUserID(invitedUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
+
+  onCreateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
+
+  onCreateInviteByChatRoomID(chatRoomID: ID!): Invitation
+    @aws_subscribe(mutations: ["createInvitation"])
+
+  onUpdateInviteByCreatedByUserID(createdByUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
+
+  onUpdateInviteByInvitedUserID(invitedUserID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
+
+  onUpdateInviteByChatRoomID(chatRoomID: ID!): Invitation
+    @aws_subscribe(mutations: ["updateInvitation"])
+
+  onCreateChatRoomUserByUserID(userID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["createChatRoomUser"])
+
+  onDeleteChatRoomUserByUserID(userID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["deleteChatRoomUser"])
+
+  onCreateChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["createChatRoomUser"])
+
+  onDeleteChatRoomUserByChatRoomID(chatRoomID: ID!): ChatRoomUser
+    @aws_subscribe(mutations: ["deleteChatRoomUser"])
+
+  onCreateMessageByChatRoomID(chatRoomID: ID!): Message
+    @aws_subscribe(mutations: ["createMessage"])
+}
+
+type OnDemandFeaturedShow @model(subscriptions: null) {
+  id: ID!
+  merchId: ID!
+  merch: Merchandise @connection(fields: ["merchId"])
+}
+
+type FeaturedSubscription @model(subscriptions: null) {
+  id: ID!
+  subscriptionId: ID!
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+}
+
+type Merchandise
+  @model(subscriptions: null)
+  @key(name: "purchaseIdMerchandiseIndex", fields: ["id"])
+  @key(name: "transactionIdMerchandiseIndex", fields: ["id"])
+  @key(
+    name: "getMerchandiseBySubscriptionId"
+    fields: ["subscriptionId"]
+    queryField: "getMerchandiseBySubscriptionId"
+  )
+  @key(
+    name: "getMerchandiseByPackageId"
+    fields: ["packageId"]
+    queryField: "getMerchandiseByPackageId"
+  ) {
+  id: ID!
+  type: MerchandiseType
+  transactions: [MerchandiseTransaction]
+    @connection(keyName: "byMerchandiseTransaction", fields: ["id"])
+  merchandisePurchases: [MerchandisePurchase]
+    @connection(keyName: "byMerchandise", fields: ["id"])
+  active: Boolean
+  createdBy: String
+  updatedBy: String
+  isEvent: Boolean
+  streamMetaData: StreamMetaData
+  accessCodes: [AccessCode]
+    @connection(keyName: "byMerchandiseAccessCode", fields: ["id"])
+  name: String
+  description: String
+  image: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  date: String
+  eventId: String
+  productId: String
+  priceId: String
+  price: String
+  platformFee: String
+  stripeMetaData: String
+  carts: [CartMerchandise] @connection(keyName: "byMerchandise", fields: ["id"])
+  VODMetaData: VODMetaData
+  bandMerchType: BandMerchType
+  subscriptionMerchandise: [SubscriptionMerchandise]
+    @connection(keyName: "byMerchandiseSubscription", fields: ["id"])
+  packageMerchandise: [PackageMerchandise]
+    @connection(keyName: "byMerchandisePackage", fields: ["id"])
+  subscriptionModel: SubscriptionModel @connection(fields: ["subscriptionId"])
+  subscriptionId: ID
+  package: Package @connection(fields: ["packageId"])
+  packageId: ID
+  decomissionedMerchandises: [DecomissionedMerchandise]
+    @connection(keyName: "byMerchandiseForDM", fields: ["id"])
+  version: Int
+  associatedMerchandise: [AssociatedMerchandise]
+    @connection(keyName: "byMerchandiseAssociation", fields: ["id"])
+  associatedMerchandiseEnabled: Boolean
+  bandMerchandise: [BandMerchandise]
+    @connection(keyName: "byMerchandiseBand", fields: ["id"])
+}
+
+type BandMerchandise
+  @model(queries: null, subscriptions: null)
+  @key(name: "byMerchandiseBand", fields: ["merchandiseId", "bandId"])
+  @key(name: "byBandMerchandise", fields: ["bandId", "merchandiseId"]) {
+  id: ID!
+  bandId: ID!
+  merchandiseId: ID!
+  band: Band @connection(fields: ["bandId"])
+  merchandise: Merchandise @connection(fields: ["merchandiseId"])
+}
+
+type Band @model(subscriptions: null) {
+  id: ID!
+  bandName: String
+  createdBy: String
+  updatedBy: String
+  website: String
+  logo: Picture @connection(fields: ["pictureId"])
+  pictureId: ID
+  email: String
+  bandMerchandise: [BandMerchandise]
+    @connection(keyName: "byBandMerchandise", fields: ["id"])
+  socialMediaLinks: SocialMediaLinks
+}
+
+type AssociatedMerchandise
+  @model(subscriptions: null)
+  @key(name: "byMerchandiseAssociation", fields: ["associatedToId"]) {
+  id: ID!
+  associatedMerchandise: Merchandise
+    @connection(fields: ["associatedMerchandiseId"])
+  associatedMerchandiseId: ID
+  associatedTo: Merchandise @connection(fields: ["associatedToId"])
+  associatedToId: ID
+}
+
+type DecomissionedMerchandise
+  @model(subscriptions: null)
+  @key(name: "byMerchandiseForDM", fields: ["previousMerchId"]) {
+  id: ID!
+  updatedByUserId: ID
+  updatedByUserEmail: String
+  previousMerchId: ID
+  merchandise: Merchandise @connection(fields: ["previousMerchId"])
+  decomissionedMerchandiseJSON: String
+  version: Int
+}
+
+type DefaultPlatformFeePercentages @model(subscriptions: null) {
+  id: ID!
+  ticket_stream_event: String
+  ticket_stream_event_FeeName: String
+  vod: String
+  vodFeeName: String
+  package: String
+  packageFeeName: String
+  subscription: String
+  subscriptionFeeName: String
+}
+
+type Contact
+  @model(subscriptions: null)
+  @key(fields: ["lastName", "firstName", "age"])
+  @key(
+    name: "contactsByFavoriteColor"
+    fields: ["lastName", "favoriteColor"]
+    queryField: "contactsByFavoriteColor"
+  )
+  @key(
+    name: "contactsByFavoriteFoodAndColor"
+    fields: ["favoriteFood", "favoriteColor"]
+    queryField: "contactsByFavoriteFoorAndColor"
+  ) {
+  lastName: String!
+  firstName: String!
+  age: Int!
+  favoriteColor: String
+  favoriteFood: String
+}
