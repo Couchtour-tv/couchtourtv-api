@@ -668,6 +668,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  nomad-search-query:
+    handler: lambdas/endpoints/nomad/searchQuery.handler
+    events:
+      - http:
+          path: api/v1/nomad-search-query
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- data ingestion
   ingest-vod-merchandise:
