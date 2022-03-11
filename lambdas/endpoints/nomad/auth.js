@@ -25,13 +25,22 @@ exports.handler = async (event) => {
         password,
       },
     })
-      .then((data) => {
-        console.log("Nomad Auth-data ::", data)
+      .then((res) => {
+        console.log("Nomad Auth-data ::", res)
+        const {
+          data: {
+            token: nomadToken,
+            refreshToken: nomadRefreshToken,
+            id: nomadClientId,
+            expirationSeconds: nomadExpirationSeconds,
+          },
+        } = res
+
         return {
-          nomadToken: data.token,
-          nomadRefreshToken: data.refreshToken,
-          nomadClientId: data.id,
-          nomadExpirationSeconds: data.expirationSeconds,
+          nomadToken,
+          nomadRefreshToken,
+          nomadClientId,
+          nomadExpirationSeconds,
         }
       })
       .catch((err) => console.log(err))
