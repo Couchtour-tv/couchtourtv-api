@@ -686,6 +686,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  nomad-query-all-items-defined:
+    handler: lambdas/endpoints/nomad/queryAllItemsDefined.handler
+    events:
+      - http:
+          path: api/v1/nomad-query-all-items-defined
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- data ingestion
   ingest-vod-merchandise:
