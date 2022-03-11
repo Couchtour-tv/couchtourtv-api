@@ -1,5 +1,6 @@
 import Responses from "../../common/API_Responses"
 import { NomadLoginUrl } from "../../common/constants"
+const axios = require("axios")
 
 exports.handler = async (event) => {
   try {
@@ -13,15 +14,16 @@ exports.handler = async (event) => {
       nomadRefreshToken,
       nomadClientId,
       nomadExpirationSeconds,
-    } = await fetch(NomadLoginUrl, {
-      method: "POST",
+    } = await axios({
+      url: NomadLoginUrl,
+      method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      data: {
         username,
         password,
-      }),
+      },
     })
       .then((res) => {
         return res.json()
