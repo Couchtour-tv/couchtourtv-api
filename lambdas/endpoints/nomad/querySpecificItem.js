@@ -128,7 +128,7 @@ exports.handler = async (event) => {
       masterId,
     } = body
 
-    const querySpecificItemResponse = querySpecificItem(
+    const querySpecificItemResponse = await querySpecificItem(
       nomadToken,
       nomadRefreshToken,
       nomadClientId,
