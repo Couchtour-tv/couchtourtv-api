@@ -1,16 +1,16 @@
 import Responses from "../../common/API_Responses"
 import {
-  contentDefinitionID_Show,
+  contentDefinitionID_Asset,
   NomadSearchUrl,
 } from "../../common/constants"
 import { fetchNomadRefreshLogin } from "./fetchNomadRefreshToken"
 const axios = require("axios")
 
-async function queryShowsForArtist(
+async function queryVideoForShow(
   authToken,
   nomadRefreshToken,
   nomadClientId,
-  primaryArtistLookupId
+  nomadShowId
 ) {
   // Build the payload body
   try {
@@ -19,16 +19,27 @@ async function queryShowsForArtist(
         {
           fieldName: "contentDefinitionId",
           operator: "Equals",
-          values: contentDefinitionID_Show, // this is the content definition ID for show
+          values: contentDefinitionID_Asset, // this is the content definition ID for asset
         },
         {
-          fieldName: "primaryArtist.lookupId",
+          fieldName: "uuidSearchField", // this is a special searching field you can use for all metadata relationships like tags and related content
           operator: "Equals",
-          values: primaryArtistLookupId, // this is the artist ID
+          values: nomadShowId, // this is the show ID you want the videos for
         },
       ],
       pageOffset: 0,
-      pageSize: 100, // pagination
+      pageSize: 100,
+      SearchResultFields: [
+        {
+          name: "previewImageFullUrl",
+        },
+        {
+          name: "thumbnailImageFullUrl",
+        },
+        {
+          name: "relatedVideos", // inside here is the list of videos. The one with with format of hls is the one you want – use the fullUrl field.
+        },
+      ],
     }
 
     // Send POST request
@@ -42,12 +53,12 @@ async function queryShowsForArtist(
       data: body,
     })
 
-    console.log("Nomad query-show-for-artist-response", response)
+    console.log("Nomad query-video-for-show-response", response)
 
     // Check for success
     if (response.statusText === "OK") {
       // Get the response
-      console.log("Nomad query-show-for-artist-response :: OK", response)
+      console.log("Nomad query-video-for-show-response :: OK", response)
 
       // Return the response
       return response.data
@@ -58,16 +69,16 @@ async function queryShowsForArtist(
       )
 
       if (nomadNewToken) {
-        queryShowsForArtist(
+        queryVideoForShow(
           nomadNewToken,
           nomadRefreshToken,
           nomadClientId,
-          primaryArtistLookupId
+          nomadShowId
         )
       }
     }
   } catch (error) {
-    console.log("Nomad query-show-for-artist-error", error)
+    console.log("Nomad query-video-for-show-error", error)
     return undefined
   }
 }
@@ -75,27 +86,22 @@ async function queryShowsForArtist(
 exports.handler = async (event) => {
   try {
     const body = await JSON.parse(event.body)
-    console.log("Nomad query-show-for-artist-event ::", body)
+    console.log("Nomad query-video-for-show-event ::", body)
 
-    const {
+    const { nomadToken, nomadRefreshToken, nomadClientId, nomadShowId } = body
+
+    const queryVideoForShowResponse = await queryVideoForShow(
       nomadToken,
       nomadRefreshToken,
       nomadClientId,
-      primaryArtistLookupId,
-    } = body
-
-    const queryShowsForArtistResponse = await queryShowsForArtist(
-      nomadToken,
-      nomadRefreshToken,
-      nomadClientId,
-      primaryArtistLookupId
+      nomadShowId
     )
 
-    return Responses._200(queryShowsForArtistResponse)
+    return Responses._200(queryVideoForShowResponse)
   } catch (error) {
-    console.log("Nomad query show for artist | Error |", error)
+    console.log("Nomad query video for show | Error |", error)
     return Responses._500({
-      message: "Nomad query show for artist failed",
+      message: "Nomad query video for show failed",
       success: false,
     })
   }

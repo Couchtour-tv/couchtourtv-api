@@ -1,16 +1,15 @@
 import Responses from "../../common/API_Responses"
 import {
-  contentDefinitionID_Show,
+  contentDefinitionID_AllArtists,
   NomadSearchUrl,
 } from "../../common/constants"
 import { fetchNomadRefreshLogin } from "./fetchNomadRefreshToken"
 const axios = require("axios")
 
-async function queryShowsForArtist(
+async function queryAllArtists(
   authToken,
   nomadRefreshToken,
-  nomadClientId,
-  primaryArtistLookupId
+  nomadClientId
 ) {
   // Build the payload body
   try {
@@ -19,16 +18,9 @@ async function queryShowsForArtist(
         {
           fieldName: "contentDefinitionId",
           operator: "Equals",
-          values: contentDefinitionID_Show, // this is the content definition ID for show
-        },
-        {
-          fieldName: "primaryArtist.lookupId",
-          operator: "Equals",
-          values: primaryArtistLookupId, // this is the artist ID
+          values: contentDefinitionID_AllArtists,
         },
       ],
-      pageOffset: 0,
-      pageSize: 100, // pagination
     }
 
     // Send POST request
@@ -42,12 +34,12 @@ async function queryShowsForArtist(
       data: body,
     })
 
-    console.log("Nomad query-show-for-artist-response", response)
+    console.log("Nomad query-all-artist-response", response)
 
     // Check for success
     if (response.statusText === "OK") {
       // Get the response
-      console.log("Nomad query-show-for-artist-response :: OK", response)
+      console.log("Nomad query-all-artist-response :: OK", response)
 
       // Return the response
       return response.data
@@ -58,16 +50,11 @@ async function queryShowsForArtist(
       )
 
       if (nomadNewToken) {
-        queryShowsForArtist(
-          nomadNewToken,
-          nomadRefreshToken,
-          nomadClientId,
-          primaryArtistLookupId
-        )
+        queryAllArtists(nomadNewToken, nomadRefreshToken, nomadClientId)
       }
     }
   } catch (error) {
-    console.log("Nomad query-show-for-artist-error", error)
+    console.log("Nomad query-all-artist-error", error)
     return undefined
   }
 }
@@ -75,27 +62,21 @@ async function queryShowsForArtist(
 exports.handler = async (event) => {
   try {
     const body = await JSON.parse(event.body)
-    console.log("Nomad query-show-for-artist-event ::", body)
+    console.log("Nomad query-all-artist-event ::", body)
 
-    const {
+    const { nomadToken, nomadRefreshToken, nomadClientId } = body
+
+    const queryAllArtistsResponse = await queryAllArtists(
       nomadToken,
       nomadRefreshToken,
-      nomadClientId,
-      primaryArtistLookupId,
-    } = body
-
-    const queryShowsForArtistResponse = await queryShowsForArtist(
-      nomadToken,
-      nomadRefreshToken,
-      nomadClientId,
-      primaryArtistLookupId
+      nomadClientId
     )
 
-    return Responses._200(queryShowsForArtistResponse)
+    return Responses._200(queryAllArtistsResponse)
   } catch (error) {
-    console.log("Nomad query show for artist | Error |", error)
+    console.log("Nomad query all artist | Error |", error)
     return Responses._500({
-      message: "Nomad query show for artist failed",
+      message: "Nomad query all artist failed",
       success: false,
     })
   }
