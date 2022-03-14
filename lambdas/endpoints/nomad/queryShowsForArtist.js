@@ -62,7 +62,7 @@ async function queryAllItemsDefined(
           nomadNewToken,
           nomadRefreshToken,
           nomadClientId,
-          contentDefinitionId
+          primaryArtistLookupId
         )
       }
     }
