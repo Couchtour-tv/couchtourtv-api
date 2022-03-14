@@ -6,7 +6,7 @@ import {
 import { fetchNomadRefreshLogin } from "./fetchNomadRefreshToken"
 const axios = require("axios")
 
-async function queryAllItemsDefined(
+async function queryShowsForArtist(
   authToken,
   nomadRefreshToken,
   nomadClientId,
@@ -58,7 +58,7 @@ async function queryAllItemsDefined(
       )
 
       if (nomadNewToken) {
-        queryAllItemsDefined(
+        queryShowsForArtist(
           nomadNewToken,
           nomadRefreshToken,
           nomadClientId,
@@ -84,14 +84,14 @@ exports.handler = async (event) => {
       primaryArtistLookupId,
     } = body
 
-    const queryAllItemsDefinedResponse = await queryAllItemsDefined(
+    const queryShowsForArtistResponse = await queryShowsForArtist(
       nomadToken,
       nomadRefreshToken,
       nomadClientId,
       primaryArtistLookupId
     )
 
-    return Responses._200(queryAllItemsDefinedResponse)
+    return Responses._200(queryShowsForArtistResponse)
   } catch (error) {
     console.log("Nomad query show for artist | Error |", error)
     return Responses._500({
