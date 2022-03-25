@@ -42,6 +42,7 @@ const updateUserSubIdandSubStatus = gql`
       stripeSubscriptionStatus
       stripeSubscriptionPaused
       stripeSubscriptionCancelAtPeriodEnd
+      subscriptionId
     }
   }
 `
