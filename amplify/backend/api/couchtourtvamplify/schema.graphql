@@ -520,6 +520,8 @@ type Subscription {
 
   onCreateMessageByChatRoomID(chatRoomID: ID!): Message
     @aws_subscribe(mutations: ["createMessage"])
+
+  onUpdateUserByID(id: ID!): User @aws_subscribe(mutations: ["updateUser"])
 }
 
 type OnDemandFeaturedShow @model(subscriptions: null) {
