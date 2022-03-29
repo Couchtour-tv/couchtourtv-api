@@ -109,3 +109,5 @@ export const contentDefinitionID_Show = "c607c64a-ee48-4d10-996e-b151be4b510b"
 export const contentDefinitionID_Asset = "3ff29f61-bd0b-4c17-b855-49db5a292aeb"
 export const contentDefinitionID_AllArtists =
   "1fb5c6cf-c18c-4805-bd1b-b9280481f47b"
+
+export const NomadPublicServerUrl = `https://app.couchtour-poc.nomad-cms.com/api`
