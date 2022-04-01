@@ -776,6 +776,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  nomad-query-public-folder:
+    handler: lambdas/endpoints/nomad/queryPublicFolder.handler
+    events:
+      - http:
+          path: api/v1/nomad-query-public-folder
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- data ingestion
   ingest-vod-merchandise:
