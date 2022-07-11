@@ -694,4 +694,5 @@ type ContactTest
   favoriteColor: String
   favoriteFood: String
   favoriteBug: String
+  favoriteSong: String
 }
