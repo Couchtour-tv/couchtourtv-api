@@ -674,24 +674,3 @@ type Contact
   favoriteColor: String
   favoriteFood: String
 }
-
-type ContactTest
-  @model(subscriptions: null)
-  @key(fields: ["lastName", "firstName", "age"])
-  @key(
-    name: "contactTestsByFavoriteColor"
-    fields: ["lastName", "favoriteColor"]
-    queryField: "contactTestsByFavoriteColor"
-  )
-  @key(
-    name: "contactTestsByFavoriteFoodAndColor"
-    fields: ["favoriteFood", "favoriteColor"]
-    queryField: "contactTestsByFavoriteFoorAndColor"
-  ) {
-  lastName: String!
-  firstName: String!
-  age: Int!
-  favoriteColor: String
-  favoriteFood: String
-  favoriteBug: String
-}
