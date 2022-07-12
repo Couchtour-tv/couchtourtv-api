@@ -68,5 +68,41 @@
         }
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-couchtourtvamplify-prod-185445-authRole",
+      "UnauthRoleArn": "arn:aws:iam::570573558182:role/amplify-couchtourtvamplify-prod-185445-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::570573558182:role/amplify-couchtourtvamplify-prod-185445-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-couchtourtvamplify-prod-185445-deployment",
+      "UnauthRoleName": "amplify-couchtourtvamplify-prod-185445-unauthRole",
+      "StackName": "amplify-couchtourtvamplify-prod-185445",
+      "StackId": "arn:aws:cloudformation:us-east-1:570573558182:stack/amplify-couchtourtvamplify-prod-185445/75df0800-016c-11ed-8e14-0e8399e72e25",
+      "AmplifyAppId": "d1gm9e01jycs0z"
+    },
+    "categories": {
+      "auth": {
+        "couchtourtvamplify5a547970": {
+          "userPoolId": "us-east-1_p2G5CMWjO",
+          "userPoolName": "prod-branchdna-user-pool",
+          "webClientId": "7bjoa6o2s49t8tmvv8b0tc4tqs",
+          "nativeClientId": "7bjoa6o2s49t8tmvv8b0tc4tqs",
+          "identityPoolId": "us-east-1:9d21800e-9b4e-42fa-9b35-dd6944f1d77d",
+          "identityPoolName": "prod-branchdnaIdentityPool",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::570573558182:role/branchdna-api-prod-CognitoAuthRole-1I67XCJZG2ABX",
+          "authRoleName": "branchdna-api-prod-CognitoAuthRole-1I67XCJZG2ABX",
+          "unauthRoleArn": "arn:aws:iam::570573558182:role/amplify-couchtourtvamplify-prod-185445-unauthRole",
+          "unauthRoleName": "amplify-couchtourtvamplify-prod-185445-unauthRole"
+        }
+      },
+      "storage": {
+        "couchtour0d287ab9": {
+          "bucketName": "amplify-couchtourtvamplify-prod-185445-deployment",
+          "region": "us-east-1"
+        }
+      }
+    }
   }
 }
