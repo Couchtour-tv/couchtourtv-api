@@ -29,6 +29,21 @@ Resources:
         - AttributeName: requestId
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
+  SNSMessagesTableTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:SNS_MESSAGES_TABLE}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: textId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: textId
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
   PurchasesTable:
     Type: AWS::DynamoDB::Table
     Properties:

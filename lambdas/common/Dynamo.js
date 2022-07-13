@@ -51,7 +51,7 @@ const Dynamo = {
             Item: data,
         };
 
-        console.log("DYNAMO-WRITE[33] PARAMS", params);
+        console.log("DYNAMO-WRITE[54] PARAMS", params);
         const res = await documentClient.put(params).promise();
         if (!res) {
             throw Error(`There was an error inserting ID of ${data.ID} in table ${TableName}`);

@@ -1,0 +1,37 @@
+EXAMPLES
+
+
+cron(Minutes Hours Day-of-month Month Day-of-week Year)
+    # the example from our serverless.yml that runs every Monday at 03:15AM UTC
+    - schedule: cron(15 3 ? * MON *)
+    # run in 10-minute increments from the start of the hour on all working days
+    - schedule: cron(1/10 * ? * W *)
+    # run every day at 6:00PM UTC
+    - schedule: cron(0 18 * * ? *)
+
+          - schedule: rate(15 minutes)
+          - schedule: rate(1 hour)
+          - schedule: rate(2 days)
+
+    # run first day of month at 6:10PM UTC
+    - schedule: cron(10 18 1 * ? *)
+
+functions:
+  rateHandler:
+    handler: handler.run
+    events:
+      - schedule: rate(1 minute)
+
+
+functions:
+  cronHandler:
+    handler: handler.run
+    events:
+      - schedule: cron(0/2 * ? * MON-FRI *)
+
+
+
+serverless invoke local --function daily-activity-cron
+
+
+serverless invoke local --function monthlyActivityCron

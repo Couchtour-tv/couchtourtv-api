@@ -27,17 +27,17 @@ custom:
       seed: true
     migration:
       dir: offline
-    seed:
-      domain:
-        sources:
-          - table: ${env:MEDIA_META_TABLE}
-            sources: [./resources/seeds/movieMetaSeed.json]
-          - table: ${env:USER_TABLE}
-            sources: [./resources/seeds/import-users.json]
-          # - table: ${env:TICKETS_TABLE}
-          #   sources: [./resources/seeds/tickets.json]
-          - table: ${env:EVENTS_TABLE}
-            sources: [./resources/seeds/events.json]
+    # seed:
+    #   domain:
+    #     sources:
+          # - table: ${env:MEDIA_META_TABLE}
+          #   sources: [./resources/seeds/movieMetaSeed.json]
+          # - table: ${env:USER_TABLE}
+          #   sources: [./resources/seeds/import-users.json]
+          # # - table: ${env:TICKETS_TABLE}
+          # #   sources: [./resources/seeds/tickets.json]
+          # - table: ${env:EVENTS_TABLE}
+          #   sources: [./resources/seeds/events.json]
   seed:
     movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
@@ -850,6 +850,26 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  ## ----------------------------------------------------------------------------------
+  ## ---- CRONS
+  daily-activity-cron:
+    handler: lambdas/crons/dailyActivityCron.handler
+    events:
+      - schedule:
+          rate: cron(0 18 * * ? *)
+          enabled: true
+  monthly-activity-cron:
+    handler: lambdas/crons/monthlyActivityCron.handler
+    events:
+      - schedule:
+          rate: cron(10 18 1 * ? *)
+          enabled: true
+  send-mail-cron:
+    handler: lambdas/crons/sendMailCron.handler
+    events:
+      - schedule:
+          rate: cron(20 18 * * ? *)
+          enabled: true
 ## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
