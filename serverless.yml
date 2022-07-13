@@ -864,6 +864,12 @@ functions:
       - schedule:
           rate: cron(10 18 1 * ? *)
           enabled: true
+  send-mail-cron:
+    handler: lambdas/crons/sendMailCron.handler
+    events:
+      - schedule:
+          rate: cron(20 18 * * ? *)
+          enabled: true
 ## ----------------------------------------------------------------------------------
 # Create our resources with separate CloudFormation templates
 resources:
