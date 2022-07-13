@@ -255,6 +255,7 @@ functions:
       - http:
           path: api/v1/player-analytics
           method: POST
+          authorizer: aws_iam
           cors:
             origin: "*"
             headers:

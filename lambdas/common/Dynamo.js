@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-
 import { OptionsDynamoDB, UserTableName } from './constants';
 const documentClient = new AWS.DynamoDB.DocumentClient(OptionsDynamoDB);
 
@@ -44,7 +43,7 @@ const Dynamo = {
             throw Error('no ID [OR] userId on the data');
         }
 
-        data.date = Date.now();
+        data.createdAt = Date.now();
 
         const params = {
             TableName,
