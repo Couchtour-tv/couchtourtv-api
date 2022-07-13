@@ -274,7 +274,21 @@ Resources:
         - AttributeName: email
           KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
-
+  PlayerAnalyticsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${env:PLAYER_ANALYTICS_TABLE}
+      AttributeDefinitions:
+        - AttributeName: ID
+          AttributeType: S
+        - AttributeName: action
+          AttributeType: S
+      KeySchema:
+        - AttributeName: ID
+          KeyType: HASH
+        - AttributeName: action
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
   # -----------------------------------------------
   # ChatroomsTable:
   #   Type: AWS::DynamoDB::Table

@@ -38,6 +38,7 @@ export const MoviesTable = process.env.MOVIES_TABLE
 export const PurchasesTable = process.env.PURCHASES_TABLE
 export const MaestroEventsTable = process.env.MAESTRO_EVENTS
 export const MaestroSalesTable = process.env.MAESTRO_SALES
+export const PlayerAnalyticsTable = process.env.PLAYER_ANALYTICS_TABLE
 
 // User Pool
 export const UserPoolId = process.env.USER_POOL_ID

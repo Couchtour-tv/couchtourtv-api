@@ -8,7 +8,7 @@ const Responses = {
         "Access-Control-Allow-Origin": "*",
       },
       statusCode: 200,
-      body: JSON.stringify({ ...data, ConnectionId: "asdf" }),
+      body: JSON.stringify({ ...data}),
     }
   },
   _400(data = {}) {
