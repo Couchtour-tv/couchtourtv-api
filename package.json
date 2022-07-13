@@ -6,7 +6,7 @@
   "scripts": {
     "test": "serverless-bundle test",
     "dev": "serverless offline start --stage dev",
-    "stg": "serverless deploy --stage stg",
+    "qa": "serverless deploy --stage qa",
     "prod": "serverless deploy --stage prod"
   },
   "author": "Couchtourtv-JG",
