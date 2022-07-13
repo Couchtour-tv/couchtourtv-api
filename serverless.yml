@@ -253,8 +253,19 @@ functions:
     handler: lambdas/analytics/playerAnalytics.handler
     events:
       - http:
-          path: player-analytics
+          path: api/v1/player-analytics
           method: POST
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- Stripe Integreation ::
   stripe-api-map:
