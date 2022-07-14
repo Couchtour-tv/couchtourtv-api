@@ -78,6 +78,10 @@ if (process.env.DEPLOY_STAGE !== "development") {
 export const OptionsMediaLive = MediaLiveParams
 export const OptionsMediaPackage = MediaPackageParams
 
+export const GlobalMediaLiveARN = process.env.MEDIA_LIVE_ARN;
+export const MediaLiveAccessRoleARN = process.env.MEDIA_LIVE_ACCESS_ROLE_ARN;
+
+
 // ----- Credit card processing [via ENV VARB]
 // export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 // export const StripeCurrency = process.env.STRIPE_CURRENCY;

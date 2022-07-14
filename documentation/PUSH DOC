@@ -1,5 +1,11 @@
 PUSH DOC
 
+MEDIA_LIVE_ARN
+MEDIA_LIVE_ACCESS_ROLE_ARN
+
+
+--------------------------------------------------
+
 let getMethods = (obj) => {
   let properties = new Set()
   let currentObj = obj
@@ -10,5 +16,3 @@ let getMethods = (obj) => {
 }
 
 
-remove fake data from goLiveMediaLive.js
-serverless.yml - line 20 is commetned out , line 21 - comment out

@@ -71,7 +71,7 @@ exports.handler = async (event, context) => {
     mediapackage.listChannels(params, function(err, data) {
         if (err) {
             console.log("[18] listChannelsMediaPackage", err, err.stack);
-            return Responses._400({ 'success': true, 'data': err });
+            return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] listChannelsMediaPackage", data);
             return Responses._200({ 'success': true, 'data': data.Channels });

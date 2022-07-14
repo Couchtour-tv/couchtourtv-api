@@ -10,13 +10,13 @@ exports.handler = async (event, context) => {
 
     var medialive = new AWS.MediaLive(OptionsMediaLive);
     var params = {
-        MaxResults: 10
+        MaxResults: 50
     };
 
     medialive.listChannels(params, function(err, data) {
         if (err) {
             console.log("[18] listChannelsMediaLive", err, err.stack);
-            return Responses._400({ 'success': true, 'data': err });
+            return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] listChannelsMediaLive", data);
             return Responses._200({ 'success': true, 'data': data.Channels });

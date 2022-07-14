@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
     medialive.describeChannel(params, function(err, data) {
         if (err) {
             console.log("[18] describeChannelsMediaLive", err, err.stack);
-            return Responses._400({ 'success': true, 'data': err });
+            return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] describeChannelsMediaLive", data);
             return Responses._200({ 'success': true, 'data': data.Channels });
