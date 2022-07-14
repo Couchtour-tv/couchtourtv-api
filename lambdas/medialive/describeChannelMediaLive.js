@@ -19,10 +19,10 @@ exports.handler = async (event, context) => {
             return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] describeChannelsMediaLive", data);
-            return Responses._200({ 'success': true, 'data': data.Channels });
+            return Responses._200({ 'success': true, 'data': { 'Id': data.Id, 'State': data.State }});
         }
     });
 
 };
 
-// serverless invoke local --function describe-channel-media-live
+// sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"8634123"}}'

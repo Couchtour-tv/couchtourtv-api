@@ -28,10 +28,10 @@ exports.handler = async (event, context) => {
             return Responses._404({ 'success': false, 'data': err });
         } else  {
             console.log("[21] stopChannelMediaLive", data);
-            return Responses._200({ 'success': true, 'data': data });
+            return Responses._200({ 'success': true, 'data': { 'Id': data.Id, 'State': data.State } });
         }
     });
 
 };
 
-// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"31137","userId":"cognitoUserId"}}'
+// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"8634123","userId":"cognitoUserId"}}'

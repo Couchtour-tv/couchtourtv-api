@@ -1,7 +1,6 @@
 PUSH DOC
 
-MEDIA_LIVE_ARN
-MEDIA_LIVE_ACCESS_ROLE_ARN
+
 
 
 --------------------------------------------------
@@ -15,4 +14,21 @@ let getMethods = (obj) => {
   return [...properties.keys()].filter(item => typeof obj[item] === 'function')
 }
 
+--------------------------------------------------
 
+
+create a mediaLIve Channel in QA using gui
+what do you need to have to make it create ?
+  inputs
+  outputs
+  cloudfront
+
+can you create the inputs using api invoke ?
+can you create outputs using api invoke
+start and stop channel using api invoke
+
+
+
+delete media live channel
+how do i return the rtmp endpoints for the user to input inot their OBS , and do they need anything else
+how do i send the url endpoints to the livestream meta data so the player can show the stream to customers

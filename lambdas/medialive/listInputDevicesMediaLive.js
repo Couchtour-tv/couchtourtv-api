@@ -25,4 +25,4 @@ exports.handler = async (event, context) => {
 
 };
 
-// serverless invoke local --function list-input-devices-media-live
+// sls invoke local --function list-input-devices-media-live
