@@ -63,25 +63,22 @@ const fake_data = [
 
 
 exports.handler = async (event, context) => {
-    console.log("[10] goLiveMediaLive", event, context);
-    // const mediapackage = await new AWS.MediaPackage(
-    //  {'profile': 'couchtour','region':'us-east-1','version':'latest'}
-    // );
-    var mediapackage = new AWS.MediaPackage({apiVersion: '2017-10-12'});
-    var params = {
-        MaxResults: 10
-    };
-    mediapackage.listChannels(params, function(err, data) {
-        if (err) {
-            console.log("[18] goLiveMediaLive", err, err.stack);
-            return Responses._400({ 'success': true, 'data': err });
-        } else  {
-            console.log("[21] goLiveMediaLive", data);
-            // return Responses._200({ 'success': true, 'data': data.Channels });
-            return Responses._200({ 'success': true, 'data': fake_data});
-        }
-    });
+    console.log("[10] listChannelsMediaPackage", event, context);
+    // var mediapackage = new AWS.MediaPackage({apiVersion: '2017-10-12'});
+    // var params = {
+    //     MaxResults: 50
+    // };
+    // mediapackage.listChannels(params, function(err, data) {
+    //     if (err) {
+    //         console.log("[18] listChannelsMediaPackage", err, err.stack);
+    //         return Responses._400({ 'success': true, 'data': err });
+    //     } else  {
+    //         console.log("[21] listChannelsMediaPackage", data);
+    //         // return Responses._200({ 'success': true, 'data': data.Channels });
+    //     }
+    // });
 
+    return Responses._200({ 'success': true, 'data': fake_data});
 };
 
 // serverless invoke local --function list-channels-media-package
