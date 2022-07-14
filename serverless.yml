@@ -268,11 +268,11 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
-  go-live-media-live:
-    handler: lambdas/medialive/goLiveMediaLive.handler
+  create-channel-media-live:
+    handler: lambdas/medialive/createChannelMediaLive.handler
     events:
       - http:
-          path: api/v1/go-live-media-live
+          path: api/v1/create-channel-media-live
           method: POST
           authorizer: aws_iam
           cors:
