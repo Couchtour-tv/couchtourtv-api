@@ -322,6 +322,24 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  describe-channel-media-live:
+    handler: lambdas/medialive/describeChannelsMediaLive.handler
+    events:
+      - http:
+          path: api/v1/describe-channel-media-live/{channelId}
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- Stripe Integreation ::
   stripe-api-map:
