@@ -1,0 +1,14 @@
+PUSH DOC
+
+let getMethods = (obj) => {
+  let properties = new Set()
+  let currentObj = obj
+  do {
+    Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
+  } while ((currentObj = Object.getPrototypeOf(currentObj)))
+  return [...properties.keys()].filter(item => typeof obj[item] === 'function')
+}
+
+
+remove fake data from goLiveMediaLive.js
+serverless.yml - line 20 is commetned out , line 21 - comment out

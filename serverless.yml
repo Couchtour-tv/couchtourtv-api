@@ -18,6 +18,7 @@ custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}-branchdna
+  # stage: dev-branchdna
   dynamodb:
     stages:
       - dev
@@ -255,6 +256,42 @@ functions:
       - http:
           path: api/v1/player-analytics
           method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  go-live-media-live:
+    handler: lambdas/medialive/goLiveMediaLive.handler
+    events:
+      - http:
+          path: api/v1/go-live-media-live
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-channels-media-package:
+    handler: lambdas/medialive/listChannelsMediaPackage.handler
+    events:
+      - http:
+          path: api/v1/list-channels-media-package
+          method: GET
           authorizer: aws_iam
           cors:
             origin: "*"

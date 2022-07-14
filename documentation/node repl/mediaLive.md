@@ -10,3 +10,10 @@ AWS.config.apiVersions = {
 };
 var medialive = new AWS.MediaLive();
 ----------------
+
+
+var mPackage = new AWS.MediaPackage.MediaPackageClient(
+	{'profile': 'couchtour','region':'us-east-1','version':'latest'}
+);
+
+var result =  mPackage.listChannels();
