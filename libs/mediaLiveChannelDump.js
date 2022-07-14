@@ -2,7 +2,7 @@ import { GlobalMediaLiveARN, MediaLiveAccessRoleARN } from '../lambdas/common/co
 
 const channelName = "Livestream HIDEF";
 const egressEndpointSourceIP = "44.207.111.61";
-const inputDevices = [
+const inputAttachments = [
   {
     "InputId": "4655713",
     "InputAttachmentName": "Couchtourtv - Logo",
@@ -72,7 +72,7 @@ const channelParams = {
   "Name": channelName,
   "Id": "1400131",
   "Arn": GlobalMediaLiveARN,
-  "InputAttachments": inputDevices,
+  "InputAttachments": inputAttachments,
   "State": "IDLE",
   "PipelinesRunningCount": 0,
   "Destinations": destinationOptions,
@@ -491,8 +491,8 @@ const channelParams = {
   "Tags": {},
   "ChannelClass": "SINGLE_PIPELINE",
   "PipelineDetails": [],
-  "maintenanceWindow": "TUESDAY_1100",
-  "maintenanceStatus": "",
+  "MaintenanceWindow": "TUESDAY_1100",
+  "MaintenanceStatus": "",
   "Maintenance": {
     "MaintenanceDay": "TUESDAY",
     "MaintenanceStartTime": "11:00"
