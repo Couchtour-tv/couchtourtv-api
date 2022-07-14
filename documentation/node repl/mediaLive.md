@@ -12,7 +12,7 @@ var medialive = new AWS.MediaLive();
 ----------------
 
 
-var mPackage = new AWS.MediaPackage.MediaPackageClient(
+var mPackage = AWS.MediaPackage.MediaPackageClient(
 	{'profile': 'couchtour','region':'us-east-1','version':'latest'}
 );
 

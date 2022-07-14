@@ -2,12 +2,13 @@
 
 const AWS = require('aws-sdk');
 import Responses from '../common/API_Responses';
-// import Dynamo from '../common/Dynamo';
+import { OptionsMediaLive } from '../common/constants';
+
 
 exports.handler = async (event, context) => {
     console.log("[10] listChannelsMediaLive", event, context);
 
-    var medialive = new AWS.MediaLive({apiVersion: '2017-10-14'});
+    var medialive = new AWS.MediaLive(OptionsMediaLive);
     var params = {
         MaxResults: 10
     };

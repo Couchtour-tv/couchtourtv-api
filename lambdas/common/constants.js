@@ -47,6 +47,37 @@ export const OptionsCognito = {
   region: process.env.COGNITO_REGION,
 }
 
+// MediaLive initializer
+let MediaLiveParams = {
+  apiVersion: process.env.MEDIALIVE_APIVERSION
+}
+
+// MediaPackage initializer
+let MediaPackageParams = {
+  apiVersion: process.env.MEDIAPACKAGE_APIVERSION
+}
+
+if (process.env.DEPLOY_STAGE !== "development") {
+  // MediaLive initializer
+  MediaLiveParams = {
+    apiVersion: process.env.MEDIALIVE_APIVERSION,
+    region: process.env.CODE_AWS_REGION,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  }
+
+  // MediaPackage initializer
+  MediaPackageParams = {
+    apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
+    region: process.env.CODE_AWS_REGION,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  }
+}
+
+export const OptionsMediaLive = MediaLiveParams
+export const OptionsMediaPackage = MediaPackageParams
+
 // ----- Credit card processing [via ENV VARB]
 // export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 // export const StripeCurrency = process.env.STRIPE_CURRENCY;
