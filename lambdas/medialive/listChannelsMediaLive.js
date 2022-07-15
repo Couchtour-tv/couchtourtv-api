@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
             return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] listChannelsMediaLive", data);
-            return Responses._200({ 'success': true, 'data': data.Channels });
+            return Responses._200({ 'success': true, 'data': data });
         }
     });
 
