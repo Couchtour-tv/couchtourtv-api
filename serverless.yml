@@ -327,7 +327,7 @@ functions:
     events:
       - http:
           path: api/v1/list-input-devices-media-live
-          method: any
+          method: GET
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -345,7 +345,7 @@ functions:
     events:
       - http:
           path: api/v1/list-inputs-media-live
-          method: any
+          method: GET
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -363,7 +363,7 @@ functions:
     events:
       - http:
           path: api/v1/describe-channel-media-live/{channelId}
-          method: any
+          method: GET
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -381,7 +381,7 @@ functions:
     events:
       - http:
           path: api/v1/stop-channel-media-live
-          method: any
+          method: PUT
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -399,7 +399,7 @@ functions:
     events:
       - http:
           path: api/v1/start-channel-media-live
-          method: any
+          method: PUT
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -417,7 +417,7 @@ functions:
     events:
       - http:
           path: api/v1/delete-channel-media-live
-          method: any
+          method: PUT
           authorizer: aws_iam
           cors:
             origin: "*"
