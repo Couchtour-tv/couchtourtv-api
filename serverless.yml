@@ -1067,10 +1067,10 @@ resources:
   #Route 53 Zone
   - ${file(resources/route53.yml)}
   #ElastiCache
-  - ${file(resources/elasticache.yml)}
+  # - ${file(resources/elasticache.yml)}
   #RDS
-  - ${file(resources/rds.yml)}
-  #SQS
-  - ${file(resources/sqs-fifo.yml)}
+  # - ${file(resources/rds.yml)}
+  # #SQS
+  # - ${file(resources/sqs-fifo.yml)}
   #Linux Bastion
   - ${file(resources/linux-bastion.yml)}
