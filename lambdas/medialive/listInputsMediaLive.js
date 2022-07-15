@@ -10,6 +10,7 @@ function sanitizeObject(obj) {
 
 exports.handler = async (event, context) => {
     console.log("[10] listInputsMediaLive", event, context);
+    console.log("[13] listInputsMediaLive", OptionsMediaLive);
 
     var medialive = new AWS.MediaLive(OptionsMediaLive);
     var params = {
