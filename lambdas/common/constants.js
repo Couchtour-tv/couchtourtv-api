@@ -62,16 +62,16 @@ if (process.env.DEPLOY_STAGE !== "development") {
   MediaLiveParams = {
     apiVersion: process.env.MEDIALIVE_APIVERSION,
     region: process.env.CODE_AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
   }
 
   // MediaPackage initializer
   MediaPackageParams = {
     apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
     region: process.env.CODE_AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
   }
 }
 
