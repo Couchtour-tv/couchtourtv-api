@@ -33,10 +33,10 @@ var params = {
     ChannelClass: 'SINGLE_PIPELINE',
     Destinations: [
         {
-            Id: 'kvd3bh',
+            // Id: '2022-Disco_Biscuits-Umphreys_McGee',
             MediaPackageSettings: [
                 {
-                    ChannelId: '2021-06-05-Westville',
+                    ChannelId: '2022-Disco_Biscuits-Umphreys_McGee',
                 },
             ],
         },
@@ -380,8 +380,8 @@ var params = {
         //     },
         // },
         {
-            InputAttachmentName: 'RTMP - Supervoid',
-            InputId: '6857570',
+            InputAttachmentName: 'Elemental Link',
+            InputId: '3576707',
             InputSettings: {
                 AudioSelectors: [],
                 CaptionSelectors: [],

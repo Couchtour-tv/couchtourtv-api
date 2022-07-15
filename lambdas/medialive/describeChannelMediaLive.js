@@ -26,4 +26,4 @@ exports.handler = async (event, context) => {
 };
 
 // sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"8634123"}}'
-// sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"4453553"}}'
+// sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"7505832"}}'

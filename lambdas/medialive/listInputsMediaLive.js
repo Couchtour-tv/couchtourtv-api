@@ -10,13 +10,13 @@ function sanitizeObject(obj) {
 
 exports.handler = async (event, context) => {
     console.log("[10] listInputsMediaLive", event, context);
-    console.log("[13] listInputsMediaLive", OptionsMediaLive);
 
     var medialive = new AWS.MediaLive(OptionsMediaLive);
     var params = {
         MaxResults: 50
     };
 
+    console.log("[20] listInputsMediaLive", medialive);
     medialive.listInputs(params, function(err, data) {
         if (err) {
             console.log("[18] listInputsMediaLive", err, err.stack);
