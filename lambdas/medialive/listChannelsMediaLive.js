@@ -12,17 +12,24 @@ exports.handler = async (event, context) => {
     var params = {
         MaxResults: 50
     };
+    console.log("[15] listChannelsMediaLive", medialive);
+    let response;
+    let successOpt;
 
     medialive.listChannels(params, function(err, data) {
+
         if (err) {
             console.log("[18] listChannelsMediaLive", err, err.stack);
-            return Responses._400({ 'success': false, 'data': err });
+            response = err;
+            successOpt = false
         } else  {
             console.log("[21] listChannelsMediaLive", data);
+            response = data;
+            successOpt = true
         }
     });
 
-    return Responses._200({ 'success': true, 'action': 'ACK' });
+    return Responses._200({ success: successOpt, data: response });
 };
 
 // sls invoke local --function list-channels-media-live
