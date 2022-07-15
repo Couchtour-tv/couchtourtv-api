@@ -34,4 +34,4 @@ exports.handler = async (event, context) => {
 
 };
 
-// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"8634123","userId":"cognitoUserId"}}'
+// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"4453553","userId":"cognitoUserId"}}'

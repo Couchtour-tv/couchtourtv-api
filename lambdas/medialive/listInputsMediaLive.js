@@ -4,6 +4,9 @@ const AWS = require('aws-sdk');
 import Responses from '../common/API_Responses';
 import { OptionsMediaLive } from '../common/constants';
 
+function sanitizeObject(obj) {
+    return { Id: obj.Id, State: obj.State, Name: obj.Name, InputClass: obj.InputClass, Type: obj.Type };
+}
 
 exports.handler = async (event, context) => {
     console.log("[10] listInputsMediaLive", event, context);
@@ -19,7 +22,8 @@ exports.handler = async (event, context) => {
             return Responses._400({ 'success': false, 'data': err });
         } else  {
             console.log("[21] listInputsMediaLive", data);
-            return Responses._200({ 'success': true, 'data': data.Inputs });
+            const sanitizeData = data.Inputs.map(sanitizeObject);
+            return Responses._200({ 'success': true, 'data': sanitizeData });
         }
     });
 
