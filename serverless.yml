@@ -56,12 +56,12 @@ custom:
     Region: us-east-1
     Name: branchdna.pri
 
-  ElastiCacheconfig:
-    CACHE_INSTANCE_SIZE: cache.r6g.large
+  # ElastiCacheconfig:
+  #   CACHE_INSTANCE_SIZE: cache.r6g.large
 
-  SQSConfig:
-    QueueName: couchtour-queue.fifo
-    FifoQueue: true
+  # SQSConfig:
+  #   QueueName: couchtour-queue.fifo
+  #   FifoQueue: true
 
 provider:
   name: aws
