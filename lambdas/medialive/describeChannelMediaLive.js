@@ -13,17 +13,39 @@ exports.handler = async (event, context) => {
         ChannelId: event.pathParameters.channelId
     };
 
-    medialive.describeChannel(params, function(err, data) {
-        if (err) {
-            console.log("[18] describeChannelsMediaLive", err, err.stack);
-            return Responses._400({ 'success': false, 'data': err });
-        } else  {
-            console.log("[21] describeChannelsMediaLive", data);
-            return Responses._200({ 'success': true, 'data': { 'Id': data.Id, 'State': data.State }});
-        }
-    });
+    let successOpt = false;
+    let dataOpt;
 
+    try {
+        const resp = await medialive.describeChannel(params, function(err, data) {
+            if (err) {
+                console.log("[18] describeChannelsMediaLive", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] describeChannelsMediaLive", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        if (successOpt) {
+            dataOpt = { 'Id': resp.Id, 'State': resp.State };
+        } else {
+            dataOpt = resp;
+        };
+        console.log("[32] describeChannelsMediaLive", dataOpt);
+        return Responses._200({ success: successOpt, data: dataOpt });
+
+    } catch (error) {
+
+        console.log("[37] describeChannelsMediaLive", error)
+        return Responses._404({
+          message: "describeChannelsMediaLive failed",
+          success: successOpt,
+        })
+    }
 };
 
 // sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"8634123"}}'
 // sls invoke local --function describe-channel-media-live --data '{ "pathParameters": {"channelId":"7505832"}}'
+

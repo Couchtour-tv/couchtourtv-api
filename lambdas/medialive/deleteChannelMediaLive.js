@@ -21,17 +21,38 @@ exports.handler = async (event, context) => {
         ChannelId: body.channelId.toString()
     };
 
+    let successOpt = false;
+    let dataOpt;
 
-    medialive.deleteChannel(params, function(err, data) {
-        if (err) {
-            console.log("[18] deleteChannelMediaLive", err, err.stack);
-            return Responses._404({ 'success': false, 'data': err });
-        } else  {
-            console.log("[21] deleteChannelMediaLive", data);
-            return Responses._200({ 'success': true, 'data': { 'Id': data.Id, 'State': data.State } });
-        }
-    });
+    try {
 
+        const resp = await medialive.deleteChannel(params, function(err, data) {
+            if (err) {
+                console.log("[18] deleteChannelMediaLive", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] deleteChannelMediaLive", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        if (successOpt) {
+            dataOpt = { 'Id': resp.Id, 'State': resp.State };
+        } else {
+            dataOpt = resp;
+        };
+        console.log("[32] deleteChannelMediaLive", dataOpt);
+        return Responses._200({ success: successOpt, data: dataOpt });
+
+    } catch (error) {
+
+        console.log("[37] deleteChannelMediaLive", error)
+        return Responses._404({
+          message: "deleteChannelMediaLive failed",
+          success: successOpt,
+        })
+    }
 };
 
 // sls invoke local --function delete-channel-media-live --data '{"body":{"channelId":"7505832","userId":"cognitoUserId"}}'

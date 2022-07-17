@@ -14,16 +14,40 @@ exports.handler = async (event, context) => {
     var params = {
         MaxResults: 50
     };
-    mediapackage.listChannels(params, function(err, data) {
-        if (err) {
-            console.log("[18] listChannelsMediaPackage", err, err.stack);
-            return Responses._400({ 'success': false, 'data': err });
-        } else  {
-            console.log("[21] listChannelsMediaPackage", data);
-            const sanitizeData = data.Channels.map(sanitizeObject);
-            return Responses._200({ 'success': true, 'data': sanitizeData });
-        }
-    });
+
+    let successOpt = false;
+    let dataOpt;
+
+    try {
+
+        const resp = await mediapackage.listChannels(params, function(err, data) {
+            if (err) {
+                console.log("[18] listChannelsMediaPackage", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] listChannelsMediaPackage", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        if (successOpt) {
+            dataOpt = resp.Channels.map(sanitizeObject);
+        } else {
+            dataOpt = resp;
+        };
+
+        console.log("[32] listChannelsMediaPackage", resp);
+        return Responses._200({ 'success': true, 'data': dataOpt });
+
+    } catch (error) {
+
+        console.log("[37] listChannelsMediaPackage", error)
+        return Responses._404({
+          message: "listChannelsMediaPackage failed",
+          success: successOpt,
+        })
+    }
 
 };
 

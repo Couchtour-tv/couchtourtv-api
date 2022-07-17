@@ -13,15 +13,32 @@ exports.handler = async (event, context) => {
         MaxResults: 50
     };
 
-    medialive.listInputDevices(params, function(err, data) {
-        if (err) {
-            console.log("[18] listInputDevicesMediaLive", err, err.stack);
-            return Responses._400({ 'success': false, 'data': err });
-        } else  {
-            console.log("[21] listInputDevicesMediaLive", data);
-            return Responses._200({ 'success': true, 'data': data.InputDevices });
-        }
-    });
+    let successOpt = false;
+
+    try {
+
+        const resp = await medialive.listInputDevices(params, function(err, data) {
+            if (err) {
+                console.log("[18] listInputDevicesMediaLive", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] listInputDevicesMediaLive", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        console.log("[32] listInputDevicesMediaLive", resp);
+        return Responses._200({ success: successOpt, data: resp });
+
+    } catch (error) {
+
+        console.log("[37] listInputDevicesMediaLive", error)
+        return Responses._404({
+          message: "listInputDevicesMediaLive failed",
+          success: successOpt,
+        })
+    }
 
 };
 

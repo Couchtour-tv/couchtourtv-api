@@ -12,24 +12,22 @@ exports.handler = async (event, context) => {
     var params = {
         MaxResults: 50
     };
-    // let response;
+
     let successOpt = false;
-    // console.log("[15] listChannelsMediaLive", medialive);
+
     try {
 
         const resp = await medialive.listChannels(params, function(err, data) {
 
             if (err) {
                 console.log("[18] listChannelsMediaLive", err, err.stack);
-                // successOpt = false
-                // response = err;
                 return err;
             } else  {
                 console.log("[21] listChannelsMediaLive", data);
                 successOpt = true;
-                // response = data;
                 return data;
             }
+
         }).promise();
 
         console.log("[32] listChannelsMediaLive", resp);
@@ -39,7 +37,7 @@ exports.handler = async (event, context) => {
 
         console.log("[37] listChannelsMediaLive", error)
         return Responses._500({
-          message: "List channels failed",
+          message: "listChannelsMediaLive failed",
           success: false,
         })
     }

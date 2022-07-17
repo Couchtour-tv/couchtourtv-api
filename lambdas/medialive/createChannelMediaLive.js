@@ -11,15 +11,38 @@ exports.handler = async (event, context) => {
 
     var medialive = new AWS.MediaLive(OptionsMediaLive);
 
-    medialive.createChannel(params, function(err, data) {
-        if (err) {
-            console.log("[18] createChannelMediaLive", err, err.stack);
-            return Responses._400({ success: false, data: err });
-        } else  {
-            console.log("[21] createChannelMediaLive", data);
-            return Responses._200({ success: true, data: data});
-        }
-    });
+    let successOpt = false;
+    let dataOpt;
+
+    try {
+
+        const resp = await medialive.createChannel(params, function(err, data) {
+            if (err) {
+                console.log("[18] createChannelMediaLive", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] createChannelMediaLive", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        if (successOpt) {
+            dataOpt = { 'Id': resp.Id, 'State': resp.State };
+        } else {
+            dataOpt = resp;
+        };
+        console.log("[32] createChannelMediaLive", dataOpt);
+        return Responses._200({ success: successOpt, data: dataOpt });
+
+    } catch (error) {
+
+        console.log("[37] createChannelMediaLive", error)
+        return Responses._404({
+          message: "createChannelMediaLive failed",
+          success: successOpt,
+        })
+    }
 
 };
 
