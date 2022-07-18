@@ -16,7 +16,6 @@ exports.handler = async (event, context) => {
         body = event.body;
     }
 
-    var medialive = new AWS.MediaLive(OptionsMediaLive);
     var params = {
         ChannelId: body.channelId.toString()
     };
@@ -24,6 +23,7 @@ exports.handler = async (event, context) => {
     let successOpt = false;
     let dataOpt;
 
+    var medialive = new AWS.MediaLive(OptionsMediaLive);
     try {
 
         const resp = await medialive.deleteChannel(params, function(err, data) {

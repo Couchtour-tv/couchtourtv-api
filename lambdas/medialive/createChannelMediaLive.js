@@ -5,18 +5,28 @@ import Responses from '../common/API_Responses';
 import { OptionsMediaLive } from '../common/constants';
 // import channelParams from '../../libs/mediaLiveChannelBasic';
 
-
 exports.handler = async (event, context) => {
     console.log("[10] createChannelMediaLive", event, context);
 
-    var medialive = new AWS.MediaLive(OptionsMediaLive);
+    let body;
+    try {
+        body = await JSON.parse(event.body);
+    } catch (e) {
+        body = event.body;
+    }
 
     let successOpt = false;
     let dataOpt;
 
     try {
+        let getInputAttachments = channelCreateTemplateJSON.InputAttachments[0];
+        getInputAttachments.InputId = body.InputId.toString()
+        getInputAttachments.InputAttachmentName = body.InputAttachmentName.toString()
 
-        const resp = await medialive.createChannel(params, function(err, data) {
+
+        var medialive = new AWS.MediaLive(OptionsMediaLive);
+
+        const resp = await medialive.createChannel(channelCreateTemplateJSON, function(err, data) {
             if (err) {
                 console.log("[18] createChannelMediaLive", err, err.stack);
                 return err;
@@ -38,7 +48,7 @@ exports.handler = async (event, context) => {
     } catch (error) {
 
         console.log("[37] createChannelMediaLive", error)
-        return Responses._404({
+        return Responses._400({
           message: "createChannelMediaLive failed",
           success: successOpt,
         })
@@ -49,10 +59,7 @@ exports.handler = async (event, context) => {
 // sls invoke local --function create-channel-media-live
 
 
-var params = {
-    // CdiInputSpecification: {
-    //     Resolution: 'HD',
-    // },
+var channelCreateTemplateJSON = {
     ChannelClass: 'SINGLE_PIPELINE',
     Destinations: [
         {
