@@ -12702,6 +12702,7 @@ export const createVideo = /* GraphQL */ `
       displayName
       band
       date
+      videoURL
       createdAt
       updatedAt
     }
@@ -12724,6 +12725,7 @@ export const updateVideo = /* GraphQL */ `
       displayName
       band
       date
+      videoURL
       createdAt
       updatedAt
     }
@@ -12746,6 +12748,7 @@ export const deleteVideo = /* GraphQL */ `
       displayName
       band
       date
+      videoURL
       createdAt
       updatedAt
     }

@@ -3124,6 +3124,7 @@ export const getVideo = /* GraphQL */ `
       displayName
       band
       date
+      videoURL
       createdAt
       updatedAt
     }
@@ -3148,6 +3149,7 @@ export const listVideos = /* GraphQL */ `
         displayName
         band
         date
+        videoURL
         createdAt
         updatedAt
       }

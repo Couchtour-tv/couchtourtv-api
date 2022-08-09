@@ -245,6 +245,7 @@ type Video @model(subscriptions: null) {
   displayName: String
   band: String
   date: String
+  videoURL: String
 }
 
 type SubscriptionMerchandise
