@@ -237,6 +237,16 @@ type Picture @model(subscriptions: null) {
   file: S3Object
 }
 
+type Video @model(subscriptions: null) {
+  id: ID!
+  name: String
+  owner: String
+  file: S3Object
+  displayName: String
+  band: String
+  date: String
+}
+
 type SubscriptionMerchandise
   @model(queries: null, subscriptions: null)
   @key(
