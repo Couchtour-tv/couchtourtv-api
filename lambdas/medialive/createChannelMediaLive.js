@@ -184,7 +184,7 @@ var channelCreateTemplateJSON = {
                 OutputGroupSettings: { // REQUIRED
                     MediaPackageGroupSettings: {
                         Destination: { // REQUIRED
-                            DestinationRefId: 'kvd3bh',
+                            DestinationRefId: '6wwcqg',
                         },
                     },
                 },
