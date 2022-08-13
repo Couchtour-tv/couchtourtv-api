@@ -12685,6 +12685,75 @@ export const deletePicture = /* GraphQL */ `
     }
   }
 `;
+export const createVideo = /* GraphQL */ `
+  mutation CreateVideo(
+    $input: CreateVideoInput!
+    $condition: ModelVideoConditionInput
+  ) {
+    createVideo(input: $input, condition: $condition) {
+      id
+      name
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      displayName
+      band
+      date
+      videoURL
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateVideo = /* GraphQL */ `
+  mutation UpdateVideo(
+    $input: UpdateVideoInput!
+    $condition: ModelVideoConditionInput
+  ) {
+    updateVideo(input: $input, condition: $condition) {
+      id
+      name
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      displayName
+      band
+      date
+      videoURL
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteVideo = /* GraphQL */ `
+  mutation DeleteVideo(
+    $input: DeleteVideoInput!
+    $condition: ModelVideoConditionInput
+  ) {
+    deleteVideo(input: $input, condition: $condition) {
+      id
+      name
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      displayName
+      band
+      date
+      videoURL
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createSubscriptionMerchandise = /* GraphQL */ `
   mutation CreateSubscriptionMerchandise(
     $input: CreateSubscriptionMerchandiseInput!
