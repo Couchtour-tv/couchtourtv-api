@@ -46,8 +46,7 @@ exports.handler = async (event, context) => {
         currentSliderTime,
         userId,
         mediaId,
-        entitlementId,
-        createdAt: Date.now()
+        entitlementId
     };
     console.log("[35] Player Analytic Data", Item);
 

@@ -47,6 +47,40 @@ export const OptionsCognito = {
   region: process.env.COGNITO_REGION,
 }
 
+// MediaLive initializer
+let MediaLiveParams = {
+  apiVersion: process.env.MEDIALIVE_APIVERSION,
+}
+
+// MediaPackage initializer
+let MediaPackageParams = {
+  apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
+}
+
+if (process.env.DEPLOY_STAGE !== "development") {
+  // MediaLive initializer
+  MediaLiveParams = {
+    apiVersion: process.env.MEDIALIVE_APIVERSION,
+    region: process.env.CODE_AWS_REGION,
+    // accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
+  }
+
+  // MediaPackage initializer
+  MediaPackageParams = {
+    apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
+    region: process.env.CODE_AWS_REGION,
+    // accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
+  }
+}
+
+export const OptionsMediaLive = MediaLiveParams
+export const OptionsMediaPackage = MediaPackageParams
+
+export const GlobalMediaLiveARN = process.env.MEDIA_LIVE_ARN
+export const MediaLiveAccessRoleARN = process.env.MEDIA_LIVE_ACCESS_ROLE_ARN
+
 // ----- Credit card processing [via ENV VARB]
 // export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
 // export const StripeCurrency = process.env.STRIPE_CURRENCY;
@@ -55,8 +89,10 @@ export const OptionsCognito = {
 // export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
 
 // ----- Credit card processing [Explicit]
-export const StripeSecretKey =
-  "sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS"
+export const StripeSecretKey = process.env.STRIPE_SECRET_KEY
+
+// export const StripeSecretKey =
+//   "sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS"
 export const StripeCurrency = "USD"
 export const StripeCustomerDescirption = "qa.couchtour.tv-customer"
 export const StripeIntentDescirption = "qa.couchtour.tv-intent"

@@ -71,7 +71,7 @@ env-stash-qa-cloud.txt
 
 # Jetbrains IDEs
 .idea
-
+.DS_Store
 /docs
 /docs/*
 
