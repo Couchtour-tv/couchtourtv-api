@@ -5,6 +5,13 @@ import Responses from '../common/API_Responses';
 import { OptionsMediaLive } from '../common/constants';
 // import channelParams from '../../libs/mediaLiveChannelBasic';
 
+// { InputAttachmentName: "Elemental Link",
+// InputId: "8329555",
+// destinationId: "2022-Disco_Biscuits-Umphreys_McGee",
+// destinationName: "2022-Disco_Biscuits-Umphreys_McGee"
+// userId: "c3ea8cea-6398-4354-a646-b001e71726bf" }
+
+
 exports.handler = async (event, context) => {
     console.log("[10] createChannelMediaLive", event, context);
 
@@ -20,20 +27,22 @@ exports.handler = async (event, context) => {
 
     try {
         let getInputAttachments = channelCreateTemplateJSON.InputAttachments[0];
-        getInputAttachments.InputId = body.InputId.toString()
-        getInputAttachments.InputAttachmentName = body.InputAttachmentName.toString()
-        let destinationId = body.destinationId.toString()
+        getInputAttachments.InputId = body.InputId
+        getInputAttachments.InputAttachmentName = body.InputAttachmentName
+        let destinationId = body.destinationId
 
         let destinationData = {
+            Id: destinationId.toString(),
             MediaPackageSettings: [
                 {
-                    // ChannelId: '2022-Disco_Biscuits-Umphreys_McGee',
-                    ChannelId: destinationId,
+                    ChannelId: destinationId.toString(),
                 },
             ],
         };
 
         channelCreateTemplateJSON.Destinations = [destinationData];
+
+        console.log("[45] createChannelMediaLive", channelCreateTemplateJSON);
 
         var medialive = new AWS.MediaLive(OptionsMediaLive);
 
@@ -67,7 +76,7 @@ exports.handler = async (event, context) => {
 
 };
 
-// sls invoke local --function create-channel-media-live
+// sls invoke local --function create-channel-media-live --data '{"body":{"InputId":"7505832","destinationId":"2022-Disco_Biscuits-Umphreys_McGee","userId":"cognitoUserId"}}'
 
 
 var channelCreateTemplateJSON = {
