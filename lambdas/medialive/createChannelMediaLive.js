@@ -22,7 +22,18 @@ exports.handler = async (event, context) => {
         let getInputAttachments = channelCreateTemplateJSON.InputAttachments[0];
         getInputAttachments.InputId = body.InputId.toString()
         getInputAttachments.InputAttachmentName = body.InputAttachmentName.toString()
+        let destinationId = body.destinationId.toString()
 
+        let destinationData = {
+            MediaPackageSettings: [
+                {
+                    // ChannelId: '2022-Disco_Biscuits-Umphreys_McGee',
+                    ChannelId: destinationId,
+                },
+            ],
+        };
+
+        channelCreateTemplateJSON.Destinations = [destinationData];
 
         var medialive = new AWS.MediaLive(OptionsMediaLive);
 
