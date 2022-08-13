@@ -11,7 +11,6 @@ import { OptionsMediaLive } from '../common/constants';
 // destinationName: "2022-Disco_Biscuits-Umphreys_McGee"
 // userId: "c3ea8cea-6398-4354-a646-b001e71726bf" }
 
-
 exports.handler = async (event, context) => {
     console.log("[10] createChannelMediaLive", event, context);
 
