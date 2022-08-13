@@ -40,7 +40,57 @@ exports.handler = async (event, context) => {
             ],
         };
 
+        let destinationOutputGroup = {
+            Name: 'HD',
+            OutputGroupSettings: { // REQUIRED
+                MediaPackageGroupSettings: {
+                    Destination: { // REQUIRED
+                        DestinationRefId: destinationId.toString(),
+                    },
+                },
+            },
+            Outputs: [ // REQUIRED
+                {
+                    AudioDescriptionNames: ['audio_1'],
+                    CaptionDescriptionNames: [],
+                    OutputName: '1080p30',
+                    OutputSettings: { // REQUIRED
+                        MediaPackageOutputSettings: [],
+                    },
+                    VideoDescriptionName: 'video_1080p30',
+                },
+                {
+                    AudioDescriptionNames: ['audio_2'],
+                    CaptionDescriptionNames: [],
+                    OutputName: 'video_720p30',
+                    OutputSettings: { // REQUIRED
+                        MediaPackageOutputSettings: [],
+                    },
+                    VideoDescriptionName: 'video_720p30',
+                },
+                {
+                    AudioDescriptionNames: ['audio_3'],
+                    CaptionDescriptionNames: [],
+                    OutputName: 'video_480p30',
+                    OutputSettings: { // REQUIRED
+                        MediaPackageOutputSettings: [],
+                    },
+                    VideoDescriptionName: 'video_480p30',
+                },
+                {
+                    AudioDescriptionNames: ['audio_4'],
+                    CaptionDescriptionNames: [],
+                    OutputName: 'video_240p30',
+                    OutputSettings: { // REQUIRED
+                        MediaPackageOutputSettings: [],
+                    },
+                    VideoDescriptionName: 'video_240p30',
+                },
+            ],
+        };
+
         channelCreateTemplateJSON.Destinations = [destinationData];
+        channelCreateTemplateJSON.EncoderSettings.OutputGroups = [destinationOutputGroup];
 
         console.log("[45] createChannelMediaLive", channelCreateTemplateJSON);
 
