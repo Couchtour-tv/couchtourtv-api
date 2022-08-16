@@ -126,9 +126,10 @@ export const StripeApiMap = {
 // ----- AppSync + GraphQL
 //
 // -- couchtourtvamplify-ctqa
-export const AppSyncUrlOriginal =
-  "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql"
-export const GraphqlKeyOutputOriginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
+export const AppSyncUrlOriginal = process.env.AWS_APPSYNC_GRAPHQLENDPOINT
+
+export const GraphqlKeyOutputOriginal = process.env.APPSYNC_API_KEY
+
 //
 // -- couchtourapisandbox-dev
 export const AppSyncUrlEdit =
