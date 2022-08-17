@@ -1,8 +1,8 @@
 // createOriginEndpointMediaPackage.js
 
-const AWS = require('aws-sdk');
-import Responses from '../common/API_Responses';
-import { OptionsMediaPackage } from '../common/constants';
+const AWS = require("aws-sdk")
+import Responses from "../common/API_Responses"
+import { OptionsMediaPackage } from "../common/constants"
 
 // var params = {
 //   Id: 'STRING_VALUE', /* required */
@@ -14,61 +14,63 @@ import { OptionsMediaPackage } from '../common/constants';
 // };
 
 exports.handler = async (event, context) => {
-    console.log("[10] createOriginEndpointMediaPackage", event, context);
+  console.log("[10] createOriginEndpointMediaPackage", event, context)
 
-    let body;
-    try {
-        body = await JSON.parse(event.body);
-    } catch (e) {
-        body = event.body;
+  let body
+  try {
+    body = await JSON.parse(event.body)
+  } catch (e) {
+    body = event.body
+  }
+
+  let successOpt = false
+  let dataOpt
+
+  console.log("[34] createOriginEndpointMediaPackage", body, originEndpointJSON)
+
+  try {
+    const params = {
+      ChannelId: body.ChannelId,
+      ...originEndpointJSON,
     }
 
-    let successOpt = false;
-    let dataOpt;
+    var mediapackage = new AWS.MediaPackage(OptionsMediaPackage)
 
-    console.log("[34] createOriginEndpointMediaPackage", body, originEndpointJSON);
-
-    try {
-
-        var mediapackage = new AWS.MediaPackage(OptionsMediaPackage);
-
-        const resp = await mediapackage.createOriginEndpoint(originEndpointJSON, function(err, data) {
-            if (err) {
-                console.log("[18] createOriginEndpointMediaPackage", err, err.stack);
-                return err;
-            } else  {
-                console.log("[21] createOriginEndpointMediaPackage", data);
-                successOpt = true;
-                return data;
-            }
-        }).promise();
-
-        if (successOpt) {
-            dataOpt = { 'Id': resp.Id, 'State': resp.State };
+    const resp = await mediapackage
+      .createOriginEndpoint(params, function (err, data) {
+        if (err) {
+          console.log("[18] createOriginEndpointMediaPackage", err, err.stack)
+          return err
         } else {
-            dataOpt = resp;
-        };
-        console.log("[32] createOriginEndpointMediaPackage", dataOpt);
-        return Responses._200({ success: successOpt, data: dataOpt });
+          console.log("[21] createOriginEndpointMediaPackage", data)
+          successOpt = true
+          return data
+        }
+      })
+      .promise()
 
-    } catch (error) {
-
-        console.log("[37] createOriginEndpointMediaPackage", error)
-        return Responses._400({
-          message: "createOriginEndpointMediaPackage failed",
-          success: successOpt,
-        })
+    if (successOpt) {
+      dataOpt = { Id: resp.Id, State: resp.State }
+    } else {
+      dataOpt = resp
     }
-
-};
+    console.log("[32] createOriginEndpointMediaPackage", dataOpt)
+    return Responses._200({ success: successOpt, data: dataOpt })
+  } catch (error) {
+    console.log("[37] createOriginEndpointMediaPackage", error)
+    return Responses._400({
+      message: "createOriginEndpointMediaPackage failed",
+      success: successOpt,
+    })
+  }
+}
 
 // sls invoke local --function create-origin-endpoint-media-package
 // --data '{"body":{"InputId":"7505832","destinationId":"2022-Disco_Biscuits-Umphreys_McGee","userId":"cognitoUserId"}}'
 
-
 var originEndpointJSON = {
-  ChannelId: '2022-08-15-TEST_TEST', /* required */
-  Id: '2022-08-15-TEST_TEST-STREAMCHECK2', /* required */
+  //   ChannelId: '2022-08-15-TEST_TEST', /* required */
+  Id: "2022-08-15-TEST_TEST-STREAMCHECK2" /* required */,
   // Authorization: {
   //   CdnIdentifierSecret: 'STRING_VALUE',  required
   //   SecretsRoleArn: 'STRING_VALUE' /* required */
@@ -161,7 +163,7 @@ var originEndpointJSON = {
   //   UtcTiming: NONE | HTTP-HEAD | HTTP-ISO | HTTP-XSDATE,
   //   UtcTimingUri: 'STRING_VALUE'
   // },
-  Description: 'mpackage endpoint',
+  Description: "mpackage endpoint",
   HlsPackage: {
     // AdMarkers: NONE | SCTE35_ENHANCED | PASSTHROUGH | DATERANGE,
     // AdTriggers: [
@@ -191,7 +193,7 @@ var originEndpointJSON = {
     // },
     // IncludeDvbSubtitles: true || false,
     // IncludeIframeOnlyStream: true || false,
-    PlaylistType: 'EVENT',
+    PlaylistType: "EVENT",
     PlaylistWindowSeconds: 300,
     ProgramDateTimeIntervalSeconds: 60,
     SegmentDurationSeconds: 6,
@@ -202,7 +204,7 @@ var originEndpointJSON = {
     // },
     // UseAudioRenditionGroup: true || false
   },
-  ManifestName: 'index',
+  ManifestName: "index",
   // MssPackage: {
   //   Encryption: {
   //     SpekeKeyProvider: { /* required */
@@ -220,13 +222,13 @@ var originEndpointJSON = {
   //       }
   //     }
   //   },
-    // ManifestWindowSeconds: 'NUMBER_VALUE',
-    // SegmentDurationSeconds: 'NUMBER_VALUE',
-    // StreamSelection: {
-    //   MaxVideoBitsPerSecond: 'NUMBER_VALUE',
-    //   MinVideoBitsPerSecond: 'NUMBER_VALUE',
-    //   StreamOrder: ORIGINAL | VIDEO_BITRATE_ASCENDING | VIDEO_BITRATE_DESCENDING
-    // }
+  // ManifestWindowSeconds: 'NUMBER_VALUE',
+  // SegmentDurationSeconds: 'NUMBER_VALUE',
+  // StreamSelection: {
+  //   MaxVideoBitsPerSecond: 'NUMBER_VALUE',
+  //   MinVideoBitsPerSecond: 'NUMBER_VALUE',
+  //   StreamOrder: ORIGINAL | VIDEO_BITRATE_ASCENDING | VIDEO_BITRATE_DESCENDING
+  // }
   // },
   // Origination: ALLOW | DENY,
   StartoverWindowSeconds: 1209600,
@@ -235,4 +237,4 @@ var originEndpointJSON = {
   //   'STRING_VALUE',
   //   /* more items */
   // ]
-};
+}
