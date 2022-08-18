@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
   var params = {
     EndTime: body.EndTime,
     Id: body.Id,
-    OriginEndPoint: body.OriginEndPoint,
+    OriginEndpointId: body.OriginEndpointId,
     S3Destination: {
       BucketName: body.S3Destination.BucketName,
       ManifestKey: body.S3Destination.ManifestKey,
