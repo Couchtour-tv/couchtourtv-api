@@ -100,6 +100,9 @@ exports.handler = async (event, context) => {
       destinationOutputGroup,
     ]
 
+    channelCreateTemplateJSON.Name =
+      Date.now().toString() + "-" + body.InputAttachmentName
+
     console.log("[45] createChannelMediaLive", channelCreateTemplateJSON)
 
     var medialive = new AWS.MediaLive(OptionsMediaLive)
