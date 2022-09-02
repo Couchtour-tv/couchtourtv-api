@@ -924,24 +924,24 @@ functions:
             allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- Frontend API
-  get-all-vod:
-    handler: lambdas/endpoints/graphql/getAllVOD.handler
-    events:
-      - http:
-          path: api/v1/get-all-vod
-          method: POST
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
+  # get-all-vod:
+  #   handler: lambdas/endpoints/graphql/getAllVOD.handler
+  #   events:
+  #     - http:
+  #         path: api/v1/get-all-vod
+  #         method: POST
+  #         # authorizer: aws_iam
+  #         cors:
+  #           origin: "*"
+  #           headers:
+  #             - Content-Type
+  #             - Accept
+  #             - X-Amz-Date
+  #             - Authorization
+  #             - X-Api-Key
+  #             - X-Amz-Security-Token
+  #             - X-Amz-User-Agent
+  #           allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- Nomad Integration - REMOVED TO CREATE SPACE
 
