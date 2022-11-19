@@ -4,10 +4,10 @@ Parameters:
     Default: sg-0d83d2d74da4d13a0
   AppSubnet1Parameter:
     Type: String
-    Default: subnet-0028d0a101ab2f270
+    Default: subnet-07c41b4d72bb633ba
   AppSubnet2Parameter:
     Type: String
-    Default: subnet-003f071515e7ee58e
+    Default: subnet-0a5b45ebc47fbda66
 Resources:
   Logs:
     Type: "AWS::Logs::LogGroup"
