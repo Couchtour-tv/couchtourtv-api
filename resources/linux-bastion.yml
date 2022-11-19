@@ -1,89 +1,99 @@
+Parameters:
+  AppSecurityGroupParameter:
+    Type: String
+    Default: ami-xxx
+  AppSubnet1Parameter:
+    Type: String
+    Default: ami-xxx1
+  AppSubnet2Parameter:
+    Type: String
+    Default: ami-xxx2
 Resources:
   Logs:
-    Type: 'AWS::Logs::LogGroup'
+    Type: "AWS::Logs::LogGroup"
     Properties:
       RetentionInDays: 7
   EIP:
-    Type: 'AWS::EC2::EIP'
+    Type: "AWS::EC2::EIP"
     Properties:
       Domain: vpc
 
   BastionSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: "AWS::EC2::SecurityGroup"
     Properties:
       GroupDescription: Linux Bastion Host ssh and ICMP
       SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
       VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: "Linux Bastion"
 
   InstanceProfile:
-    Type: 'AWS::IAM::InstanceProfile'
+    Type: "AWS::IAM::InstanceProfile"
     Properties:
-      Path: '/'
+      Path: "/"
       Roles:
-      - !Ref IAMRole
+        - !Ref IAMRole
 
   IAMRole:
-    Type: 'AWS::IAM::Role'
+    Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: "2012-10-17"
         Statement:
-        - Effect: Allow
-          Principal:
-            Service:
-            - ec2.amazonaws.com
-          Action:
-          - sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - sts:AssumeRole
       ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
-      Path: '/'
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+      Path: "/"
       Policies:
-      - PolicyName: 'ec2'
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Effect: Allow
-            Action:
-            - 'ec2:AssociateAddress'
-            - 'ec2:DescribeVolumeStatus'
-            - 'ec2:DescribeTag'
-            - 'ec2:DescribeVolumes'
-            - 'ec2:DescribeVolumeAttribute'
-            Resource:
-            - '*'
-      - PolicyName: 'ec2tag'
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Effect: Allow
-            Action:
-            - 'ec2:CreateTags'
-            Resource:
-            - 'arn:aws:ec2:*:*:volume/*'
-      - PolicyName: logs
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Effect: Allow
-            Action:
-            - 'logs:CreateLogGroup'
-            - 'logs:CreateLogStream'
-            - 'logs:PutLogEvents'
-            - 'logs:DescribeLogStreams'
-            Resource:
-            - 'arn:aws:logs:*:*:*'
+        - PolicyName: "ec2"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "ec2:AssociateAddress"
+                  - "ec2:DescribeVolumeStatus"
+                  - "ec2:DescribeTag"
+                  - "ec2:DescribeVolumes"
+                  - "ec2:DescribeVolumeAttribute"
+                Resource:
+                  - "*"
+        - PolicyName: "ec2tag"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "ec2:CreateTags"
+                Resource:
+                  - "arn:aws:ec2:*:*:volume/*"
+        - PolicyName: logs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                  - "logs:DescribeLogStreams"
+                Resource:
+                  - "arn:aws:logs:*:*:*"
 
   LaunchConfiguration:
-    Type: 'AWS::AutoScaling::LaunchConfiguration'
+    Type: "AWS::AutoScaling::LaunchConfiguration"
     Metadata:
-      'AWS::CloudFormation::Init':
+      "AWS::CloudFormation::Init":
         configSets:
           default: awslogs, config
         awslogs:
@@ -91,16 +101,16 @@ Resources:
             yum:
               awslogs: []
           files:
-            '/etc/awslogs/awscli.conf':
+            "/etc/awslogs/awscli.conf":
               content: !Sub |
                 [default]
                 region = ${AWS::Region}
                 [plugins]
                 cwlogs = cwlogs
-              mode: '000644'
+              mode: "000644"
               owner: root
               group: root
-            '/etc/awslogs/awslogs.conf':
+            "/etc/awslogs/awslogs.conf":
               content: !Sub |
                 [general]
                 state_file = /var/lib/awslogs/agent-state
@@ -147,7 +157,7 @@ Resources:
                 file = /var/log/dmesg
                 log_stream_name = {instance_id}/var/log/dmesg
                 log_group_name = ${Logs}
-              mode: '000644'
+              mode: "000644"
               owner: root
               group: root
           services:
@@ -157,22 +167,22 @@ Resources:
                 ensureRunning: true
                 packages:
                   yum:
-                  - awslogs
+                    - awslogs
                 files:
-                - '/etc/awslogs/awslogs.conf'
-                - '/etc/awslogs/awscli.conf'
+                  - "/etc/awslogs/awslogs.conf"
+                  - "/etc/awslogs/awscli.conf"
         config:
           files:
-            '/etc/cfn/cfn-hup.conf':
+            "/etc/cfn/cfn-hup.conf":
               content: !Sub |
                 [main]
                 stack=${AWS::StackId}
                 region=${AWS::Region}
                 interval=1
-              mode: '000400'
+              mode: "000400"
               owner: root
               group: root
-            '/etc/cfn/hooks.d/cfn-auto-reloader.conf':
+            "/etc/cfn/hooks.d/cfn-auto-reloader.conf":
               content: !Sub |
                 [cfn-auto-reloader-hook]
                 triggers=post.update
@@ -185,8 +195,8 @@ Resources:
                 enabled: true
                 ensureRunning: true
                 files:
-                - '/etc/cfn/cfn-hup.conf'
-                - '/etc/cfn/hooks.d/cfn-auto-reloader.conf'
+                  - "/etc/cfn/cfn-hup.conf"
+                  - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
     Properties:
       AssociatePublicIpAddress: true
       EbsOptimized: false
@@ -194,10 +204,10 @@ Resources:
       ImageId: ami-0915bcb5fa77e4892
       InstanceType: t3.micro
       SecurityGroups:
-      - !Ref BastionSecurityGroup
+        - !Ref BastionSecurityGroup
       KeyName: branchDNA-production
       UserData:
-        'Fn::Base64': !Sub |
+        "Fn::Base64": !Sub |
           #!/bin/bash -x
           for i in $(aws ec2 describe-volumes --region=${AWS::Region} --filters "Name=attachment.instance-id, Values=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)" Name=attachment.device,Values=/dev/xvda --query "Volumes[].VolumeId" --out text) ; do aws --region=${AWS::Region} ec2 create-tags --resources $i --tags Key=Name,Value=Bastion-/dev/sda1 ; done
           yum update -y
@@ -212,9 +222,9 @@ Resources:
           /opt/aws/bin/cfn-signal -e 0 --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
 
   AutoScalingGroup:
-    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Type: "AWS::AutoScaling::AutoScalingGroup"
     Properties:
-      VPCZoneIdentifier: 
+      VPCZoneIdentifier:
         - !Ref PublicSubnet1
         - !Ref PublicSubnet2
       DesiredCapacity: 1
@@ -224,15 +234,14 @@ Resources:
       Tags:
         - Key: Name
           Value: Bastion
-          PropagateAtLaunch: 'true'
+          PropagateAtLaunch: "true"
         - Key: AmazonLinuxUpdatesScan
           Value: true
-          PropagateAtLaunch: 'true'
+          PropagateAtLaunch: "true"
         - Key: AmazonLinuxUpdatesGroup1
           Value: true
-          PropagateAtLaunch: 'true'
+          PropagateAtLaunch: "true"
     CreationPolicy:
       ResourceSignal:
         Count: 1
         Timeout: PT10M
-
