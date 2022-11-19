@@ -1,13 +1,13 @@
 Parameters:
   AppSecurityGroupParameter:
     Type: String
-    Default: ami-xxx
+    Default: i-030cc125b9b477cc0
   AppSubnet1Parameter:
     Type: String
-    Default: ami-xxx1
+    Default: subnet-0028d0a101ab2f270
   AppSubnet2Parameter:
     Type: String
-    Default: ami-xxx2
+    Default: subnet-003f071515e7ee58e
 Resources:
   Logs:
     Type: "AWS::Logs::LogGroup"
