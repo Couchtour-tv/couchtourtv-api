@@ -1,13 +1,3 @@
-Parameters:
-  AppSecurityGroupParameter:
-    Type: String
-    Default: sg-0d83d2d74da4d13a0
-  AppSubnet1Parameter:
-    Type: String
-    Default: subnet-0028d0a101ab2f270
-  AppSubnet2Parameter:
-    Type: String
-    Default: subnet-003f071515e7ee58e
 Resources:
   Logs:
     Type: "AWS::Logs::LogGroup"

@@ -40,25 +40,6 @@ exports.handler = async (event, context) => {
     }
     console.log("[32] describe origin endpoint SUCCESS dataOpt", dataOpt)
     return Responses._200({ success: successOpt, data: dataOpt })
-
-    // const resp = await medialive.describeChannel(params, function(err, data) {
-    //     if (err) {
-    //         console.log("[18] describeChannelsMediaLive", err, err.stack);
-    //         return err;
-    //     } else  {
-    //         console.log("[21] describeChannelsMediaLive", data);
-    //         successOpt = true;
-    //         return data;
-    //     }
-    // }).promise();
-
-    // if (successOpt) {
-    //     dataOpt = { 'Id': resp.Id, 'State': resp.State };
-    // } else {
-    //     dataOpt = resp;
-    // };
-    // console.log("[32] describeChannelsMediaLive", dataOpt);
-    // return Responses._200({ success: successOpt, data: dataOpt });
   } catch (error) {
     console.log("[37] describe origin endpoint ERROR", error)
     return Responses._404({
