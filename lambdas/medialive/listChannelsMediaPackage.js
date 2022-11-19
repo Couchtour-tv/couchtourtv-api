@@ -39,12 +39,12 @@ exports.handler = async (event, context) => {
     }
 
     console.log("[32] listChannelsMediaPackage", resp)
-    return Responses._200({ "success": true, "data": dataOpt })
+    return Responses._200({ success: true, data: dataOpt })
   } catch (error) {
     console.log("[37] listChannelsMediaPackage", error)
     return Responses._404({
-      "message": "listChannelsMediaPackage failed",
-      "success": successOpt,
+      message: "listChannelsMediaPackage failed",
+      success: successOpt,
     })
   }
 }

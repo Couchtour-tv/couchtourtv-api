@@ -35,12 +35,12 @@ exports.handler = async (event, context) => {
       dataOpt = resp
     }
     console.log("[32] describeChannelsMediaLive", dataOpt)
-    return Responses._200({ "success": successOpt, "data": dataOpt })
+    return Responses._200({ success: successOpt, data: dataOpt })
   } catch (error) {
     console.log("[37] describeChannelsMediaLive", error)
     return Responses._404({
-      "message": "describeChannelsMediaLive failed",
-      "success": successOpt,
+      message: "describeChannelsMediaLive failed",
+      success: successOpt,
     })
   }
 }
