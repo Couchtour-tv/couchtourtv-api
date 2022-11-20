@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
       .promise()
 
     if (successOpt) {
-      dataOpt = { Id: resp.Id, State: resp.State, Response: resp }
+      dataOpt = { Id: resp.Id, State: resp.State }
     } else {
       dataOpt = resp
     }
