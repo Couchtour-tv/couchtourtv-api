@@ -1,5 +1,9 @@
 {
     "rules": {
     	"semi": ["off"]
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020
     }
 }
