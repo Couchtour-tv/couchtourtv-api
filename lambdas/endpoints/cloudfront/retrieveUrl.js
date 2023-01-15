@@ -7,7 +7,7 @@ exports.handler = async (event) => {
   console.log("retrieve-cloudfront-url-event ::", event)
   try {
     const body = await JSON.parse(event.body)
-    const { key, value } = body
+    // const { key, value } = body
     console.log("retrieve-cloudfront-url-body ::", body)
 
     return Responses._200({ cloudfrontUrl })
