@@ -1,7 +1,8 @@
 Parameters:
   AppSecurityGroupParameter:
     Type: String
-    Default: sg-0d83d2d74da4d13a0
+    Default: sg-0f08d3300a8344186
+    # Default: sg-0d83d2d74da4d13a0
   AppSubnet1Parameter:
     Type: String
     Default: subnet-07c41b4d72bb633ba
