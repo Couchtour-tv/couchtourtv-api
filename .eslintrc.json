@@ -1,12 +1,14 @@
 {
     "rules": {
-    	"semi": ["off"]
+    	"semi": ["off"],
+        "no-console": "off"
     },
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 6
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "prettier"
     ]
 }
