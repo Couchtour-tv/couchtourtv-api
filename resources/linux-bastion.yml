@@ -9,7 +9,7 @@ Parameters:
   AppSubnet2Parameter:
     Type: String
     Default: subnet-0a5b45ebc47fbda66
-  VPC:
+  VPCParameter:
     Type: String
     Default: vpc-0c0ba63a137f9f920
 Resources:
@@ -31,7 +31,8 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-      VpcId: !Ref VPC
+      VpcId: !Ref VPCParameter
+      # VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: "Linux Bastion"
