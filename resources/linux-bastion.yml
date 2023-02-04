@@ -9,6 +9,9 @@ Parameters:
   AppSubnet2Parameter:
     Type: String
     Default: subnet-0a5b45ebc47fbda66
+  VPC:
+    Type: String
+    Default: vpc-0c0ba63a137f9f920
 Resources:
   Logs:
     Type: "AWS::Logs::LogGroup"
