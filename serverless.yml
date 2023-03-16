@@ -5,6 +5,8 @@ useDotenv: true
 package:
   individually: true
 
+  # https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/applications/branchdna-api-prod
+
 plugins:
   - serverless-bundle
   - serverless-offline
@@ -1016,24 +1018,24 @@ functions:
             allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- CRONS
-  daily-activity-cron:
-    handler: lambdas/crons/dailyActivityCron.handler
-    events:
-      - schedule:
-          rate: cron(0 18 * * ? *)
-          enabled: true
-  monthly-activity-cron:
-    handler: lambdas/crons/monthlyActivityCron.handler
-    events:
-      - schedule:
-          rate: cron(10 18 1 * ? *)
-          enabled: true
-  send-mail-cron:
-    handler: lambdas/crons/sendMailCron.handler
-    events:
-      - schedule:
-          rate: cron(20 18 * * ? *)
-          enabled: true
+  # daily-activity-cron:
+  #   handler: lambdas/crons/dailyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(0 18 * * ? *)
+  #         enabled: true
+  # monthly-activity-cron:
+  #   handler: lambdas/crons/monthlyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(10 18 1 * ? *)
+  #         enabled: true
+  # send-mail-cron:
+  #   handler: lambdas/crons/sendMailCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(20 18 * * ? *)
+  #         enabled: true
 ## ----------------------------------------------------------------------------------
 # parameters:
 #   AppSecurityGroupParameter:
