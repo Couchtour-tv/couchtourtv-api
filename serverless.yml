@@ -1047,23 +1047,23 @@ functions:
 #   AppSubnet2Parameter:
 #     Type: String
 #     Default: subnet-0a5b45ebc47fbda66
+parameters:
+  AppSecurityGroupParameter:
+    Type: String
+    # Default: sg-0f08d3300a8344186
+    Default: sg-0d83d2d74da4d13a0
+    # Default: sg-0309ad2522ffee92b ---
+  AppSubnet1Parameter:
+    Type: String
+    Default: subnet-07c41b4d72bb633ba
+    # Default: subnet-07c41b4d72bb633ba
+  AppSubnet2Parameter:
+    Type: String
+    Default: subnet-0a5b45ebc47fbda66
+    # Default: subnet-0a5b45ebc47fbda66
 
 # Create our resources with separate CloudFormation templates
 resources:
-  Parameters:
-    AppSecurityGroupParameter:
-      Type: String
-      # Default: sg-0f08d3300a8344186
-      Default: sg-0d83d2d74da4d13a0
-      # Default: sg-0309ad2522ffee92b ---
-    AppSubnet1Parameter:
-      Type: String
-      Default: subnet-07c41b4d72bb633ba
-      # Default: subnet-07c41b4d72bb633ba
-    AppSubnet2Parameter:
-      Type: String
-      Default: subnet-0a5b45ebc47fbda66
-      # Default: subnet-0a5b45ebc47fbda66
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
   # API Gateway Socket Definition and Handlers
