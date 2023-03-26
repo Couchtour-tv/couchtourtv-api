@@ -12,9 +12,9 @@ Parameters:
     Type: String
     Default: subnet-0a5b45ebc47fbda66
     # Default: subnet-0a5b45ebc47fbda66
-  VPCParameter:
-    Type: String
-    Default: vpc-0c0ba63a137f9f920
+  # VPCParameter:
+  #   Type: String
+  #   Default: vpc-0c0ba63a137f9f920
 Resources:
   Logs:
     Type: "AWS::Logs::LogGroup"
@@ -34,8 +34,8 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-      VpcId: !Ref VPCParameter
-      # VpcId: !Ref VPC
+      # VpcId: !Ref VPCParameter
+      VpcId: !Ref VPC
       Tags:
         - Key: Name
           Value: "Linux Bastion"
@@ -212,8 +212,8 @@ Resources:
       ImageId: ami-0915bcb5fa77e4892
       InstanceType: t3.micro
       SecurityGroups:
-        # - !Ref BastionSecurityGroup
-        - !Ref AppSecurityGroupParameter
+        - !Ref BastionSecurityGroup
+        # - !Ref AppSecurityGroupParameter
       KeyName: branchDNA-production
       UserData:
         "Fn::Base64": !Sub |
@@ -234,10 +234,10 @@ Resources:
     Type: "AWS::AutoScaling::AutoScalingGroup"
     Properties:
       VPCZoneIdentifier:
-        - !Ref AppSubnet1Parameter
-        - !Ref AppSubnet2Parameter
-        # - !Ref PublicSubnet1
-        # - !Ref PublicSubnet2
+        # - !Ref AppSubnet1Parameter
+        # - !Ref AppSubnet2Parameter
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
       DesiredCapacity: 1
       LaunchConfigurationName: !Ref LaunchConfiguration
       MaxSize: 1
