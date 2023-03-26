@@ -1064,6 +1064,24 @@ resources:
         Type: String
         Default: subnet-0a5b45ebc47fbda66
         # Default: subnet-0a5b45ebc47fbda66
+
+        # TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-2/EC2ChooseAMI.template
+  # s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
+  - Resources:
+      rootStackWithParams:
+        Type: AWS::CloudFormation::Stack
+        Properties:
+          # NotificationARNs:
+          #   - String
+          Parameters:
+            AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
+            AppSubnet1Parameter: !Ref AppSubnet1Parameter
+            AppSubnet2Parameter: !Ref AppSubnet2Parameter
+          # Tags:
+          #   - Tag
+          TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
+          # TimeoutInMinutes: Integer
+
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
   # API Gateway Socket Definition and Handlers
