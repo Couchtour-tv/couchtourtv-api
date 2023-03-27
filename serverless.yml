@@ -1075,7 +1075,10 @@ resources:
         Type: String
         Default: subnet-0a5b45ebc47fbda66
         # Default: subnet-0a5b45ebc47fbda66
-
+      StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
+        Type: String
+      StripeDashupdateDashsubscriptionLambdaFunctionParameter:
+        Type: String
         # TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-2/EC2ChooseAMI.template
   # s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
   - Resources:
