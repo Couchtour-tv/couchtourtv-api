@@ -1049,17 +1049,17 @@ functions:
 #     Default: subnet-0a5b45ebc47fbda66
 
 # Create our resources with separate CloudFormation templates
-outputs:
-  StripeDashcancelDashsubscriptionDasheopFunctionArn:
-    Value:
-      Fn::GetAtt:
-        - StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
-        - Arn
-  StripeDashupdateDashsubscriptionFunctionArn:
-    Value:
-      Fn::GetAtt:
-        - StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
-        - Arn
+# outputs:
+#   StripeDashcancelDashsubscriptionDasheopFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
+#         - Arn
+#   StripeDashupdateDashsubscriptionFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
+#         - Arn
 resources:
   - Parameters:
       AppSecurityGroupParameter:
@@ -1089,9 +1089,11 @@ resources:
             AppSubnet1Parameter: !Ref AppSubnet1Parameter
             AppSubnet2Parameter: !Ref AppSubnet2Parameter
             StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
-              Value: !Sub "${StripeDashcancelDashsubscriptionDasheopFunctionArn}"
+              !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+              # Value: !Sub "${StripeDashcancelDashsubscriptionDasheopFunctionArn}"
             StripeDashupdateDashsubscriptionLambdaFunctionParameter:
-              Value: !Sub "${StripeDashupdateDashsubscriptionFunctionArn}"
+              !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
+              # Value: !Sub "${StripeDashupdateDashsubscriptionFunctionArn}"
           # Tags:
           #   - Tag
           TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
