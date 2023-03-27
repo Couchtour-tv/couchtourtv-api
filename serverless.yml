@@ -1077,10 +1077,12 @@ resources:
         # Default: subnet-0a5b45ebc47fbda66
       StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
         Type: String
-        Default: branchdna-api-prod-stripe-cancel-subscription-eop
+        Default: StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
+        # Default: branchdna-api-prod-stripe-cancel-subscription-eop
       StripeDashupdateDashsubscriptionLambdaFunctionParameter:
         Type: String
-        Default: branchdna-api-prod-stripe-update-subscription
+        Default: StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
+        # Default: branchdna-api-prod-stripe-update-subscription
         # TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-2/EC2ChooseAMI.template
   # s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
   - Resources:
