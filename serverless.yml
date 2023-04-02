@@ -817,6 +817,7 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   stripe-update-subscription:
+    name: stripeUpdateSubscription
     handler: lambdas/endpoints/stripe/updateSubscription.handler
     events:
       - http:
@@ -853,6 +854,7 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   stripe-cancel-subscription-eop:
+    name: stripeCancelSubscriptionEop
     handler: lambdas/endpoints/stripe/cancelSubscriptionEOP.handler
     events:
       - http:
@@ -1064,50 +1066,32 @@ resources:
   - Parameters:
       AppSecurityGroupParameter:
         Type: String
-        # Default: sg-0f08d3300a8344186
         Default: sg-0d83d2d74da4d13a0
-        # Default: sg-0309ad2522ffee92b ---
       AppSubnet1Parameter:
         Type: String
         Default: subnet-07c41b4d72bb633ba
-        # Default: subnet-07c41b4d72bb633ba
       AppSubnet2Parameter:
         Type: String
         Default: subnet-0a5b45ebc47fbda66
-        # Default: subnet-0a5b45ebc47fbda66
       StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
         Type: String
-        # Default: StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
-        Default: arn:aws:lambda:us-east-1:570573558182:function:StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
+        Default: stripeCancelSubscriptionEop
         # Default: branchdna-api-prod-stripe-cancel-subscription-eop
       StripeDashupdateDashsubscriptionLambdaFunctionParameter:
         Type: String
-        # Default: StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
-        Default: arn:aws:lambda:us-east-1:570573558182:function:StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
+        Default: stripeUpdateSubscription
         # Default: branchdna-api-prod-stripe-update-subscription
-        # TemplateURL: https://s3.amazonaws.com/cloudformation-templates-us-east-2/EC2ChooseAMI.template
-  # s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
   - Resources:
       9NestedStackkWithParams:
         Type: AWS::CloudFormation::Stack
         Properties:
-          # NotificationARNs:
-          #   - String
           Parameters:
             AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
             AppSubnet1Parameter: !Ref AppSubnet1Parameter
             AppSubnet2Parameter: !Ref AppSubnet2Parameter
-            StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
-              !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
-              # Value: !Sub "${StripeDashcancelDashsubscriptionDasheopFunctionArn}"
-            StripeDashupdateDashsubscriptionLambdaFunctionParameter:
-              !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
-              # Value: !Sub "${StripeDashupdateDashsubscriptionFunctionArn}"
-          # Tags:
-          #   - Tag
+            StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+            StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
           TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
-          # TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T194040.376Zinw-CloudformationRootStack1
-          # TimeoutInMinutes: Integer
 
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
