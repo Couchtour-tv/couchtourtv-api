@@ -1075,12 +1075,12 @@ resources:
         Default: subnet-0a5b45ebc47fbda66
       StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
         Type: String
-        Default: stripeCancelSubscriptionEop
-        # Default: branchdna-api-prod-stripe-cancel-subscription-eop
+        # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-cancel-subscription-eop
+        Default: branchdna-api-prod-stripe-cancel-subscription-eop
       StripeDashupdateDashsubscriptionLambdaFunctionParameter:
         Type: String
-        Default: stripeUpdateSubscription
-        # Default: branchdna-api-prod-stripe-update-subscription
+        # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+        Default: branchdna-api-prod-stripe-update-subscription
   - Resources:
       9NestedStackkWithParams:
         Type: AWS::CloudFormation::Stack
@@ -1092,6 +1092,9 @@ resources:
             StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
             StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
           TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+          # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
+          # TemplateURL: s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+          # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
 
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
