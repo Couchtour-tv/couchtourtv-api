@@ -1018,7 +1018,7 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
-  ## --------------------------------------------------------------------------------
+  ## -------------------------------------------------------------------------------
   ## ---- CRONS
   # daily-activity-cron:
   #   handler: lambdas/crons/dailyActivityCron.handler
