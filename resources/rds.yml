@@ -1,0 +1,47 @@
+Resources:
+  RDSCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      MasterUsername: !Join ['', ['{{resolve:secretsmanager:', !Ref RDSCredentialSecretStore, ':SecretString:username}}' ]]
+      MasterUserPassword: !Join ['', ['{{resolve:secretsmanager:', !Ref RDSCredentialSecretStore, ':SecretString:password}}' ]]
+      Engine: aurora-postgresql
+      EngineMode: serverless
+      DBSubnetGroupName:
+        Ref: RDSSubnetGroup
+      VpcSecurityGroupIds:
+        - !Ref RDSSecurityGroup
+      ScalingConfiguration:
+        MinCapacity: 2
+        MaxCapacity: 8
+        AutoPause: true
+        SecondsUntilAutoPause: 3600
+  RDSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Enable RDS access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref AppSecurityGroup
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref BastionSecurityGroup
+  RDSCredentialSecretStore:
+    Type: "AWS::SecretsManager::Secret"
+    Properties:
+      Name: !Sub RDS-master
+      Description: !Sub Credentials for the RDS Service in the ${AWS::StackName} stack
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "pgadmin"}'
+        GenerateStringKey: "password"
+        PasswordLength: 30
+        ExcludeCharacters: '"@/\'
+  secretRDSInstanceAttachment:
+    Type: AWS::SecretsManager::SecretTargetAttachment
+    Properties:
+      SecretId: !Ref RDSCredentialSecretStore
+      TargetId: !Ref RDSCluster
+      TargetType: AWS::RDS::DBCluster

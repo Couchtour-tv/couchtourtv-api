@@ -1,0 +1,11 @@
+Resources:
+  HostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: ${self:custom.Route53config.Name}
+      HostedZoneConfig:
+        Comment: !Sub "Hosted zone for ${self:custom.Route53config.Name}"
+      VPCs:
+        - VPCId: !Ref VPC
+          VPCRegion: ${self:custom.Route53config.Region}
+

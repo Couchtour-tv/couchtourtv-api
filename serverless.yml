@@ -1,8 +1,11 @@
 service: branchdna-api
-
+variablesResolutionMode: 20210326
+useDotenv: true
 # Create an optimized package for our functions
 package:
   individually: true
+
+  # https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/applications/branchdna-api-prod
 
 plugins:
   - serverless-bundle
@@ -10,13 +13,18 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-dynamodb-local
   - serverless-dynamodb-seed
-  # - serverless-offline-redis-server
-
-
+  - serverless-vpc-plugin
+  # - serverless-plugin-split-stacks
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
-  stage: ${opt:stage, self:provider.stage}-branchdna
+  # stage: ${opt:stage, self:provider.stage}-branchdna
+  stage: ${env:DEPLOY_STAGE}-branchdna
+  # splitStacks:
+  #   nestedStackCount: 20 # Controls the number of created nested stacks
+  #   perFunction: false
+  #   perType: false
+  #   perGroupFunction: true
   dynamodb:
     stages:
       - dev
@@ -32,16 +40,70 @@ custom:
         sources:
           - table: ${env:MEDIA_META_TABLE}
             sources: [./resources/seeds/movieMetaSeed.json]
+          - table: ${env:USER_TABLE}
+            sources: [./resources/seeds/import-users.json]
+          - table: ${env:EVENTS_TABLE}
+            sources: [./resources/seeds/events.json]
   seed:
     movie-meta-seed:
       table: ${env:MEDIA_META_TABLE}
       sources:
         - [./resources/seeds/movieMetaSeed.json]
 
+  vpcConfig:
+    cidrBlock: "10.0.0.0/16"
+    createNatGateway: 2
+    createDbSubnet: true
+    zones:
+      - us-east-1a
+      - us-east-1b
+
+  Route53config:
+    Region: us-east-1
+    Name: branchdna.pri
+
+  # ElastiCacheconfig:
+  #   CACHE_INSTANCE_SIZE: cache.r6g.large
+
+  # SQSConfig:
+  #   QueueName: couchtour-queue.fifo
+  #   FifoQueue: true
+
 provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
+  lambdaHashingVersion: 20201221
+  httpApi:
+    cors: true
+    # --------------------
+    # cors:
+    #   origin: '*'
+    #   headers:
+    #     - Content-Type
+    #     - X-Amz-Date
+    #     - Authorization
+    #     - X-Api-Key
+    #     - X-Amz-Security-Token
+    #   allowCredentials: false
+    # --------------------
+    # allowedOrigins:
+    #     - '*'
+    # allowedMethods:
+    #   - GET
+    #   - OPTIONS
+    #   - POST
+    #   - PUT
+    #   - DELETE
+    # allowedHeaders:
+    #   - Content-Type
+    #   - X-Amz-Date
+    #   - Authorization
+    #   - X-Api-Key
+    #   - X-Amz-Security-Token
+    #   - X-Amz-User-Agent
+    #   - X-Transaction-Key
+    #   - Access-Control-Allow-Origin
 
   # These environment variables are made available to our functions
   # under process.env.
@@ -49,39 +111,46 @@ provider:
     tableName: ${env:DEPLOY_STAGE}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      # Restrict our IAM role permissions to
-      # the specific table for the stage
-      Resource:
-        - "*"
-    - Effect: Allow
-      Action:
-        - sns:SetSMSAttributes
-        - sns:Publish
-      Resource: '*'
-    - Effect: Allow
-      Action:
-        - cognito-idp:AdminGetUser
-        - cognito-idp:ListUsers
-      Resource: "*"
+  # iamRoleStatements:
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          # Restrict our IAM role permissions to
+          # the specific table for the stage
+          Resource:
+            - "*"
+        - Effect: Allow
+          Action:
+            - sns:SetSMSAttributes
+            - sns:Publish
+          Resource: "*"
+        - Effect: Allow
+          Action:
+            - cognito-idp:AdminGetUser
+            - cognito-idp:ListUsers
+          Resource: "*"
 
 functions:
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
+  ## ---- API ENDPOINTS ::
+  ## ----------------------------------------------------------------------------------
+  ## ----------------------------------------------------------------------------------
   create:
     handler: lambdas/notes/create.main
     events:
       - http:
           path: notes
           method: post
-          cors: true
           authorizer: aws_iam
   get:
     handler: lambdas/notes/get.main
@@ -89,7 +158,6 @@ functions:
       - http:
           path: notes/{id}
           method: get
-          cors: true
           authorizer: aws_iam
   list:
     handler: lambdas/notes/list.main
@@ -97,7 +165,6 @@ functions:
       - http:
           path: notes
           method: get
-          cors: true
           authorizer: aws_iam
   update:
     handler: lambdas/notes/update.main
@@ -105,7 +172,6 @@ functions:
       - http:
           path: notes/{id}
           method: put
-          cors: true
           authorizer: aws_iam
   delete:
     handler: lambdas/notes/delete.main
@@ -113,7 +179,6 @@ functions:
       - http:
           path: notes/{id}
           method: delete
-          cors: true
           authorizer: aws_iam
   purchases:
     handler: lambdas/purchases/list.main
@@ -121,16 +186,13 @@ functions:
       - http:
           path: purchases
           method: get
-          cors: true
           authorizer: aws_iam
-
   billing:
     handler: lambdas/purchases/billing.main
     events:
       - http:
           path: billing
           method: post
-          cors: true
           authorizer: aws_iam
   sendSMS:
     handler: lambdas/endpoints/sendSMS.handler
@@ -138,7 +200,6 @@ functions:
       - http:
           path: send-sms
           method: POST
-          cors: true
           authorizer: aws_iam
   deviceActivate:
     handler: lambdas/tvapps/deviceActivate.handler
@@ -146,98 +207,920 @@ functions:
       - http:
           path: device-activate
           method: POST
-          cors: true
           authorizer: aws_iam
-
-  websocket-connect:
-    handler: lambdas/websockets/connect.handler
+  stripeSuccessfulCheckoutWebhook:
+    handler: lambdas/webhooks/stripeSuccessfulCheckout.handler
     events:
-      - websocket:
-          route: $connect
-          cors: true
-  websocket-disconnect:
-    handler: lambdas/websockets/disconnect.handler
+      - http:
+          path: confirm-stripe-checkout
+          method: POST
+  stripeHandleSubscriptionsWebhook:
+    handler: lambdas/webhooks/stripeHandleSubscriptions.handler
     events:
-      - websocket:
-          route: $disconnect
-          cors: true
-  websocket-default:
-    handler: lambdas/websockets/default.handler
+      - http:
+          path: handle-stripe-subscriptions
+          method: POST
+  stripeHandleInvoiceWebhook:
+    handler: lambdas/webhooks/stripeHandleInvoice.handler
     events:
-      - websocket:
-          route: $default
-          cors: true
-  websocket-message:
-    handler: lambdas/websockets/message.handler
+      - http:
+          path: handle-stripe-invoice
+          method: POST
+  stripeEverythingWebhook:
+    handler: lambdas/webhooks/stripeEverything.handler
     events:
-      - websocket:
-          route: message
-          cors: true
-  websocket-sendmessage:
-    handler: lambdas/websockets/sendmessage.handler
+      - http:
+          path: everything
+          method: POST
+  stripePaymentIntentSuccessWebhook:
+    handler: lambdas/webhooks/stripePaymentIntentSuccess.handler
     events:
-      - websocket:
-          route: sendmessage
-          cors: true
-  websocket-echo:
-    handler: lambdas/websockets/echo.handler
+      - http:
+          path: payment-intent-success
+          method: POST
+  stripeChargeSuccessWebhook:
+    handler: lambdas/webhooks/stripeChargeSuccess.handler
     events:
-      - websocket:
-          route: echo
-          cors: true
-  websocket-whoami:
-    handler: lambdas/websockets/whoami.handler
+      - http:
+          path: charge-success
+          method: POST
+  fetchUserMetaByEmail:
+    handler: lambdas/endpoints/users/getUserMetaData.handler
     events:
-      - websocket:
-          route: whoami
-          cors: true
-  websocket-onlinenow:
-    handler: lambdas/websockets/onlinenow.handler
+      - http:
+          path: user-meta
+          method: POST
+  fetchAllPurchaseables:
+    handler: lambdas/endpoints/purchaseables/getAllPurchaseables.handler
     events:
-      - websocket:
-          route: onlinenow
-          cors: true
-  websocket-upload-media-meta:
-    handler: lambdas/websockets/uploadMediaMeta.handler
+      - http:
+          path: all-purchaseables
+          method: GET
+  player-analytics:
+    handler: lambdas/analytics/playerAnalytics.handler
     events:
-      - websocket:
-          route: upload-media-meta
-          cors: true
-  websocket-get-videos:
-    handler: lambdas/websockets/getVideos.handler
+      - http:
+          path: api/v1/player-analytics
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-channel-media-live:
+    handler: lambdas/medialive/createChannelMediaLive.handler
     events:
-      - websocket:
-          route: getvideos
-          cors: true
-  websocket-add-device-id:
-    handler: lambdas/websockets/addDeviceId.handler
+      - http:
+          path: api/v1/create-channel-media-live
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-channel-media-package:
+    handler: lambdas/medialive/createChannelMediaPackage.handler
     events:
-      - websocket:
-          route: add-device-id
-          cors: true
-  websocket-user-login:
-    handler: lambdas/websockets/userLogin.handler
+      - http:
+          path: api/v1/create-channel-media-package
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-origin-endpoint-media-package:
+    handler: lambdas/medialive/createOriginEndpointMediaPackage.handler
     events:
-      - websocket:
-          route: user-login
-          cors: true
-  websocket-user-logout:
-    handler: lambdas/websockets/userLogout.handler
+      - http:
+          path: api/v1/create-origin-endpoint-media-package
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-channels-media-package:
+    handler: lambdas/medialive/listChannelsMediaPackage.handler
     events:
-      - websocket:
-          route: user-logout
-          cors: true
-  websocket-user-signUp:
-    handler: lambdas/websockets/userSignUp.handler
+      - http:
+          path: api/v1/list-channels-media-package
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-channels-media-live:
+    handler: lambdas/medialive/listChannelsMediaLive.handler
     events:
-      - websocket:
-          route: user-signup
-          cors: true
+      - http:
+          path: api/v1/list-channels-media-live
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-input-devices-media-live:
+    handler: lambdas/medialive/listInputDevicesMediaLive.handler
+    events:
+      - http:
+          path: api/v1/list-input-devices-media-live
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-inputs-media-live:
+    handler: lambdas/medialive/listInputsMediaLive.handler
+    events:
+      - http:
+          path: api/v1/list-inputs-media-live
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  describe-channel-media-live:
+    handler: lambdas/medialive/describeChannelMediaLive.handler
+    events:
+      - http:
+          path: api/v1/describe-channel-media-live/{channelId}
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stop-channel-media-live:
+    handler: lambdas/medialive/stopChannelMediaLive.handler
+    events:
+      - http:
+          path: api/v1/stop-channel-media-live
+          method: PUT
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  start-channel-media-live:
+    handler: lambdas/medialive/startChannelMediaLive.handler
+    events:
+      - http:
+          path: api/v1/start-channel-media-live
+          method: PUT
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  delete-channel-media-live:
+    handler: lambdas/medialive/deleteChannelMediaLive.handler
+    events:
+      - http:
+          path: api/v1/delete-channel-media-live
+          method: PUT
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  describe-harvest-job:
+    handler: lambdas/medialive/describeHarvestJob.handler
+    events:
+      - http:
+          path: api/v1/describe-harvest-job/{jobId}
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-harvest-jobs:
+    handler: lambdas/medialive/listHarvestJobs.handler
+    events:
+      - http:
+          path: api/v1/list-harvest-jobs
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-harvest-job:
+    handler: lambdas/medialive/createHarvestJob.handler
+    events:
+      - http:
+          path: api/v1/create-harvest-job
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-origin-endpoints:
+    handler: lambdas/medialive/listOriginEndpoints.handler
+    events:
+      - http:
+          path: api/v1/list-origin-endpoints
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  describe-origin-endpoint:
+    handler: lambdas/medialive/describeOriginEndpoint.handler
+    events:
+      - http:
+          path: api/v1/describe-origin-endpoint/{channelId}
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  ## ----------------------------------------------------------------------------------
+  ## ---- Stripe Integreation ::
+  stripe-api-map:
+    handler: lambdas/endpoints/stripe/apiMap.handler
+    events:
+      - http:
+          path: api/v1/stripe-api-map
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-payment-intent:
+    handler: lambdas/endpoints/stripe/createPaymentIntent.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-payment-intent
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-customer:
+    handler: lambdas/endpoints/stripe/createCustomer.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-customer
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-update-customer-default-payment-method:
+    handler: lambdas/endpoints/stripe/updateCustomerDefaultPaymentMethod.handler
+    events:
+      - http:
+          path: api/v1/stripe-update-customer-default-payment-method
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-attach-payment-method:
+    handler: lambdas/endpoints/stripe/attachPaymentMethod.handler
+    events:
+      - http:
+          path: api/v1/stripe-attach-payment-method
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-detach-payment-method:
+    handler: lambdas/endpoints/stripe/detachPaymentMethod.handler
+    events:
+      - http:
+          path: api/v1/stripe-detach-payment-method
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-update-payment-method:
+    handler: lambdas/endpoints/stripe/updatePaymentMethod.handler
+    events:
+      - http:
+          path: api/v1/stripe-update-payment-method
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-price:
+    handler: lambdas/endpoints/stripe/createPrice.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-price
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-reoccuring-price:
+    handler: lambdas/endpoints/stripe/createReoccuringPrice.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-reoccuring-price
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-product:
+    handler: lambdas/endpoints/stripe/createProduct.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-product
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-retrieve-product:
+    handler: lambdas/endpoints/stripe/retrieveProduct.handler
+    events:
+      - http:
+          path: api/v1/stripe-retrieve-product
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-list-products:
+    handler: lambdas/endpoints/stripe/listProducts.handler
+    events:
+      - http:
+          path: api/v1/stripe-list-products
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-update-product:
+    handler: lambdas/endpoints/stripe/updateProduct.handler
+    events:
+      - http:
+          path: api/v1/stripe-update-product
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-subscription:
+    handler: lambdas/endpoints/stripe/createSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-update-subscription:
+    name: stripeUpdateSubscription
+    handler: lambdas/endpoints/stripe/updateSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-update-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-cancel-subscription:
+    handler: lambdas/endpoints/stripe/cancelSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-cancel-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-cancel-subscription-eop:
+    name: stripeCancelSubscriptionEop
+    handler: lambdas/endpoints/stripe/cancelSubscriptionEOP.handler
+    events:
+      - http:
+          path: api/v1/stripe-cancel-subscription-eop
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-pause-subscription:
+    handler: lambdas/endpoints/stripe/pauseSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-pause-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-resume-subscription:
+    handler: lambdas/endpoints/stripe/resumeSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-resume-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-retrieve-subscription:
+    handler: lambdas/endpoints/stripe/retrieveSubscription.handler
+    events:
+      - http:
+          path: api/v1/stripe-retrieve-subscription
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-customer-portal-session:
+    handler: lambdas/endpoints/stripe/createCustomerPortalSession.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-customer-portal-session
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  ## ----------------------------------------------------------------------------------
+  ## ---- data ingestion
+  ingest-vod-merchandise:
+    handler: lambdas/endpoints/graphql/ingestVODmerchandise.handler
+    events:
+      - http:
+          path: api/v1/vod-merchandise-ingest
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  delete-all-vod-merchandise:
+    handler: lambdas/endpoints/graphql/deleteAllVODmerchandise.handler
+    events:
+      - http:
+          path: api/v1/vod-merchandise-delete-all
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  delete-vod-merchandise-by-id:
+    handler: lambdas/endpoints/graphql/deleteVODmerchandiseById.handler
+    events:
+      - http:
+          path: api/v1/vod-merchandise-delete-by-id
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  retrieve-cloudfront-url:
+    handler: lambdas/endpoints/cloudfront/retrieveUrl.handler
+    events:
+      - http:
+          path: api/v1/retrieve-cloudfront-url
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  ## ------------------------------------------------------------------------------
+  ## ---- CRONS
+  # daily-activity-cron:
+  #   handler: lambdas/crons/dailyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(0 18 * * ? *)
+  #         enabled: true
+  # monthly-activity-cron:
+  #   handler: lambdas/crons/monthlyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(10 18 1 * ? *)
+  #         enabled: true
+  # send-mail-cron:
+  #   handler: lambdas/crons/sendMailCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(20 18 * * ? *)
+  #         enabled: true
+## ----------------------------------------------------------------------------------
+# parameters:
+#   AppSecurityGroupParameter:
+#     Type: String
+#     Default: sg-0d83d2d74da4d13a0
+#   AppSubnet1Parameter:
+#     Type: String
+#     Default: subnet-07c41b4d72bb633ba
+#   AppSubnet2Parameter:
+#     Type: String
+#     Default: subnet-0a5b45ebc47fbda66
 
 # Create our resources with separate CloudFormation templates
+# outputs:
+#   StripeDashcancelDashsubscriptionDasheopFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
+#         - Arn
+#   StripeDashupdateDashsubscriptionFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
+#         - Arn
 resources:
+  # - Parameters:
+  #     # AppSecurityGroupParameter:
+  #     #   Type: String
+  #     #   Default: sg-0d83d2d74da4d13a0
+  #     # AppSubnet1Parameter:
+  #     #   Type: String
+  #     #   Default: subnet-07c41b4d72bb633ba
+  #     # AppSubnet2Parameter:
+  #     #   Type: String
+  #     #   Default: subnet-0a5b45ebc47fbda66
+  #     StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-cancel-subscription-eop
+  #       Default: branchdna-api-prod-stripe-cancel-subscription-eop
+  #     StripeDashupdateDashsubscriptionLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-stripe-update-subscription
+  #     CreateLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-create
+  #     CreateOriginEndpointMediaPackageLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-create-origin-endpoint-media-package
+  # - Resources:
+  #     StackOneAddingVersionToLambda:
+  #       Type: AWS::CloudFormation::Stack
+  #       Properties:
+  #         Parameters:
+  #           # AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
+  #           # AppSubnet1Parameter: !Ref AppSubnet1Parameter
+  #           # AppSubnet2Parameter: !Ref AppSubnet2Parameter
+  #           StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+  #           StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
+  #           CreateLambdaFunctionParameter: !Ref CreateLambdaFunctionParameter
+  #           CreateOriginEndpointMediaPackageLambdaFunctionParameter: !Ref CreateOriginEndpointMediaPackageLambdaFunctionParameter
+
+  #         TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #     StackTwoAddingVersionToLambda:
+  #       Type: AWS::CloudFormation::Stack
+  #       Properties:
+  #         Parameters:
+  #           AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
+  #           AppSubnet1Parameter: !Ref AppSubnet1Parameter
+  #           AppSubnet2Parameter: !Ref AppSubnet2Parameter
+  #           StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+  #           StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
+  #         TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
+
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
+  # API Gateway Socket Definition and Handlers
+  # - ${file(resources/socket-definition-and-handlers.yml)}
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
   # S3
@@ -245,3 +1128,13 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
+  #Route 53 Zone
+  - ${file(resources/route53.yml)}
+  #ElastiCache
+  # - ${file(resources/elasticache.yml)}
+  #RDS
+  # - ${file(resources/rds.yml)}
+  # #SQS
+  # - ${file(resources/sqs-fifo.yml)}
+  #Linux Bastion
+  - ${file(resources/linux-bastion.yml)}

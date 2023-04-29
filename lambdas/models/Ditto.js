@@ -13,7 +13,6 @@ const dynamoTableName = "prod-branchdna-request-responses";
 // have a function that takes the inputs and logs the request
 // this function returns a request uuid - can i get that from amazon
 
-
 // Create DITTO
 export const ApiRequest = async (event, context, endpoint) => {
 
