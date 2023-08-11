@@ -1,12 +1,11 @@
 {
   "authSelections": "identityPoolAndUserPool",
-  "resourceName": "couchtourtvamplify5a547970",
+  "resourceName": "ctamplifyf2d44389",
   "serviceType": "imported",
   "region": "us-east-1",
   "usernameAttributes": [
     "email"
   ],
-  "authProvidersUserPool": [],
   "requiredAttributes": [],
   "passwordPolicyMinLength": 8,
   "passwordPolicyCharacters": [

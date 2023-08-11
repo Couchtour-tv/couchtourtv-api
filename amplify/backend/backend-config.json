@@ -1,59 +1,247 @@
 {
   "api": {
-    "couchtourtvamplify": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
+    "ctamplify": {
+      "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-07-11T23:12:51.724Z",
-              "description": ""
-            }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authcouchtourtvamplify5a547970"
-              }
-            }
-          ]
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
         }
       },
-      "dependsOn": [
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "ctamplifyf2d44389": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_ctamplifye41fda77_allowUnauthenticatedIdentities": {
+      "usedBy": [
         {
           "category": "auth",
-          "resourceName": "couchtourtvamplify5a547970",
-          "attributes": [
-            "UserPoolId"
-          ]
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifye41fda77_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifye41fda77"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_auth_ctamplifyf2d44389_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "ctamplifyf2d44389"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ctamplify5e7d2b35_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ctamplify5e7d2b35"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ctamplify5e7d2b35_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ctamplify5e7d2b35"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ctamplify78e54651_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ctamplify78e54651"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ctamplify78e54651_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ctamplify78e54651"
         }
       ]
     }
   },
-  "auth": {
-    "couchtourtvamplify5a547970": {
-      "service": "Cognito",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
   "storage": {
-    "couchtour0d287ab9": {
-      "service": "S3",
-      "serviceType": "imported",
+    "ctamplify78e54651": {
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    },
-    "ctprodUserImages": {
       "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
+      "serviceType": "imported"
     }
   }
 }

@@ -1,14 +1,8 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "couchtourtvamplify": {
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "storage": {
-        "ctprodUserImages": {
-            "BucketName": "string",
-            "Region": "string"
-        }
+  "api": {
+    "ctamplify": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string"
     }
+  }
 }

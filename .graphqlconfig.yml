@@ -1,6 +1,6 @@
 projects:
-  couchtourtvamplify:
-    schemaPath: amplify/backend/api/couchtourtvamplify/build/schema.graphql
+  ctamplify:
+    schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
     excludes:
@@ -8,10 +8,8 @@ projects:
     extensions:
       amplify:
         codeGenTarget: javascript
-        generatedFileName: ""
+        generatedFileName: ''
         docsFilePath: src/graphql
-        apiId: oghrbdggl5e53jkhdrau2kzz4e
-        maxDepth: 5
 extensions:
   amplify:
     version: 3

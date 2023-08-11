@@ -16,19 +16,23 @@ export const getEvent = /* GraphQL */ `
         id
         description
         type
+        __typename
       }
       priceDescription {
         id
         description
         type
+        __typename
       }
       eventDetail {
         id
         description
         type
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -52,21 +56,26 @@ export const listEvents = /* GraphQL */ `
           id
           description
           type
+          __typename
         }
         priceDescription {
           id
           description
           type
+          __typename
         }
         eventDetail {
           id
           description
           type
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -81,162 +90,12 @@ export const getTransaction = /* GraphQL */ `
           id
           transactionId
           merchandiseId
-          transaction {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       attemptSuccess
       errorObject
@@ -249,120 +108,9 @@ export const getTransaction = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -374,202 +122,21 @@ export const getTransaction = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         status
         active
@@ -586,6 +153,7 @@ export const getTransaction = /* GraphQL */ `
         previousCardId
         createdAt
         updatedAt
+        __typename
       }
       creditCardId
       Purchase {
@@ -596,120 +164,9 @@ export const getTransaction = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -721,238 +178,21 @@ export const getTransaction = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         creditCard {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           status
           active
           deleted
@@ -968,160 +208,33 @@ export const getTransaction = /* GraphQL */ `
           previousCardId
           createdAt
           updatedAt
+          __typename
         }
         paymentIntent
         transactions {
           id
           userID
           merchID
-          merchandise {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           attemptSuccess
           errorObject
           paymentIntent
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           creditCardId
-          Purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           purchaseId
           createdAt
           updatedAt
+          __typename
         }
         creditCardId
         transactionId
         lastFour
         createdAt
         updatedAt
+        __typename
       }
       purchaseId
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1137,51 +250,8 @@ export const listTransactions = /* GraphQL */ `
         userID
         merchID
         merchandise {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         attemptSuccess
         errorObject
@@ -1189,111 +259,6 @@ export const listTransactions = /* GraphQL */ `
         creditCard {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           status
           active
           deleted
@@ -1309,207 +274,27 @@ export const listTransactions = /* GraphQL */ `
           previousCardId
           createdAt
           updatedAt
+          __typename
         }
         creditCardId
         Purchase {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           paymentIntent
-          transactions {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           creditCardId
           transactionId
           lastFour
           createdAt
           updatedAt
+          __typename
         }
         purchaseId
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -1527,404 +312,40 @@ export const getCreditCard = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -1946,564 +367,63 @@ export const getCreditCard = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       transactions {
         items {
           id
           userID
           merchID
-          merchandise {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           attemptSuccess
           errorObject
           paymentIntent
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           creditCardId
-          Purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           purchaseId
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       purchases {
         items {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           paymentIntent
-          transactions {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           creditCardId
           transactionId
           lastFour
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       status
       active
@@ -2520,6 +440,7 @@ export const getCreditCard = /* GraphQL */ `
       previousCardId
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -2538,120 +459,9 @@ export const listCreditCards = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -2663,202 +473,21 @@ export const listCreditCards = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         status
         active
@@ -2875,8 +504,10 @@ export const listCreditCards = /* GraphQL */ `
         previousCardId
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -2889,129 +520,16 @@ export const getCart = /* GraphQL */ `
           id
           merchandiseId
           cartId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -3025,49 +543,15 @@ export const listCarts = /* GraphQL */ `
       items {
         id
         merchandise {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3081,9 +565,11 @@ export const getPicture = /* GraphQL */ `
         bucket
         region
         key
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -3102,11 +588,14 @@ export const listPictures = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3120,6 +609,7 @@ export const getVideo = /* GraphQL */ `
         bucket
         region
         key
+        __typename
       }
       displayName
       band
@@ -3127,6 +617,7 @@ export const getVideo = /* GraphQL */ `
       videoURL
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -3145,6 +636,7 @@ export const listVideos = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         displayName
         band
@@ -3152,8 +644,10 @@ export const listVideos = /* GraphQL */ `
         videoURL
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3172,98 +666,12 @@ export const getSubscriptionModel = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -3281,58 +689,11 @@ export const getSubscriptionModel = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -3340,13 +701,9 @@ export const getSubscriptionModel = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -3357,44 +714,8 @@ export const getSubscriptionModel = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -3405,103 +726,16 @@ export const getSubscriptionModel = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -3512,126 +746,9 @@ export const getSubscriptionModel = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -3644,448 +761,45 @@ export const getSubscriptionModel = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       subscriptionMerchandise {
         items {
           id
           merchandiseId
           subscriptionId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscription {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -4112,85 +826,12 @@ export const listSubscriptionModels = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -4199,223 +840,25 @@ export const listSubscriptionModels = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4433,404 +876,40 @@ export const getPurchase = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -4852,221 +931,31 @@ export const getPurchase = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       merchandisePurchases {
         items {
@@ -5074,189 +963,13 @@ export const getPurchase = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
-          purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           merchandiseVersion
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       creditCard {
         id
@@ -5266,120 +979,9 @@ export const getPurchase = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -5391,202 +993,21 @@ export const getPurchase = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         status
         active
@@ -5603,6 +1024,7 @@ export const getPurchase = /* GraphQL */ `
         previousCardId
         createdAt
         updatedAt
+        __typename
       }
       paymentIntent
       transactions {
@@ -5610,51 +1032,8 @@ export const getPurchase = /* GraphQL */ `
         userID
         merchID
         merchandise {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         attemptSuccess
         errorObject
@@ -5662,111 +1041,6 @@ export const getPurchase = /* GraphQL */ `
         creditCard {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           status
           active
           deleted
@@ -5782,211 +1056,31 @@ export const getPurchase = /* GraphQL */ `
           previousCardId
           createdAt
           updatedAt
+          __typename
         }
         creditCardId
         Purchase {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           paymentIntent
-          transactions {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           creditCardId
           transactionId
           lastFour
           createdAt
           updatedAt
+          __typename
         }
         purchaseId
         createdAt
         updatedAt
+        __typename
       }
       creditCardId
       transactionId
       lastFour
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -6005,120 +1099,9 @@ export const listPurchases = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -6130,238 +1113,21 @@ export const listPurchases = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         creditCard {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           status
           active
           deleted
@@ -6377,158 +1143,31 @@ export const listPurchases = /* GraphQL */ `
           previousCardId
           createdAt
           updatedAt
+          __typename
         }
         paymentIntent
         transactions {
           id
           userID
           merchID
-          merchandise {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           attemptSuccess
           errorObject
           paymentIntent
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           creditCardId
-          Purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           purchaseId
           createdAt
           updatedAt
+          __typename
         }
         creditCardId
         transactionId
         lastFour
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -6547,9 +1186,11 @@ export const getUser = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       pictureId
       awayMessageStatus
@@ -6558,428 +1199,32 @@ export const getUser = /* GraphQL */ `
           id
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       invitation {
         items {
           id
-          invitedUser {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          createdByUser {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           invitedUserID
           createdByUserID
           chatRoomID
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           status
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       lastUsedCardID
       creditCards {
         items {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           status
           active
           deleted
@@ -6995,351 +1240,42 @@ export const getUser = /* GraphQL */ `
           previousCardId
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       transactions {
         items {
           id
           userID
           merchID
-          merchandise {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           attemptSuccess
           errorObject
           paymentIntent
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           creditCardId
-          Purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           purchaseId
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       purchases {
         items {
           id
           userID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          creditCard {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           paymentIntent
-          transactions {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           creditCardId
           transactionId
           lastFour
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       packages {
         items {
@@ -7352,271 +1288,25 @@ export const getUser = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       userPackages {
         items {
           id
           userID
           packageId
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       cogId
       emailVerified
@@ -7641,85 +1331,12 @@ export const getUser = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -7728,221 +1345,22 @@ export const getUser = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       accessToken
       idToken
@@ -7950,167 +1368,26 @@ export const getUser = /* GraphQL */ `
       cart {
         id
         merchandise {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       cartId
       entitlements {
         items {
           id
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           userID
           fromSubscription
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       accessCodes {
         items {
@@ -8118,90 +1395,16 @@ export const getUser = /* GraphQL */ `
           merchandiseId
           code
           userId
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -8221,404 +1424,40 @@ export const listUsers = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -8640,223 +1479,34 @@ export const listUsers = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -8869,98 +1519,12 @@ export const getEntitlement = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -8978,58 +1542,11 @@ export const getEntitlement = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -9037,13 +1554,9 @@ export const getEntitlement = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -9054,44 +1567,8 @@ export const getEntitlement = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -9102,103 +1579,16 @@ export const getEntitlement = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -9209,126 +1599,9 @@ export const getEntitlement = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -9341,292 +1614,35 @@ export const getEntitlement = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       userID
       fromSubscription
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -9643,85 +1659,12 @@ export const listEntitlements = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -9730,178 +1673,23 @@ export const listEntitlements = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         userID
         fromSubscription
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -9921,404 +1709,40 @@ export const getAccessCode = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -10340,224 +1764,35 @@ export const getAccessCode = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -10578,120 +1813,9 @@ export const listAccessCodes = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -10703,87 +1827,20 @@ export const listAccessCodes = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -10804,230 +1861,24 @@ export const getPackage = /* GraphQL */ `
           id
           userID
           packageId
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       merchandiseId
       merchandise {
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -11045,58 +1896,11 @@ export const getPackage = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -11104,13 +1908,9 @@ export const getPackage = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -11121,44 +1921,8 @@ export const getPackage = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -11169,103 +1933,16 @@ export const getPackage = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -11276,126 +1953,9 @@ export const getPackage = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -11408,453 +1968,45 @@ export const getPackage = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       packageMerchandise {
         items {
           id
           merchandiseId
           packageId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -11876,138 +2028,19 @@ export const listPackages = /* GraphQL */ `
         active
         userID
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandiseId
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -12016,225 +2049,25 @@ export const listPackages = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -12253,404 +2086,40 @@ export const getChatRoomUser = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -12672,312 +2141,41 @@ export const getChatRoomUser = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       chatRoom {
         id
         chatRoomUsers {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         messages {
-          items {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastMessageID
         lastMessage {
@@ -12986,208 +2184,30 @@ export const getChatRoomUser = /* GraphQL */ `
           content
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           updatedAt
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         chatRoomName
         picture {
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -13207,120 +2227,9 @@ export const listChatRoomUsers = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -13332,182 +2241,29 @@ export const listChatRoomUsers = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -13520,119 +2276,12 @@ export const getChatRoom = /* GraphQL */ `
           id
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       messages {
         items {
@@ -13641,118 +2290,11 @@ export const getChatRoom = /* GraphQL */ `
           content
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       lastMessageID
       lastMessage {
@@ -13766,120 +2308,9 @@ export const getChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -13891,377 +2322,39 @@ export const getChatRoom = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         updatedAt
+        __typename
       }
       invitation {
         items {
           id
-          invitedUser {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          createdByUser {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           invitedUserID
           createdByUserID
           chatRoomID
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           status
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       chatRoomName
       picture {
@@ -14272,13 +2365,16 @@ export const getChatRoom = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       pictureId
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -14292,93 +2388,12 @@ export const listChatRooms = /* GraphQL */ `
       items {
         id
         chatRoomUsers {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         messages {
-          items {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastMessageID
         lastMessage {
@@ -14387,207 +2402,29 @@ export const listChatRooms = /* GraphQL */ `
           content
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           updatedAt
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         chatRoomName
         picture {
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -14604,404 +2441,40 @@ export const getInvitation = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -15023,221 +2496,31 @@ export const getInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       createdByUser {
         id
@@ -15248,404 +2531,40 @@ export const getInvitation = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -15667,221 +2586,31 @@ export const getInvitation = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       invitedUserID
       createdByUserID
@@ -15889,93 +2618,12 @@ export const getInvitation = /* GraphQL */ `
       chatRoom {
         id
         chatRoomUsers {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         messages {
-          items {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastMessageID
         lastMessage {
@@ -15984,209 +2632,31 @@ export const getInvitation = /* GraphQL */ `
           content
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           updatedAt
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         chatRoomName
         picture {
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         createdAt
         updatedAt
+        __typename
       }
       status
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -16204,120 +2674,9 @@ export const listInvitations = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -16329,202 +2688,22 @@ export const listInvitations = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         createdByUser {
           id
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -16536,186 +2715,33 @@ export const listInvitations = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         invitedUserID
         createdByUserID
         chatRoomID
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         status
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -16736,404 +2762,40 @@ export const getMessage = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -17155,312 +2817,41 @@ export const getMessage = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       chatRoom {
         id
         chatRoomUsers {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         messages {
-          items {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastMessageID
         lastMessage {
@@ -17469,207 +2860,29 @@ export const getMessage = /* GraphQL */ `
           content
           userID
           chatRoomID
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          chatRoom {
-            id
-            chatRoomUsers {
-              nextToken
-            }
-            messages {
-              nextToken
-            }
-            lastMessageID
-            lastMessage {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            invitation {
-              nextToken
-            }
-            chatRoomName
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            createdAt
-            updatedAt
-          }
           updatedAt
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         chatRoomName
         picture {
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         createdAt
         updatedAt
+        __typename
       }
       updatedAt
+      __typename
     }
   }
 `;
@@ -17691,120 +2904,9 @@ export const listMessages = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -17816,181 +2918,28 @@ export const listMessages = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -18003,98 +2952,12 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -18112,58 +2975,11 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -18171,13 +2987,9 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -18188,44 +3000,8 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -18236,103 +3012,16 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -18343,126 +3032,9 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -18475,290 +3047,33 @@ export const getOnDemandFeaturedShow = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -18779,85 +3094,12 @@ export const listOnDemandFeaturedShows = /* GraphQL */ `
         merch {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -18866,176 +3108,21 @@ export const listOnDemandFeaturedShows = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -19056,85 +3143,12 @@ export const getFeaturedSubscription = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -19143,224 +3157,26 @@ export const getFeaturedSubscription = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -19387,131 +3203,16 @@ export const listFeaturedSubscriptions = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -19525,162 +3226,12 @@ export const getMerchandise = /* GraphQL */ `
           id
           transactionId
           merchandiseId
-          transaction {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       merchandisePurchases {
         items {
@@ -19688,189 +3239,13 @@ export const getMerchandise = /* GraphQL */ `
           purchaseId
           merchandiseId
           active
-          purchase {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           merchandiseVersion
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       active
       createdBy
@@ -19892,17 +3267,21 @@ export const getMerchandise = /* GraphQL */ `
           id
           description
           type
+          __typename
         }
         priceDescription {
           id
           description
           type
+          __typename
         }
         eventDetail {
           id
           description
           type
+          __typename
         }
+        __typename
       }
       accessCodes {
         items {
@@ -19910,87 +3289,12 @@ export const getMerchandise = /* GraphQL */ `
           merchandiseId
           code
           userId
-          user {
-            id
-            completedSignUp
-            username
-            avatar
-            picture {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            awayMessageStatus
-            chatRoomUser {
-              nextToken
-            }
-            invitation {
-              nextToken
-            }
-            lastUsedCardID
-            creditCards {
-              nextToken
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            packages {
-              nextToken
-            }
-            userPackages {
-              nextToken
-            }
-            cogId
-            emailVerified
-            loggedIn
-            email
-            stripeCustomerId
-            stripeCustomer
-            stripeSubscriptionId
-            stripeSubscriptionStatus
-            stripeSubscriptionPaused
-            stripeSubscriptionCancelAtPeriodEnd
-            subscriptionId
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            accessToken
-            idToken
-            refreshToken
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            cartId
-            entitlements {
-              nextToken
-            }
-            accessCodes {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       name
       description
@@ -20002,9 +3306,11 @@ export const getMerchandise = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       pictureId
       date
@@ -20019,126 +3325,12 @@ export const getMerchandise = /* GraphQL */ `
           id
           merchandiseId
           cartId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       VODMetaData {
         band
@@ -20149,6 +3341,7 @@ export const getMerchandise = /* GraphQL */ `
         description
         price
         videoURL
+        __typename
       }
       bandMerchType
       subscriptionMerchandise {
@@ -20156,321 +3349,24 @@ export const getMerchandise = /* GraphQL */ `
           id
           merchandiseId
           subscriptionId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscription {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       packageMerchandise {
         items {
           id
           merchandiseId
           packageId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       subscriptionModel {
         id
@@ -20484,85 +3380,12 @@ export const getMerchandise = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -20571,221 +3394,22 @@ export const getMerchandise = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       subscriptionId
       package {
@@ -20799,138 +3423,19 @@ export const getMerchandise = /* GraphQL */ `
         active
         userID
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandiseId
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -20939,223 +3444,22 @@ export const getMerchandise = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       packageId
       decomissionedMerchandises {
@@ -21164,347 +3468,27 @@ export const getMerchandise = /* GraphQL */ `
           updatedByUserId
           updatedByUserEmail
           previousMerchId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           decomissionedMerchandiseJSON
           version
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       version
       associatedMerchandise {
         items {
           id
-          associatedMerchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           associatedMerchandiseId
-          associatedTo {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           associatedToId
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       associatedMerchandiseEnabled
       bandMerchandise {
@@ -21512,150 +3496,16 @@ export const getMerchandise = /* GraphQL */ `
           id
           bandId
           merchandiseId
-          band {
-            id
-            bandName
-            createdBy
-            updatedBy
-            website
-            logo {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            email
-            bandMerchandise {
-              nextToken
-            }
-            socialMediaLinks {
-              twitterLink
-              facebookLink
-              instagramLink
-              twitchLink
-              youtubeLink
-              tiktokLink
-            }
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -21670,98 +3520,12 @@ export const listMerchandises = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -21779,58 +3543,11 @@ export const listMerchandises = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -21838,13 +3555,9 @@ export const listMerchandises = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -21855,44 +3568,8 @@ export const listMerchandises = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -21903,103 +3580,16 @@ export const listMerchandises = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -22010,126 +3600,9 @@ export const listMerchandises = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -22142,289 +3615,32 @@ export const listMerchandises = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -22444,9 +3660,11 @@ export const getBand = /* GraphQL */ `
           bucket
           region
           key
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       pictureId
       email
@@ -22455,147 +3673,12 @@ export const getBand = /* GraphQL */ `
           id
           bandId
           merchandiseId
-          band {
-            id
-            bandName
-            createdBy
-            updatedBy
-            website
-            logo {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            email
-            bandMerchandise {
-              nextToken
-            }
-            socialMediaLinks {
-              twitterLink
-              facebookLink
-              instagramLink
-              twitchLink
-              youtubeLink
-              tiktokLink
-            }
-            createdAt
-            updatedAt
-          }
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       socialMediaLinks {
         twitterLink
@@ -22604,9 +3687,11 @@ export const getBand = /* GraphQL */ `
         twitchLink
         youtubeLink
         tiktokLink
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -22627,61 +3712,15 @@ export const listBands = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         email
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         socialMediaLinks {
           twitterLink
@@ -22690,11 +3729,14 @@ export const listBands = /* GraphQL */ `
           twitchLink
           youtubeLink
           tiktokLink
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -22706,98 +3748,12 @@ export const getAssociatedMerchandise = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -22815,58 +3771,11 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -22874,13 +3783,9 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -22891,44 +3796,8 @@ export const getAssociatedMerchandise = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -22939,103 +3808,16 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -23046,126 +3828,9 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -23178,385 +3843,41 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       associatedMerchandiseId
       associatedTo {
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -23574,58 +3895,11 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -23633,13 +3907,9 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -23650,44 +3920,8 @@ export const getAssociatedMerchandise = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -23698,103 +3932,16 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -23805,126 +3952,9 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -23937,291 +3967,34 @@ export const getAssociatedMerchandise = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       associatedToId
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -24241,85 +4014,12 @@ export const listAssociatedMerchandises = /* GraphQL */ `
         associatedMerchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -24328,255 +4028,25 @@ export const listAssociatedMerchandises = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         associatedMerchandiseId
         associatedTo {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -24585,177 +4055,22 @@ export const listAssociatedMerchandises = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         associatedToId
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -24770,98 +4085,12 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -24879,58 +4108,11 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -24938,13 +4120,9 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -24955,44 +4133,8 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -25003,103 +4145,16 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -25110,126 +4165,9 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -25242,292 +4180,35 @@ export const getDecomissionedMerchandise = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       decomissionedMerchandiseJSON
       version
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -25550,85 +4231,12 @@ export const listDecomissionedMerchandises = /* GraphQL */ `
         merchandise {
           id
           type
-          transactions {
-            items {
-              id
-              transactionId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          merchandisePurchases {
-            items {
-              id
-              purchaseId
-              merchandiseId
-              active
-              merchandiseVersion
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           active
           createdBy
           updatedBy
           isEvent
-          streamMetaData {
-            streamId
-            eventId
-            bandName
-            promoter
-            videoURL
-            nameOfEvent
-            location
-            promoterLogo
-            timeOfEvent
-            isLive
-            landingImageUrl
-            eventFeature {
-              id
-              description
-              type
-            }
-            priceDescription {
-              id
-              description
-              type
-            }
-            eventDetail {
-              id
-              description
-              type
-            }
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           name
           description
-          image {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           date
           eventId
@@ -25637,178 +4245,23 @@ export const listDecomissionedMerchandises = /* GraphQL */ `
           price
           platformFee
           stripeMetaData
-          carts {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          VODMetaData {
-            band
-            date
-            venue
-            location
-            maestro_channel
-            description
-            price
-            videoURL
-          }
           bandMerchType
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           subscriptionId
-          package {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           packageId
-          decomissionedMerchandises {
-            items {
-              id
-              updatedByUserId
-              updatedByUserEmail
-              previousMerchId
-              decomissionedMerchandiseJSON
-              version
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           version
-          associatedMerchandise {
-            items {
-              id
-              associatedMerchandiseId
-              associatedToId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           associatedMerchandiseEnabled
-          bandMerchandise {
-            items {
-              id
-              bandId
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         decomissionedMerchandiseJSON
         version
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -25826,16 +4279,17 @@ export const getDefaultPlatformFeePercentages = /* GraphQL */ `
       subscriptionFeeName
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
-export const listDefaultPlatformFeePercentages = /* GraphQL */ `
-  query ListDefaultPlatformFeePercentages(
+export const listDefaultPlatformFeePercentagess = /* GraphQL */ `
+  query ListDefaultPlatformFeePercentagess(
     $filter: ModelDefaultPlatformFeePercentagesFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listDefaultPlatformFeePercentages(
+    listDefaultPlatformFeePercentagess(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -25852,8 +4306,10 @@ export const listDefaultPlatformFeePercentages = /* GraphQL */ `
         subscriptionFeeName
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -25867,6 +4323,7 @@ export const getContact = /* GraphQL */ `
       favoriteFood
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -25895,8 +4352,10 @@ export const listContacts = /* GraphQL */ `
         favoriteFood
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -25923,120 +4382,9 @@ export const getCreditCardByUserID = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -26048,202 +4396,21 @@ export const getCreditCardByUserID = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         status
         active
@@ -26260,8 +4427,10 @@ export const getCreditCardByUserID = /* GraphQL */ `
         previousCardId
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -26289,404 +4458,40 @@ export const getUserByStripeCustomerId = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -26708,223 +4513,34 @@ export const getUserByStripeCustomerId = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -26952,404 +4568,40 @@ export const getUserByUsername = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         awayMessageStatus
         chatRoomUser {
-          items {
-            id
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         invitation {
-          items {
-            id
-            invitedUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdByUser {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            invitedUserID
-            createdByUserID
-            chatRoomID
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            status
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         lastUsedCardID
         creditCards {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            transactions {
-              nextToken
-            }
-            purchases {
-              nextToken
-            }
-            status
-            active
-            deleted
-            brand
-            email
-            expMonth
-            expYear
-            lastFour
-            paymentMethodObj
-            created
-            postalCode
-            name
-            previousCardId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         transactions {
-          items {
-            id
-            userID
-            merchID
-            merchandise {
-              nextToken
-            }
-            attemptSuccess
-            errorObject
-            paymentIntent
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            Purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            purchaseId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         purchases {
-          items {
-            id
-            userID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            creditCard {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            paymentIntent
-            transactions {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            creditCardId
-            transactionId
-            lastFour
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packages {
-          items {
-            id
-            name
-            description
-            price
-            priceId
-            platformFee
-            productId
-            active
-            userID
-            userPackages {
-              nextToken
-            }
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            packageMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         userPackages {
-          items {
-            id
-            userID
-            packageId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         cogId
         emailVerified
@@ -27371,223 +4623,34 @@ export const getUserByUsername = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         accessToken
         idToken
         refreshToken
         cart {
           id
-          merchandise {
-            items {
-              id
-              merchandiseId
-              cartId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         cartId
         entitlements {
-          items {
-            id
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            userID
-            fromSubscription
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27618,120 +4681,9 @@ export const acccessCodesbyCode = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -27743,87 +4695,20 @@ export const acccessCodesbyCode = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27853,120 +4738,9 @@ export const getChatRoomUserByUserID = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -27978,182 +4752,29 @@ export const getChatRoomUserByUserID = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -28183,120 +4804,9 @@ export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -28308,182 +4818,29 @@ export const getChatRoomUsersByChatRoomID = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -28515,120 +4872,9 @@ export const messagesByChatRoom = /* GraphQL */ `
           completedSignUp
           username
           avatar
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           awayMessageStatus
-          chatRoomUser {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           lastUsedCardID
-          creditCards {
-            items {
-              id
-              userID
-              status
-              active
-              deleted
-              brand
-              email
-              expMonth
-              expYear
-              lastFour
-              paymentMethodObj
-              created
-              postalCode
-              name
-              previousCardId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          transactions {
-            items {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          purchases {
-            items {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          packages {
-            items {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           cogId
           emailVerified
           loggedIn
@@ -28640,181 +4886,28 @@ export const messagesByChatRoom = /* GraphQL */ `
           stripeSubscriptionPaused
           stripeSubscriptionCancelAtPeriodEnd
           subscriptionId
-          subscriptionModel {
-            id
-            name
-            description
-            price
-            priceId
-            productId
-            active
-            merchandiseId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscriptionMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           accessToken
           idToken
           refreshToken
-          cart {
-            id
-            merchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           cartId
-          entitlements {
-            items {
-              id
-              merchandiseId
-              userID
-              fromSubscription
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          accessCodes {
-            items {
-              id
-              merchandiseId
-              code
-              userId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         chatRoom {
           id
-          chatRoomUsers {
-            items {
-              id
-              userID
-              chatRoomID
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          messages {
-            items {
-              id
-              createdAt
-              content
-              userID
-              chatRoomID
-              updatedAt
-            }
-            nextToken
-          }
           lastMessageID
-          lastMessage {
-            id
-            createdAt
-            content
-            userID
-            chatRoomID
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            chatRoom {
-              id
-              lastMessageID
-              chatRoomName
-              pictureId
-              createdAt
-              updatedAt
-            }
-            updatedAt
-          }
-          invitation {
-            items {
-              id
-              invitedUserID
-              createdByUserID
-              chatRoomID
-              status
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           chatRoomName
-          picture {
-            id
-            name
-            owner
-            file {
-              bucket
-              region
-              key
-            }
-            createdAt
-            updatedAt
-          }
           pictureId
           createdAt
           updatedAt
+          __typename
         }
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -28837,98 +4930,12 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -28946,58 +4953,11 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -29005,13 +4965,9 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -29022,44 +4978,8 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -29070,103 +4990,16 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -29177,126 +5010,9 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -29309,289 +5025,32 @@ export const getMerchandiseBySubscriptionId = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -29614,98 +5073,12 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
         id
         type
         transactions {
-          items {
-            id
-            transactionId
-            merchandiseId
-            transaction {
-              id
-              userID
-              merchID
-              attemptSuccess
-              errorObject
-              paymentIntent
-              creditCardId
-              purchaseId
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         merchandisePurchases {
-          items {
-            id
-            purchaseId
-            merchandiseId
-            active
-            purchase {
-              id
-              userID
-              paymentIntent
-              creditCardId
-              transactionId
-              lastFour
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            merchandiseVersion
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         active
         createdBy
@@ -29723,58 +5096,11 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           timeOfEvent
           isLive
           landingImageUrl
-          eventFeature {
-            id
-            description
-            type
-          }
-          priceDescription {
-            id
-            description
-            type
-          }
-          eventDetail {
-            id
-            description
-            type
-          }
+          __typename
         }
         accessCodes {
-          items {
-            id
-            merchandiseId
-            code
-            userId
-            user {
-              id
-              completedSignUp
-              username
-              avatar
-              pictureId
-              awayMessageStatus
-              lastUsedCardID
-              cogId
-              emailVerified
-              loggedIn
-              email
-              stripeCustomerId
-              stripeCustomer
-              stripeSubscriptionId
-              stripeSubscriptionStatus
-              stripeSubscriptionPaused
-              stripeSubscriptionCancelAtPeriodEnd
-              subscriptionId
-              accessToken
-              idToken
-              refreshToken
-              cartId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         name
         description
@@ -29782,13 +5108,9 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           id
           name
           owner
-          file {
-            bucket
-            region
-            key
-          }
           createdAt
           updatedAt
+          __typename
         }
         pictureId
         date
@@ -29799,44 +5121,8 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
         platformFee
         stripeMetaData
         carts {
-          items {
-            id
-            merchandiseId
-            cartId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            cart {
-              id
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         VODMetaData {
           band
@@ -29847,103 +5133,16 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           description
           price
           videoURL
+          __typename
         }
         bandMerchType
         subscriptionMerchandise {
-          items {
-            id
-            merchandiseId
-            subscriptionId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            subscription {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         packageMerchandise {
-          items {
-            id
-            merchandiseId
-            packageId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         subscriptionModel {
           id
@@ -29954,126 +5153,9 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           productId
           active
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          subscriptionMerchandise {
-            items {
-              id
-              merchandiseId
-              subscriptionId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         subscriptionId
         package {
@@ -30086,289 +5168,32 @@ export const getMerchandiseByPackageId = /* GraphQL */ `
           productId
           active
           userID
-          userPackages {
-            items {
-              id
-              userID
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           merchandiseId
-          merchandise {
-            id
-            type
-            transactions {
-              nextToken
-            }
-            merchandisePurchases {
-              nextToken
-            }
-            active
-            createdBy
-            updatedBy
-            isEvent
-            streamMetaData {
-              streamId
-              eventId
-              bandName
-              promoter
-              videoURL
-              nameOfEvent
-              location
-              promoterLogo
-              timeOfEvent
-              isLive
-              landingImageUrl
-            }
-            accessCodes {
-              nextToken
-            }
-            name
-            description
-            image {
-              id
-              name
-              owner
-              createdAt
-              updatedAt
-            }
-            pictureId
-            date
-            eventId
-            productId
-            priceId
-            price
-            platformFee
-            stripeMetaData
-            carts {
-              nextToken
-            }
-            VODMetaData {
-              band
-              date
-              venue
-              location
-              maestro_channel
-              description
-              price
-              videoURL
-            }
-            bandMerchType
-            subscriptionMerchandise {
-              nextToken
-            }
-            packageMerchandise {
-              nextToken
-            }
-            subscriptionModel {
-              id
-              name
-              description
-              price
-              priceId
-              productId
-              active
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            subscriptionId
-            package {
-              id
-              name
-              description
-              price
-              priceId
-              platformFee
-              productId
-              active
-              userID
-              merchandiseId
-              createdAt
-              updatedAt
-            }
-            packageId
-            decomissionedMerchandises {
-              nextToken
-            }
-            version
-            associatedMerchandise {
-              nextToken
-            }
-            associatedMerchandiseEnabled
-            bandMerchandise {
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          packageMerchandise {
-            items {
-              id
-              merchandiseId
-              packageId
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
           createdAt
           updatedAt
+          __typename
         }
         packageId
         decomissionedMerchandises {
-          items {
-            id
-            updatedByUserId
-            updatedByUserEmail
-            previousMerchId
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            decomissionedMerchandiseJSON
-            version
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         version
         associatedMerchandise {
-          items {
-            id
-            associatedMerchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedMerchandiseId
-            associatedTo {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            associatedToId
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         associatedMerchandiseEnabled
         bandMerchandise {
-          items {
-            id
-            bandId
-            merchandiseId
-            band {
-              id
-              bandName
-              createdBy
-              updatedBy
-              website
-              pictureId
-              email
-              createdAt
-              updatedAt
-            }
-            merchandise {
-              id
-              type
-              active
-              createdBy
-              updatedBy
-              isEvent
-              name
-              description
-              pictureId
-              date
-              eventId
-              productId
-              priceId
-              price
-              platformFee
-              stripeMetaData
-              bandMerchType
-              subscriptionId
-              packageId
-              version
-              associatedMerchandiseEnabled
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -30397,8 +5222,10 @@ export const contactsByFavoriteColor = /* GraphQL */ `
         favoriteFood
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -30427,8 +5254,10 @@ export const contactsByFavoriteFoorAndColor = /* GraphQL */ `
         favoriteFood
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
