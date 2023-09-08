@@ -18,7 +18,7 @@ exports.handler = async (event) => {
             product_data: {
               name: "VIP",
             },
-            unit_amount: 0,
+            unit_amount: 51,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
@@ -34,7 +34,7 @@ exports.handler = async (event) => {
             product_data: {
               name: "General Admission",
             },
-            unit_amount: 0,
+            unit_amount: 52,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
