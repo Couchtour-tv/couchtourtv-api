@@ -19,7 +19,7 @@ exports.handler = async (event) => {
               name: "VIP",
             },
             unit_amount: 0,
-            tax_behavior: "exclusive",
+            // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
             enabled: true,
@@ -35,7 +35,7 @@ exports.handler = async (event) => {
               name: "General Admission",
             },
             unit_amount: 0,
-            tax_behavior: "exclusive",
+            // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
             enabled: true,
@@ -44,9 +44,9 @@ exports.handler = async (event) => {
           },
         },
       ],
-      automatic_tax: {
-        enabled: true,
-      },
+      // automatic_tax: {
+      //   enabled: true,
+      // },
       mode: "payment",
       success_url: "https://beta.couchtour.tv?success=true",
       cancel_url: "https://beta.couchtour.tv?canceled=true",
