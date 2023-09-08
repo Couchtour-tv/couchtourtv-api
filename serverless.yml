@@ -950,7 +950,7 @@ functions:
       - http:
           path: api/v1/stripe-create-checkout-session
           method: any
-          # authorizer: aws_iam
+          authorizer: public
           cors:
             origin: "*"
             headers:
