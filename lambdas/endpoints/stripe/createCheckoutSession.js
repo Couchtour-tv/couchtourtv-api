@@ -51,8 +51,16 @@ exports.handler = async (event) => {
     })
 
     console.log("Create Checkout Session | Succeeded |:", session)
-    res.redirect(303, session.url)
-    return Responses._200(session)
+    // res.redirect(303, session.url)
+    // return Responses._200(session)
+    const response = {
+      statusCode: 302, // 302 Found (temporary redirect)
+      headers: {
+        Location: session.url, // Set the Location header to the URL of the session
+      },
+    }
+
+    return response
   } catch (error) {
     console.log("Create Checkout Session | Error |", error)
     return Responses._500({
