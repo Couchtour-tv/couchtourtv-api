@@ -950,7 +950,6 @@ functions:
       - http:
           path: api/v1/stripe-create-checkout-session
           method: any
-          authorizer: public
           cors:
             origin: "*"
             headers:
