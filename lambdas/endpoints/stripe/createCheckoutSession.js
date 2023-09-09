@@ -1,5 +1,5 @@
 import Responses from "../../common/API_Responses"
-import { StripeSecretKey } from "../../common/constants"
+import { StripeSecretKey, VERY_MOON_MUSICAL_ID } from "../../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
 import {
@@ -42,8 +42,8 @@ exports.handler = async (event) => {
 
   const ticketTracker = ticketTrackerObject.data.data.getTicketTracker.items[0]
 
-  const vipRemaining = ticketTracker.vip - numberOfVipSold
-  const gaRemaining = ticketTracker.ga - numberOfGaSold
+  const vipRemaining = ticketTracker.vip
+  const gaRemaining = ticketTracker.ga
 
   let vipMax = 8
   let gaMax = 8
