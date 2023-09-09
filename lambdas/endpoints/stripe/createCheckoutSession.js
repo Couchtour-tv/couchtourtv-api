@@ -50,11 +50,24 @@ exports.handler = async (event) => {
       //   enabled: true,
       // },
       mode: "payment",
+      metadata: {
+        vip: 30,
+        ga: 150,
+      },
       success_url: "https://beta.couchtour.tv?success=true",
       cancel_url: "https://beta.couchtour.tv?canceled=true",
     })
 
     console.log("Create Checkout Session | Succeeded |:", session)
+    console.log("Create Checkout Session | Date |:", Date.now())
+    console.log(
+      "Create Checkout Session | Line Items Data |:",
+      session.line_items.data
+    )
+    console.log(
+      "Create Checkout Session | Line Items Data Stringified |:",
+      JSON.stringify(session.line_items.data)
+    )
     // res.redirect(303, session.url)
     // return Responses._200(session)
     const response = {
