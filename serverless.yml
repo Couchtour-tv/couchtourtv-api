@@ -220,6 +220,12 @@ functions:
       - http:
           path: handle-stripe-subscriptions
           method: POST
+  stripeHandleCheckoutSessionWebhook:
+    handler: lambdas/webhooks/stripeHandleCheckoutSession.handler
+    events:
+      - http:
+          path: handle-stripe-checkout-session
+          method: POST
   stripeHandleInvoiceWebhook:
     handler: lambdas/webhooks/stripeHandleInvoice.handler
     events:
