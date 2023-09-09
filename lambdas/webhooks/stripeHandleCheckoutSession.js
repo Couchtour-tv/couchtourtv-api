@@ -23,10 +23,6 @@ exports.handler = async (event) => {
           "Checkout Session Completed Webhook Stringified",
           JSON.stringify(checkoutSessionCompleted)
         )
-        console.log(
-          "Checkout Session Completed Webhook | Line Items Data |:",
-          checkoutSessionCompleted.line_items.data
-        )
 
         const session = await stripe.checkout.sessions.retrieve(
           checkoutSessionId,
