@@ -12,13 +12,11 @@ const graphql = require("graphql")
 const { print } = graphql
 
 const queryTicketTrackerById = gql`
-  query MyQuery($id: ID!) {
-    getTicketTracker(id: $id) {
-      items {
-        id
-        ga
-        vip
-      }
+  query MyQuery {
+    getTicketTracker(id: "very_moon_musical_id") {
+      ga
+      id
+      vip
     }
   }
 `
@@ -34,7 +32,7 @@ exports.handler = async (event) => {
     },
     data: {
       query: print(queryTicketTrackerById),
-      input: {
+      variables: {
         id: VERY_MOON_MUSICAL_ID,
       },
     },
