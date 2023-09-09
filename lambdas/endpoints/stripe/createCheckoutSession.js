@@ -34,7 +34,7 @@ exports.handler = async (event) => {
     },
     data: {
       query: print(queryTicketTrackerById),
-      variables: {
+      input: {
         id: VERY_MOON_MUSICAL_ID,
       },
     },
