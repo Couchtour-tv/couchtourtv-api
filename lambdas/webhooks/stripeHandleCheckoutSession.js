@@ -118,14 +118,14 @@ exports.handler = async (event) => {
           JSON.stringify(lineItems)
         )
 
-        const numberOfVipSold =
-          lineItems.find((item) => item.description === "VIP")?.quantity || 0
+        const vipItem = lineItems.find((item) => item.description === "VIP")
+        const gaItem = lineItems.find(
+          (item) => item.description === "General Admission"
+        )
 
-        const numberOfGaSold =
-          lineItems.find((item) => item.description === "General Admission")
-            ?.quantity || 0
+        const numberOfVipSold = vipItem ? vipItem.quantity : 0
+        const numberOfGaSold = gaItem ? gaItem.quantity : 0
 
-        //sudo code
         await removeFromInventory(numberOfVipSold, numberOfGaSold)
 
         // Then define and call a function to handle the event checkout.session.completed
