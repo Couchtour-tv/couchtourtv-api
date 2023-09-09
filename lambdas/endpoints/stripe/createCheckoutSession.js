@@ -68,58 +68,50 @@ exports.handler = async (event) => {
     // const body = await JSON.parse(event.body)
     // const { priceId } = body
 
+    const lineItems = []
+
+    if (vipRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: "VIP",
+            description: "The Very Moon Musical VIP Experience",
+          },
+          unit_amount: 51,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: vipMax,
+        },
+      })
+    }
+
+    if (gaRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: "General Admission",
+            description: "The Very Moon Musical General Admission Experience",
+          },
+          unit_amount: 52,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: gaMax,
+        },
+      })
+    }
+
     const session = await stripe.checkout.sessions.create({
       expand: ["line_items"],
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: "VIP",
-              description:
-                vipRemaining > 0
-                  ? "The Very Moon Musical VIP Experience"
-                  : "VIP Sold Out",
-            },
-            unit_amount: 51,
-            // tax_behavior: "exclusive",
-          },
-          adjustable_quantity: {
-            enabled: vipRemaining > 0,
-            minimum: 0,
-            maximum: vipMax,
-          },
-        },
-        {
-          quantity: 1,
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: "General Admission",
-              description:
-                gaRemaining > 0
-                  ? "The Very Moon Musical General Admission Experience"
-                  : "GA Sold Out",
-            },
-            unit_amount: 52,
-            // tax_behavior: "exclusive",
-          },
-          adjustable_quantity: {
-            enabled: gaRemaining > 0,
-            minimum: 0,
-            maximum: gaMax,
-          },
-        },
-      ],
-      // automatic_tax: {
-      //   enabled: true,
-      // },
+      line_items: lineItems,
       mode: "payment",
-      // metadata: {
-      //   vip: 30,
-      //   ga: 150,
-      // },
       success_url: "https://beta.couchtour.tv?success=true",
       cancel_url: "https://beta.couchtour.tv?canceled=true",
     })
