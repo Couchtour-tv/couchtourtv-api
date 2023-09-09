@@ -41,11 +41,13 @@ exports.handler = async (event) => {
   })
   console.log(
     "file: createCheckoutSession.js:42 ~ exports.handler= ~ ticketTrackerObject:",
-    JSON.stringify(ticketTrackerObject)
+    ticketTrackerObject
   )
 
+  console.log("Ticket Tracker Object Data", ticketTrackerObject.data)
+
   console.log(
-    "Ticket Tracker Object Data",
+    "Ticket Tracker Object Data stringified",
     JSON.stringify(ticketTrackerObject.data)
   )
 
