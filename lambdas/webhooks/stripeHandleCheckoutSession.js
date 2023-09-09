@@ -14,13 +14,11 @@ const graphql = require("graphql")
 const { print } = graphql
 
 const queryTicketTrackerById = gql`
-  query MyQuery($id: ID!) {
-    getTicketTracker(id: $id) {
-      items {
-        id
-        ga
-        vip
-      }
+  query MyQuery {
+    getTicketTracker(id: "very_moon_musical_id") {
+      ga
+      id
+      vip
     }
   }
 `
@@ -51,10 +49,18 @@ async function removeFromInventory(numberOfVipSold, numberOfGaSold) {
     },
   })
 
-  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker.items[0]
+  console.log("Ticket Tracker Object", ticketTrackerObject)
+  console.log("Ticket Tracker Object Data", ticketTrackerObject.data)
+
+  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker
+
+  console.log("Ticket Tracker", ticketTracker)
 
   const vipRemaining = ticketTracker.vip - numberOfVipSold
   const gaRemaining = ticketTracker.ga - numberOfGaSold
+
+  console.log("VIP Remaining", vipRemaining)
+  console.log("GA Remaining", gaRemaining)
   // update inventory
 
   await axios({
@@ -122,9 +128,14 @@ exports.handler = async (event) => {
         const gaItem = lineItems.find(
           (item) => item.description === "General Admission"
         )
+        console.log("VIP Item:", vipItem)
+        console.log("GA Item:", gaItem)
 
         const numberOfVipSold = vipItem ? vipItem.quantity : 0
         const numberOfGaSold = gaItem ? gaItem.quantity : 0
+
+        console.log("Number of VIP Sold:", numberOfVipSold)
+        console.log("Number of GA Sold:", numberOfGaSold)
 
         await removeFromInventory(numberOfVipSold, numberOfGaSold)
 
