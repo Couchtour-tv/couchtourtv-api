@@ -17,13 +17,14 @@ exports.handler = async (event) => {
             currency: "usd",
             product_data: {
               name: "VIP",
+              description: "The Very Moon Musical VIP Experience",
             },
             unit_amount: 51,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
             enabled: true,
-            minimum: 1,
+            minimum: 0,
             maximum: 8,
           },
         },
@@ -33,13 +34,14 @@ exports.handler = async (event) => {
             currency: "usd",
             product_data: {
               name: "General Admission",
+              description: "The Very Moon Musical General Admission Experience",
             },
             unit_amount: 52,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
             enabled: true,
-            minimum: 1,
+            minimum: 0,
             maximum: 8,
           },
         },
