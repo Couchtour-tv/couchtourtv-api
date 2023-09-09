@@ -12,7 +12,7 @@ exports.handler = async (event) => {
       expand: ["line_items"],
       line_items: [
         {
-          quantity: 1,
+          quantity: 0,
           price_data: {
             currency: "usd",
             product_data: {
@@ -29,7 +29,7 @@ exports.handler = async (event) => {
           },
         },
         {
-          quantity: 1,
+          quantity: 0,
           price_data: {
             currency: "usd",
             product_data: {
