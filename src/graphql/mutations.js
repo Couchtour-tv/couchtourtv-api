@@ -9484,6 +9484,51 @@ export const deleteMessage = /* GraphQL */ `
     }
   }
 `;
+export const createTicketTracker = /* GraphQL */ `
+  mutation CreateTicketTracker(
+    $input: CreateTicketTrackerInput!
+    $condition: ModelTicketTrackerConditionInput
+  ) {
+    createTicketTracker(input: $input, condition: $condition) {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateTicketTracker = /* GraphQL */ `
+  mutation UpdateTicketTracker(
+    $input: UpdateTicketTrackerInput!
+    $condition: ModelTicketTrackerConditionInput
+  ) {
+    updateTicketTracker(input: $input, condition: $condition) {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteTicketTracker = /* GraphQL */ `
+  mutation DeleteTicketTracker(
+    $input: DeleteTicketTrackerInput!
+    $condition: ModelTicketTrackerConditionInput
+  ) {
+    deleteTicketTracker(input: $input, condition: $condition) {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
 export const createOnDemandFeaturedShow = /* GraphQL */ `
   mutation CreateOnDemandFeaturedShow(
     $input: CreateOnDemandFeaturedShowInput!

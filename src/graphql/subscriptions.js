@@ -2472,6 +2472,18 @@ export const onUpdateUserByID = /* GraphQL */ `
     }
   }
 `;
+export const onUpdateTicketTrackerByID = /* GraphQL */ `
+  subscription OnUpdateTicketTrackerByID($id: ID!) {
+    onUpdateTicketTrackerByID(id: $id) {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
@@ -5050,6 +5062,42 @@ export const onDeleteMessage = /* GraphQL */ `
         updatedAt
         __typename
       }
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onCreateTicketTracker = /* GraphQL */ `
+  subscription OnCreateTicketTracker {
+    onCreateTicketTracker {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateTicketTracker = /* GraphQL */ `
+  subscription OnUpdateTicketTracker {
+    onUpdateTicketTracker {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteTicketTracker = /* GraphQL */ `
+  subscription OnDeleteTicketTracker {
+    onDeleteTicketTracker {
+      id
+      ga
+      vip
+      createdAt
       updatedAt
       __typename
     }

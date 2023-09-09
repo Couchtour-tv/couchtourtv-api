@@ -2,8 +2,59 @@ import Responses from "../../common/API_Responses"
 import { StripeSecretKey } from "../../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
+import {
+  AppSyncUrlOriginal,
+  GraphqlKeyOutputOriginal,
+} from "../../common/constants"
+const axios = require("axios")
+import gql from "graphql-tag"
+const graphql = require("graphql")
+const { print } = graphql
+
+const queryTicketTrackerById = gql`
+  query MyQuery($id: ID!) {
+    getTicketTracker(id: $id) {
+      items {
+        id
+        ga
+        vip
+      }
+    }
+  }
+`
+
 exports.handler = async (event) => {
   console.log("Create Checkout Session ::", event)
+
+  const ticketTrackerObject = await axios({
+    url: AppSyncUrlOriginal,
+    method: "post",
+    headers: {
+      "x-api-key": GraphqlKeyOutputOriginal,
+    },
+    data: {
+      query: print(queryTicketTrackerById),
+      variables: {
+        id: VERY_MOON_MUSICAL_ID,
+      },
+    },
+  })
+
+  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker.items[0]
+
+  const vipRemaining = ticketTracker.vip - numberOfVipSold
+  const gaRemaining = ticketTracker.ga - numberOfGaSold
+
+  let vipMax = 8
+  let gaMax = 8
+
+  if (vipRemaining <= 8) {
+    vipMax = vipRemaining
+  }
+  if (gaRemaining <= 8) {
+    gaMax = gaRemaining
+  }
+
   try {
     // const body = await JSON.parse(event.body)
     // const { priceId } = body
@@ -17,15 +68,18 @@ exports.handler = async (event) => {
             currency: "usd",
             product_data: {
               name: "VIP",
-              description: "The Very Moon Musical VIP Experience",
+              description:
+                vipRemaining > 0
+                  ? "The Very Moon Musical VIP Experience"
+                  : "VIP Sold Out",
             },
             unit_amount: 51,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
-            enabled: true,
+            enabled: vipRemaining > 0,
             minimum: 0,
-            maximum: 8,
+            maximum: vipMax,
           },
         },
         {
@@ -34,15 +88,18 @@ exports.handler = async (event) => {
             currency: "usd",
             product_data: {
               name: "General Admission",
-              description: "The Very Moon Musical General Admission Experience",
+              description:
+                gaRemaining > 0
+                  ? "The Very Moon Musical General Admission Experience"
+                  : "GA Sold Out",
             },
             unit_amount: 52,
             // tax_behavior: "exclusive",
           },
           adjustable_quantity: {
-            enabled: true,
+            enabled: gaRemaining > 0,
             minimum: 0,
-            maximum: 8,
+            maximum: gaMax,
           },
         },
       ],
@@ -50,10 +107,10 @@ exports.handler = async (event) => {
       //   enabled: true,
       // },
       mode: "payment",
-      metadata: {
-        vip: 30,
-        ga: 150,
-      },
+      // metadata: {
+      //   vip: 30,
+      //   ga: 150,
+      // },
       success_url: "https://beta.couchtour.tv?success=true",
       cancel_url: "https://beta.couchtour.tv?canceled=true",
     })

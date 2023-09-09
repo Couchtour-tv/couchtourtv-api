@@ -1,8 +1,78 @@
 // const AWS = require('aws-sdk');
 
 import Responses from "../common/API_Responses"
-import { StripeSecretKey } from "../common/constants"
+import { StripeSecretKey, VERY_MOON_MUSICAL_ID } from "../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
+
+import {
+  AppSyncUrlOriginal,
+  GraphqlKeyOutputOriginal,
+} from "../common/constants"
+const axios = require("axios")
+import gql from "graphql-tag"
+const graphql = require("graphql")
+const { print } = graphql
+
+const queryTicketTrackerById = gql`
+  query MyQuery($id: ID!) {
+    getTicketTracker(id: $id) {
+      items {
+        id
+        ga
+        vip
+      }
+    }
+  }
+`
+
+const updateTicketTrackerById = gql`
+  mutation MyMutation($id: ID!, $ga: Int!, $vip: Int!) {
+    updateTicketTracker(input: { id: $id, ga: $ga, vip: $vip }) {
+      id
+      ga
+      vip
+    }
+  }
+`
+
+async function removeFromInventory(numberOfVipSold, numberOfGaSold) {
+  // get inventory
+  const ticketTrackerObject = await axios({
+    url: AppSyncUrlOriginal,
+    method: "post",
+    headers: {
+      "x-api-key": GraphqlKeyOutputOriginal,
+    },
+    data: {
+      query: print(queryTicketTrackerById),
+      variables: {
+        id: VERY_MOON_MUSICAL_ID,
+      },
+    },
+  })
+
+  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker.items[0]
+
+  const vipRemaining = ticketTracker.vip - numberOfVipSold
+  const gaRemaining = ticketTracker.ga - numberOfGaSold
+  // update inventory
+
+  await axios({
+    url: AppSyncUrlOriginal,
+    method: "post",
+    headers: {
+      "x-api-key": GraphqlKeyOutputOriginal,
+    },
+    data: {
+      query: print(updateTicketTrackerById),
+      variables: {
+        id: VERY_MOON_MUSICAL_ID,
+        ga: gaRemaining,
+        vip: vipRemaining,
+      },
+    },
+  })
+}
 
 exports.handler = async (event) => {
   try {
@@ -36,14 +106,27 @@ exports.handler = async (event) => {
           "Checkout Session Retrieved Stringified",
           JSON.stringify(session)
         )
+
+        const lineItems = session.line_items.data
+
         console.log(
           "Checkout Session Retrieved | Line Items Data |:",
-          session.line_items.data
+          lineItems
         )
         console.log(
           "Checkout Session Retrieved | Line Items Data Stringified |:",
-          JSON.stringify(session.line_items.data)
+          JSON.stringify(lineItems)
         )
+
+        const numberOfVipSold =
+          lineItems.find((item) => item.description === "VIP")?.quantity || 0
+
+        const numberOfGaSold =
+          lineItems.find((item) => item.description === "General Admission")
+            ?.quantity || 0
+
+        //sudo code
+        await removeFromInventory(numberOfVipSold, numberOfGaSold)
 
         // Then define and call a function to handle the event checkout.session.completed
         break

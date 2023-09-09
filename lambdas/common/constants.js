@@ -1,5 +1,7 @@
 // constants
 
+export const VERY_MOON_MUSICAL_ID = "very_moon_musical_id"
+
 // API Gateway
 export const OptionsAPIGateway = {
   apiVersion: process.env.APIGATEWAY_APIVERSION,

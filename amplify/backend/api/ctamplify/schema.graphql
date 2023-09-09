@@ -496,6 +496,12 @@ type Message
   chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
 }
 
+type TicketTracker @model {
+  id: ID!
+  ga: Int
+  vip: Int
+}
+
 type Subscription {
   newOnCreateMessage: Message @aws_subscribe(mutations: ["createMessage"])
 
@@ -533,6 +539,9 @@ type Subscription {
     @aws_subscribe(mutations: ["createMessage"])
 
   onUpdateUserByID(id: ID!): User @aws_subscribe(mutations: ["updateUser"])
+
+  onUpdateTicketTrackerByID(id: ID!): TicketTracker
+    @aws_subscribe(mutations: ["updateTicketTracker"])
 }
 
 type OnDemandFeaturedShow @model(subscriptions: null) {

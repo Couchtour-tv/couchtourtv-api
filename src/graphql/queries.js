@@ -2943,6 +2943,38 @@ export const listMessages = /* GraphQL */ `
     }
   }
 `;
+export const getTicketTracker = /* GraphQL */ `
+  query GetTicketTracker($id: ID!) {
+    getTicketTracker(id: $id) {
+      id
+      ga
+      vip
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listTicketTrackers = /* GraphQL */ `
+  query ListTicketTrackers(
+    $filter: ModelTicketTrackerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTicketTrackers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        ga
+        vip
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
 export const getOnDemandFeaturedShow = /* GraphQL */ `
   query GetOnDemandFeaturedShow($id: ID!) {
     getOnDemandFeaturedShow(id: $id) {
