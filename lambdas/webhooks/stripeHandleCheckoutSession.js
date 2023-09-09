@@ -1,6 +1,8 @@
 // const AWS = require('aws-sdk');
 
 import Responses from "../common/API_Responses"
+import { StripeSecretKey } from "../common/constants"
+const stripe = require("stripe")(StripeSecretKey)
 
 exports.handler = async (event) => {
   try {
@@ -12,6 +14,7 @@ exports.handler = async (event) => {
     switch (payload.type) {
       case "checkout.session.completed":
         const checkoutSessionCompleted = payload.data.object
+        const checkoutSessionId = checkoutSessionCompleted.id
         console.log(
           "Checkout Session Completed Webhook",
           checkoutSessionCompleted
@@ -28,6 +31,27 @@ exports.handler = async (event) => {
           "Checkout Session Completed Webhook | Line Items Data Stringified |:",
           JSON.stringify(checkoutSessionCompleted.line_items.data)
         )
+        const session = await stripe.checkout.sessions.retrieve(
+          checkoutSessionId,
+          {
+            expand: ["line_items"],
+          }
+        )
+
+        console.log("Checkout Session Retrieved", session)
+        console.log(
+          "Checkout Session Retrieved Stringified",
+          JSON.stringify(session)
+        )
+        console.log(
+          "Checkout Session Retrieved | Line Items Data |:",
+          session.line_items.data
+        )
+        console.log(
+          "Checkout Session Retrieved | Line Items Data Stringified |:",
+          JSON.stringify(session.line_items.data)
+        )
+
         // Then define and call a function to handle the event checkout.session.completed
         break
       // ... handle other event types
