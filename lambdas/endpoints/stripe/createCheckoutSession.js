@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     JSON.stringify(ticketTrackerObject.data)
   )
 
-  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker.items[0]
+  const ticketTracker = ticketTrackerObject.data.data.getTicketTracker
 
   const vipRemaining = ticketTracker.vip
   const gaRemaining = ticketTracker.ga
