@@ -967,6 +967,142 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov17-ga:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov17ga.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov17-ga
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov17-vip:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov17vip.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov17-vip
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov18-ga:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov18ga.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov18-ga
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov18-vip:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov18vip.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov18-vip
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov19-ga:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov19ga.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov19-ga
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov19-vip:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov19vip.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov19-vip
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov20-ga:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov20ga.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov20-ga
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  stripe-create-checkout-session-verymoon-nov20-vip:
+    handler: lambdas/endpoints/stripe/createCheckoutSessionNov20vip.handler
+    events:
+      - http:
+          path: api/v1/stripe-create-checkout-session-verymoon-nov20-vip
+          method: any
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   ## ----------------------------------------------------------------------------------
   ## ---- data ingestion
   ingest-vod-merchandise:
