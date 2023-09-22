@@ -22,8 +22,10 @@ import gql from "graphql-tag"
 const graphql = require("graphql")
 const { print } = graphql
 
-const vipPrice = 10000
-const gaPrice = 4000
+const vipPrice = 52
+const gaPrice = 51
+// const vipPrice = 10000
+// const gaPrice = 4000
 
 const queryTicketTrackerById = gql`
   query MyQuery {
@@ -71,9 +73,6 @@ exports.handler = async (event) => {
 
   const ticketTracker = ticketTrackerObject.data.data.getTicketTracker
 
-  const vipRemaining = ticketTracker.vip
-  const gaRemaining = ticketTracker.ga
-
   const nov17vipRemaining = ticketTracker.nov_17_vip
   const nov18vipRemaining = ticketTracker.nov_18_vip
   const nov19vipRemaining = ticketTracker.nov_19_vip
@@ -118,13 +117,6 @@ exports.handler = async (event) => {
   }
   if (nov20vipRemaining <= 8) {
     nov20vipMax = nov20vipRemaining
-  }
-
-  if (vipRemaining <= 8) {
-    vipMax = vipRemaining
-  }
-  if (gaRemaining <= 8) {
-    gaMax = gaRemaining
   }
 
   try {
