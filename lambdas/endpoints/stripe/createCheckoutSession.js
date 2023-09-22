@@ -1,5 +1,16 @@
 import Responses from "../../common/API_Responses"
-import { StripeSecretKey, VERY_MOON_MUSICAL_ID } from "../../common/constants"
+import {
+  StripeSecretKey,
+  VERY_MOON_MUSICAL_ID,
+  VERY_MOON_NOV_17_GA_NAME,
+  VERY_MOON_NOV_17_VIP_NAME,
+  VERY_MOON_NOV_18_GA_NAME,
+  VERY_MOON_NOV_18_VIP_NAME,
+  VERY_MOON_NOV_19_GA_NAME,
+  VERY_MOON_NOV_19_VIP_NAME,
+  VERY_MOON_NOV_20_GA_NAME,
+  VERY_MOON_NOV_20_VIP_NAME,
+} from "../../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
 import {
@@ -11,12 +22,21 @@ import gql from "graphql-tag"
 const graphql = require("graphql")
 const { print } = graphql
 
+const vipPrice = 10000
+const gaPrice = 4000
+
 const queryTicketTrackerById = gql`
   query MyQuery {
     getTicketTracker(id: "very_moon_musical_id") {
-      ga
       id
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
     }
   }
 `
@@ -54,8 +74,54 @@ exports.handler = async (event) => {
   const vipRemaining = ticketTracker.vip
   const gaRemaining = ticketTracker.ga
 
+  const nov17vipRemaining = ticketTracker.nov_17_vip
+  const nov18vipRemaining = ticketTracker.nov_18_vip
+  const nov19vipRemaining = ticketTracker.nov_19_vip
+  const nov20vipRemaining = ticketTracker.nov_20_vip
+
+  const nov17gaRemaining = ticketTracker.nov_17_ga
+  const nov18gaRemaining = ticketTracker.nov_18_ga
+  const nov19gaRemaining = ticketTracker.nov_19_ga
+  const nov20gaRemaining = ticketTracker.nov_20_ga
+
   let vipMax = 8
   let gaMax = 8
+
+  let nov17gaMax = 8
+  let nov18gaMax = 8
+  let nov19gaMax = 8
+  let nov20gaMax = 8
+
+  let nov17vipMax = 8
+  let nov18vipMax = 8
+  let nov19vipMax = 8
+  let nov20vipMax = 8
+
+  if (nov17gaRemaining <= 8) {
+    nov17gaMax = nov17gaRemaining
+  }
+  if (nov18gaRemaining <= 8) {
+    nov18gaMax = nov18gaRemaining
+  }
+  if (nov19gaRemaining <= 8) {
+    nov19gaMax = nov19gaRemaining
+  }
+  if (nov20gaRemaining <= 8) {
+    nov20gaMax = nov20gaRemaining
+  }
+
+  if (nov17vipRemaining <= 8) {
+    nov17vipMax = nov17vipRemaining
+  }
+  if (nov18vipRemaining <= 8) {
+    nov18vipMax = nov18vipRemaining
+  }
+  if (nov19vipRemaining <= 8) {
+    nov19vipMax = nov19vipRemaining
+  }
+  if (nov20vipRemaining <= 8) {
+    nov20vipMax = nov20vipRemaining
+  }
 
   if (vipRemaining <= 8) {
     vipMax = vipRemaining
@@ -65,45 +131,152 @@ exports.handler = async (event) => {
   }
 
   try {
-    // const body = await JSON.parse(event.body)
-    // const { priceId } = body
-
     const lineItems = []
 
-    if (vipRemaining > 0) {
+    if (nov17gaRemaining > 0) {
       lineItems.push({
         quantity: 1,
         price_data: {
           currency: "usd",
           product_data: {
-            name: "VIP",
-            description: "The Very Moon Musical VIP Experience",
+            name: VERY_MOON_NOV_17_GA_NAME,
+            description: "The Very Moon Musical General Admission Experience",
           },
-          unit_amount: 51,
+          unit_amount: gaPrice,
         },
         adjustable_quantity: {
           enabled: true,
           minimum: 0,
-          maximum: vipMax,
+          maximum: nov17gaMax,
+        },
+      })
+    }
+    if (nov17vipRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_17_VIP_NAME,
+            description: "The Very Moon Musical VIP Experience",
+          },
+          unit_amount: vipPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov17vipMax,
         },
       })
     }
 
-    if (gaRemaining > 0) {
+    if (nov18gaRemaining > 0) {
       lineItems.push({
         quantity: 1,
         price_data: {
           currency: "usd",
           product_data: {
-            name: "General Admission",
+            name: VERY_MOON_NOV_18_GA_NAME,
             description: "The Very Moon Musical General Admission Experience",
           },
-          unit_amount: 52,
+          unit_amount: gaPrice,
         },
         adjustable_quantity: {
           enabled: true,
           minimum: 0,
-          maximum: gaMax,
+          maximum: nov18gaMax,
+        },
+      })
+    }
+    if (nov18vipRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_18_VIP_NAME,
+            description: "The Very Moon Musical VIP Experience",
+          },
+          unit_amount: vipPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov18vipMax,
+        },
+      })
+    }
+
+    if (nov19gaRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_19_GA_NAME,
+            description: "The Very Moon Musical General Admission Experience",
+          },
+          unit_amount: gaPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov19gaMax,
+        },
+      })
+    }
+    if (nov19vipRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_19_VIP_NAME,
+            description: "The Very Moon Musical VIP Experience",
+          },
+          unit_amount: vipPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov19vipMax,
+        },
+      })
+    }
+
+    if (nov20gaRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_20_GA_NAME,
+            description: "The Very Moon Musical General Admission Experience",
+          },
+          unit_amount: gaPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov20gaMax,
+        },
+      })
+    }
+    if (nov20vipRemaining > 0) {
+      lineItems.push({
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: VERY_MOON_NOV_20_VIP_NAME,
+            description: "The Very Moon Musical VIP Experience",
+          },
+          unit_amount: vipPrice,
+        },
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 0,
+          maximum: nov20vipMax,
         },
       })
     }

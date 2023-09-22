@@ -2476,8 +2476,14 @@ export const onUpdateTicketTrackerByID = /* GraphQL */ `
   subscription OnUpdateTicketTrackerByID($id: ID!) {
     onUpdateTicketTrackerByID(id: $id) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -5071,8 +5077,14 @@ export const onCreateTicketTracker = /* GraphQL */ `
   subscription OnCreateTicketTracker {
     onCreateTicketTracker {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -5083,8 +5095,14 @@ export const onUpdateTicketTracker = /* GraphQL */ `
   subscription OnUpdateTicketTracker {
     onUpdateTicketTracker {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -5095,8 +5113,14 @@ export const onDeleteTicketTracker = /* GraphQL */ `
   subscription OnDeleteTicketTracker {
     onDeleteTicketTracker {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename

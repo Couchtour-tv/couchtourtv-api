@@ -2,6 +2,16 @@
 
 export const VERY_MOON_MUSICAL_ID = "very_moon_musical_id"
 
+export const VERY_MOON_NOV_17_GA_NAME = "November 17th General Admission"
+export const VERY_MOON_NOV_18_GA_NAME = "November 18th General Admission"
+export const VERY_MOON_NOV_19_GA_NAME = "November 19th General Admission"
+export const VERY_MOON_NOV_20_GA_NAME = "November 20th General Admission"
+
+export const VERY_MOON_NOV_17_VIP_NAME = "November 17th VIP"
+export const VERY_MOON_NOV_18_VIP_NAME = "November 18th VIP"
+export const VERY_MOON_NOV_19_VIP_NAME = "November 19th VIP"
+export const VERY_MOON_NOV_20_VIP_NAME = "November 20th VIP"
+
 // API Gateway
 export const OptionsAPIGateway = {
   apiVersion: process.env.APIGATEWAY_APIVERSION,

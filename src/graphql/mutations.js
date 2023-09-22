@@ -9491,8 +9491,14 @@ export const createTicketTracker = /* GraphQL */ `
   ) {
     createTicketTracker(input: $input, condition: $condition) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -9506,8 +9512,14 @@ export const updateTicketTracker = /* GraphQL */ `
   ) {
     updateTicketTracker(input: $input, condition: $condition) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -9521,8 +9533,14 @@ export const deleteTicketTracker = /* GraphQL */ `
   ) {
     deleteTicketTracker(input: $input, condition: $condition) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename

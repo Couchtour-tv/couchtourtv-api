@@ -2947,8 +2947,14 @@ export const getTicketTracker = /* GraphQL */ `
   query GetTicketTracker($id: ID!) {
     getTicketTracker(id: $id) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
       createdAt
       updatedAt
       __typename
@@ -2964,8 +2970,14 @@ export const listTicketTrackers = /* GraphQL */ `
     listTicketTrackers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        ga
-        vip
+        nov_17_ga
+        nov_18_ga
+        nov_19_ga
+        nov_20_ga
+        nov_17_vip
+        nov_18_vip
+        nov_19_vip
+        nov_20_vip
         createdAt
         updatedAt
         __typename

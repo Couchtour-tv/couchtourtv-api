@@ -498,8 +498,14 @@ type Message
 
 type TicketTracker @model {
   id: ID!
-  ga: Int
-  vip: Int
+  nov_17_ga: Int
+  nov_18_ga: Int
+  nov_19_ga: Int
+  nov_20_ga: Int
+  nov_17_vip: Int
+  nov_18_vip: Int
+  nov_19_vip: Int
+  nov_20_vip: Int
 }
 
 type Subscription {

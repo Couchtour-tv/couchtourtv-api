@@ -1,7 +1,18 @@
 // const AWS = require('aws-sdk');
 
 import Responses from "../common/API_Responses"
-import { StripeSecretKey, VERY_MOON_MUSICAL_ID } from "../common/constants"
+import {
+  StripeSecretKey,
+  VERY_MOON_MUSICAL_ID,
+  VERY_MOON_NOV_17_GA_NAME,
+  VERY_MOON_NOV_17_VIP_NAME,
+  VERY_MOON_NOV_18_GA_NAME,
+  VERY_MOON_NOV_18_VIP_NAME,
+  VERY_MOON_NOV_19_GA_NAME,
+  VERY_MOON_NOV_19_VIP_NAME,
+  VERY_MOON_NOV_20_GA_NAME,
+  VERY_MOON_NOV_20_VIP_NAME,
+} from "../common/constants"
 const stripe = require("stripe")(StripeSecretKey)
 
 import {
@@ -16,24 +27,67 @@ const { print } = graphql
 const queryTicketTrackerById = gql`
   query MyQuery {
     getTicketTracker(id: "very_moon_musical_id") {
-      ga
       id
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
     }
   }
 `
 
 const updateTicketTrackerById = gql`
-  mutation MyMutation($id: ID!, $ga: Int!, $vip: Int!) {
-    updateTicketTracker(input: { id: $id, ga: $ga, vip: $vip }) {
+  mutation UpdateTicketTracker(
+    $id: ID!
+    $nov_17_ga: Int!
+    $nov_18_ga: Int!
+    $nov_19_ga: Int!
+    $nov_20_ga: Int!
+    $nov_17_vip: Int!
+    $nov_18_vip: Int!
+    $nov_19_vip: Int!
+    $nov_20_vip: Int!
+  ) {
+    updateTicketTracker(
+      input: {
+        id: $id
+        nov_17_ga: $nov_17_ga
+        nov_18_ga: $nov_18_ga
+        nov_19_ga: $nov_19_ga
+        nov_20_ga: $nov_20_ga
+        nov_17_vip: $nov_17_vip
+        nov_18_vip: $nov_18_vip
+        nov_19_vip: $nov_19_vip
+        nov_20_vip: $nov_20_vip
+      }
+    ) {
       id
-      ga
-      vip
+      nov_17_ga
+      nov_18_ga
+      nov_19_ga
+      nov_20_ga
+      nov_17_vip
+      nov_18_vip
+      nov_19_vip
+      nov_20_vip
     }
   }
 `
 
-async function removeFromInventory(numberOfVipSold, numberOfGaSold) {
+async function removeFromInventory({
+  numberOfNov17VipSold,
+  numberOfNov17GaSold,
+  numberOfNov18VipSold,
+  numberOfNov18GaSold,
+  numberOfNov19VipSold,
+  numberOfNov19GaSold,
+  numberOfNov20VipSold,
+  numberOfNov20GaSold,
+}) {
   // get inventory
   const ticketTrackerObject = await axios({
     url: AppSyncUrlOriginal,
@@ -56,13 +110,17 @@ async function removeFromInventory(numberOfVipSold, numberOfGaSold) {
 
   console.log("Ticket Tracker", ticketTracker)
 
-  const vipRemaining = ticketTracker.vip - numberOfVipSold
-  const gaRemaining = ticketTracker.ga - numberOfGaSold
+  const nov17vipRemaining = ticketTracker.nov_17_vip - numberOfNov17VipSold
+  const nov18vipRemaining = ticketTracker.nov_18_vip - numberOfNov18VipSold
+  const nov19vipRemaining = ticketTracker.nov_19_vip - numberOfNov19VipSold
+  const nov20vipRemaining = ticketTracker.nov_20_vip - numberOfNov20VipSold
 
-  console.log("VIP Remaining", vipRemaining)
-  console.log("GA Remaining", gaRemaining)
+  const nov17gaRemaining = ticketTracker.nov_17_ga - numberOfNov17GaSold
+  const nov18gaRemaining = ticketTracker.nov_18_ga - numberOfNov18GaSold
+  const nov19gaRemaining = ticketTracker.nov_19_ga - numberOfNov19GaSold
+  const nov20gaRemaining = ticketTracker.nov_20_ga - numberOfNov20GaSold
+
   // update inventory
-
   await axios({
     url: AppSyncUrlOriginal,
     method: "post",
@@ -73,8 +131,14 @@ async function removeFromInventory(numberOfVipSold, numberOfGaSold) {
       query: print(updateTicketTrackerById),
       variables: {
         id: VERY_MOON_MUSICAL_ID,
-        ga: gaRemaining,
-        vip: vipRemaining,
+        nov_17_ga: nov17gaRemaining,
+        nov_18_ga: nov18gaRemaining,
+        nov_19_ga: nov19gaRemaining,
+        nov_20_ga: nov20gaRemaining,
+        nov_17_vip: nov17vipRemaining,
+        nov_18_vip: nov18vipRemaining,
+        nov_19_vip: nov19vipRemaining,
+        nov_20_vip: nov20vipRemaining,
       },
     },
   })
@@ -124,20 +188,50 @@ exports.handler = async (event) => {
           JSON.stringify(lineItems)
         )
 
-        const vipItem = lineItems.find((item) => item.description === "VIP")
-        const gaItem = lineItems.find(
-          (item) => item.description === "General Admission"
+        const nov17vipItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_17_VIP_NAME
         )
-        console.log("VIP Item:", vipItem)
-        console.log("GA Item:", gaItem)
+        const nov17gaItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_17_GA_NAME
+        )
+        const nov18vipItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_18_VIP_NAME
+        )
+        const nov18gaItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_18_GA_NAME
+        )
+        const nov19vipItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_19_VIP_NAME
+        )
+        const nov19gaItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_19_GA_NAME
+        )
+        const nov20vipItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_20_VIP_NAME
+        )
+        const nov20gaItem = lineItems.find(
+          (item) => item.description === VERY_MOON_NOV_20_GA_NAME
+        )
 
-        const numberOfVipSold = vipItem ? vipItem.quantity : 0
-        const numberOfGaSold = gaItem ? gaItem.quantity : 0
+        const numberOfNov17VipSold = nov17vipItem ? nov17vipItem.quantity : 0
+        const numberOfNov17GaSold = nov17gaItem ? nov17gaItem.quantity : 0
+        const numberOfNov18VipSold = nov18vipItem ? nov18vipItem.quantity : 0
+        const numberOfNov18GaSold = nov18gaItem ? nov18gaItem.quantity : 0
+        const numberOfNov19VipSold = nov19vipItem ? nov19vipItem.quantity : 0
+        const numberOfNov19GaSold = nov19gaItem ? nov19gaItem.quantity : 0
+        const numberOfNov20VipSold = nov20vipItem ? nov20vipItem.quantity : 0
+        const numberOfNov20GaSold = nov20gaItem ? nov20gaItem.quantity : 0
 
-        console.log("Number of VIP Sold:", numberOfVipSold)
-        console.log("Number of GA Sold:", numberOfGaSold)
-
-        await removeFromInventory(numberOfVipSold, numberOfGaSold)
+        await removeFromInventory({
+          numberOfNov17VipSold,
+          numberOfNov17GaSold,
+          numberOfNov18VipSold,
+          numberOfNov18GaSold,
+          numberOfNov19VipSold,
+          numberOfNov19GaSold,
+          numberOfNov20VipSold,
+          numberOfNov20GaSold,
+        })
 
         // Then define and call a function to handle the event checkout.session.completed
         break
