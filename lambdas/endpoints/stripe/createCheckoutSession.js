@@ -84,9 +84,6 @@ exports.handler = async (event) => {
   const nov19gaRemaining = ticketTracker.nov_19_ga
   const nov20gaRemaining = ticketTracker.nov_20_ga
 
-  let vipMax = 8
-  let gaMax = 8
-
   let nov17gaMax = 8
   let nov18gaMax = 8
   let nov19gaMax = 8
