@@ -106,8 +106,8 @@ export const StripeSecretKey = process.env.STRIPE_SECRET_KEY
 // export const StripeSecretKey =
 //   "sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS"
 export const StripeCurrency = "USD"
-export const StripeCustomerDescirption = "qa.couchtour.tv-customer"
-export const StripeIntentDescirption = "qa.couchtour.tv-intent"
+export const StripeCustomerDescirption = "Couchtour.tv customer"
+export const StripeIntentDescirption = "Couchtour.tv intent"
 export const StripeReoccuringPaymentInterval = "month"
 export const StripeCouponID = "SgwYredk"
 
