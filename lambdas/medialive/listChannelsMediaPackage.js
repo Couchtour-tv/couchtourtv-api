@@ -1,6 +1,9 @@
 // listChannelsMediaPackage.js
 
-const AWS = require("aws-sdk")
+// const AWS = require("aws-sdk")
+
+import AWS from "aws-sdk"
+
 import Responses from "../common/API_Responses"
 import { OptionsMediaPackage } from "../common/constants"
 
