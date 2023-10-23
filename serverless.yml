@@ -71,7 +71,8 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  # runtime: nodejs18.x
+  runtime: nodejs15.x
   region: us-east-1
   lambdaHashingVersion: 20201221
   httpApi:
