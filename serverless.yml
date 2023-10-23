@@ -73,7 +73,7 @@ provider:
   name: aws
   # runtime: nodejs18.x
   # runtime: nodejs15.x Didn't work
-  runtime: nodejs14.x
+  runtime: nodejs14.x # works but still has media live error
   region: us-east-1
   lambdaHashingVersion: 20201221
   httpApi:
