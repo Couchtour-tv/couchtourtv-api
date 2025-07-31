@@ -49,12 +49,12 @@ export const OptionsCognito = {
 
 // MediaLive initializer
 let MediaLiveParams = {
-  apiVersion: process.env.MEDIALIVE_APIVERSION
+  apiVersion: process.env.MEDIALIVE_APIVERSION,
 }
 
 // MediaPackage initializer
 let MediaPackageParams = {
-  apiVersion: process.env.MEDIAPACKAGE_APIVERSION
+  apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
 }
 
 if (process.env.DEPLOY_STAGE !== "development") {
@@ -62,25 +62,24 @@ if (process.env.DEPLOY_STAGE !== "development") {
   MediaLiveParams = {
     apiVersion: process.env.MEDIALIVE_APIVERSION,
     region: process.env.CODE_AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
+    // accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
   }
 
   // MediaPackage initializer
   MediaPackageParams = {
     apiVersion: process.env.MEDIAPACKAGE_APIVERSION,
     region: process.env.CODE_AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
+    // accessKeyId: process.env.AWS_ACCESS_KEY_ID_API,
+    // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_API
   }
 }
 
 export const OptionsMediaLive = MediaLiveParams
 export const OptionsMediaPackage = MediaPackageParams
 
-export const GlobalMediaLiveARN = process.env.MEDIA_LIVE_ARN;
-export const MediaLiveAccessRoleARN = process.env.MEDIA_LIVE_ACCESS_ROLE_ARN;
-
+export const GlobalMediaLiveARN = process.env.MEDIA_LIVE_ARN
+export const MediaLiveAccessRoleARN = process.env.MEDIA_LIVE_ACCESS_ROLE_ARN
 
 // ----- Credit card processing [via ENV VARB]
 // export const StripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -90,8 +89,10 @@ export const MediaLiveAccessRoleARN = process.env.MEDIA_LIVE_ACCESS_ROLE_ARN;
 // export const StripeReoccuringPaymentInterval = process.env.STRIPE_REOCCURING_PAYMENT;
 
 // ----- Credit card processing [Explicit]
-export const StripeSecretKey =
-  "sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS"
+export const StripeSecretKey = process.env.STRIPE_SECRET_KEY
+
+// export const StripeSecretKey =
+//   "sk_test_51ITwrBKsNNk3qPPUYp6FS9bE9W9TCA9OhB0TFGAHQ4MmddDHnRApGLljN5DL0V9CCvxJ5ArhSJLNwT1s5ieGVpXa005Ofyf6CS"
 export const StripeCurrency = "USD"
 export const StripeCustomerDescirption = "qa.couchtour.tv-customer"
 export const StripeIntentDescirption = "qa.couchtour.tv-intent"
@@ -125,9 +126,10 @@ export const StripeApiMap = {
 // ----- AppSync + GraphQL
 //
 // -- couchtourtvamplify-ctqa
-export const AppSyncUrlOriginal =
-  "https://p2d32ns7mnhhjogwd365jrnzdq.appsync-api.us-east-1.amazonaws.com/graphql"
-export const GraphqlKeyOutputOriginal = "da2-w3fua4opgzaxjgfkfjxs7xvh7m"
+export const AppSyncUrlOriginal = process.env.AWS_APPSYNC_GRAPHQLENDPOINT
+
+export const GraphqlKeyOutputOriginal = process.env.APPSYNC_API_KEY
+
 //
 // -- couchtourapisandbox-dev
 export const AppSyncUrlEdit =

@@ -5,6 +5,8 @@ useDotenv: true
 package:
   individually: true
 
+  # https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/applications/branchdna-api-prod
+
 plugins:
   - serverless-bundle
   - serverless-offline
@@ -12,13 +14,17 @@ plugins:
   - serverless-dynamodb-local
   - serverless-dynamodb-seed
   - serverless-vpc-plugin
-  # - serverless-offline-redis-server
-
+  # - serverless-plugin-split-stacks
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   # stage: ${opt:stage, self:provider.stage}-branchdna
   stage: ${env:DEPLOY_STAGE}-branchdna
+  # splitStacks:
+  #   nestedStackCount: 20 # Controls the number of created nested stacks
+  #   perFunction: false
+  #   perType: false
+  #   perGroupFunction: true
   dynamodb:
     stages:
       - dev
@@ -286,6 +292,42 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
+  create-channel-media-package:
+    handler: lambdas/medialive/createChannelMediaPackage.handler
+    events:
+      - http:
+          path: api/v1/create-channel-media-package
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-origin-endpoint-media-package:
+    handler: lambdas/medialive/createOriginEndpointMediaPackage.handler
+    events:
+      - http:
+          path: api/v1/create-origin-endpoint-media-package
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   list-channels-media-package:
     handler: lambdas/medialive/listChannelsMediaPackage.handler
     events:
@@ -418,6 +460,96 @@ functions:
       - http:
           path: api/v1/delete-channel-media-live
           method: PUT
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  describe-harvest-job:
+    handler: lambdas/medialive/describeHarvestJob.handler
+    events:
+      - http:
+          path: api/v1/describe-harvest-job/{jobId}
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-harvest-jobs:
+    handler: lambdas/medialive/listHarvestJobs.handler
+    events:
+      - http:
+          path: api/v1/list-harvest-jobs
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  create-harvest-job:
+    handler: lambdas/medialive/createHarvestJob.handler
+    events:
+      - http:
+          path: api/v1/create-harvest-job
+          method: POST
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  list-origin-endpoints:
+    handler: lambdas/medialive/listOriginEndpoints.handler
+    events:
+      - http:
+          path: api/v1/list-origin-endpoints
+          method: GET
+          authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  describe-origin-endpoint:
+    handler: lambdas/medialive/describeOriginEndpoint.handler
+    events:
+      - http:
+          path: api/v1/describe-origin-endpoint/{channelId}
+          method: GET
           authorizer: aws_iam
           cors:
             origin: "*"
@@ -685,6 +817,7 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   stripe-update-subscription:
+    name: stripeUpdateSubscription
     handler: lambdas/endpoints/stripe/updateSubscription.handler
     events:
       - http:
@@ -721,6 +854,7 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   stripe-cancel-subscription-eop:
+    name: stripeCancelSubscriptionEop
     handler: lambdas/endpoints/stripe/cancelSubscriptionEOP.handler
     events:
       - http:
@@ -811,170 +945,6 @@ functions:
               - X-Amz-User-Agent
             allowCredentials: true
   ## ----------------------------------------------------------------------------------
-  ## ---- Nomad Integration
-  nomad-auth:
-    handler: lambdas/endpoints/nomad/auth.handler
-    events:
-      - http:
-          path: api/v1/nomad-auth
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-specific-item:
-    handler: lambdas/endpoints/nomad/querySpecificItem.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-specific-item
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-search-query:
-    handler: lambdas/endpoints/nomad/searchQuery.handler
-    events:
-      - http:
-          path: api/v1/nomad-search-query
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-all-items-defined:
-    handler: lambdas/endpoints/nomad/queryAllItemsDefined.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-all-items-defined
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-shows-for-an-artist:
-    handler: lambdas/endpoints/nomad/queryShowsForArtist.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-shows-for-an-artist
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-all-artists:
-    handler: lambdas/endpoints/nomad/queryAllArtists.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-all-artists
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-video-for-a-show:
-    handler: lambdas/endpoints/nomad/queryVideoForShow.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-video-for-a-show
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-public-embedded-video:
-    handler: lambdas/endpoints/nomad/publicEmbeddedVideo.handler
-    events:
-      - http:
-          path: api/v1/nomad-public-embedded-video
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  nomad-query-public-folder:
-    handler: lambdas/endpoints/nomad/queryPublicFolder.handler
-    events:
-      - http:
-          path: api/v1/nomad-query-public-folder
-          method: any
-          # authorizer: aws_iam
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Accept
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-  ## ----------------------------------------------------------------------------------
   ## ---- data ingestion
   ingest-vod-merchandise:
     handler: lambdas/endpoints/graphql/ingestVODmerchandise.handler
@@ -1030,29 +1000,123 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: true
-  ## ----------------------------------------------------------------------------------
+  retrieve-cloudfront-url:
+    handler: lambdas/endpoints/cloudfront/retrieveUrl.handler
+    events:
+      - http:
+          path: api/v1/retrieve-cloudfront-url
+          method: any
+          # authorizer: aws_iam
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Accept
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+  ## ------------------------------------------------------------------------------
   ## ---- CRONS
-  daily-activity-cron:
-    handler: lambdas/crons/dailyActivityCron.handler
-    events:
-      - schedule:
-          rate: cron(0 18 * * ? *)
-          enabled: true
-  monthly-activity-cron:
-    handler: lambdas/crons/monthlyActivityCron.handler
-    events:
-      - schedule:
-          rate: cron(10 18 1 * ? *)
-          enabled: true
-  send-mail-cron:
-    handler: lambdas/crons/sendMailCron.handler
-    events:
-      - schedule:
-          rate: cron(20 18 * * ? *)
-          enabled: true
+  # daily-activity-cron:
+  #   handler: lambdas/crons/dailyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(0 18 * * ? *)
+  #         enabled: true
+  # monthly-activity-cron:
+  #   handler: lambdas/crons/monthlyActivityCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(10 18 1 * ? *)
+  #         enabled: true
+  # send-mail-cron:
+  #   handler: lambdas/crons/sendMailCron.handler
+  #   events:
+  #     - schedule:
+  #         rate: cron(20 18 * * ? *)
+  #         enabled: true
 ## ----------------------------------------------------------------------------------
+# parameters:
+#   AppSecurityGroupParameter:
+#     Type: String
+#     Default: sg-0d83d2d74da4d13a0
+#   AppSubnet1Parameter:
+#     Type: String
+#     Default: subnet-07c41b4d72bb633ba
+#   AppSubnet2Parameter:
+#     Type: String
+#     Default: subnet-0a5b45ebc47fbda66
+
 # Create our resources with separate CloudFormation templates
+# outputs:
+#   StripeDashcancelDashsubscriptionDasheopFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashcancelDashsubscriptionDasheopLambdaVersionW9VDbSuyXREO1ZpULVVO1JWnnGlx9h0tELcbD9Y6vQ
+#         - Arn
+#   StripeDashupdateDashsubscriptionFunctionArn:
+#     Value:
+#       Fn::GetAtt:
+#         - StripeDashupdateDashsubscriptionLambdaVersionzUvb82dmJJCFPcM4QLiZOHcsbavfy2glUhplJZ9frQ
+#         - Arn
 resources:
+  # - Parameters:
+  #     # AppSecurityGroupParameter:
+  #     #   Type: String
+  #     #   Default: sg-0d83d2d74da4d13a0
+  #     # AppSubnet1Parameter:
+  #     #   Type: String
+  #     #   Default: subnet-07c41b4d72bb633ba
+  #     # AppSubnet2Parameter:
+  #     #   Type: String
+  #     #   Default: subnet-0a5b45ebc47fbda66
+  #     StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-cancel-subscription-eop
+  #       Default: branchdna-api-prod-stripe-cancel-subscription-eop
+  #     StripeDashupdateDashsubscriptionLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-stripe-update-subscription
+  #     CreateLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-create
+  #     CreateOriginEndpointMediaPackageLambdaFunctionParameter:
+  #       Type: String
+  #       # Default: arn:aws:lambda:us-east-1:570573558182:function:branchdna-api-prod-stripe-update-subscription
+  #       Default: branchdna-api-prod-create-origin-endpoint-media-package
+  # - Resources:
+  #     StackOneAddingVersionToLambda:
+  #       Type: AWS::CloudFormation::Stack
+  #       Properties:
+  #         Parameters:
+  #           # AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
+  #           # AppSubnet1Parameter: !Ref AppSubnet1Parameter
+  #           # AppSubnet2Parameter: !Ref AppSubnet2Parameter
+  #           StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+  #           StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
+  #           CreateLambdaFunctionParameter: !Ref CreateLambdaFunctionParameter
+  #           CreateOriginEndpointMediaPackageLambdaFunctionParameter: !Ref CreateOriginEndpointMediaPackageLambdaFunctionParameter
+
+  #         TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #     StackTwoAddingVersionToLambda:
+  #       Type: AWS::CloudFormation::Stack
+  #       Properties:
+  #         Parameters:
+  #           AppSecurityGroupParameter: !Ref AppSecurityGroupParameter
+  #           AppSubnet1Parameter: !Ref AppSubnet1Parameter
+  #           AppSubnet2Parameter: !Ref AppSubnet2Parameter
+  #           StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter: !Ref StripeDashcancelDashsubscriptionDasheopLambdaFunctionParameter
+  #           StripeDashupdateDashsubscriptionLambdaFunctionParameter: !Ref StripeDashupdateDashsubscriptionLambdaFunctionParameter
+  #         TemplateURL: https://s3.amazonaws.com/cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: s3://cf-templates-13d1wmp1xumw-us-east-1/2023-03-26T184536.828Zpyp-9nestedstack2
+  #         # TemplateURL: https://cf-templates-13d1wmp1xumw-us-east-1.s3.amazonaws.com/2023-03-26T184536.828Zpyp-9nestedstack2
+
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
   # API Gateway Socket Definition and Handlers

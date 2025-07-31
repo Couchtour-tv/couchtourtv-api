@@ -84,11 +84,11 @@
     "categories": {
       "auth": {
         "couchtourtvamplify5a547970": {
-          "userPoolId": "us-east-1_p2G5CMWjO",
+          "userPoolId": "us-east-1_scEoZqjWG",
           "userPoolName": "prod-branchdna-user-pool",
-          "webClientId": "7bjoa6o2s49t8tmvv8b0tc4tqs",
-          "nativeClientId": "7bjoa6o2s49t8tmvv8b0tc4tqs",
-          "identityPoolId": "us-east-1:9d21800e-9b4e-42fa-9b35-dd6944f1d77d",
+          "webClientId": "4h0rl3v9ki182691vvcbsk71lp",
+          "nativeClientId": "4h0rl3v9ki182691vvcbsk71lp",
+          "identityPoolId": "us-east-1:8321fd70-834a-4c04-bf9f-76ebeea8bcc0",
           "identityPoolName": "prod-branchdnaIdentityPool",
           "allowUnauthenticatedIdentities": false,
           "authRoleArn": "arn:aws:iam::570573558182:role/branchdna-api-prod-CognitoAuthRole-1I67XCJZG2ABX",

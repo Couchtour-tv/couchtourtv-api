@@ -4,15 +4,17 @@ const AWS = require("aws-sdk")
 import Responses from "../common/API_Responses"
 import { OptionsMediaPackage } from "../common/constants"
 
-function sanitizeObject(obj) {
-  return { Id: obj.Id, Description: obj.Description }
-}
+// function sanitizeObject(obj) {
+//     return { Id: obj.Id, Description: obj.Description };
+// }
 
 exports.handler = async (event, context) => {
-  console.log("[10] listChannelsMediaPackage", event, context)
+  console.log("[10] listOriginEndpoints", event, context)
   var mediapackage = new AWS.MediaPackage(OptionsMediaPackage)
   var params = {
+    // ChannelId: 'STRING_VALUE',
     MaxResults: 50,
+    // NextToken: 'STRING_VALUE'
   }
 
   let successOpt = false
@@ -20,12 +22,12 @@ exports.handler = async (event, context) => {
 
   try {
     const resp = await mediapackage
-      .listChannels(params, function (err, data) {
+      .listOriginEndpoints(params, function (err, data) {
         if (err) {
-          console.log("[18] listChannelsMediaPackage", err, err.stack)
+          console.log("[18] listOriginEndpoints", err, err.stack)
           return err
         } else {
-          console.log("[21] listChannelsMediaPackage", data)
+          console.log("[21] listOriginEndpoints", data)
           successOpt = true
           return data
         }
@@ -33,20 +35,21 @@ exports.handler = async (event, context) => {
       .promise()
 
     if (successOpt) {
-      dataOpt = resp.Channels.map(sanitizeObject)
+      dataOpt = resp
+      // dataOpt = resp.Channels.map(sanitizeObject);
     } else {
       dataOpt = resp
     }
 
-    console.log("[32] listChannelsMediaPackage", resp)
+    console.log("[32] listOriginEndpoints", resp)
     return Responses._200({ success: true, data: dataOpt })
   } catch (error) {
-    console.log("[37] listChannelsMediaPackage", error)
+    console.log("[37] listOriginEndpoints", error)
     return Responses._404({
-      message: "listChannelsMediaPackage failed",
+      message: "listOriginEndpoints failed",
       success: successOpt,
     })
   }
 }
 
-// sls invoke local --function list-channels-media-package
+// sls invoke local --function list-origin-endpoints

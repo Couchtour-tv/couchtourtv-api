@@ -21,17 +21,40 @@ exports.handler = async (event, context) => {
         ChannelId: body.channelId.toString()
     };
 
+    let successOpt = false;
+    let dataOpt;
 
-    medialive.stopChannel(params, function(err, data) {
-        if (err) {
-            console.log("[18] stopChannelMediaLive", err, err.stack);
-            return Responses._404({ 'success': false, 'data': err });
-        } else  {
-            console.log("[21] stopChannelMediaLive", data);
-            return Responses._200({ 'success': true, 'data': { 'Id': data.Id, 'State': data.State } });
-        }
-    });
+    try {
+
+        const resp = await medialive.stopChannel(params, function(err, data) {
+            if (err) {
+                console.log("[18] stopChannelMediaLive", err, err.stack);
+                return err;
+            } else  {
+                console.log("[21] stopChannelMediaLive", data);
+                successOpt = true;
+                return data;
+            }
+        }).promise();
+
+        if (successOpt) {
+            dataOpt = { 'Id': resp.Id, 'State': resp.State };
+        } else {
+            dataOpt = resp;
+        };
+        console.log("[32] stopChannelMediaLive", dataOpt);
+        return Responses._200({ success: successOpt, data: dataOpt });
+
+    } catch (error) {
+
+        console.log("[37] stopChannelMediaLive", error)
+        return Responses._404({
+          message: "stopChannelMediaLive failed",
+          success: false,
+        })
+    }
+
 
 };
 
-// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"4453553","userId":"cognitoUserId"}}'
+// sls invoke local --function stop-channel-media-live --data '{"body":{"channelId":"7505832","userId":"cognitoUserId"}}'

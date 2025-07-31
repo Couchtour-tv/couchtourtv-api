@@ -2,27 +2,31 @@
 
 const AWS = require("aws-sdk")
 import Responses from "../common/API_Responses"
-import { OptionsMediaLive } from "../common/constants"
+import { OptionsMediaPackage } from "../common/constants"
 
 exports.handler = async (event, context) => {
-  console.log("[10] describeChannelsMediaLive", event, context)
+  console.log("[10] describe origin endpoint", event, context)
 
-  var medialive = new AWS.MediaLive(OptionsMediaLive)
+  var mediapackage = new AWS.MediaPackage(OptionsMediaPackage)
+  // var params = {
+  //     ChannelId: event.pathParameters.channelId
+  // };
+
   var params = {
-    ChannelId: event.pathParameters.channelId,
+    Id: event.pathParameters.channelId,
   }
 
   let successOpt = false
   let dataOpt
 
   try {
-    const resp = await medialive
-      .describeChannel(params, function (err, data) {
+    const resp = await mediapackage
+      .describeOriginEndpoint(params, function (err, data) {
         if (err) {
-          console.log("[18] describeChannelsMediaLive", err, err.stack)
+          console.log("[18] describe origin endpoint ERROR", err, err.stack)
           return err
         } else {
-          console.log("[21] describeChannelsMediaLive", data)
+          console.log("[21] describe origin endpoint SUCCESS", data)
           successOpt = true
           return data
         }
@@ -30,16 +34,16 @@ exports.handler = async (event, context) => {
       .promise()
 
     if (successOpt) {
-      dataOpt = { Id: resp.Id, State: resp.State }
+      dataOpt = { Id: resp.Id, State: resp.State, Response: resp }
     } else {
       dataOpt = resp
     }
-    console.log("[32] describeChannelsMediaLive", dataOpt)
+    console.log("[32] describe origin endpoint SUCCESS dataOpt", dataOpt)
     return Responses._200({ success: successOpt, data: dataOpt })
   } catch (error) {
-    console.log("[37] describeChannelsMediaLive", error)
+    console.log("[37] describe origin endpoint ERROR", error)
     return Responses._404({
-      message: "describeChannelsMediaLive failed",
+      message: "describe origin endpoint failed",
       success: successOpt,
     })
   }
